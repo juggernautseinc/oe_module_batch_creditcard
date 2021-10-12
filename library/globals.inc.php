@@ -2980,7 +2980,8 @@ $GLOBALS_METADATA = array(
             array(
                 'InHouse' => xl('In House'),
                 'AuthorizeNet' => xl('Authorize.Net'),
-                'Stripe' => xl('Stripe')
+                'Stripe' => xl('Stripe'),
+                'PayTrace'
             ),
             'InHouse',
             xl('Enable a Payment Gateway Service for processing credit card transactions')
