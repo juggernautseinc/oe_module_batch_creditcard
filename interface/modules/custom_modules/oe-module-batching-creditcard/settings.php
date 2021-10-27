@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  *
  * @package      OpenEMR
  * @link               https://www.open-emr.org
@@ -11,4 +11,4 @@
  *
  */
 
-
+echo "Settings Go Here on this page";
