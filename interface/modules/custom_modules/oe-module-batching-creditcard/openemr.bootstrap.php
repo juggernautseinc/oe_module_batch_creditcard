@@ -11,7 +11,6 @@
  *
  */
 
-namespace OpenEMR\Modules\BatchCreditCard;
 
 use OpenEMR\Menu\MenuEvent;
 use OpenEMR\Services\Globals\GlobalSetting;
@@ -62,7 +61,7 @@ function createFaxModuleGlobals(GlobalsInitializedEvent $event)
 
 }
 
-$eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_faxsms_add_menu_item');
+$eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_batch_credit_card_menu_item');
 $eventDispatcher->addListener(GlobalsInitializedEvent::EVENT_HANDLE, 'createFaxModuleGlobals');
 
 
