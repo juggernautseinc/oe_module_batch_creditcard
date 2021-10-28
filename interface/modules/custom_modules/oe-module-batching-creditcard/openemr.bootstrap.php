@@ -66,8 +66,4 @@ $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_faxsms_add_menu
 $eventDispatcher->addListener(GlobalsInitializedEvent::EVENT_HANDLE, 'createFaxModuleGlobals');
 
 
-/**
- * @global EventDispatcher $eventDispatcher Injected by the OpenEMR module loader
- */
-$bootstrap = new Bootstrap($eventDispatcher);
-$bootstrap->subscribeToEvents();
+
