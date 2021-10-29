@@ -28,16 +28,85 @@ use OpenEMR\Core\Header;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Batch Credit Card Settings</title>
     <?php Header::setupHeader() ?>
+
+    <style>
+        body
+        {
+            margin: 0;
+            padding: 0;
+            background-color:#6abadeba;
+            font-family: 'Arial';
+        }
+        .login{
+            width: 382px;
+            overflow: hidden;
+            margin: auto;
+            margin: 20 0 0 450px;
+            padding: 80px;
+            background: #23463f;
+            border-radius: 15px ;
+        }
+        h2{
+            text-align: center;
+            color: #277582;
+            padding: 20px;
+        }
+        label{
+            color: #08ffd1;
+            font-size: 17px;
+        }
+        #Uname{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #Pass{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 3px;
+            padding-left: 8px;
+        }
+        #log{
+            width: 300px;
+            height: 30px;
+            border: none;
+            border-radius: 17px;
+            padding-left: 7px;
+            color: blue;
+        }
+        span{
+            color: white;
+            font-size: 17px;
+        }
+        a{
+            float: right;
+            background-color: grey;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div>
+            <h1>Paytrace Login</h1>
+        </div>
+        <div class="login">
             <form action="settings.php" method="post">
-                <label for="user">Username</label>
-                <input type="text" name="user" id="user" value="<?php  ?>" placeholder="Paytrace Username">
-                <label for="password">Password</label>
-                <input type="text" name="password" id="password" value="<?php ?>" placeholder="Password">
-                <input type="submit" value="Submit">
+                <form id="login" method="get" action="login.php">
+                    <label><b>User Name</b></label>
+                    <input type="text" name="Uname" id="Uname" placeholder="Username">
+                    <br><br>
+                    <label><b>Password</b></label>
+                    <input type="Password" name="Pass" id="Pass" placeholder="Password">
+                    <br><br>
+                    <input type="button" name="log" id="log" value="Log In Here">
+                    <br><br>
+                    <input type="checkbox" id="check">
+                    <span>Remember me</span>
+                    <br><br>
+                    Forgot <a href="#">Password</a>
             </form>
         </div>
     </div><!-- end of container div -->
