@@ -11,7 +11,6 @@
  *
  */
 
-echo "Settings Go Here on this page";
 
 require_once dirname(__FILE__, 5) . "/interface/globals.php";
 
@@ -38,7 +37,8 @@ use OpenEMR\Core\Header;
             font-family: 'Arial';
         }
         .login{
-            width: 382px;
+            width: 450px;
+            height: 350px;
             overflow: hidden;
             margin: auto;
             margin: 20 0 0 450px;
