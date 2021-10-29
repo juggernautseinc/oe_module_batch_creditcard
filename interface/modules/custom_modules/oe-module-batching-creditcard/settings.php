@@ -13,6 +13,8 @@
 
 echo "Settings Go Here on this page";
 
+require_once dirname(__FILE__, 5) . "/interface/globals.php";
+
 use OpenEMR\Core\Header;
 
 ?>
