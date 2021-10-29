@@ -89,8 +89,10 @@ use OpenEMR\Core\Header;
 </head>
 <body>
     <div class="container">
+
+            <h2>Paytrace Login</h2>
+
         <div class="login">
-            <h1>Paytrace Login</h1>
             <form action="settings.php" method="post">
                 <form id="login" method="get" action="login.php">
                     <label><b>User Name</b></label>
