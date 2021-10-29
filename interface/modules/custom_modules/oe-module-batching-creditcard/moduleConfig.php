@@ -11,5 +11,5 @@
  *
  */
 
-require_once "setup.php";
+require_once "settings.php";
 
