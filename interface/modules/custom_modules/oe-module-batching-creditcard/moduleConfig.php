@@ -11,5 +11,21 @@
  *
  */
 
+require_once dirname(__FILE__, 5) . "/interface/globals.php";
+
+use OpenEMR\Module\BatchCreditCard\Database;
+use OpenEMR\Common\Acl\AclMain;
+
+//install database tables that are needed
+if (!AclMain::aclCheckCore('admin', 'manage_modules')) {
+    echo xlt('Not Authorized');
+    exit;
+}
+
+
+$install = new Database();
+
+$install->loadAccountTable();
+
 require_once "settings.php";
 
