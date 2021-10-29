@@ -26,10 +26,10 @@ function oe_module_batch_credit_card_menu_item(MenuEvent $event)
     $menuItem->target = 'mod';
     $menuItem->menu_id = 'mod0';
     $menuItem->label = xlt("Batch Credit Card Module");
-    $menuItem->url = "/interface/modules/custom_modules/oe-module-batching-creditcard/setup.php";
+    $menuItem->url = "/interface/modules/custom_modules/oe-module-batching-creditcard/settings.php";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
-    $menuItem->global_req = ["oe_batch_creditcard_enable"];
+    $menuItem->global_req = [];
 
     foreach ($menu as $item) {
         if ($item->menu_id == 'modimg') {
