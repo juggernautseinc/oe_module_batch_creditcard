@@ -21,7 +21,7 @@ use OpenEMR\Events\Globals\GlobalsInitializedEvent;
 function oe_module_batch_credit_card_menu_item(MenuEvent $event)
 {
     $menu = $event->getMenu();
-    $menuItem = new \stdClass();
+    $menuItem = new stdClass();
     $menuItem->requirement = 0;
     $menuItem->target = 'mod';
     $menuItem->menu_id = 'mod0';

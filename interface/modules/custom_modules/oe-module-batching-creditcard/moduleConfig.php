@@ -1,5 +1,6 @@
 <?php
-/*
+
+/**
  *
  * @package      OpenEMR
  * @link               https://www.open-emr.org
@@ -10,4 +11,5 @@
  *
  */
 
+require_once "setup.php";
 
