@@ -12,7 +12,8 @@
 
 
 use OpenEMR\Menu\MenuEvent;
-
+use Symfony\Component\EventDispatcher\Event;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 function oe_module_faxsms_add_menu_item(MenuEvent $event)
 {
