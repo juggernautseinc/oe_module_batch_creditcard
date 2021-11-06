@@ -14,3 +14,7 @@ use OpenEMR\Module\Documo\Database;
 
 $load = new Database(); die('testing the system');
 $load->createTables(); die('was the tables created');
+
+$module_config = 1;
+
+require_once('./welcome.html');
