@@ -26,7 +26,7 @@ function oe_module_faxsms_add_menu_item(MenuEvent $event)
     $menuItem->url = "/interface/modules/custom_modules/oe-module-documo-fax/settings.php";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
-    $menuItem->global_req = ["oefax_enable"];
+    $menuItem->global_req = [];
 
     foreach ($menu as $item) {
         if ($item->menu_id == 'modimg') {
