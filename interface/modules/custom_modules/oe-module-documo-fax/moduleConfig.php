@@ -10,4 +10,7 @@
  *
  */
 
+use OpenEMR\Module\Documo\Database;
 
+$load = new Database(); die('testing the system');
+$load->createTables(); die('was the tables created');
