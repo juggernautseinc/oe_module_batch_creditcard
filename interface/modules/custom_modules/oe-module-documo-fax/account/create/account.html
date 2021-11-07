@@ -14,7 +14,9 @@
 <body class="form-v10">
 	<div class="page-content">
 		<div class="form-v10-content">
-			<form name="account" class="form-detail" action="#" method="post">
+			<form name="account" class="form-detail" action="create.php?type=account" method="post">
+                <input type="hidden" name="emailnotifysendoption" value="">
+                <input type="hidden" name="emailnotifysendoption" value="">
 				<div class="form-left">
 					<h2>Create Fax Account</h2>
 					<div class="form-group">
@@ -23,10 +25,10 @@
 						</div>
 					</div>
 					<div class="form-row">
-							<input type="text" name="faxcallerid" id="faxcallerid" class="input-text" placeholder="Fax Caller ID" required>
+							<input type="text" name="faxcallerid" id="faxcallerid" class="input-text" placeholder="Fax # Show Caller ID" required>
 					</div>
 					<div class="form-row">
-						<input type="hidden" name="faxcsid" id="faxcsid" class="input-text">
+						<input type="text" name="faxcsid" id="faxcsid" class="input-text" placeholder="Fax Number">
 					</div>
 					<div class="form-row">
 						<input type="text" name="emailnotificationsendoption" id="emailnotificationsendoption" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Outbound Email Notification">
@@ -39,7 +41,7 @@
 				    <div class="form-row">
 					<img src="https://www.afax.com/wp-content/uploads/2015/11/Hardware-Fax-icon.png">
 					</div>
-					
+
 					<div class="form-row-last">
 						<input type="submit" name="register" class="register" value="Create Account">
 					</div>
