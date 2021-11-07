@@ -31,8 +31,11 @@ use OpenEMR\Core\Header;
                 <p>Our document workflow solutions make working with documents easy, more secure, and better for our planet.</p>
             </div>
             <div>
-                <h1 class="font-weight-bold pb-4">Enterprise <span class="text-primary">cloud fax</span> for regulated industries</h1>
+                <h2 class="font-weight-bold pb-4">Enterprise <span class="text-primary">cloud fax</span> for regulated industries</h2>
                 <p class="pr-xl-9 font-size-md-font-weight-bold">The easiest way for both large and small businesses to achieve real digital transformation. Save time and money by eliminating hardware and outsourcing fax to the cloud. Easily integrate secure and reliable cloud fax into existing apps and workflows.</p>
+            </div>
+            <div>
+                <p>Use the Fax Module selection from the main menu to configure the settings</p>
             </div>
 
         </div>

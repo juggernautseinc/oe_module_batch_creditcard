@@ -12,7 +12,7 @@
 
 use OpenEMR\Module\Documo\Database;
 
-//$load = new Database();
+$load = new Database();
 //$load->createTables();
 
 $module_config = 1;

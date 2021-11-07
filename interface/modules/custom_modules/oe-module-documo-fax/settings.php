@@ -10,6 +10,9 @@
  */
 
 
+require_once dirname(__FILE__, 4) . "/globals.php";
+
+use OpenEMR\Core\Header;
 
 ?>
 <!doctype html>
@@ -22,9 +25,12 @@
     <title>Documo Setting Page</title>
 </head>
 <body>
+<div class="container-fluid">
 <h1>Welcome to the Documo Module</h1>
-
-
+<div>
+    <p>There are three steps to complete to enable this module</p>
+</div>
+</div>
 </body>
 </html>
 
