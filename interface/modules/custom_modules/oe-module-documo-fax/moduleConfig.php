@@ -17,4 +17,4 @@ use OpenEMR\Module\Documo\Database;
 
 $module_config = 1;
 
-require_once('./welcome.html');
+require_once('./welcome.php');
