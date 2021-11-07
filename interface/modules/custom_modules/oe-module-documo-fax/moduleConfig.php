@@ -10,10 +10,13 @@
  *
  */
 
-require_once dirname(__FILE__, 4) . '/globals.php';
-require_once dirname(__FILE__) . "/controller/Database.php";
+use OpenEMR\Module\Documo\Database;
+
+//require_once dirname(__FILE__, 4) . '/globals.php';
+//require_once dirname(__FILE__) . "/controller/Database.php";
 
 $load = new Database();
+
 //$load->createTables();
 
 $module_config = 1;
