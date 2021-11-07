@@ -27,8 +27,8 @@ use OpenEMR\Core\Header;
 </head>
 <body>
 <div class="container">
-<h1>Welcome to the Documo Module</h1>
 <div>
+    <h1>Welcome to the Documo Module</h1>
     <p>There are three steps to complete to enable this module</p>
 </div>
 </div>
