@@ -43,7 +43,7 @@ use OpenEMR\Core\Header;
         </div>
         <div>
             <p>Step 2</p>
-            <btn btn-primary>Create a user</btn>
+            <btn class="btn-primary" onclick="createAccount('user')">Create a user</btn>
         </div>
     </div>
 </body>
