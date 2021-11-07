@@ -14,7 +14,7 @@ require_once dirname(__FILE__, 6) . '/globals.php';
 $form = $_GET['type'];
 
 if ($form == 'account') {
-    echo 'create account';
+    require_once "account.html";
 } else {
-    echo 'create user';
+    require_once "user.html";
 }
