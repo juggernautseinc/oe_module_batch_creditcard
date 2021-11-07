@@ -27,7 +27,7 @@ use OpenEMR\Core\Header;
     <script>
         function createAccount(type) {
             let href = "<?php echo $GLOBALS['web_root'] ?>/interface/modules/custom_modules/oe-module-documo-fax/account/create/create.php?type=";
-            dlgopen(href+type, 'Create Account', 1875, 900);
+            dlgopen(href+type, '_blank', 1875, 900);
         }
     </script>
 </head>
