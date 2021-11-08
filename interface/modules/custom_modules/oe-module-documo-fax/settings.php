@@ -13,7 +13,10 @@
 require_once dirname(__FILE__, 4) . "/globals.php";
 
 use OpenEMR\Core\Header;
+use OpenEMR\Module\Documo\Database;
 
+$timez = new Database();
+$localtz = $timez->getTimeZone();
 ?>
 <!doctype html>
 <html lang="en">
@@ -34,7 +37,7 @@ use OpenEMR\Core\Header;
 <body>
     <div class="container">
         <?php
-        echo "Time zone is -" . $GLOBALS['gbl_time_zone'];
+        echo "Time zone is -" . $localtz;
             if (empty($GLOBALS['gbl_time_zone'])) {
             echo "<h1>Time zone is not set, Please set time zone.</h1>";
             die;
