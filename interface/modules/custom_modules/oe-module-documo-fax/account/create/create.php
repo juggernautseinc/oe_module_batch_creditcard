@@ -12,9 +12,15 @@
 require_once dirname(__FILE__, 6) . '/globals.php';
 
 $form = $_GET['type'];
+$data = $_POST;
 
 if ($form == 'account') {
     require_once "account.html";
 } else {
     require_once "user.html";
+}
+
+if (!empty($data['accountname'])) {
+    echo "<pre>";
+    var_dump($data);
 }
