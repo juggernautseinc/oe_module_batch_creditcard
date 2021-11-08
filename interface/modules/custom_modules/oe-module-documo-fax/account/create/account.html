@@ -16,7 +16,12 @@
 		<div class="form-v10-content">
 			<form name="account" class="form-detail" action="create.php" method="post">
                 <input type="hidden" name="emailnotifysendoption" value="">
-                <input type="hidden" name="emailnotifysendoption" value="">
+                <input type="hidden" name="emailnotifyreceiveoption" value="">
+                <input type="hidden" name="allowemailtofax" value="true">
+                <input type="hidden" name="emailNotifySendIncAttachment" value="false">
+                <input type="hidden" name="emailNotifyReceiveIncAttachment" value="false">
+                <input type="hidden" name="usersTokenLife" value="1">
+
 				<div class="form-left">
 					<h2>Create Fax Account</h2>
 					<div class="form-group">
@@ -29,12 +34,6 @@
 					</div>
 					<div class="form-row">
 						<input type="text" name="faxcsid" id="faxcsid" class="input-text" placeholder="Fax Number">
-					</div>
-					<div class="form-row">
-						<input type="text" name="emailnotificationsendoption" id="emailnotificationsendoption" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Outbound Email Notification">
-					</div>
-					<div class="form-row">
-						<input type="text" name="emailnotificationreceiveoption" id="emailnotificationreceiveoption" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Inbound Email Notification">
 					</div>
 				</div>
 				<div class="form-right">

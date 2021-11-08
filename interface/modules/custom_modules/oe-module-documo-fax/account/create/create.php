@@ -16,7 +16,7 @@ $data = $_POST;
 
 if ($form == 'account') {
     require_once "account.html";
-} else {
+} elseif ($form == 'user') {
     require_once "user.html";
 }
 
