@@ -86,14 +86,14 @@ DB;
     public function getTimeZone()
     {
         $global_data_array = array(
-            'gl_name' => 'glb_time_zone'
+            'gl_value' => 'gbl_time_zone'
         );
         $fields = array_keys($global_data_array);
         $values = array_values($global_data_array);
         $fieldslist = implode(',', ($fields));
         $qs = str_repeat('?', count($fields)-1);
 
-        $sql = "select $fieldslist from globals where ${qs}?";
+        $sql = "select $fieldslist from globals where gl_name = ${qs}?";
         return sqlQuery($sql, $values);
     }
 
