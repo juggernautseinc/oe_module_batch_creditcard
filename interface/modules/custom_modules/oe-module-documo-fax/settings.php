@@ -14,10 +14,6 @@ require_once dirname(__FILE__, 4) . "/globals.php";
 
 use OpenEMR\Core\Header;
 
-if (empty($GLOBALS['gbl_time_zone'])) {
-    echo "<h1>Time zone is not set, Please set time zone.</h1>";
-    die;
-}
 ?>
 <!doctype html>
 <html lang="en">
@@ -37,6 +33,12 @@ if (empty($GLOBALS['gbl_time_zone'])) {
 </head>
 <body>
     <div class="container">
+        <?php
+        echo "Time zone is -" . $GLOBALS['gbl_time_zone'];
+            if (empty($GLOBALS['gbl_time_zone'])) {
+            echo "<h1>Time zone is not set, Please set time zone.</h1>";
+            die;
+        }?>
         <div>
             <h1>Welcome to the Documo Module</h1>
             <p>There are three steps to complete to enable this module</p>
