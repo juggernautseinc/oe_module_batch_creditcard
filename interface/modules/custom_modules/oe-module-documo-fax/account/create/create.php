@@ -14,7 +14,8 @@ use OpenEMR\Module\Documo\Template;
 use OpenEMR\Common\Csrf\CsrfUtils;
 
 require_once dirname(__FILE__, 6) . '/globals.php';
-
+require_once dirname(__FILE__, 3) . '/controller/Template.php';
+require_once dirname(__FILE__, 3) . '/controller/Database.php';
 
 $form = $_GET['type'];
 $data = $_POST;
