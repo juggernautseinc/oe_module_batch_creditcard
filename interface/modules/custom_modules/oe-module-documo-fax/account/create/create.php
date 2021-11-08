@@ -9,6 +9,7 @@
  *
  */
 
+use OpenEMR\Module\Documo\Database;
 use OpenEMR\Module\Documo\Template;
 use OpenEMR\Common\Csrf\CsrfUtils;
 
@@ -20,6 +21,8 @@ $data = $_POST;
 $profile = new Template('account.html');
 $token = CsrfUtils::collectCsrfToken();
 $verify = CsrfUtils::verifyCsrfToken();
+
+$timez = new Database();
 
 $profile->set("csrf_token", $token);
 $provile->set("timezone", $GLOBALS['gbl_time_zone']);

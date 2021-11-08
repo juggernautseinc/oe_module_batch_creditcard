@@ -38,7 +38,6 @@ $localtz = $timez->getTimeZone();
 <body>
     <div class="container">
         <?php
-        echo "Time zone is -" . $localtz['gl_value'];
             if (empty($localtz['gl_value'])) {
             echo "<h1>Time zone is not set, Please set time zone.</h1>";
             die;
