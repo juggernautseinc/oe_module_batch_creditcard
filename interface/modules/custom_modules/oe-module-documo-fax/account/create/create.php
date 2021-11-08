@@ -9,13 +9,24 @@
  *
  */
 
+use OpenEMR\Module\Documo\Template;
+use OpenEMR\Common\Csrf\CsrfUtils;
+
 require_once dirname(__FILE__, 6) . '/globals.php';
+
 
 $form = $_GET['type'];
 $data = $_POST;
+$profile = new Template('account.html');
+$token = CsrfUtils::collectCsrfToken();
+$verify = CsrfUtils::verifyCsrfToken();
+
+$profile->set("csrf_token", $token);
+$provile->set("timezone", $GLOBALS['gbl_time_zone']);
 
 if ($form == 'account') {
-    require_once "account.html";
+    //require_once "account.html";
+
 } elseif ($form == 'user') {
     require_once "user.html";
 }
