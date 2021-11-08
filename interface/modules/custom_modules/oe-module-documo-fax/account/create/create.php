@@ -21,7 +21,7 @@ $form = $_GET['type'];
 $data = $_POST;
 $profile = new Template('account.html');
 $token = CsrfUtils::collectCsrfToken();
-$verify = CsrfUtils::verifyCsrfToken();
+//$verify = CsrfUtils::verifyCsrfToken();
 
 $timez = new Database();
 $localtz = $timez->getTimeZone();
