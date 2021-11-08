@@ -11,6 +11,7 @@
 
 
 require_once dirname(__FILE__, 4) . "/globals.php";
+require_once dirname(__FILE__) . "/controller/Database.php";
 
 use OpenEMR\Core\Header;
 use OpenEMR\Module\Documo\Database;
