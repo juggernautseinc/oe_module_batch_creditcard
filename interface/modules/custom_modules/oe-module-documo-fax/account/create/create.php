@@ -23,13 +23,13 @@ $token = CsrfUtils::collectCsrfToken();
 $verify = CsrfUtils::verifyCsrfToken();
 
 $timez = new Database();
-
+$localtz = $timez->getTimeZone();
 $profile->set("csrf_token", $token);
-$provile->set("timezone", $GLOBALS['gbl_time_zone']);
+$profile->set("timezone", $localtz['gl_value']);
 
 if ($form == 'account') {
     //require_once "account.html";
-
+    echo $profile->output();
 } elseif ($form == 'user') {
     require_once "user.html";
 }
