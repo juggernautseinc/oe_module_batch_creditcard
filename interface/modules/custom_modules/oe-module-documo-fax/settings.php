@@ -14,7 +14,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
 
 use OpenEMR\Core\Header;
 
-if (empty($GLOBALS['gbl_time_zone'])) {
+if ($GLOBALS['gbl_time_zone'] == 'Unassigned') {
     echo "<h1>Time zone is not set, Please set time zone.</h1>";
     die;
 }
