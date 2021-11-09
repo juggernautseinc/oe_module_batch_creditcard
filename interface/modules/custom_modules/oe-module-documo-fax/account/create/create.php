@@ -18,10 +18,11 @@ require_once dirname(__FILE__, 3) . '/controller/Template.php';
 require_once dirname(__FILE__, 3) . '/controller/Database.php';
 
 $form = $_GET['type'];
+
 $data = $_POST;
+
 $profile = new Template('account.html');
 $token = CsrfUtils::collectCsrfToken();
-//$verify = CsrfUtils::verifyCsrfToken();
 
 $timez = new Database();
 $localtz = $timez->getTimeZone();
@@ -29,13 +30,16 @@ $profile->set("csrf_token", $token);
 $profile->set("timezone", $localtz['gl_value']);
 
 if ($form == 'account') {
-    //require_once "account.html";
     echo $profile->output();
 } elseif ($form == 'user') {
     require_once "user.html";
 }
 
 if (!empty($data['accountname'])) {
+    if (!CsrfUtils::verifyCsrfToken($data['csrf_token'])) {
+        CsrfUtils::csrfNotVerified();
+    }
+    //TODO test form
     echo "<pre>";
     var_dump($data);
 }

@@ -96,6 +96,4 @@ DB;
         $sql = "select $fieldslist from globals where gl_name = ${qs}?";
         return sqlQuery($sql, $values);
     }
-
-
 }

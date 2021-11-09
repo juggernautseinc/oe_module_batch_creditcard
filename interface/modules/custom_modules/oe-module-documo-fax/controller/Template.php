@@ -12,19 +12,35 @@ namespace OpenEMR\Module\Documo;
 
 class Template
 {
+    /**
+     * @var
+     */
     protected $file;
+    /**
+     * @var array
+     */
     protected $values = array();
 
+    /**
+     * @param $file
+     */
     public function __construct($file)
     {
         $this->file = $file;
     }
 
+    /**
+     * @param $key
+     * @param $value
+     */
     public function set($key, $value)
     {
         $this->values[$key] = $value;
     }
 
+    /**
+     * @return array|false|string|string[]
+     */
     public function output() {
         if (!file_exists($this->file)) {
             return "Error loading template file ($this->file).";
