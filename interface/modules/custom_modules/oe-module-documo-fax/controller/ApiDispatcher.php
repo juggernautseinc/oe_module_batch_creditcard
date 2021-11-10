@@ -54,7 +54,7 @@ class ApiDispatcher
         $header = array(
             "'Authorization: Basic " . $this->apiKey ."'",
             'Content-Type: application/x-www-form-urlencoded'
-        )
+        );
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/accounts',
             CURLOPT_RETURNTRANSFER => true,
