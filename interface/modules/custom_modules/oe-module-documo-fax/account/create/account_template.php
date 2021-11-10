@@ -36,7 +36,7 @@ require_once dirname(__FILE__, 6) . "/globals.php";
                 <input type="hidden" name="allowemailtofax" value="true">
                 <input type="hidden" name="emailNotifySendIncAttachment" value="true">
                 <input type="hidden" name="emailNotifyReceiveIncAttachment" value="true">
-                <input type="hidden" name="usersTokenLife" value="1">
+                <input type="hidden" name="usersTokenLife" value="31622400">
                 <input type="hidden" name="timezone" value="<?php echo $localtz['gl_value']; ?>">
 
 				<div class="form-left">
