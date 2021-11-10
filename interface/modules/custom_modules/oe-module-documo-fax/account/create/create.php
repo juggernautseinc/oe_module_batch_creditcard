@@ -28,10 +28,6 @@ $localtz = $timez->getTimeZone();
 
 
 if ($form == 'account') {
-    //$profile = new Template('account.html');
-    //$profile->set("csrf_token", $token);
-    //$profile->set("timezone", $localtz['gl_value']);
-    //echo $profile->output();
     require_once "account_template.php";
 } elseif ($form == 'user') {
     $profile = new Template('user.html');

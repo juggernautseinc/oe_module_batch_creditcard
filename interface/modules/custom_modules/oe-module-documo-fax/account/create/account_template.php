@@ -43,14 +43,14 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 					<h2><?php echo xlt("Create Fax Account") ?></h2>
 					<div class="form-group">
 						<div class="form-row">
-							<input type="text" name="accountname" id="accountname" class="input-text" placeholder=<?php echo xlt("Account Name") ?> required>
+							<input type="text" name="accountname" id="accountname" class="input-text" placeholder="<?php echo xlt("Account Name") ?>" required>
 						</div>
 					</div>
 					<div class="form-row">
-							<input type="text" name="faxcallerid" id="faxcallerid" class="input-text" placeholder=<?php echo xlt("Fax # Show Caller ID") ?> required>
+							<input type="text" name="faxcallerid" id="faxcallerid" class="input-text" placeholder="<?php echo xlt("Fax # Show Caller ID") ?>" required>
 					</div>
 					<div class="form-row">
-						<input type="text" name="faxcsid" id="faxcsid" class="input-text" placeholder=<?php echo xlt("Fax Number") ?> required>
+						<input type="text" name="faxcsid" id="faxcsid" class="input-text" placeholder="<?php echo xlt("Fax Number") ?>" required>
 					</div>
 				</div>
 				<div class="form-right">
@@ -59,7 +59,7 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 					</div>
 
 					<div class="form-row-last">
-						<input type="submit"  class="register" value=<?php echo xlt("Create Account") ?>>
+						<input type="submit"  class="register" value="<?php echo xlt("Create Account") ?>">
 					</div>
 				</div>
 			</form>
