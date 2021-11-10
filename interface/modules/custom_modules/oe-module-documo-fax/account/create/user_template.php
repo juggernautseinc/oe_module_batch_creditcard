@@ -28,6 +28,7 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 	<div class="page-content">
 		<div class="form-v10-content">
 			<form name="account" class="form-detail" action="#" method="post">
+                <input type="hidden" name="csrf_token" value="<?php echo $token; ?>">
 				<div class="form-left">
 					<h2>User Info</h2>
 					<div class="form-group">
