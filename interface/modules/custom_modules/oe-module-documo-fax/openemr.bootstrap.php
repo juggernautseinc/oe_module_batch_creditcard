@@ -51,7 +51,7 @@ function oe_module_faxsms_add_menu_item(MenuEvent $event)
 
 function createFaxModuleGlobals(GlobalsInitializedEvent $event)
 {
-    $select_array = array(xl('Documo API Key'),'encrypted','');
+    $select_array = array('');
     $instruct = xl('Obtain API Key to install service');
 
     $event->getGlobalsService()->createSection("Modules", "Report");
