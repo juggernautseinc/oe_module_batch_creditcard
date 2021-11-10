@@ -19,13 +19,17 @@ class ApiDispatcher
 
     public function __construct()
     {
-        $this->apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4ZjJkN2I2NC1kZGQxLTQwOTEtYmZmMi03ODA5ODQ0MmE2MWYiLCJhY2NvdW50SWQiOiIxODJjNTIyNC1lMzNmLTQ3ODMtOWI5Mi04YjJlODgxNWU0OTkiLCJpYXQiOjE2MzU0NDMyMDN9.WY3X-HMpWqO7JJ7EoQPxDEMZPujrSNjgubLzFiSDJCU";
+        $this->apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4ZjJkN2I2NC1kZGQxLTQwOTEtYmZmMi03ODA5ODQ0MmE2MWYiLCJhY2NvdW50SWQiOiIxODJjNTIyNC1lMzNmLTQ3ODMtOWI5Mi04YjJlODgxNWU0OTkiLCJpYXQiOjE2MzY1NTUyNDR9.fNVN_L3q9LEMHUpGgo07m0DOAIzc7e3ikIC9pUBFqdI";
     }
 
-    public function createUser()
+    public function createUser($postData)
     {
         $curl = curl_init();
-
+        $value = 'Authorization: Basic ' . $this->apiKey;
+        $header = array(
+            $value,
+            'Content-Type: application/x-www-form-urlencoded'
+        );
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/users',
             CURLOPT_RETURNTRANSFER => true,
@@ -36,10 +40,7 @@ class ApiDispatcher
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => 'firstName=example&lastName=example&password=example&email=example&userRole=example&phone=example&accountId=d1077489-5ea1-4db1-9760-853f175e8288&jobPosition=example&drive=false&sign=false&fax=false&cf=%7B%22example%22%3A%20%22value%22%7D',
-            CURLOPT_HTTPHEADER => array(
-                'Authorization: Basic ' . $this->apiKey,
-                'Content-Type: application/x-www-form-urlencoded'
-            ),
+            CURLOPT_HTTPHEADER => $header,
         ));
 
         $response = curl_exec($curl);
