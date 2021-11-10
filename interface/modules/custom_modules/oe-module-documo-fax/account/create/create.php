@@ -41,17 +41,17 @@ if (!empty($data['accountname'])) {
     echo "<pre>";
 
     $postfields = "
-accountName=%7B%7B" . $data['accountname'] . "%7D%7D&
-faxCallerId=%7B%7B" . $data['faxcallerid'] . "%7D%7D&
-faxCsid=%7B%7B" . $data['faxcsid'] . "%7D%7D&
+accountName=" . $data['accountname'] . "&
+faxCallerId=" . $data['faxcallerid'] . "&
+faxCsid=" . $data['faxcsid'] . "&
 emailNotifySendOption=" . $data['emailnotifysendoption'] . "&
 emailNotifyReceiveOption=" . $data['emailnotifyreceiveoption'] . "&
-emailNotifySendIncAttachment=%7B%7" . $data['emailNotifySendIncAttachment'] . "%7D%7D&
-emailNotifyReceiveIncAttachment=%7B%7" . $data['emailNotifyReceiveIncAttachment'] . "%7D%7D&
-timezone=%7B%7B" . $data['accountname'] . "%7D%7D&
-allowEmailToFax=%7B%7" . $data['allowemailtofax'] . "%7D%7D&
-usersTokenLife=%7B%7B" . $data['usersTokenLife'] . "%7D%7D&
-cf=%7B%7None%7D%7D";
+emailNotifySendIncAttachment=%7B%7" . $data['emailNotifySendIncAttachment'] . "&
+emailNotifyReceiveIncAttachment=%7B%7" . $data['emailNotifyReceiveIncAttachment'] . "&
+timezone=" . $data['accountname'] . "&
+allowEmailToFax=" . $data['allowemailtofax'] . "&
+usersTokenLife=" . $data['usersTokenLife'] . "&
+cf=None";
 
 $documoaccountcreation = new ApiDispatcher();
 $response = $documoaccountcreation->createAccount($postfields);
