@@ -14,6 +14,8 @@
 use OpenEMR\Menu\MenuEvent;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use OpenEMR\Events\Globals\GlobalsInitializedEvent;
+use OpenEMR\Services\Globals\GlobalSetting;
 
 function oe_module_faxsms_add_menu_item(MenuEvent $event)
 {
@@ -55,7 +57,6 @@ function createFaxModuleGlobals(GlobalsInitializedEvent $event)
     $event->getGlobalsService()->createSection("Modules", "Report");
     $setting = new GlobalSetting(xl('Enable Documo Fax Module'), $select_array, 1, $instruct);
     $event->getGlobalsService()->appendToSection("Modules", "oedocumofax_enable", $setting);
-
 
 }
 
