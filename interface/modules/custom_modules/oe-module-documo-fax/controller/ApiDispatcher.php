@@ -51,7 +51,10 @@ class ApiDispatcher
     public function createAccount($postfields)
     {
         $curl = curl_init();
-
+        $header = array(
+            "'Authorization: Basic " . $this->apiKey ."'",
+            'Content-Type: application/x-www-form-urlencoded'
+        )
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/accounts',
             CURLOPT_RETURNTRANSFER => true,
@@ -62,10 +65,7 @@ class ApiDispatcher
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => $postfields,
-            CURLOPT_HTTPHEADER => array(
-                'Authorization: Basic ' . $this->apiKey,
-                'Content-Type: application/x-www-form-urlencoded'
-            ),
+            CURLOPT_HTTPHEADER => $header,
         ));
 
         $response = curl_exec($curl);
