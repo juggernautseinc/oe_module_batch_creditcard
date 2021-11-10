@@ -51,7 +51,7 @@ function oe_module_faxsms_add_menu_item(MenuEvent $event)
 
 function createFaxModuleGlobals(GlobalsInitializedEvent $event)
 {
-    $select_array = array('','encrypted','');
+    $select_array = array(xl('API Key'),'encrypted','');
     $instruct = xl('Obtain API Key to install service');
 
     $event->getGlobalsService()->createSection("Modules", "Report");
