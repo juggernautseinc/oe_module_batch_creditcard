@@ -33,7 +33,7 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 					<h2>User Info</h2>
 					<div class="form-group">
 						<div class="form-row form-row-1">
-							<input type="text" name="first_name" id="first_name" class="input-text" placeholder="<?php echo xlt('First Name') ?> required>
+							<input type="text" name="first_name" id="first_name" class="input-text" placeholder="<?php echo xlt('First Name') ?>" required>
 						</div>
 						<div class="form-row form-row-2">
 							<input type="text" name="last_name" id="last_name" class="input-text" placeholder="<?php echo xlt('Last Name') ?>" required>
