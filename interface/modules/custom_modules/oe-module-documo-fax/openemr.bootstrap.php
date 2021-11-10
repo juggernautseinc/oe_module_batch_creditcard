@@ -51,11 +51,11 @@ function oe_module_faxsms_add_menu_item(MenuEvent $event)
 
 function createFaxModuleGlobals(GlobalsInitializedEvent $event)
 {
-    $select_array = array('');
+    $select_array = array('encrypted','');
     $instruct = xl('Obtain API Key to install service');
 
     $event->getGlobalsService()->createSection("Modules", "Report");
-    $setting = new GlobalSetting(xl('Enable Documo Fax Module'), $select_array, 2, $instruct);
+    $setting = new GlobalSetting(xl('Enable Documo Fax Module'), $select_array, '', $instruct);
     $event->getGlobalsService()->appendToSection("Modules", "oedocumofax_enable", $setting);
 
 }
