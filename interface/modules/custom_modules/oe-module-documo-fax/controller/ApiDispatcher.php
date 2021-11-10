@@ -56,6 +56,8 @@ class ApiDispatcher
              $value,
             'Content-Type: application/x-www-form-urlencoded'
         );
+        var_dump($header); die;
+
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/accounts',
             CURLOPT_RETURNTRANSFER => true,
