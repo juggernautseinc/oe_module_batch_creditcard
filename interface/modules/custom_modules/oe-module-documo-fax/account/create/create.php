@@ -30,8 +30,7 @@ $localtz = $timez->getTimeZone();
 if ($form == 'account') {
     require_once "account_template.php";
 } elseif ($form == 'user') {
-
-    require_once "user.html";
+    require_once "user_template.php";
 }
 
 if (!empty($data['accountname'])) {
