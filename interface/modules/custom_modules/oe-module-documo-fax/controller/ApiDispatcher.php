@@ -48,7 +48,7 @@ class ApiDispatcher
         return $response;
     }
 
-    public function createAccount()
+    public function createAccount($postfields)
     {
         $curl = curl_init();
 
@@ -61,7 +61,7 @@ class ApiDispatcher
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => 'accountName=example&faxCallerId=example&faxCsid=example&emailNotifySendOption=None&emailNotifyReceiveOption=None&emailNotifySendIncAttachment=false&emailNotifyReceiveIncAttachment=false&timezone=pacific&allowEmailToFax=false&usersTokenLife=1&cf=%7B%22example%22%3A%20%22value%22%7D',
+            CURLOPT_POSTFIELDS => $postfields,
             CURLOPT_HTTPHEADER => array(
                 'Authorization: Basic ' . $this->apiKey,
                 'Content-Type: application/x-www-form-urlencoded'
@@ -69,8 +69,12 @@ class ApiDispatcher
         ));
 
         $response = curl_exec($curl);
-
+        $status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
         curl_close($curl);
-        return $response;
+        if ($status === 200) {
+            return $response;
+        } else {
+            return $status;
+        }
     }
 }

@@ -9,11 +9,13 @@
  *
  */
 
+use OpenEMR\Module\Documo\ApiDispatcher;
 use OpenEMR\Module\Documo\Database;
 use OpenEMR\Common\Csrf\CsrfUtils;
 
 require_once dirname(__FILE__, 6) . '/globals.php';
 require_once dirname(__FILE__, 3) . '/controller/Database.php';
+require_once dirname(__FILE__, 3) . '/controller/ApiDispatcher.php';
 
 $form = $_GET['type'];
 
@@ -35,9 +37,9 @@ if (!empty($data['accountname'])) {
     if (!CsrfUtils::verifyCsrfToken($data['csrf_token'])) {
         CsrfUtils::csrfNotVerified();
     }
-    //TODO make API call
+    //make API call
     echo "<pre>";
-    var_dump($data);
+
     $postfields = "
 accountName=%7B%7B" . $data['accountname'] . "%7D%7D&
 faxCallerId=%7B%7B" . $data['faxcallerid'] . "%7D%7D&
@@ -49,8 +51,11 @@ emailNotifyReceiveIncAttachment=%7B%7" . $data['emailNotifyReceiveIncAttachment'
 timezone=%7B%7B" . $data['accountname'] . "%7D%7D&
 allowEmailToFax=%7B%7" . $data['allowemailtofax'] . "%7D%7D&
 usersTokenLife=%7B%7B" . $data['usersTokenLife'] . "%7D%7D&
-cf=%7B%7None%7D%7D"
-;
-var_dump($postfields);
+cf=%7B%7None%7D%7D";
+
+$documoaccountcreation = new ApiDispatcher();
+$response = $documoaccountcreation->createAccount($postfields);
+
+var_dump($response);
 
 }
