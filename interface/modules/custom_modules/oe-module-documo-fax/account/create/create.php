@@ -21,17 +21,22 @@ $form = $_GET['type'];
 
 $data = $_POST;
 
-$profile = new Template('account.html');
 $token = CsrfUtils::collectCsrfToken();
 
 $timez = new Database();
 $localtz = $timez->getTimeZone();
-$profile->set("csrf_token", $token);
-$profile->set("timezone", $localtz['gl_value']);
+
 
 if ($form == 'account') {
+    $profile = new Template('account_template.php');
+    $profile->set("csrf_token", $token);
+    $profile->set("timezone", $localtz['gl_value']);
     echo $profile->output();
 } elseif ($form == 'user') {
+    $profile = new Template('user_template.php');
+    $profile->set("csrf_token", $token);
+    $profile->set("timezone", $localtz['gl_value']);
+    echo $profile->output();
     require_once "user.html";
 }
 
