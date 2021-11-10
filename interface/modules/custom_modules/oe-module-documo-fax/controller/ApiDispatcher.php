@@ -51,8 +51,9 @@ class ApiDispatcher
     public function createAccount($postfields)
     {
         $curl = curl_init();
+        $value = 'Authorization: Basic ' . $this->apiKey;
         $header = array(
-            'Authorization: Basic ' . $this->apiKey,
+             $value,
             'Content-Type: application/x-www-form-urlencoded'
         );
         curl_setopt_array($curl, array(
