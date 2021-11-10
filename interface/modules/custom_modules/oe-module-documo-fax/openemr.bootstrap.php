@@ -40,5 +40,27 @@ function oe_module_faxsms_add_menu_item(MenuEvent $event)
 
     return $event;
 }
+/**
+ * @var EventDispatcherInterface $eventDispatcher
+ * @var array                    $module
+ * @global                       $eventDispatcher @see ModulesApplication::loadCustomModule
+ * @global                       $module          @see ModulesApplication::loadCustomModule
+ */
+
+function createFaxModuleGlobals(GlobalsInitializedEvent $event)
+{
+    $select_array = array(xl('API Key'),
+        'encrypted',                           // data type
+        '',                              // default
+        xl('Documo Fax Service'));
+    $instruct = xl('Obtain API Key to install service');
+
+    $event->getGlobalsService()->createSection("Modules", "Report");
+    $setting = new GlobalSetting(xl('Enable Fax SMS Module'), $select_array, 1, $instruct);
+    $event->getGlobalsService()->appendToSection("Modules", "oedocumofax_enable", $setting);
+
+
+}
 
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_faxsms_add_menu_item');
+$eventDispatcher->addListener(GlobalsInitializedEvent::EVENT_HANDLE, 'createFaxModuleGlobals');
