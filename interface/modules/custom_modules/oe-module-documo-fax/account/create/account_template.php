@@ -31,11 +31,11 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 		<div class="form-v10-content">
 			<form name="account" class="form-detail" action="create.php" method="post">
                 <input type="hidden" name="csrf_token" value="<?php echo $token; ?>">
-                <input type="hidden" name="emailnotifysendoption" value="">
-                <input type="hidden" name="emailnotifyreceiveoption" value="">
+                <input type="hidden" name="emailnotifysendoption" value="None">
+                <input type="hidden" name="emailnotifyreceiveoption" value="None">
                 <input type="hidden" name="allowemailtofax" value="true">
-                <input type="hidden" name="emailNotifySendIncAttachment" value="false">
-                <input type="hidden" name="emailNotifyReceiveIncAttachment" value="false">
+                <input type="hidden" name="emailNotifySendIncAttachment" value="true">
+                <input type="hidden" name="emailNotifyReceiveIncAttachment" value="true">
                 <input type="hidden" name="usersTokenLife" value="1">
                 <input type="hidden" name="timezone" value="<?php echo $localtz['gl_value']; ?>">
 
