@@ -55,7 +55,7 @@ function createFaxModuleGlobals(GlobalsInitializedEvent $event)
     $instruct = xl('Obtain API Key to install service');
 
     $event->getGlobalsService()->createSection("Modules", "Report");
-    $setting = new GlobalSetting(xl('Enable Documo Fax Module'), 'encrypted', '', $instruct);
+    $setting = new GlobalSetting(xl('Documo Fax API Key'), 'encrypted', '', $instruct);
     $event->getGlobalsService()->appendToSection("Modules", "oedocumofax_enable", $setting);
 
 }
