@@ -10,7 +10,6 @@
  */
 
 use OpenEMR\Module\Documo\Database;
-use OpenEMR\Module\Documo\Template;
 use OpenEMR\Common\Csrf\CsrfUtils;
 
 require_once dirname(__FILE__, 6) . '/globals.php';
