@@ -1,8 +1,23 @@
+<?php
+
+/*
+ * package   OpenEMR
+ *  link      http://www.open-emr.org
+ *  author    Sherwin Gaddis <sherwingaddis@gmail.com>
+ *  copyright Copyright (c )2021. Sherwin Gaddis <sherwingaddis@gmail.com>
+ *  license   https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
+ *
+ */
+
+require_once dirname(__FILE__, 6) . "/globals.php";
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Create New User</title>
+	<title><?php echo xlt("Create New User") ?></title>
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<!-- Font-->
@@ -25,17 +40,17 @@
                 <input type="hidden" name="timezone" value="[@timezone]">
 
 				<div class="form-left">
-					<h2>Create Fax Account</h2>
+					<h2><?php echo xlt("Create Fax Account") ?></h2>
 					<div class="form-group">
 						<div class="form-row">
-							<input type="text" name="accountname" id="accountname" class="input-text" placeholder="Account Name" required>
+							<input type="text" name="accountname" id="accountname" class="input-text" placeholder=<?php echo xlt("Account Name") ?> required>
 						</div>
 					</div>
 					<div class="form-row">
-							<input type="text" name="faxcallerid" id="faxcallerid" class="input-text" placeholder="Fax # Show Caller ID" required>
+							<input type="text" name="faxcallerid" id="faxcallerid" class="input-text" placeholder=<?php echo xlt("Fax # Show Caller ID") ?> required>
 					</div>
 					<div class="form-row">
-						<input type="text" name="faxcsid" id="faxcsid" class="input-text" placeholder="Fax Number">
+						<input type="text" name="faxcsid" id="faxcsid" class="input-text" placeholder=<?php echo xlt("Fax Number") ?> required>
 					</div>
 				</div>
 				<div class="form-right">
@@ -44,7 +59,7 @@
 					</div>
 
 					<div class="form-row-last">
-						<input type="submit"  class="register" value="Create Account">
+						<input type="submit"  class="register" value=<?php echo xlt("Create Account") ?>>
 					</div>
 				</div>
 			</form>
