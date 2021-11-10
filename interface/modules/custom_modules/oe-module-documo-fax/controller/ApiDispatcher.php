@@ -52,7 +52,7 @@ class ApiDispatcher
     {
         $curl = curl_init();
         $header = array(
-            "'Authorization: Basic " . $this->apiKey ."'",
+            'Authorization: Basic ' . $this->apiKey,
             'Content-Type: application/x-www-form-urlencoded'
         );
         curl_setopt_array($curl, array(
