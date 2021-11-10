@@ -39,16 +39,16 @@ if (!empty($data['accountname'])) {
     echo "<pre>";
     var_dump($data);
     $postfields = "
-accountName=%7B%7B" . $date['accountname'] . "%7D%7D&
-faxCallerId=%7B%7B" . $date['faxcallerid'] . "%7D%7D&
-faxCsid=%7B%7B" . $date['faxcsid'] . "%7D%7D&
-emailNotifySendOption=" . $date['emailnotifysendoption'] . "&
-emailNotifyReceiveOption=" . $date['emailnotifyreceiveoption'] . "&
-emailNotifySendIncAttachment=%7B%7" . $date['emailNotifySendIncAttachment'] . "%7D%7D&
-emailNotifyReceiveIncAttachment=%7B%7" . $date['emailNotifyReceiveIncAttachment'] . "%7D%7D&
-timezone=%7B%7B" . $date['accountname'] . "%7D%7D&
-allowEmailToFax=%7B%7" . $date['allowemailtofax'] . "%7D%7D&
-usersTokenLife=%7B%7B" . $date['usersTokenLife'] . "%7D%7D&
+accountName=%7B%7B" . $data['accountname'] . "%7D%7D&
+faxCallerId=%7B%7B" . $data['faxcallerid'] . "%7D%7D&
+faxCsid=%7B%7B" . $data['faxcsid'] . "%7D%7D&
+emailNotifySendOption=" . $data['emailnotifysendoption'] . "&
+emailNotifyReceiveOption=" . $data['emailnotifyreceiveoption'] . "&
+emailNotifySendIncAttachment=%7B%7" . $data['emailNotifySendIncAttachment'] . "%7D%7D&
+emailNotifyReceiveIncAttachment=%7B%7" . $data['emailNotifyReceiveIncAttachment'] . "%7D%7D&
+timezone=%7B%7B" . $data['accountname'] . "%7D%7D&
+allowEmailToFax=%7B%7" . $data['allowemailtofax'] . "%7D%7D&
+usersTokenLife=%7B%7B" . $data['usersTokenLife'] . "%7D%7D&
 cf=%7B%7None%7D%7D"
 ;
 var_dump($postfields);
