@@ -23,8 +23,8 @@ $data = $_POST;
 
 $token = CsrfUtils::collectCsrfToken();
 
-$timez = new Database();
-$localtz = $timez->getTimeZone();
+$dbcall = new Database();
+$localtz = $dbcall->getTimeZone();
 
 
 if ($form == 'account') {
@@ -54,7 +54,10 @@ if (!empty($data['accountname'])) {
 
 $documoaccountcreation = new ApiDispatcher();
 $response = $documoaccountcreation->createAccount($postfields);
-
-var_dump($response);
+if (!is_int($response)) {
+    $dbcall->saveAccount($response);
+} else {
+    print "An error has occurred";
+}
 
 }

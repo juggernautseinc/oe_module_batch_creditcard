@@ -47,7 +47,9 @@ ALTER TABLE `documo_account` ADD PRIMARY KEY(`id`);
 ALTER TABLE `documo_account` MODIFY `id` INT AUTO_INCREMENT;
 DB;
 
-
+        /**
+         * TODO question do we really need the auto increment on the table?
+         */
         $db = $GLOBALS['dbase'];
         $exist = sqlQuery("SHOW TABLES FROM `$db` LIKE 'documo_user'");
         if (empty($exist)) {
@@ -93,5 +95,11 @@ DB;
         $sql = "select gl_value from globals where gl_name = ?";
         $privateKey = sqlQuery($sql, [$key]);
         return $privateKey['gl_value'];
+    }
+
+    public function saveAccount($response)
+    {
+        $sql = "INSERT INTO `documo_account` ('id', 'account_info') VALUES ('1', ?)";
+        sqlInsert($sql, [$response]);
     }
 }
