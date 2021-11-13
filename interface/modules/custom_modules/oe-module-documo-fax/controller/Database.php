@@ -31,7 +31,6 @@ class Database
     `id` INT NOT NULL,
     `user` TEXT NOT NULL
 ) ENGINE = InnoDB COMMENT = 'documo account users';
-ALTER TABLE `documo_user` ADD PRIMARY KEY(`id`);
 DB;
 
         $DBSQLACCOUNT = <<<'DB'
@@ -40,7 +39,6 @@ DB;
     `id` INT NOT NULL,
     `account_info` TEXT NOT NULL
 ) ENGINE = InnoDB COMMENT = 'documo account information';
-ALTER TABLE `documo_account` ADD PRIMARY KEY(`id`);
 DB;
 
         $db = $GLOBALS['dbase'];
