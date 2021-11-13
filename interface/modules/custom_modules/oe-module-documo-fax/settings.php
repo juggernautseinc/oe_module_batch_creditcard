@@ -52,7 +52,7 @@ $hasRow = $dbcall->hasSavedAccount();
             <h1>Welcome to the Documo Module</h1>
             <p>There are three steps to complete to enable this module</p>
         </div>
-        <?php if($hasRow) { ?>
+        <?php if(!$hasRow) { ?>
         <div>
 
             <p>Step 1</p>
