@@ -53,6 +53,17 @@ DB;
         }
     }
 
+    public function tableCheck()
+    {
+        $db = $GLOBALS['dbase'];
+        $exist = sqlQuery("SHOW TABLES FROM `$db` LIKE 'documo_user'");
+        if (empty($exist)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public function getTimeZone()
     {
         $global_data_array = array(

@@ -16,8 +16,9 @@ require_once dirname(__FILE__) . "/controller/Database.php";
 use OpenEMR\Core\Header;
 use OpenEMR\Module\Documo\Database;
 
-$timez = new Database();
-$localtz = $timez->getTimeZone();
+$dbcall = new Database();
+$localtz = $dbcall->getTimeZone();
+$hastable = $dbcall->tableCheck();
 ?>
 <!doctype html>
 <html lang="en">
@@ -39,9 +40,13 @@ $localtz = $timez->getTimeZone();
     <div class="container">
         <?php
             if (empty($localtz['gl_value'])) {
-            echo "<h1>Time zone is not set, Please set time zone.</h1>";
-            die;
-        }?>
+                echo "<h1>Time zone is not set, Please set time zone.</h1>";
+                die;
+             } elseif (!$hastable) {
+                echo "<h3>Database tables not installed</h3>";
+                die;
+            }
+            ?>
         <div>
             <h1>Welcome to the Documo Module</h1>
             <p>There are three steps to complete to enable this module</p>
