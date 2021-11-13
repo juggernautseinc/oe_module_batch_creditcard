@@ -50,22 +50,25 @@ $hasRow = $dbcall->hasSavedAccount();
             ?>
         <div>
             <h1>Welcome to the Documo Module</h1>
-            <p>There are two steps to complete to enable this module</p>
+            <?php if(!$hasRow) { ?>
+                <p>There are two steps to complete to enable this module</p>
+            <?php } else {?>
+                <p>There is one more step to complete!</p>
+            <?php } ?>
         </div>
         <?php if(!$hasRow) { ?>
         <div>
-
             <p>Step 1</p>
-            <btn class="btn btn-primary" onclick="createAccount('account')">Create an account</btn>
+            <button class="btn btn-primary" onclick="createAccount('account')">Create an account</button>
         </div>
         <?php } else {?>
             <div >
-                <h3>Your fax account is live. </h3>
+                <h3>Your fax account has been created. </h3>
             </div>
         <?php } ?>
         <div>
             <p>Step 2</p>
-            <btn class="btn btn-primary" onclick="createAccount('user')">Create a user</btn>
+            <button class="btn btn-primary" onclick="createAccount('user')">Create a user</button>
         </div>
     </div>
 </body>
