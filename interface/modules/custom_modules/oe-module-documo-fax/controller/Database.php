@@ -40,12 +40,20 @@ DB;
     `account_info` TEXT NOT NULL
 ) ENGINE = InnoDB COMMENT = 'documo account information';
 DB;
+        $DBSQLALTERTABLES = <<<'DB'
+ALTER TABLE `documo_user` ADD PRIMARY KEY(`id`);
+ALTER TABLE `documo_user` MODIFY `id` INT AUTO_INCREMENT;
+ALTER TABLE `documo_account` ADD PRIMARY KEY(`id`);
+ALTER TABLE `documo_account` MODIFY `id` INT AUTO_INCREMENT;
+DB;
+
 
         $db = $GLOBALS['dbase'];
         $exist = sqlQuery("SHOW TABLES FROM `$db` LIKE 'documo_user'");
         if (empty($exist)) {
             sqlQuery($DBSQLACCOUNT);
             sqlQuery($DBSQLUSER);
+            sqlQuery($DBSQLALTERTABLES);
         }
     }
 
