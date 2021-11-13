@@ -32,7 +32,7 @@ class Database
     `user` TEXT NOT NULL
 ) ENGINE = InnoDB COMMENT = 'documo account users';
 ALTER TABLE `documo_user` ADD PRIMARY KEY(`id`);
-ALTER TABLE `documo_user` MODIFY `id` INT NOT NULL AUTO_INCREMENT;
+ALTER TABLE `documo_user` MODIFY `id` INT AUTO_INCREMENT;
 DB;
 
         $DBSQLACCOUNT = <<<'DB'
@@ -42,7 +42,7 @@ DB;
     `account_info` TEXT NOT NULL
 ) ENGINE = InnoDB COMMENT = 'documo account information';
 ALTER TABLE `documo_account` ADD PRIMARY KEY(`id`);
-ALTER TABLE `documo_account` MODIFY `id` INT NOT NULL AUTO_INCREMENT;
+ALTER TABLE `documo_account` MODIFY `id` INT AUTO_INCREMENT;
 DB;
 
         $db = $GLOBALS['dbase'];
