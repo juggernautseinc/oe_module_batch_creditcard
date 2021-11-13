@@ -51,8 +51,8 @@ DB;
             sqlQuery($DBSQLUSER);
             sqlStatement("ALTER TABLE `" . add_escape_custom('documo_user') . "` ADD PRIMARY KEY(`id`)");
             sqlStatement("ALTER TABLE `" . add_escape_custom('documo_user') . "` MODIFY " . add_escape_custom('id') . " INT AUTO_INCREMENT");
-            sqlStatement("ALTER TABLE `documo_account` ADD PRIMARY KEY(`id`)");
-            sqlStatement("ALTER TABLE `documo_account` MODIFY `id` INT AUTO_INCREMENT");
+            sqlStatement("ALTER TABLE `" . add_escape_custom('documo_account') . "` ADD PRIMARY KEY(`id`)");
+            sqlStatement("ALTER TABLE `" . add_escape_custom('documo_account') . "` MODIFY " . add_escape_custom('id') . " INT AUTO_INCREMENT");
         }
     }
 
@@ -102,7 +102,7 @@ DB;
 
     public function saveAccount($response)
     {
-        $sql = "INSERT INTO `documo_account` (`id`, `account_info`) VALUES ('1', ?)";
+        $sql = "INSERT INTO `documo_account` (`id`, `account_info`) VALUES ('', ?)";
         sqlStatement($sql, [$response]);
     }
 }
