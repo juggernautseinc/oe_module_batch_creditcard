@@ -53,7 +53,7 @@ DB;
         if (empty($exist)) {
             sqlQuery($DBSQLACCOUNT);
             sqlQuery($DBSQLUSER);
-            sqlQuery($DBSQLALTERTABLES);
+            sqlStatement($DBSQLALTERTABLES);
         }
     }
 
