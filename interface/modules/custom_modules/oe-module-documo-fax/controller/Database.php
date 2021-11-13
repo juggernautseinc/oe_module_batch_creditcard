@@ -22,6 +22,9 @@ class Database
 
     public function createTables()
     {
+        /**
+         * Here we are storing the json array that is sent back
+         */
         $DBSQLUSER = <<<'DB'
     CREATE TABLE `documo_user`
 (
@@ -39,7 +42,7 @@ DB;
 DB;
 
         $db = $GLOBALS['dbase'];
-        $exist = sqlQuery("SHOW TABLES FROM `$db` LIKE 'documo_account'");
+        $exist = sqlQuery("SHOW TABLES FROM `$db` LIKE 'documo_user'");
         if (empty($exist)) {
             sqlQuery($DBSQLACCOUNT);
             sqlQuery($DBSQLUSER);

@@ -17,7 +17,7 @@ require_once dirname(__FILE__) . "/controller/Database.php";
 
 $load = new Database();
 
-//$load->createTables();
+$load->createTables();
 
 $module_config = 1;
 
