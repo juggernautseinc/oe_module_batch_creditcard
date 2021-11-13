@@ -99,7 +99,7 @@ DB;
 
     public function saveAccount($response)
     {
-        $sql = "INSERT INTO `documo_account` ('id', 'account_info') VALUES ('1', ?)";
-        sqlInsert($sql, [$response]);
+        $sql = "INSERT INTO `documo_account` (`id`, `account_info`) VALUES ('1', ?)";
+        sqlStatement($sql, [$response]);
     }
 }
