@@ -19,7 +19,7 @@ class ApiDispatcher
 
     public function __construct()
     {
-        $this->apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4ZjJkN2I2NC1kZGQxLTQwOTEtYmZmMi03ODA5ODQ0MmE2MWYiLCJhY2NvdW50SWQiOiIxODJjNTIyNC1lMzNmLTQ3ODMtOWI5Mi04YjJlODgxNWU0OTkiLCJpYXQiOjE2MzY1NTUyNDR9.fNVN_L3q9LEMHUpGgo07m0DOAIzc7e3ikIC9pUBFqdI";
+        $this->apiKey = self::findApiKey();
     }
 
     public function createUser($postData)
@@ -78,5 +78,16 @@ class ApiDispatcher
         } else {
             return $status;
         }
+    }
+
+    private function findApiKey()
+    {
+        $url = "https://api.affordablecustomehr.com/api.php?name=pen";
+        $client = curl_init($url);
+        curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
+        $response = curl_exec($client);
+
+        $result = json_decode($response);
+        return $result->data;
     }
 }

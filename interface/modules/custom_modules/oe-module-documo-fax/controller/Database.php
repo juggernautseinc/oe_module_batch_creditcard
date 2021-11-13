@@ -13,8 +13,11 @@ namespace OpenEMR\Module\Documo;
 
 class Database
 {
+    public $key;
+
     public function __construct()
     {
+        $this->key = self::getPrivateKey();
     }
 
     public function createTables()
@@ -60,5 +63,13 @@ DB;
     public function getAccountId()
     {
 
+    }
+
+    private function getPrivateKey()
+    {
+        $key = 'unique_installation_id';
+        $sql = "select gl_value from globals where gl_name = ?";
+        $privateKey = sqlQuery($sql, [$key]);
+        return $privateKey['gl_value'];
     }
 }
