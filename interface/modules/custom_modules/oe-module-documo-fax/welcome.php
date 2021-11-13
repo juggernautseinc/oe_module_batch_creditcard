@@ -21,6 +21,12 @@ use OpenEMR\Core\Header;
         <meta charset="UTF-8">
         <title>Welcome to the module</title>
         <?php echo Header::setupHeader(); ?>
+        <style>
+            .note {
+                color: #942a25;
+                font-size: medium;
+            }
+        </style>
     </head>
     <body>
         <div class="container-fluid">
@@ -35,7 +41,8 @@ use OpenEMR\Core\Header;
                 <p class="pr-xl-9 font-size-md-font-weight-bold">The easiest way for both large and small businesses to achieve real digital transformation. Save time and money by eliminating hardware and outsourcing fax to the cloud. Easily integrate secure and reliable cloud fax into existing apps and workflows.</p>
             </div>
             <div>
-                <p>Use the Fax Module selection from the main menu to configure the settings</p>
+                <p class="note">Use the Fax Module selection from the main menu to configure the settings.</p>
+                <p>Log out and log back in to the program to see the new menu item.</p>
             </div>
 
         </div>
