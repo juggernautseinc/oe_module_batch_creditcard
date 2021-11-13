@@ -40,12 +40,6 @@ DB;
     `account_info` TEXT NOT NULL
 ) ENGINE = InnoDB COMMENT = 'documo account information';
 DB;
-        $DBSQLALTERTABLES = <<<'DB'
-ALTER TABLE `documo_user` ADD PRIMARY KEY(`id`);
-ALTER TABLE `documo_user` MODIFY `id` INT AUTO_INCREMENT;
-ALTER TABLE `documo_account` ADD PRIMARY KEY(`id`);
-ALTER TABLE `documo_account` MODIFY `id` INT AUTO_INCREMENT;
-DB;
 
         /**
          * TODO question do we really need the auto increment on the table?
@@ -55,7 +49,10 @@ DB;
         if (empty($exist)) {
             sqlQuery($DBSQLACCOUNT);
             sqlQuery($DBSQLUSER);
-            sqlStatement($DBSQLALTERTABLES);
+            sqlStatement("ALTER TABLE `documo_user` ADD PRIMARY KEY(`id`)");
+            sqlStatement("ALTER TABLE `documo_user` MODIFY `id` INT AUTO_INCREMENT");
+            sqlStatement("ALTER TABLE `documo_account` ADD PRIMARY KEY(`id`)");
+            sqlStatement("ALTER TABLE `documo_account` MODIFY `id` INT AUTO_INCREMENT");
         }
     }
 
