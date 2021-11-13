@@ -49,8 +49,8 @@ DB;
         if (empty($exist)) {
             sqlQuery($DBSQLACCOUNT);
             sqlQuery($DBSQLUSER);
-            sqlStatement("ALTER TABLE `documo_user` ADD PRIMARY KEY(`id`)");
-            sqlStatement("ALTER TABLE `documo_user` MODIFY `id` INT AUTO_INCREMENT");
+            sqlStatement("ALTER TABLE `" . add_escape_custom('documo_user') . "` ADD PRIMARY KEY(`id`)");
+            sqlStatement("ALTER TABLE `" . add_escape_custom('documo_user') . "` MODIFY " . add_escape_custom('id') . " INT AUTO_INCREMENT");
             sqlStatement("ALTER TABLE `documo_account` ADD PRIMARY KEY(`id`)");
             sqlStatement("ALTER TABLE `documo_account` MODIFY `id` INT AUTO_INCREMENT");
         }
