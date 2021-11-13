@@ -36,9 +36,14 @@ $hasRow = $dbcall->hasSavedAccount();
             dlgopen(href+type, '_blank', 1175, 700);
         }
     </script>
+    <style>
+        .account {
+            padding-top: 50px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container account">
         <?php
             if (empty($localtz['gl_value'])) {
                 echo "<h1>Time zone is not set, Please set time zone.</h1>";
