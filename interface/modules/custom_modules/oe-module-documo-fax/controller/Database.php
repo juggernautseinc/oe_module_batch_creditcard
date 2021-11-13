@@ -28,17 +28,25 @@ class Database
         $DBSQLUSER = <<<'DB'
     CREATE TABLE `documo_user`
 (
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `id` INT NOT NULL,
     `user` TEXT NOT NULL
 ) ENGINE = InnoDB COMMENT = 'documo account users';
+ALTER TABLE `documo_user` ADD PRIMARY KEY(`id`);
+ALTER TABLE `documo_user`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+COMMIT;
 DB;
 
         $DBSQLACCOUNT = <<<'DB'
     CREATE TABLE `documo_account`
 (
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `id` INT NOT NULL,
     `account_info` TEXT NOT NULL
 ) ENGINE = InnoDB COMMENT = 'documo account information';
+ALTER TABLE `documo_account` ADD PRIMARY KEY(`id`);
+ALTER TABLE `documo_account`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+COMMIT;
 DB;
 
         $db = $GLOBALS['dbase'];
