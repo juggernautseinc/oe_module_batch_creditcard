@@ -62,7 +62,7 @@ DB;
     public function tableCheck()
     {
         $db = $GLOBALS['dbase'];
-        $exist = sqlQuery("SHOW TABLES FROM `$db` LIKE 'documo_user'");
+        $exist = sqlQuery("SHOW TABLES FROM `$db` LIKE 'documo_account'");
         if (empty($exist)) {
             return false;
         } else {
@@ -84,9 +84,15 @@ DB;
         return sqlQuery($sql, $values);
     }
 
-    public function getAccountId()
+    public function hasSavedAccount()
     {
-
+        $sql = "SELECT * FROM `documo_account`";
+        $hasRow = sqlQuery($sql);
+        if (!empty($hasRow)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private function getPrivateKey()

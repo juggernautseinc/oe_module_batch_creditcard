@@ -56,8 +56,9 @@ $documoaccountcreation = new ApiDispatcher();
 $response = $documoaccountcreation->createAccount($postfields);
 if (!is_int($response)) {
     $dbcall->saveAccount($response);
+    print xlt("Your account was successfully created. Close this window, and select create user next.");
 } else {
-    print "An error has occurred";
+    print xlt("An error has occurred");
 }
 
 }

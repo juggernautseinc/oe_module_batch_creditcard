@@ -19,6 +19,7 @@ use OpenEMR\Module\Documo\Database;
 $dbcall = new Database();
 $localtz = $dbcall->getTimeZone();
 $hastable = $dbcall->tableCheck();
+$hasRow = $dbcall->hasSavedAccount();
 ?>
 <!doctype html>
 <html lang="en">
@@ -51,10 +52,13 @@ $hastable = $dbcall->tableCheck();
             <h1>Welcome to the Documo Module</h1>
             <p>There are three steps to complete to enable this module</p>
         </div>
+        <?php if($hasRow) { ?>
         <div>
+
             <p>Step 1</p>
             <btn class="btn btn-primary" onclick="createAccount('account')">Create an account</btn>
         </div>
+        <?php } ?>
         <div>
             <p>Step 2</p>
             <btn class="btn btn-primary" onclick="createAccount('user')">Create a user</btn>
