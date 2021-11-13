@@ -25,6 +25,7 @@ use OpenEMR\Core\Header;
             .note {
                 color: #942a25;
                 font-size: medium;
+                font-weight: bold;
             }
         </style>
     </head>

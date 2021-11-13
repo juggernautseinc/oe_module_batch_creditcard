@@ -33,7 +33,12 @@ $hasRow = $dbcall->hasSavedAccount();
     <script>
         function createAccount(type) {
             let href = "<?php echo $GLOBALS['web_root'] ?>/interface/modules/custom_modules/oe-module-documo-fax/account/create/create.php?type=";
-            dlgopen(href+type, '_blank', 1175, 700);
+            dlgopen(href+type, '_blank', 1175, 700,{
+                buttons: [
+                    {text: <?php echo xlj('Close'); ?>, close: true, style: 'default btn-sm'}
+                ],
+                onClosed: 'reload'
+            });
         }
     </script>
     <style>
