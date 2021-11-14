@@ -73,11 +73,11 @@ if (!empty($data['first_name']))
     email= " .  $data['your_email']  .  "&
     userRole= " .  $data['userrole']  .  "&
     phone= " .  $data['phone']  .  "&
-    accountId=d1077489-5ea1-4db1-9760-853f175e8288&
+    accountId=" . $accountId . "&
     jobPosition= " .  $data['jobposition']  .  "&
     drive=false&
     sign=false&
     fax=false&
     cf=";
-    var_dump($postfields, $accountId);
+    var_dump($postfields);
 }
