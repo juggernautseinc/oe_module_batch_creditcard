@@ -110,7 +110,7 @@ DB;
     {
         $sql = "select account_info from documo_account where id = 1";
         $account_number = sqlQuery($sql);
-        $accid = json_decode(json_encode($account_number['account_info']), true);
+        $accid = json_decode($account_number['account_info'], true);
         return $accid['uuid'];
     }
 }
