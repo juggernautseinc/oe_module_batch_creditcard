@@ -41,7 +41,7 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 					</div>
 					<div class="form-row">
 						<input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
-                               placeholder="<?php echo xlt('Your Email cannot be a free email account i.e. gmail, yahoo etc') ?>">
+                               placeholder="<?php echo xlt('Email cannot be a free account i.e. gmail, yahoo etc') ?>">
 					</div>
 					<div class="form-row">
 						<input type="password" name="password" class="password" id="password" placeholder="<?php echo xlt('Password') ?>" required>

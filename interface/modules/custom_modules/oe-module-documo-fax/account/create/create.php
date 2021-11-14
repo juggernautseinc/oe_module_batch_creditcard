@@ -66,14 +66,14 @@ if (!empty($data['first_name']))
     }
     $accountId = $dbcall->getAccountId();
     //var_dump($data);
-    $postfields = "firstName= " .  $data['first_name']  .  "&
-    lastName= " .  $data['last_name']  .  "&
-    password= " .  $data['password']  .  "&
-    email= " .  $data['your_email']  .  "&
-    userRole= " .  $data['userrole']  .  "&
-    phone= " .  $data['phone']  .  "&
+    $postfields = "firstName=" .  $data['first_name']  .  "&
+    lastName=" .  $data['last_name']  .  "&
+    password=" .  $data['password']  .  "&
+    email=" .  $data['your_email']  .  "&
+    userRole=" .  $data['userrole']  .  "&
+    phone=" .  $data['phone']  .  "&
     accountId=" . $accountId . "&
-    jobPosition= " .  $data['jobposition']  .  "&
+    jobPosition=" .  $data['jobposition']  .  "&
     drive=false&
     sign=false&
     fax=false&
