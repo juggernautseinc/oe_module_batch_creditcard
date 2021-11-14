@@ -92,6 +92,17 @@ DB;
         }
     }
 
+    public function hasUserAccount()
+    {
+        $sql = "SELECT * FROM `documo_user`";
+        $hasRow = sqlQuery($sql);
+        if (!empty($hasRow)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private function getPrivateKey()
     {
         $key = 'unique_installation_id';

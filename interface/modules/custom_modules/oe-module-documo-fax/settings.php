@@ -19,7 +19,8 @@ use OpenEMR\Module\Documo\Database;
 $dbcall = new Database();
 $localtz = $dbcall->getTimeZone();
 $hastable = $dbcall->tableCheck();
-$hasRow = $dbcall->hasSavedAccount();
+$hasAccount = $dbcall->hasSavedAccount();
+$hasUser = $dbcall->hasUserAccount();
 ?>
 <!doctype html>
 <html lang="en">
@@ -60,26 +61,28 @@ $hasRow = $dbcall->hasSavedAccount();
             ?>
         <div>
             <h1>Welcome to the Documo Module</h1>
-            <?php if(!$hasRow) { ?>
+            <?php if(!$hasAccount) { ?>
                 <p>There are two steps to complete to enable this module</p>
             <?php } else {?>
                 <p>There is one more step to complete!</p>
             <?php } ?>
         </div>
-        <?php if(!$hasRow) { ?>
+        <?php if(!$hasAccount) { ?>
         <div>
             <p>Step 1</p>
             <button class="btn btn-primary" onclick="createAccount('account')">Create an account</button>
         </div>
         <?php } else {?>
             <div >
-                <h3>Your fax account has been created. </h3>
+                <h3>Your fax account is active. </h3>
             </div>
         <?php } ?>
+        <?php if (!$hasUser) { ?>
         <div>
             <p>Step 2</p>
             <button class="btn btn-primary" onclick="createAccount('user')">Create a user</button>
         </div>
+        <?php } ?>
     </div>
 </body>
 </html>
