@@ -64,7 +64,7 @@ $hasUser = $dbcall->hasUserAccount();
             <?php if(!$hasAccount) { ?>
                 <p>There are two steps to complete to enable this module</p>
             <?php }
-            if ($hasUser) {?>
+            if (!$hasUser) {?>
                 <p>There is one more step to complete!</p>
             <?php } ?>
         </div>
@@ -78,13 +78,13 @@ $hasUser = $dbcall->hasUserAccount();
                 <p>Your fax account is active. </p>
             </div>
         <?php } ?>
-        <?php if ($hasUser) { ?>
+        <?php if (!$hasUser) { ?>
         <div>
             <p>Step 2</p>
             <button class="btn btn-primary" onclick="createAccount('user')">Create a user</button>
         </div>
-        <?php }  echo "account - " . $hasAccount . " user -" . $hasUser?>
-        <?php if (!$hasAccount && $hasUser) { ?>
+        <?php }  ?>
+        <?php if ($hasAccount && $hasUser) { ?>
         <div>
             <h3>Account info</h3>
         </div>
