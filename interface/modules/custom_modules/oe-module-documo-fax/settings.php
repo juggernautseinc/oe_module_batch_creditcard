@@ -63,7 +63,8 @@ $hasUser = $dbcall->hasUserAccount();
             <h1>Welcome to the Documo Module</h1>
             <?php if(!$hasAccount) { ?>
                 <p>There are two steps to complete to enable this module</p>
-            <?php }  if (!$hasUser) {?>
+            <?php }
+            if ($hasUser) {?>
                 <p>There is one more step to complete!</p>
             <?php } ?>
         </div>
