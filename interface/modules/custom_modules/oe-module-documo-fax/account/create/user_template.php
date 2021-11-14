@@ -40,7 +40,8 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 						</div>
 					</div>
 					<div class="form-row">
-						<input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="<?php echo xlt('Your Email') ?>">
+						<input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
+                               placeholder="<?php echo xlt('Your Email cannot be a free email account i.e. gmail, yahoo etc') ?>">
 					</div>
 					<div class="form-row">
 						<input type="password" name="password" class="password" id="password" placeholder="<?php echo xlt('Password') ?>" required>
@@ -78,8 +79,8 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 					</div>
 
 					<div class="form-checkbox">
-						<label class="container"><p>I do accept the <a href="../../legal.html" class="text" target="_blank"><?php echo xlt('Terms and Conditions') ?></a> of Documo.</p>
-						  	<input type="checkbox" name="checkbox" required>
+						<label class="container"><p>I do accept the <a href="legal.html" class="text" target="_blank"><?php echo xlt('Terms and Conditions') ?></a> of Documo.</p>
+						  	<input type="checkbox" required name="checkbox">
 						  	<span class="checkmark"></span>
 						</label>
 					</div>
