@@ -25,7 +25,7 @@ $token = CsrfUtils::collectCsrfToken();
 
 $dbcall = new Database();
 $localtz = $dbcall->getTimeZone();
-
+$documoaccountcreation = new ApiDispatcher();
 
 if ($form == 'account') {
     require_once "account_template.php";
@@ -50,13 +50,12 @@ if (!empty($data['accountname'])) {
     usersTokenLife=" . $data['usersTokenLife'] . "&
     cf=";
 
-    $documoaccountcreation = new ApiDispatcher();
     $response = $documoaccountcreation->createAccount($postfields);
     if (!is_int($response)) {
         $dbcall->saveAccount($response);
         print xlt("Your account was successfully created. Close this window, and select create user next.");
     } else {
-        print xlt("An error has occurred");
+        print xlt("An error has occurred") . $response;
     }
 }
 
@@ -80,4 +79,11 @@ if (!empty($data['first_name']))
     fax=false&
     cf=";
     var_dump($postfields);
+    $response = $documoaccountcreation->createUser($postfields);
+    if (!is_int($response)) {
+        $dbcall->saveAccount($response);
+        print xlt("The user was successfully created. Close this window, and start faxing! ");
+    } else {
+        print xlt("An error has occurred") . $response;
+    }
 }
