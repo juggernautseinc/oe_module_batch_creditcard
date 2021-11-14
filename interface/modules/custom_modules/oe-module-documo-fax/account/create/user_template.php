@@ -72,7 +72,7 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="form-row form-row-2">
+						<div class="form-row form-row-1">
 							<input type="text" name="phone" class="phone" id="phone" placeholder="<?php echo xlt('Phone Number') ?>" required>
 						</div>
 					</div>

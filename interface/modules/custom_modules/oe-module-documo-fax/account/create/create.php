@@ -65,6 +65,7 @@ if (!empty($data['first_name']))
     if (!CsrfUtils::verifyCsrfToken($data['csrf_token'])) {
         CsrfUtils::csrfNotVerified();
     }
+    $accountId = $dbcall->getAccountId();
     //var_dump($data);
     $postfields = "firstName= " .  $data['first_name']  .  "&
     lastName= " .  $data['last_name']  .  "&
@@ -78,5 +79,5 @@ if (!empty($data['first_name']))
     sign=false&
     fax=false&
     cf=";
-    var_dump($postfields);
+    var_dump($postfields, $accountId);
 }

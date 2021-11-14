@@ -105,4 +105,12 @@ DB;
         $sql = "INSERT INTO `documo_account` (`id`, `account_info`) VALUES ('', ?)";
         sqlStatement($sql, [$response]);
     }
+
+    public function getAccountId()
+    {
+        $sql = "select account_info from documo_account where id = 1";
+        $account_number = sqlQuery($sql);
+        $accid = json_decode($account_number['account_info']);
+        return $accid['uuid'];
+    }
 }
