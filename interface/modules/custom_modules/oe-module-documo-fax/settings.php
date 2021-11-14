@@ -32,8 +32,8 @@ $hasRow = $dbcall->hasSavedAccount();
     <?php echo Header::setupHeader(['common']) ?>
     <script>
         function createAccount(type) {
-            let href = "<?php echo $GLOBALS['web_root'] ?>/interface/modules/custom_modules/oe-module-documo-fax/account/create/create.php?type=";
-            dlgopen(href+type, '_blank', 1175, 700,'', {
+            let href = "<?php echo $GLOBALS['web_root'] ?>/interface/modules/custom_modules/oe-module-documo-fax/account/create/create.php?type=" + encodeURIComponent(type);
+            dlgopen(href, 'Account/Users', 1175, 700,'','', {
                 buttons: [
                     {text: <?php echo xlj('Close'); ?>, close: true, style: 'default btn-sm'}
                 ],
