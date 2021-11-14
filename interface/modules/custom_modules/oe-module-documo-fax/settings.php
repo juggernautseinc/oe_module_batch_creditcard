@@ -75,7 +75,7 @@ $hasUser = $dbcall->hasUserAccount();
         </div>
         <?php } else {?>
             <div >
-                <h3>Your fax account is active. </h3>
+                <p>Your fax account is active. </p>
             </div>
         <?php } ?>
         <?php if ($hasUser) { ?>
@@ -84,7 +84,7 @@ $hasUser = $dbcall->hasUserAccount();
             <button class="btn btn-primary" onclick="createAccount('user')">Create a user</button>
         </div>
         <?php } ?>
-        <?php if ($hasAccount && $hasUser) { ?>
+        <?php if (!$hasAccount && !$hasUser) { ?>
         <div>
             <h3>Account info</h3>
         </div>
