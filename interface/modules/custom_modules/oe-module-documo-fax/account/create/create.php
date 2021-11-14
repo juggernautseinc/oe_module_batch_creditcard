@@ -78,7 +78,7 @@ if (!empty($data['first_name']))
     sign=false&
     fax=false&
     cf=";
-    var_dump($postfields);
+    //var_dump($postfields);
     $response = $documoaccountcreation->createUser($postfields);
     if (!is_int($response)) {
         $dbcall->saveAccount($response);
