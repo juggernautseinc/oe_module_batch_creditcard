@@ -77,13 +77,13 @@ $hasUser = $dbcall->hasUserAccount();
                 <h3>Your fax account is active. </h3>
             </div>
         <?php } ?>
-        <?php if (!$hasUser) { ?>
+        <?php if ($hasUser) { ?>
         <div>
             <p>Step 2</p>
             <button class="btn btn-primary" onclick="createAccount('user')">Create a user</button>
         </div>
         <?php } ?>
-        <?php if (!$hasAccount && !$hasUser) { ?>
+        <?php if ($hasAccount && $hasUser) { ?>
         <div>
             <h3>Account info</h3>
         </div>
