@@ -56,7 +56,7 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 					</div>
 					<div class="form-group">
 						<div class="form-row form-row-1">
-							<select name="place">
+							<select name="jobposition">
 								<option ><?php echo xlt('Job Position') ?></option>
 							    <option value="provider"><?php echo xlt('Provider') ?></option>
 							    <option value="officestaff"><?php echo xlt('Office Staff') ?></option>
@@ -72,9 +72,6 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="form-row form-row-1">
-							<input type="text" name="code" class="code" id="code" placeholder="<?php echo xlt('Code') ?> +" required>
-						</div>
 						<div class="form-row form-row-2">
 							<input type="text" name="phone" class="phone" id="phone" placeholder="<?php echo xlt('Phone Number') ?>" required>
 						</div>

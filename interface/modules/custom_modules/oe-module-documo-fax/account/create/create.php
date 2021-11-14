@@ -38,8 +38,6 @@ if (!empty($data['accountname'])) {
         CsrfUtils::csrfNotVerified();
     }
     //make API call
-    echo "<pre>";
-
     $postfields = "accountName=" . $data['accountname'] . "&
     faxCallerId=" . $data['faxcallerid'] . "&
     faxCsid=" . $data['faxcsid'] . "&
@@ -64,6 +62,21 @@ if (!empty($data['accountname'])) {
 
 if (!empty($data['first_name']))
 {
-    var_dump($data);
-
+    if (!CsrfUtils::verifyCsrfToken($data['csrf_token'])) {
+        CsrfUtils::csrfNotVerified();
+    }
+    //var_dump($data);
+    $postfields = "firstName= " .  $data['first_name']  .  "&
+    lastName= " .  $data['last_name']  .  "&
+    password= " .  $data['password']  .  "&
+    email= " .  $data['your_email']  .  "&
+    userRole= " .  $data['userrole']  .  "&
+    phone= " .  $data['phone']  .  "&
+    accountId=d1077489-5ea1-4db1-9760-853f175e8288&
+    jobPosition= " .  $data['jobposition']  .  "&
+    drive=false&
+    sign=false&
+    fax=false&
+    cf=";
+    var_dump($postfields);
 }
