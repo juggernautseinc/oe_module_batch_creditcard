@@ -39,7 +39,7 @@ class ApiDispatcher
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => 'firstName=example&lastName=example&password=example&email=example&userRole=example&phone=example&accountId=d1077489-5ea1-4db1-9760-853f175e8288&jobPosition=example&drive=false&sign=false&fax=false&cf=%7B%22example%22%3A%20%22value%22%7D',
+            CURLOPT_POSTFIELDS => $postData,
             CURLOPT_HTTPHEADER => $header,
         ));
 
