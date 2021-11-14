@@ -62,7 +62,7 @@ if (!empty($data['accountname'])) {
     }
 }
 
-if (!empty($data['firstName']))
+if (!empty($data['first_name']))
 {
     var_dump($data);
 
