@@ -117,6 +117,12 @@ DB;
         sqlStatement($sql, [$response]);
     }
 
+    public function saveUser($response)
+    {
+        $sql = "INSERT INTO `documo_user` (`id`, `account_user`) VALUES ('', ?)";
+        sqlStatement($sql, [$response]);
+    }
+
     public function getAccountId()
     {
         $sql = "select account_info from documo_account where id = 1";

@@ -70,7 +70,7 @@ if (!empty($data['first_name']))
     //var_dump($postfields);
     $response = $documoaccountcreation->createUser($postfields);
     if (!is_int($response)) {
-        $dbcall->saveAccount($response);
+        $dbcall->saveUser($response);
         print xlt("The user was successfully created. Close this window, and start faxing! ");
     } else {
         print xlt("An error has occurred") . $response;
