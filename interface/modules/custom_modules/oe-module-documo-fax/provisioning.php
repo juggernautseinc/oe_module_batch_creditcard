@@ -76,6 +76,9 @@ require_once dirname(__FILE__, 4) . "/globals.php";
             position:relative;
             top:1px;
         }
+        .main {
+            padding-top: 50px;
+        }
     </style>
     <script>
         function toggleOrder(id) {
@@ -94,7 +97,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
     </script>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid main">
         <div class="buttons">
             <button id="provision" class="provision" onclick="toggleOrder('order')">Provision New Number</button>
             <button id="porting" class="port" onclick="toggleTransfer('transfer')">Port Current Number</button>
