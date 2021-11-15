@@ -30,7 +30,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         #transfer {
             display: none;
         }
-        . provision {
+        .provision {
             box-shadow: 0px 10px 14px -7px #276873;
             background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
             background-color:#599bb3;
@@ -45,15 +45,15 @@ require_once dirname(__FILE__, 4) . "/globals.php";
             text-decoration:none;
             text-shadow:0px 1px 0px #3d768a;
         }
-        . provision:hover {
+        .provision:hover {
             background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
             background-color:#408c99;
         }
-        . provision:active {
+        .provision:active {
             position:relative;
             top:1px;
         }
-        . port {
+        .port {
             box-shadow: 0px 10px 14px -7px #fff6af;
             background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
             background-color:#ffec64;
@@ -68,11 +68,11 @@ require_once dirname(__FILE__, 4) . "/globals.php";
             text-decoration:none;
             text-shadow:0px 1px 0px #ffee66;
         }
-        . port:hover {
+        .port:hover {
             background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
             background-color:#ffab23;
         }
-        . port:active {
+        .port:active {
             position:relative;
             top:1px;
         }
