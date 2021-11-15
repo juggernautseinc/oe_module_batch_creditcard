@@ -34,8 +34,8 @@ require_once dirname(__FILE__, 4) . "/globals.php";
     </style>
     <script>
         function toggleOrder(id) {
-            alert('here');
             const state = document.getElementById(id).style.display;
+            alert(state);
             if (state === 'none') {
                 document.getElementById(id).style.display = 'block';
             }
@@ -46,8 +46,8 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         }
 
         function toggleTransfer(id) {
-            alert('here');
             const state = document.getElementById(id).style.display;
+            alert(state);
             if (state === 'none') {
                 document.getElementById(id).style.display = 'block';
             }
