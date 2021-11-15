@@ -77,7 +77,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
             top:1px;
         }
         .main {
-            padding-top: 50px;
+            padding: 50px;
         }
     </style>
     <script>
@@ -102,8 +102,23 @@ require_once dirname(__FILE__, 4) . "/globals.php";
             <button id="provision" class="provision" onclick="toggleOrder('order')">Provision New Number</button>
             <button id="porting" class="port" onclick="toggleTransfer('transfer')">Port Current Number</button>
         </div>
-        <div id="order">
-            <p>Order a new number</p>
+        <div id="order" class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label >Provision Type</label>
+                        <select id="order" name="provisiontype" >
+                            <option value="order">Order</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-6">
+                        <select id="searchtype" name="searchtype">
+                            <option value="prefix">Prefix</option>
+                            <option value="tollfree">Toll-free</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="transfer">
             <p>Port number</p>
