@@ -36,11 +36,11 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         function toggleOrder(id) {
             alert('here');
             const state = document.getElementById(id).style.display;
-            if (state == 'none') {
+            if (state === 'none') {
                 document.getElementById(id).style.display = 'block';
             }
             const other = document.getElementById('transfer').style.display;
-            if (other == 'block') {
+            if (other === 'block') {
                 document.getElementById('transfer').style.display = 'none';
             }
         }
@@ -48,11 +48,11 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         function toggleTransfer(id) {
             alert('here');
             const state = document.getElementById(id).style.display;
-            if (state == 'none') {
+            if (state === 'none') {
                 document.getElementById(id).style.display = 'block';
             }
             const other = document.getElementById('order').style.display;
-            if (other == 'block') {
+            if (other === 'block') {
                 document.getElementById('order').style.display = 'none';
             }
         }
