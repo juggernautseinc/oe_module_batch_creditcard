@@ -34,29 +34,17 @@ require_once dirname(__FILE__, 4) . "/globals.php";
     </style>
     <script>
         function toggleOrder(id) {
-            const state = document.getElementById(id).style.display;
-            console.log(state);
-            console.log(id);
-            if (state === 'none') {
+
                 document.getElementById(id).style.display = 'block';
-            }
-            const other = document.getElementById('transfer').style.display;
-            if (other === 'block') {
+
                 document.getElementById('transfer').style.display = 'none';
-            }
         }
 
         function toggleTransfer(id) {
-            const state = document.getElementById(id).style.display;
-            console.log(state);
-            console.log(id);
-            if (state === 'none') {
+
                 document.getElementById(id).style.display = 'block';
-            }
-            const other = document.getElementById('order').style.display;
-            if (other === 'block') {
+
                 document.getElementById('order').style.display = 'none';
-            }
         }
     </script>
 </head>
