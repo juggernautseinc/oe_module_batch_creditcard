@@ -107,7 +107,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                 <div class="row">
                     <div class="form-group col-6">
                         <label >Provision Type</label>
-                        <select id="order" name="provisiontype" >
+                        <select id="provisiontype" name="provisiontype">
                             <option value="order">Order</option>
                         </select>
                     </div>
