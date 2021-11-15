@@ -24,10 +24,10 @@ require_once dirname(__FILE__, 4) . "/globals.php";
     <title>Provisioning Fax Number</title>
     <?php Header::setupHeader(['common'])?>
     <style>
-        .order {
+        #order {
             display: none;
         }
-        .transfer {
+        #transfer {
             display: none;
         }
 
