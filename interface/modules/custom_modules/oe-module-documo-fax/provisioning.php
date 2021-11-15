@@ -79,6 +79,21 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         .main {
             padding: 50px;
         }
+        .form-group label {
+            width: 100%;
+            display: block;
+            margin: 0;
+            font-size: 1rem;
+            letter-spacing: .1px;
+            text-align: left;
+            font-weight: 500;
+            line-height: 2.5;
+        }
+        .ng-input {
+            position: absolute;
+            left: 0;
+            width: 100%;
+        }
     </style>
     <script>
         function toggleOrder(id) {
@@ -107,15 +122,20 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                 <div class="row">
                     <div class="form-group col-6">
                         <label >Provision Type</label>
-                        <select id="provisiontype" name="provisiontype">
-                            <option value="order">Order</option>
-                        </select>
+                        <div role="combobox" class="ng-input" aria-expanded="false">
+                            <select id="provisiontype" name="provisiontype">
+                                <option value="order">Order</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group col-6">
-                        <select id="searchtype" name="searchtype">
-                            <option value="prefix">Prefix</option>
-                            <option value="tollfree">Toll-free</option>
-                        </select>
+                        <lable>Search Type</lable>
+                        <div role="combobox" class="ng-input" aria-expanded="false">
+                            <select id="searchtype" name="searchtype">
+                                <option value="prefix">Prefix</option>
+                                <option value="tollfree">Toll-free</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
