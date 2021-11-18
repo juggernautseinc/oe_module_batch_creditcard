@@ -23,7 +23,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Provisioning Fax Number</title>
     <?php Header::setupHeader(['common'])?>
-    <link rel="stylesheet" src="css/style.css"></link>
+    <link rel="stylesheet" src="css/style.css">
     <style>
     </style>
     <script scr="js/javascript.js"> </script>
