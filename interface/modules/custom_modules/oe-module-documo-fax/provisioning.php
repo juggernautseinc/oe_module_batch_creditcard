@@ -10,6 +10,7 @@
  */
 
 use OpenEMR\Core\Header;
+use GuzzleHttp\Client;
 
 require_once dirname(__FILE__, 4) . "/globals.php";
 
@@ -112,6 +113,9 @@ require_once dirname(__FILE__, 4) . "/globals.php";
             position: absolute;
             left: 0;
             width: 100%;
+        }
+        .card {
+            padding: 3rem;
         }
     </style>
 </head>
