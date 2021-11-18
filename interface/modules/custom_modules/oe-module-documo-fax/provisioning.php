@@ -159,6 +159,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
     function numberType() {
         const type = document.getElementById('searchtype').value;
         if (type === 'Prefix') {
+            alert('here!');
             document.getElementById("areacode").style.display = 'block';
         }
     }
