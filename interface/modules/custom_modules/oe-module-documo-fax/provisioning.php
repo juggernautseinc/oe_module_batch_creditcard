@@ -151,7 +151,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         <div class="form-group col-6" id="areacode">
             <label><?php echo xlt("Area/Exchange Code") ?></label>
             <input class="ng-input" type="text" value="" placeholder="801 <?php echo xla(" Enter area / exchange code here"); ?>">
-            <input id="checkfornumbers" type="submit" value="<?php echo xla("Get Available Numbers") ?>"
+            <input id="checkfornumbers" type="submit" value="<?php echo xlt("Get Available Numbers") ?>"
         </div>
         <div class="form-group col-16" id="numberdisplay">
             <!-- placeholder for the returned values -->
