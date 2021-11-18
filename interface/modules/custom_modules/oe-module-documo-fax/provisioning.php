@@ -114,9 +114,6 @@ require_once dirname(__FILE__, 4) . "/globals.php";
             left: 0;
             width: 100%;
         }
-        .card {
-            padding: 3rem;
-        }
     </style>
 </head>
 <body>
@@ -154,7 +151,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         </div>
         <div class="form-group col-6" id="areacode">
             <label><?php echo xlt("Area/Exchange Code") ?></label>
-            <input class="ng-input" type="text" value="" placeholder="801 <?php echo xla(" Enter area / exchange code here"); ?>">
+            <input id="prefix" class="ng-input" type="text" value="" placeholder="801 <?php echo xla(" Enter area / exchange code here"); ?>">
             <br><br>
                 <input class="btn btn-primary" id="checkfornumbers" type="submit" value="<?php echo xlt("Get Available Numbers") ?>">
         </div>
@@ -172,7 +169,8 @@ require_once dirname(__FILE__, 4) . "/globals.php";
     }
     document.getElementById('checkfornumbers').addEventListener("click", numberSearch);
     function numberSearch() {
-        alert('Do number search via ajax');
+        const prefix = document.getElementById('prefix').value;
+        alert('Do number search via ajax ' . prefix);
     }
 </script>
 </body>
