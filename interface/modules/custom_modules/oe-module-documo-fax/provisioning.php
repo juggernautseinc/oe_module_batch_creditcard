@@ -132,8 +132,9 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                         <lable>Search Type</lable>
                         <div role="combobox" class="ng-input" aria-expanded="false">
                             <select class="ng-input" id="searchtype" name="searchtype">
-                                <option value="prefix">Prefix</option>
-                                <option value="tollfree">Toll-free</option>
+                                <option><?php echo xlt("Select") ?></option>
+                                <option value="prefix"><?php echo xlt("Prefix") ?></option>
+                                <option value="tollfree"><?php echo xlt("Toll-free") ?></option>
                             </select>
                         </div>
                     </div>
