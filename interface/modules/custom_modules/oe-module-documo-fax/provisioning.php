@@ -37,6 +37,13 @@ require_once dirname(__FILE__, 4) . "/globals.php";
 
             document.getElementById('order').style.display = 'none';
         }
+
+        document.getElementById('searchtype').addEventListener("change", numberType);
+        function numberType() {
+            type = document.getElementById('searchtype').value;
+            alert("number type selected " + type )
+        }
+
     </script>
     <style>
         #order {
