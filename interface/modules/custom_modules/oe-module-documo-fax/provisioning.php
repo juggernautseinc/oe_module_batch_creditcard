@@ -22,11 +22,11 @@ require_once dirname(__FILE__, 4) . "/globals.php";
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Provisioning Fax Number</title>
+    <link rel="stylesheet" src="css/style.css" />
     <?php Header::setupHeader(['common'])?>
-    <link rel="stylesheet" src="css/style.css">
+    <script scr="js/javascript.js"></script>
     <style>
     </style>
-    <script scr="./js/javascript.js"></script>
 </head>
 <body>
     <div class="container-fluid main">
