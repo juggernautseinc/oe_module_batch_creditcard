@@ -170,7 +170,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
     document.getElementById('checkfornumbers').addEventListener("click", numberSearch);
     function numberSearch() {
         const prefix = document.getElementById('prefix').value;
-        alert('Do number search via ajax ' . prefix);
+        alert('Do number search via ajax ' + prefix);
     }
 </script>
 </body>
