@@ -158,8 +158,8 @@ require_once dirname(__FILE__, 4) . "/globals.php";
     document.getElementById('searchtype').addEventListener("change", numberType);
     function numberType() {
         const type = document.getElementById('searchtype').value;
+        alert('here!');
         if (type === 'Prefix') {
-            alert('here!');
             document.getElementById("areacode").style.display = 'block';
         }
     }
