@@ -46,6 +46,9 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         #transfer {
             display: none;
         }
+        #areacode {
+            display: none;
+        }
         .provision {
             box-shadow: 0px 10px 14px -7px #276873;
             background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
@@ -115,22 +118,22 @@ require_once dirname(__FILE__, 4) . "/globals.php";
 <body>
     <div class="container-fluid main">
         <div class="buttons">
-            <button id="provision" class="provision" onclick="toggleOrder('order')">Provision New Number</button>
-            <button id="porting" class="port" onclick="toggleTransfer('transfer')">Port Current Number</button>
+            <button id="provision" class="provision" onclick="toggleOrder('order')"><?php echo xlt("Provision New Number") ?></button>
+            <button id="porting" class="port" onclick="toggleTransfer('transfer')"><?php echo xlt("Port Current Number") ?></button>
         </div>
         <div id="order" class="card mb-4">
             <div class="card-body">
                 <div class="row">
                     <div class="form-group col-6">
-                        <label >Provision Type</label>
+                        <label ><?php echo xlt("Provision Type") ?></label>
                         <div role="combobox" class="ng-input" aria-expanded="false">
                             <select class="ng-input" id="provisiontype" name="provisiontype">
-                                <option value="order">Order</option>
+                                <option value="order"><?php echo xlt("Order") ?></option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group col-6">
-                        <lable>Search Type</lable>
+                        <lable><?php echo xlt("Search Type") ?></lable>
                         <div role="combobox" class="ng-input" aria-expanded="false">
                             <select class="ng-input" id="searchtype" name="searchtype">
                                 <option><?php echo xlt("Select") ?></option>
@@ -143,7 +146,11 @@ require_once dirname(__FILE__, 4) . "/globals.php";
             </div>
         </div>
         <div id="transfer">
-            <p>Port number</p>
+            <p><?php echo xlt("Port number") ?></p>
+        </div>
+        <div class="form-group col-6" id="areacode">
+            <label><?php echo xlt("Area/Exchange Code") ?></label>
+            <input class="ng-input" type="text" value="" placeholder="801">
         </div>
 
     </div>
@@ -151,7 +158,9 @@ require_once dirname(__FILE__, 4) . "/globals.php";
     document.getElementById('searchtype').addEventListener("change", numberType);
     function numberType() {
         type = document.getElementById('searchtype').value;
-        alert("number type selected " + type )
+        if (type === 'Prefix') {
+            document.getElementById("areacode").style.display = 'block';
+        }
     }
 </script>
 </body>
