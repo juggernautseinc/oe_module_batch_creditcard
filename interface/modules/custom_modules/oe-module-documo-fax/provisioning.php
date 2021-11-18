@@ -26,7 +26,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
     <link rel="stylesheet" src="css/style.css">
     <style>
     </style>
-    <script scr="js/javascript.js"> </script>
+    <script scr="js/javascript.js"></script>
 </head>
 <body>
     <div class="container-fluid main">
