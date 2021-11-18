@@ -22,7 +22,6 @@ require_once dirname(__FILE__, 4) . "/globals.php";
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Provisioning Fax Number</title>
-    <link rel="stylesheet" src="css/style.css" />
     <?php Header::setupHeader(['common'])?>
     <script>
         function toggleOrder(id) {
@@ -40,6 +39,76 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         }
     </script>
     <style>
+        #order {
+            display: none;
+        }
+        #transfer {
+            display: none;
+        }
+        .provision {
+            box-shadow: 0px 10px 14px -7px #276873;
+            background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+            background-color:#599bb3;
+            border-radius:8px;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:20px;
+            font-weight:bold;
+            padding:13px 32px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #3d768a;
+        }
+        .provision:hover {
+            background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+            background-color:#408c99;
+        }
+        .provision:active {
+            position:relative;
+            top:1px;
+        }
+        .port {
+            box-shadow: 0px 10px 14px -7px #fff6af;
+            background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+            background-color:#ffec64;
+            border-radius:8px;
+            display:inline-block;
+            cursor:pointer;
+            color:#333333;
+            font-family:Arial;
+            font-size:20px;
+            font-weight:bold;
+            padding:13px 32px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #ffee66;
+        }
+        .port:hover {
+            background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+            background-color:#ffab23;
+        }
+        .port:active {
+            position:relative;
+            top:1px;
+        }
+        .main {
+            padding: 50px;
+        }
+        .form-group label {
+            width: 100%;
+            display: block;
+            margin: 0;
+            font-size: 1rem;
+            letter-spacing: .1px;
+            text-align: left;
+            font-weight: 500;
+            line-height: 2.5;
+        }
+        .ng-input {
+            position: absolute;
+            left: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
