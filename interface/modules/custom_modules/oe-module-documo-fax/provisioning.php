@@ -24,7 +24,21 @@ require_once dirname(__FILE__, 4) . "/globals.php";
     <title>Provisioning Fax Number</title>
     <link rel="stylesheet" src="css/style.css" />
     <?php Header::setupHeader(['common'])?>
-    <script scr="js/javascript.js"></script>
+    <script>
+        function toggleOrder(id) {
+
+            document.getElementById(id).style.display = 'block';
+
+            document.getElementById('transfer').style.display = 'none';
+        }
+
+        function toggleTransfer(id) {
+
+            document.getElementById(id).style.display = 'block';
+
+            document.getElementById('order').style.display = 'none';
+        }
+    </script>
     <style>
     </style>
 </head>
