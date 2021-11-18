@@ -127,8 +127,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                                 <option value="order">Order</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="form-group col-6">
+
                         <lable>Search Type</lable>
                         <div role="combobox" class="ng-input" aria-expanded="false">
                             <select class="ng-input" id="searchtype" name="searchtype">
