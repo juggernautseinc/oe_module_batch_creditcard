@@ -157,7 +157,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
 <script>
     document.getElementById('searchtype').addEventListener("change", numberType);
     function numberType() {
-        type = document.getElementById('searchtype').value;
+        const type = document.getElementById('searchtype').value;
         if (type === 'Prefix') {
             document.getElementById("areacode").style.display = 'block';
         }
