@@ -26,6 +26,6 @@ require_once "controller/Provisioning.php";
 
 
 $getNumbers = new Provisioning();
-$list = $getNumbers->areacode = 757; //$_POST['areacode'];
-
+$getNumbers->areacode = 757; //$_POST['areacode'];
+$list = $getNumbers->seekNumber();
 var_dump($list);
