@@ -15,10 +15,21 @@ namespace OpenEMR\Module\Documo;
 class ApiDispatcher
 {
     private $apiKey;
+    public $areacode;
+
 
     public function __construct()
     {
         $this->apiKey = self::findApiKey();
+    }
+
+    private function headerArray(): array
+    {
+        $value = 'Authorization: Basic ' . $this->apiKey;
+        return array(
+            $value,
+            'Content-Type: application/x-www-form-urlencoded'
+        );
     }
     //TODO consolidate these api calls if possible
     public function createUser($postData)
@@ -39,7 +50,7 @@ class ApiDispatcher
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => $postData,
-            CURLOPT_HTTPHEADER => $header,
+            CURLOPT_HTTPHEADER => self::headerArray(),
         ));
 
         $response = curl_exec($curl);
@@ -55,11 +66,7 @@ class ApiDispatcher
     public function createAccount($postfields)
     {
         $curl = curl_init();
-        $value = 'Authorization: Basic ' . $this->apiKey;
-        $header = array(
-             $value,
-            'Content-Type: application/x-www-form-urlencoded'
-        );
+
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/accounts',
             CURLOPT_RETURNTRANSFER => true,
@@ -70,11 +77,39 @@ class ApiDispatcher
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => $postfields,
-            CURLOPT_HTTPHEADER => $header,
+            CURLOPT_HTTPHEADER => self::headerArray(),
         ));
 
         $response = curl_exec($curl);
         $status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
+        curl_close($curl);
+        if ($status === 200) {
+            return $response;
+        } else {
+            return $status;
+        }
+    }
+
+    public function findAvailableFaxNumber($areacode)
+    {
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.documo.com/v1/numbers/provision/search',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_POSTFIELDS => 'nap='.$areacode,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => self::headerArray(),
+        ));
+
+        $response = curl_exec($curl);
+
         curl_close($curl);
         if ($status === 200) {
             return $response;

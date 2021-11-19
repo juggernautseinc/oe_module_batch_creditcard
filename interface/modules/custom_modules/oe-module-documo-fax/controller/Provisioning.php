@@ -16,9 +16,16 @@ use OpenEMR\Module\Documo\ApiDispatcher;
 class Provisioning
 {
     private $dispatch;
+    public $areacode;
 
     public function __construct()
     {
         $this->dispatch = new ApiDispatcher();
+    }
+
+    public function seekNumber()
+    {
+        $numbers = $this->dispatch->findAvailableFaxNumber($this->areacode);
+        return $numbers;
     }
 }
