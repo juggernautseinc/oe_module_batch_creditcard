@@ -93,7 +93,7 @@ class ApiDispatcher
     public function findAvailableFaxNumber($areacode)
     {
         $curl = curl_init();
-
+        $post = 'type=order&npa='.$areacode.'&zipcode=23320&city=chesapeake';
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/numbers/provision/search',
             CURLOPT_RETURNTRANSFER => true,
@@ -102,7 +102,7 @@ class ApiDispatcher
             CURLOPT_TIMEOUT => 0,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_POSTFIELDS => 'type=order&npa='.$areacode.'&zipcode=23320&city=chesapeake',
+            CURLOPT_POSTFIELDS => $post,
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_HTTPHEADER => self::headerArray(),
         ));
@@ -113,7 +113,15 @@ class ApiDispatcher
         if ($status === 200) {
             return $response;
         } else {
-            return $status;
+            if ($status === 400) {
+                return xlt("Invalid Input");
+            } elseif ($status === 401) {
+                return xlt("Unauthorized - Key may be expired");
+            } elseif ($status === 404) {
+                return xlt("Not Found");
+            } else {
+                return $status;
+            }
         }
     }
 
