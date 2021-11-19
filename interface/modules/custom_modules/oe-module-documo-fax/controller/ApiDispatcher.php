@@ -93,7 +93,7 @@ class ApiDispatcher
     public function findAvailableFaxNumber($areacode)
     {
         $curl = curl_init();
-        file_put_contents("/var/www/html/errors/areacode.txt", $areacode);
+
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/numbers/provision/search',
             CURLOPT_RETURNTRANSFER => true,
@@ -102,7 +102,7 @@ class ApiDispatcher
             CURLOPT_TIMEOUT => 0,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_POSTFIELDS => 'type=order&npa=757&zipcode=23320&city=chesapeake',
+            CURLOPT_POSTFIELDS => 'type=order&npa='.$areacode.'&zipcode=23320&city=chesapeake',
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_HTTPHEADER => self::headerArray(),
         ));
