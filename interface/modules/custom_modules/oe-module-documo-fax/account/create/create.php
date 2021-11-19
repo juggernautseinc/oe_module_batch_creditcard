@@ -9,8 +9,8 @@
  *
  */
 
-use OpenEMR\Module\Documo\ApiDispatcher;
-use OpenEMR\Module\Documo\Database;
+use OpenEMR\Modules\Documo\ApiDispatcher;
+use OpenEMR\Modules\Documo\Database;
 use OpenEMR\Common\Csrf\CsrfUtils;
 
 require_once dirname(__FILE__, 6) . '/globals.php';

@@ -9,7 +9,7 @@
  *
  */
 
-namespace OpenEMR\Module\Documo;
+namespace OpenEMR\Modules\Documo;
 
 
 class ApiDispatcher
