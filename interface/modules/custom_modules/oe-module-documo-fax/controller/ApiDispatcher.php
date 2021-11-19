@@ -103,7 +103,7 @@ class ApiDispatcher
             CURLOPT_TIMEOUT => 0,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_POSTFIELDS => 'typep=order&npa='.$areacode,
+            CURLOPT_POSTFIELDS => 'type=order&npa='.$areacode,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_HTTPHEADER => array(
                 $value,
