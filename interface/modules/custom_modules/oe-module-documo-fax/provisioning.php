@@ -24,22 +24,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Provisioning Fax Number</title>
     <?php Header::setupHeader(['common'])?>
-    <script>
-        function toggleOrder(id) {
-
-            document.getElementById(id).style.display = 'block';
-
-            document.getElementById('transfer').style.display = 'none';
-        }
-
-        function toggleTransfer(id) {
-
-            document.getElementById(id).style.display = 'block';
-
-            document.getElementById('order').style.display = 'none';
-        }
-
-    </script>
+    <script src="js/javascript.js"></script>
     <style>
         #order {
             display: none;
