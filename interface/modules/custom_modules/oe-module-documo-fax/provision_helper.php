@@ -15,7 +15,7 @@ use OpenEMR\Common\Csrf\CsrfUtils;
 require_once dirname(__FILE__, 4) . "/globals.php";
 
 if (!CsrfUtils::verifyCsrfToken($_POST['csrf_token'])) {
-    CsrfUtils::csrfNotVerified();
+   // CsrfUtils::csrfNotVerified();
 }
 
 
