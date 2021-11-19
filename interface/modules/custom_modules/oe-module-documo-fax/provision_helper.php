@@ -14,13 +14,14 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
 use OpenEMR\Module\Documo\Provisioning;
-use OpenEMR\Common\Csrf\CsrfUtils;
+//use OpenEMR\Common\Csrf\CsrfUtils;
 
 require_once dirname(__FILE__, 4) . "/globals.php";
+require_once "controller/Provisioning.php";
 
-if (!CsrfUtils::verifyCsrfToken($_POST['csrf_token'])) {
+//if (!CsrfUtils::verifyCsrfToken($_POST['csrf_token'])) {
    // CsrfUtils::csrfNotVerified();
-}
+//}
 
 
 $getNumbers = new Provisioning();
