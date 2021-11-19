@@ -109,7 +109,7 @@ class ApiDispatcher
         ));
 
         $response = curl_exec($curl);
-
+        $status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
         curl_close($curl);
         if ($status === 200) {
             return $response;
