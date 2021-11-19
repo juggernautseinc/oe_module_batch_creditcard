@@ -94,7 +94,7 @@ class ApiDispatcher
     {
 
         $curl = curl_init();
-        $c = $areacode;
+
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/numbers/provision/search',
             CURLOPT_RETURNTRANSFER => true,
@@ -103,7 +103,7 @@ class ApiDispatcher
             CURLOPT_TIMEOUT => 0,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_POSTFIELDS => 'type=order',
+            CURLOPT_POSTFIELDS => 'type=order&npa='.$areacode,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_HTTPHEADER => self::headerArray(),
         ));
