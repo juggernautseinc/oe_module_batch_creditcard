@@ -21,3 +21,5 @@ if (!CsrfUtils::verifyCsrfToken($_POST['csrf_token'])) {
 
 $getNumbers = new Provisioning();
 $list = $getNumbers->areacode = 757; //$_POST['areacode'];
+
+var_dump($list);
