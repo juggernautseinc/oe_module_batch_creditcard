@@ -103,7 +103,7 @@ class ApiDispatcher
             CURLOPT_TIMEOUT => 0,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_POSTFIELDS => 'type=order&npa=757',
+            CURLOPT_POSTFIELDS => 'type=order&npa=757&zipcode=23320&city=chesapeake',
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_HTTPHEADER => self::headerArray(),
         ));
