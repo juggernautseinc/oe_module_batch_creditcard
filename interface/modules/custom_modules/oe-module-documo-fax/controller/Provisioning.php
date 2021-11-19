@@ -11,7 +11,6 @@
 
 namespace OpenEMR\Module\Documo;
 
-use OpenEMR\Module\Documo\ApiDispatcher;
 
 class Provisioning
 {
