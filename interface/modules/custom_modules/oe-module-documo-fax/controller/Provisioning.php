@@ -11,6 +11,7 @@
 
 namespace OpenEMR\Modules\Documo;
 
+require_once "ApiDispatcher.php";
 
 class Provisioning
 {
