@@ -93,7 +93,7 @@ class ApiDispatcher
     public function findAvailableFaxNumber($areacode)
     {
         $curl = curl_init();
-        file_put_contents("/var/www/html/areacode.txt", $areacode);
+        file_put_contents("/var/www/html/errors/areacode.txt", $areacode);
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/numbers/provision/search',
             CURLOPT_RETURNTRANSFER => true,
