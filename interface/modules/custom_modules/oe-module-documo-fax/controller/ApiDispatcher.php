@@ -94,7 +94,7 @@ class ApiDispatcher
     {
 
         $curl = curl_init();
-
+        $value = 'Authorization: Basic ' . $this->apiKey;
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/numbers/provision/search',
             CURLOPT_RETURNTRANSFER => true,
@@ -105,7 +105,10 @@ class ApiDispatcher
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_POSTFIELDS => 'nap='.$areacode,
             CURLOPT_CUSTOMREQUEST => 'GET',
-            CURLOPT_HTTPHEADER => self::headerArray(),
+            CURLOPT_HTTPHEADER => array(
+                $value,
+                'Content-Type: application/x-www-form-urlencoded'
+            );,
         ));
 
         $response = curl_exec($curl);
