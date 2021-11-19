@@ -16,7 +16,7 @@ require_once "ApiDispatcher.php";
 class Provisioning
 {
     private $dispatch;
-    public $areacode;
+    public $areaCode;
 
     public function __construct()
     {
@@ -25,7 +25,6 @@ class Provisioning
 
     public function seekNumber()
     {
-        $numbers = $this->dispatch->findAvailableFaxNumber($this->areacode);
-        return $numbers;
+        return $this->dispatch->findAvailableFaxNumber($this->areaCode);
     }
 }
