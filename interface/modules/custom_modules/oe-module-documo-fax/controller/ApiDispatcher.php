@@ -108,7 +108,7 @@ class ApiDispatcher
             CURLOPT_HTTPHEADER => array(
                 $value,
                 'Content-Type: application/x-www-form-urlencoded'
-            );,
+            ),
         ));
 
         $response = curl_exec($curl);
