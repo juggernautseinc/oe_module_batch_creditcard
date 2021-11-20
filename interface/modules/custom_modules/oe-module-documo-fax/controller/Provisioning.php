@@ -12,11 +12,14 @@
 namespace OpenEMR\Modules\Documo;
 
 require_once "ApiDispatcher.php";
+require_once "Database.php";
 
 class Provisioning
 {
     private $dispatch;
     public $areaCode;
+    private $city;
+    private $zipcode;
 
     public function __construct()
     {
@@ -25,6 +28,9 @@ class Provisioning
 
     public function seekNumber()
     {
+
         return $this->dispatch->findAvailableFaxNumber($this->areaCode);
     }
+
+
 }
