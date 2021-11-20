@@ -11,7 +11,7 @@ function numberSearch() {
     const prefix = document.getElementById('prefix').value;
     //alert('Do number search via ajax ' + prefix);
     let output = '<h3>Available Numbers</h3>';
-    fetch('provisino_helper.php', {
+    fetch('provision_helper.php', {
         method: 'POST',
         headers: {
             'Accept': 'application/json, text/plain, */*',
