@@ -10,7 +10,7 @@
  *
  */
 
-use OpenEMR\Module\Documo\Database;
+use OpenEMR\Modules\Documo\Database;
 
 require_once dirname(__FILE__, 4) . '/globals.php';
 require_once dirname(__FILE__) . "/controller/Database.php";
