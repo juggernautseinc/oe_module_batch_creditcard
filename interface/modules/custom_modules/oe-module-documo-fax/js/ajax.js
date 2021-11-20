@@ -21,7 +21,7 @@ function numberSearch() {
     })
         .then((res) => res.json())
         .then((data) => {
-            output += data;
+            //output += data;
             console.log(data);
 
         });
