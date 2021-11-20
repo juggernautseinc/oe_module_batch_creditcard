@@ -108,9 +108,9 @@ require_once dirname(__FILE__, 4) . "/globals.php";
             <button id="porting" class="port" onclick="toggleTransfer('transfer')"><?php echo xlt("Port Current Number") ?></button>
         </div>
         <div id="order" class="card mb-4">
-            <div class="card-body">
+            <div class="card-body mb-4">
                 <div class="row">
-                    <div class="form-group col-6">
+                    <div class="form-group col-4 mr-4">
                         <label ><?php echo xlt("Provision Type") ?></label>
                         <div role="combobox" class="ng-input" aria-expanded="false">
                             <select class="ng-input" id="provisiontype" name="provisiontype">
@@ -118,7 +118,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                             </select>
                         </div>
                     </div>
-                    <div class="form-group col-6">
+                    <div class="form-group col-4 mr-4">
                         <lable><?php echo xlt("Search Type") ?></lable>
                         <div role="combobox" class="ng-input" aria-expanded="false">
                             <select class="ng-input" id="searchtype" name="searchtype">
