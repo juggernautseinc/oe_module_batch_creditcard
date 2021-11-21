@@ -134,7 +134,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         <div id="areacode" class="card col-4 mb-4">
            <form>
                <input type="hidden" name="type" value="order">
-               <input type="hidden" name="csrf_token" value="<?php echo  attr(CsrfUtils::collectCsrfToken()); ?>"
+               <input type="hidden" name="csrf_token" value="<?php echo  attr(CsrfUtils::collectCsrfToken()); ?>">
                 <div class="form-group">
                     <label for="prefix"><?php echo xlt("Area/Exchange Code") ?></label>
                     <input id="prefix" class="form-control" type="text" value="" placeholder="801 <?php echo xla(" Enter area / exchange code here"); ?>">
