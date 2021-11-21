@@ -103,7 +103,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
 </head>
 <body>
     <div class="container-fluid main">
-        <div class="buttons">
+        <div class="buttons mb-4">
             <button id="provision" class="provision mr-4" onclick="toggleOrder('order')"><?php echo xlt("Provision New Number") ?></button>
             <button id="porting" class="port " onclick="toggleTransfer('transfer')"><?php echo xlt("Port Current Number") ?></button>
         </div>
@@ -134,7 +134,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         <div id="transfer">
             <p><?php echo xlt("Port number") ?></p>
         </div>
-        <div id="areacode">
+        <div id="areacode" class="card col-4 mb-4">
            <form>
                 <div class="form-group">
                     <label for="prefix"><?php echo xlt("Area/Exchange Code") ?></label>
