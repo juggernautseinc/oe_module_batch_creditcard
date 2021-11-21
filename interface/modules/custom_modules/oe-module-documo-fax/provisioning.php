@@ -103,8 +103,8 @@ require_once dirname(__FILE__, 4) . "/globals.php";
 </head>
 <body>
     <div class="container-fluid main">
-        <div class="buttons card mb-4 ">
-            <button id="provision" class="provision" onclick="toggleOrder('order')"><?php echo xlt("Provision New Number") ?></button>
+        <div class="buttons">
+            <button id="provision" class="provision mr-4" onclick="toggleOrder('order')"><?php echo xlt("Provision New Number") ?></button>
             <button id="porting" class="port " onclick="toggleTransfer('transfer')"><?php echo xlt("Port Current Number") ?></button>
         </div>
         <div id="order" class="card mb-4">
@@ -134,26 +134,26 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         <div id="transfer">
             <p><?php echo xlt("Port number") ?></p>
         </div>
-        <div class="form-row">
-            <div class="form-group col-6 mr-4 mb-4" id="areacode">
-                <div class="form-control">
-                    <label><?php echo xlt("Area/Exchange Code") ?></label>
-                    <input id="prefix" class="ng-input" type="text" value="" placeholder="801 <?php echo xla(" Enter area / exchange code here"); ?>">
-                </div>
-                <div class="form-control">
-                    <label><?php echo xlt("City");?></label>
-                    <input id="city" class="ng-input" type="text" value="" placeholer="<?php echo xla("Norfolk"); ?>"
-                </div>
-                <div class="form-control">
-                    <label><?php echo xlt('Zip'); ?></label>
-                    <input id="zip" class="ng-input" type="text" value="" placeholder="<?php echo xla('23323'); ?>"
-                    <input type="hidden" name="type" value="order">
-                </div>
-                <div class="form-control">
-                    <input class="btn btn-primary" id="checkfornumbers" type="submit" value="<?php echo xlt("Get Available Numbers") ?>">
-                </div>
+
+       <form>
+            <div class="form-group">
+                <label for="prefix"><?php echo xlt("Area/Exchange Code") ?></label>
+                <input id="prefix" class="ng-input" type="text" value="" placeholder="801 <?php echo xla(" Enter area / exchange code here"); ?>">
             </div>
-        </div>
+            <div class="form-group">
+                <label for="city"><?php echo xlt("City");?></label>
+                <input id="city" class="ng-input" type="text" value="" placeholer="<?php echo xla("Norfolk"); ?>"
+            </div>
+            <div class="form-group">
+                <label for="zip"><?php echo xlt('Zip'); ?></label>
+                <input id="zip" class="ng-input" type="text" value="" placeholder="<?php echo xla('23323'); ?>"
+                <input type="hidden" name="type" value="order">
+            </div>
+            <div class="form-group">
+                <input class="btn btn-primary" id="checkfornumbers" type="submit" value="<?php echo xlt("Get Available Numbers") ?>">
+            </div>
+       </form>
+
         <div class="form-group col-16" id="numberdisplay">
             <!-- placeholder for the returned values -->
         </div>
