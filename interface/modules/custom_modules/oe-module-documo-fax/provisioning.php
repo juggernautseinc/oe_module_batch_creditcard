@@ -132,6 +132,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         </div>
         <div id="areacode" class="card col-4 mb-4">
            <form>
+               <input type="hidden" name="type" value="order">
                 <div class="form-group">
                     <label for="prefix"><?php echo xlt("Area/Exchange Code") ?></label>
                     <input id="prefix" class="form-control" type="text" value="" placeholder="801 <?php echo xla(" Enter area / exchange code here"); ?>">
@@ -143,7 +144,6 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                 <div class="form-group">
                     <label for="zip"><?php echo xlt('Zip'); ?></label>
                     <input id="zip" class="form-control" type="text" value="" placeholder="<?php echo xla('23323'); ?>"
-                    <input type="hidden" name="type" value="order">
                 </div>
                 <div class="form-group">
                     <input class="btn btn-primary form-control" id="checkfornumbers" type="submit" value="<?php echo xlt("Get Available Numbers") ?>">
