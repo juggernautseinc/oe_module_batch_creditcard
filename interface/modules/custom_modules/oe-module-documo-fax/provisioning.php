@@ -107,27 +107,23 @@ require_once dirname(__FILE__, 4) . "/globals.php";
             <button id="provision" class="provision mr-4" onclick="toggleOrder('order')"><?php echo xlt("Provision New Number") ?></button>
             <button id="porting" class="port " onclick="toggleTransfer('transfer')"><?php echo xlt("Port Current Number") ?></button>
         </div>
-        <div id="order" class="card mb-4">
-            <div class="card-body mb-4">
-                <div class="row">
-                    <div class="form-group col-4 mr-4">
-                        <label ><?php echo xlt("Provision Type") ?></label>
-                        <div role="combobox" class="ng-input" aria-expanded="false">
-                            <select class="ng-input" id="provisiontype" name="provisiontype">
-                                <option value="order"><?php echo xlt("Order") ?></option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group col-4 mr-4">
-                        <lable><?php echo xlt("Search Type") ?></lable>
-                        <div role="combobox" class="ng-input" aria-expanded="false">
-                            <select class="ng-input" id="searchtype" name="searchtype">
-                                <option><?php echo xlt("Select") ?></option>
-                                <option value="prefix"><?php echo xlt("Prefix") ?></option>
-                                <option value="tollfree"><?php echo xlt("Toll-free") ?></option>
-                            </select>
-                        </div>
-                    </div>
+        <div class="row">
+            <div class="form-group col-5 mr-4">
+                <label for="provision-type"><?php echo xlt("Provision Type") ?></label>
+                <div role="combobox" class="form-control" aria-expanded="false">
+                    <select class="form-control" id="provisiontype" name="provisiontype">
+                        <option value="order"><?php echo xlt("Order") ?></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-6">
+                <lable for="search-type"><?php echo xlt("Search Type") ?></lable>
+                <div role="combobox" class="form-control" aria-expanded="false">
+                    <select class="form-control" id="searchtype" name="searchtype">
+                        <option><?php echo xlt("Select") ?></option>
+                        <option value="prefix"><?php echo xlt("Prefix") ?></option>
+                        <option value="tollfree"><?php echo xlt("Toll-free") ?></option>
+                    </select>
                 </div>
             </div>
         </div>
