@@ -102,7 +102,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
     </style>
 </head>
 <body>
-    <div class="container-fluid main">
+    <div class="container main">
         <div class="buttons mb-4">
             <button id="provision" class="provision mr-4" onclick="toggleOrder('order')"><?php echo xlt("Provision New Number") ?></button>
             <button id="porting" class="port " onclick="toggleTransfer('transfer')"><?php echo xlt("Port Current Number") ?></button>
