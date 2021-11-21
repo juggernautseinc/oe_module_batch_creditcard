@@ -107,7 +107,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
             <button id="provision" class="provision mr-4" onclick="toggleOrder('order')"><?php echo xlt("Provision New Number") ?></button>
             <button id="porting" class="port " onclick="toggleTransfer('transfer')"><?php echo xlt("Port Current Number") ?></button>
         </div>
-        <div class="row">
+        <div class="row mb-4 card">
             <div class="form-group col-5 mr-4">
                 <label for="provision-type"><?php echo xlt("Provision Type") ?></label>
                 <div role="combobox" class="form-control" aria-expanded="false">
@@ -117,7 +117,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                 </div>
             </div>
             <div class="form-group col-6">
-                <lable for="search-type"><?php echo xlt("Search Type") ?></lable>
+                <label for="search-type"><?php echo xlt("Search Type") ?></label>
                 <div role="combobox" class="form-control" aria-expanded="false">
                     <select class="form-control" id="searchtype" name="searchtype">
                         <option><?php echo xlt("Select") ?></option>
