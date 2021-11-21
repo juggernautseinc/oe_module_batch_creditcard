@@ -130,7 +130,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         <div id="transfer">
             <p><?php echo xlt("Port number") ?></p>
         </div>
-        <div id="areacode" class="card col-4 mb-4">
+        <div id="order" class="card col-4 mb-4">
            <form>
                 <div class="form-group">
                     <label for="prefix"><?php echo xlt("Area/Exchange Code") ?></label>
