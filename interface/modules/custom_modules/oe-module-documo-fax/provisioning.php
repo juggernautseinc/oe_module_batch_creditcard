@@ -134,25 +134,26 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         <div id="transfer">
             <p><?php echo xlt("Port number") ?></p>
         </div>
-
-       <form>
-            <div class="form-group">
-                <label for="prefix"><?php echo xlt("Area/Exchange Code") ?></label>
-                <input id="prefix" class="ng-input" type="text" value="" placeholder="801 <?php echo xla(" Enter area / exchange code here"); ?>">
-            </div>
-            <div class="form-group">
-                <label for="city"><?php echo xlt("City");?></label>
-                <input id="city" class="ng-input" type="text" value="" placeholer="<?php echo xla("Norfolk"); ?>"
-            </div>
-            <div class="form-group">
-                <label for="zip"><?php echo xlt('Zip'); ?></label>
-                <input id="zip" class="ng-input" type="text" value="" placeholder="<?php echo xla('23323'); ?>"
-                <input type="hidden" name="type" value="order">
-            </div>
-            <div class="form-group">
-                <input class="btn btn-primary" id="checkfornumbers" type="submit" value="<?php echo xlt("Get Available Numbers") ?>">
-            </div>
-       </form>
+        <div id="areacode">
+           <form>
+                <div class="form-group">
+                    <label for="prefix"><?php echo xlt("Area/Exchange Code") ?></label>
+                    <input id="prefix" class="ng-input" type="text" value="" placeholder="801 <?php echo xla(" Enter area / exchange code here"); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="city"><?php echo xlt("City");?></label>
+                    <input id="city" class="ng-input" type="text" value="" placeholer="<?php echo xla("Norfolk"); ?>"
+                </div>
+                <div class="form-group">
+                    <label for="zip"><?php echo xlt('Zip'); ?></label>
+                    <input id="zip" class="ng-input" type="text" value="" placeholder="<?php echo xla('23323'); ?>"
+                    <input type="hidden" name="type" value="order">
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" id="checkfornumbers" type="submit" value="<?php echo xlt("Get Available Numbers") ?>">
+                </div>
+           </form>
+        </div>
 
         <div class="form-group col-16" id="numberdisplay">
             <!-- placeholder for the returned values -->
