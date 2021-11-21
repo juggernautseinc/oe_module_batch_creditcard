@@ -17,9 +17,10 @@ require_once "Database.php";
 class Provisioning
 {
     private $dispatch;
-    public $areaCode;
+    private $areaCode;
     private $city;
     private $zipcode;
+    private $type;
 
     public function __construct()
     {
@@ -28,8 +29,38 @@ class Provisioning
 
     public function seekNumber()
     {
+        if (isset($city) && isset($zip) && isset($code)) {
+            return $this->dispatch->findAvailableFaxNumber($type, $this->areaCode, $this->city, $this->zipcode);
+        }
+    }
 
-        return $this->dispatch->findAvailableFaxNumber($this->areaCode);
+    public function setAreaCode($value) : string
+    {
+       return $this->areaCode = $value;
+    }
+
+    /**
+     * @param mixed $city
+     */
+    public function setCity($city): string
+    {
+        return $this->city = $city;
+    }
+
+    /**
+     * @param mixed $zipcode
+     */
+    public function setZipcode($zipcode): int
+    {
+        return $this->zipcode = $zipcode;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type): string
+    {
+        return $this->type = $type;
     }
 
 

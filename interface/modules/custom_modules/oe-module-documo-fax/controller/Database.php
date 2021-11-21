@@ -29,7 +29,8 @@ class Database
     CREATE TABLE `documo_user`
 (
     `id` INT NOT NULL,
-    `user` TEXT NOT NULL
+    `user` TEXT NOT NULL,
+    `fax_numbers` TEXT NULL
 ) ENGINE = InnoDB COMMENT = 'documo account users';
 DB;
 
@@ -130,4 +131,5 @@ DB;
         $accid = json_decode($account_number['account_info'], true);
         return $accid['uuid'];
     }
+
 }

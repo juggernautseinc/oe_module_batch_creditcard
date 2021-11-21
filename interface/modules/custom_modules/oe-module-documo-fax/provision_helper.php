@@ -22,6 +22,15 @@ require_once "controller/Provisioning.php";
 
 
 $getNumbers = new Provisioning();
-$getNumbers->areaCode = 757; //$_POST['areacode'];
+
+$areacodevalue = filter_input(INPUT_POST, 'areacode', FILTER_SANITIZE_STRING);
+$getNumbers->setAreaCode($areacodevalue);
+
+$city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
+$getNumbers->setCity($city);
+
+$zip = filter_input(INPUT_POST, 'zip', FILTER_VALIDATE_INT);
+$getNumbers->setZipcode($zip);
+
 $list = $getNumbers->seekNumber();
 echo $list;

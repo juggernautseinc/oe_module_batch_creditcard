@@ -9,7 +9,8 @@ function numberType() {
 document.getElementById('checkfornumbers').addEventListener("click", numberSearch);
 function numberSearch() {
     const prefix = document.getElementById('prefix').value;
-    //alert('Do number search via ajax ' + prefix);
+    const city = document.getElementById('city').value;
+    const zip = document.getElementById('zip').value;
     let output = '<h3>Available Numbers</h3>';
     fetch('provision_helper.php', {
         method: 'POST',
@@ -17,7 +18,7 @@ function numberSearch() {
             'Accept': 'application/json, text/plain, */*',
             'Content-type': 'application/json'
         },
-        body:JSON.stringify({areacode:prefix})
+        body:JSON.stringify({areacode:prefix, city:city, zip:zip})
     })
         .then((res) => res.json())
         .then((data) => {
