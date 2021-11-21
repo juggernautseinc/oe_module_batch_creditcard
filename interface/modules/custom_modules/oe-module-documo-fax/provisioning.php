@@ -141,11 +141,11 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                 </div>
                 <div class="form-group">
                     <label for="city"><?php echo xlt("City");?></label>
-                    <input id="city" class="form-control" type="text" value="" placeholder="<?php echo xla("Norfolk"); ?>"
+                    <input id="city" class="form-control" type="text" value="" placeholder="<?php echo xla("Norfolk"); ?>">
                 </div>
                 <div class="form-group">
                     <label for="zip"><?php echo xlt('Zip'); ?></label>
-                    <input id="zip" class="form-control" type="text" value="" placeholder="<?php echo xla('23323'); ?>"
+                    <input id="zip" class="form-control" type="text" value="" placeholder="<?php echo xla('23323'); ?>">
                 </div>
                 <div class="form-group">
                     <input class="btn btn-primary form-control" id="checkfornumbers" type="submit" value="<?php echo xlt("Get Available Numbers") ?>">
