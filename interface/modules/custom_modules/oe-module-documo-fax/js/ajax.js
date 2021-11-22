@@ -25,11 +25,12 @@ async function numberSearch(e) {
         },
         body: JSON.stringify({areacode: prefix, city: city, zip: zip})
     }
-    await fetch('provision_helper.php', requestOptions)
-        .then((res) => res.json())
-        .then((data) => {
+    const response = await fetch('provision_helper.php', requestOptions)
+
+        //.then((res) => res.json())
+        //.then((data) => {
                 //data = JSON.parse(data);
-                console.log(data);
+                console.log(response);
                 //data.forEach(function (rows) {
                 //  output += `
                 //<div>
@@ -37,9 +38,9 @@ async function numberSearch(e) {
                 //</div>
                 //`;
                 //});
-                document.getElementById('numberdisplay').innerHTML = output;
+             //   document.getElementById('numberdisplay').innerHTML = output;
 
-        }).catch((err) => console.log(err));
+ //       }).catch((err) => console.log(err));
 
 
 }
