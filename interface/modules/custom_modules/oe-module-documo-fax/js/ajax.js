@@ -33,7 +33,7 @@ async function numberSearch(e) {
     }
     xhr.open('POST', 'provision_helper.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.send(data);
+    xhr.send(JSON.stringify(data));
 
 
 
