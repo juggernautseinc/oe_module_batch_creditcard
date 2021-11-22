@@ -26,7 +26,7 @@ async function numberSearch(e) {
             console.log(response);
             response.rows.forEach(function(row) {
                 //console.log(row.number);
-                console.log(row.number.regional_data);
+                console.log(row.rate_center);
             })
             document.getElementById('numberdisplay').innerHTML = output;
         }
