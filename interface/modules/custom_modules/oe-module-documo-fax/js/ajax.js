@@ -25,14 +25,14 @@ function numberSearch(e) {
     })
         .then((res) => res.json())
         .then((data) => {
-            data.forEach(function(post) {
-                output += `
-            <div>
-                <p>${post.number}</p>
-            </div>
-            `;
-            });
-
+           // data.forEach(function(post) {
+           //     output += `
+            //<div>
+              //  <p>${post.number}</p>
+            //</div>
+            //`;
+            //});
+            console.log(body);
             console.log(data);
 
         });
