@@ -94,7 +94,7 @@ class ApiDispatcher
     {
         $curl = curl_init();
         //$post = 'type=' . $type . '&npa=' . $areacode . '&zipcode=' . $zip . '&city=' . $city;
-        $post = 'type=order&npa=' . $areacode . '&zipcode=23320&city=chesapeake';
+        $post = 'npa=' . $areacode . '&state=VA&zip=23320';
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/numbers/provision/search?'.$post,
             CURLOPT_RETURNTRANSFER => true,
