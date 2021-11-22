@@ -28,7 +28,7 @@ async function numberSearch(e) {
                 console.log(row.number_e164, row.regional_data.rate_center, row.regional_data.rate_center.country_iso);
                 output += `
                 <div>
-                    <p>${row.number_e164}, ${row.regional_data.rate_center}, ${row.regional_data.rate_center.country_iso}</p>
+                    <p>${row.number_e164}, ${row.regional_data.rate_center}, ${row.regional_data.rate_center['state']}</p>
                 </div>
                 `;
             })
