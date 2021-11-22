@@ -27,15 +27,19 @@ function numberSearch(e) {
     })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
-            data.forEach(function(post) {
-                output += `
+            if (data != '') {
+                console.log(data);
+                data.forEach(function (post) {
+                    output += `
            <div>
                 <p>${post.number}</p>
             </div>
             `;
-            });
-            document.getElementById('numberdisplay').innerHTML = output;
+                });
+                document.getElementById('numberdisplay').innerHTML = output;
+            } else {
+                console.log("Data Empty");
+            }
         });//.catch((err) => console.log(err));
 
 
