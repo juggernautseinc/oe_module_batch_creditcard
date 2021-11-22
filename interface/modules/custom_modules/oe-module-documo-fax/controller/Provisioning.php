@@ -31,7 +31,7 @@ class Provisioning
     {
         if (isset($this->areaCode)) {
             //return $this->dispatch->findAvailableFaxNumber($this->type, $this->areaCode, $this->city, $this->zipcode);
-            return $this->dispatch->findAvailableFaxNumber(757);
+            return $this->dispatch->findAvailableFaxNumber($this->areaCode);
         } else {
             return 'error';
         }
