@@ -30,6 +30,7 @@ function numberSearch(e) {
         .then((data) => {
             if (data != '') {
                 console.log(data);
+                data = JSON.stringify(data);
                 data = JSON.parse(data);
                 data.forEach(function (rows) {
                     output += `
