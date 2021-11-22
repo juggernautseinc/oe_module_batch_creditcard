@@ -27,6 +27,7 @@ function numberSearch(e) {
     })
         .then((res) => res.json())
         .then((data) => {
+            console.log(data);
             data.forEach(function(post) {
                 output += `
            <div>
@@ -35,7 +36,7 @@ function numberSearch(e) {
             `;
             });
             document.getElementById('numberdisplay').innerHTML = output;
-        }).catch((err) => console.log(err));
+        });//.catch((err) => console.log(err));
 
 
 }
