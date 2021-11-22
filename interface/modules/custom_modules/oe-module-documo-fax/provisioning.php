@@ -131,7 +131,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         <div id="transfer">
             <p><?php echo xlt("Port number") ?></p>
         </div>
-        <div id="areacode" class="card col-4 mb-4">
+        <div id="areacode" class="card col-4 mb-4 float-right">
            <form>
                <input type="hidden" id="token" name="csrf_token" value="<?php echo  attr(CsrfUtils::collectCsrfToken()); ?>">
                 <div class="form-group">
@@ -139,7 +139,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                     <input id="prefix" class="form-control" type="text" value="" placeholder="801 <?php echo xla(" Enter area / exchange code here"); ?>">
                 </div>
                 <div class="form-group">
-                    <label for="state"><?php echo xlt("City");?></label>
+                    <label for="state"><?php echo xlt("State");?></label>
                     <input id="state" class="form-control" type="text" value="" placeholder="<?php echo xla("VA"); ?>">
                 </div>
                 <div class="form-group">
