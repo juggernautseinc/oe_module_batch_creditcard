@@ -28,7 +28,8 @@ async function numberSearch(e) {
                 console.log(row.number_e164);
                 output += `
                 <div>
-                    <p>row.number_e164</p>
+                    <p>${row.number_e164}</p>
+                    <p>${row.rate_center}</p>
                 </div>
                 `;
             })
