@@ -26,16 +26,16 @@ function numberSearch(e) {
         body:JSON.stringify({type:type, areacode:prefix, city:city, zip:zip})
     })
         .then((res) => res.json())
-        .then((data) => console.log(data))//{
-           // data.forEach(function(post) {
-           //     output += `
-            //<div>
-              //  <p>${post.number}</p>
-            //</div>
-            //`;
-            //});
+        .then((data) => {
+            data.forEach(function(post) {
+                output += `
+           <div>
+                <p>${post.number}</p>
+            </div>
+            `;
+            });
 
-        //});
+        });
     document.getElementById('numberdisplay').innerHTML = output;
 
 }
