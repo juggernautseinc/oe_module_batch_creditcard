@@ -29,16 +29,15 @@ function numberSearch(e) {
         .then((res) => res.json())
         .then((data) => {
             if (data != '') {
-                console.log(data);
-                data = JSON.stringify(data);
                 data = JSON.parse(data);
-                data.forEach(function (rows) {
-                    output += `
-           <div>
-                <p>${rows.number}</p>
-            </div>
-            `;
-                });
+                console.log(data);
+                //data.forEach(function (rows) {
+                  //  output += `
+           //<div>
+             //   <p>${rows.number}</p>
+            //</div>
+            //`;
+                //});
                 document.getElementById('numberdisplay').innerHTML = output;
             } else {
                 console.log("Data Empty");

@@ -23,7 +23,7 @@ require_once "controller/Provisioning.php";
 
 $getNumbers = new Provisioning();
 
-$areacodevalue = 757; //filter_input(INPUT_POST, 'areacode', FILTER_SANITIZE_STRING);
+$areacodevalue = filter_input(INPUT_POST, 'areacode', FILTER_SANITIZE_STRING);
 $getNumbers->setAreaCode($areacodevalue);
 /*
 $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
