@@ -23,7 +23,9 @@ async function numberSearch(e) {
     xhr.onload = function() {
         if(this.status === 200) {
             let response = JSON.parse(this.responseText);
+            response = JSON.stringify(response);
             console.log(response);
+
             document.getElementById('numberdisplay').innerHTML = output;
         }
     }
