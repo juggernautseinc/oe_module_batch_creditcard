@@ -30,10 +30,11 @@ function numberSearch(e) {
         .then((data) => {
             if (data != '') {
                 console.log(data);
-                data.forEach(function (post) {
+                data = JSON.parse(data);
+                data.forEach(function (rows) {
                     output += `
            <div>
-                <p>${post.number}</p>
+                <p>${rows.number}</p>
             </div>
             `;
                 });
