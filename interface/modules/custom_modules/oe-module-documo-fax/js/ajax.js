@@ -32,8 +32,6 @@ function numberSearch(e) {
             //</div>
             //`;
             //});
-            console.log(body);
-            ;
 
         //});
     document.getElementById('numberdisplay').innerHTML = output;
