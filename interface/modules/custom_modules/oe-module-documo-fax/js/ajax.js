@@ -19,19 +19,17 @@ async function numberSearch(e) {
     await fetch('provision_helper.php', {
         method: 'POST',
         headers: {
-            'Accept': 'application/json, text/plain, */*',
+            'Accept': 'application/json',
             'Content-type': 'application/json',
             'mode': 'cors',
             'credentials': 'same-origin'
         },
-        body: JSON.stringify({areacode: prefix})
+        body: JSON.stringify({areacode: prefix, city: city, zip: zip})
     })
         .then((res) => res.json())
         .then((data) => {
-            if (data != '') {
                 //data = JSON.parse(data);
                 console.log(data);
-                console.log(prefix);
                 //data.forEach(function (rows) {
                 //  output += `
                 //<div>
@@ -40,9 +38,7 @@ async function numberSearch(e) {
                 //`;
                 //});
                 document.getElementById('numberdisplay').innerHTML = output;
-            } else {
-                console.log("Data Empty");
-            }
+
         }).catch((err) => console.log(err));
 
 
