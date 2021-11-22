@@ -25,10 +25,10 @@ async function numberSearch(e) {
             let response = JSON.parse(this.responseText);
             console.log(response);
             response.rows.forEach(function(row) {
-                console.log(row.number_e164, row.regional_data.rate_center, row.regional_data.rate_center.state);
+                console.log(row.number_e164, row.regional_data.rate_center, row.regional_data.rate_center.country_iso);
                 output += `
                 <div>
-                    <p>${row.number_e164}, ${row.regional_data.rate_center}, ${row.regional_data.rate_center.state}</p>
+                    <p>${row.number_e164}, ${row.regional_data.rate_center}, ${row.regional_data.rate_center.country_iso}</p>
                 </div>
                 `;
             })
