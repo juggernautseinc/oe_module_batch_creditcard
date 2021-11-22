@@ -29,7 +29,7 @@ async function numberSearch(e) {
                 output += `
                 <div>
                     <p>${row.number_e164}</p>
-                    <p>${row.number.number_e164.regional_data.rate_center}</p>
+                    <p>${row.rate_center}</p>
                 </div>
                 `;
             })
