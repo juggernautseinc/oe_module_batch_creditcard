@@ -25,7 +25,13 @@ async function numberSearch(e) {
             let response = JSON.parse(this.responseText);
             response = JSON.stringify(response);
             console.log(response);
-
+            for (let i = 0; i < response.length; i++) {
+                output += `
+                <div>
+                   <p>${response.number}</p>
+                </div>
+                `;
+            }
             document.getElementById('numberdisplay').innerHTML = output;
         }
     }
