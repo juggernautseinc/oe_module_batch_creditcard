@@ -16,7 +16,8 @@ async function numberSearch(e) {
     const type = document.getElementById('type').value;
     const token = document.getElementById('token').value;
     let output = '<h3>Available Numbers</h3>';
-    let data = JSON.stringify({areacode: prefix, city: city, zip: zip, token: token, type: type});
+    let data = {areacode: prefix, city: city, zip: zip, token: token, type: type};
+    console.log(data);
     xhr.onload = function() {
         if(this.status === 200) {
             let response = JSON.parse(this.responseText);
@@ -24,7 +25,6 @@ async function numberSearch(e) {
             document.getElementById('numberdisplay').innerHTML = output;
         }
     }
-    console.log(data);
     xhr.open('POST', 'provision_helper.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.send(data);
