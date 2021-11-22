@@ -15,11 +15,13 @@ function numberSearch(e) {
     const type = document.getElementById('type').value;
     const token = document.getElementById('token').value;
     let output = '<h3>Available Numbers</h3>';
+    try {
     fetch('provision_helper.php', {
         method: 'POST',
         headers: {
             'Accept': 'application/json, text/plain, */*',
-            'Content-type': 'application/json'
+            'Content-type': 'application/json',
+            'mode': 'cors'
         },
         body:JSON.stringify({type:type, areacode:prefix, city:city, zip:zip})
     })
