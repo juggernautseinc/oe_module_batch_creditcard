@@ -20,10 +20,10 @@ require_once "controller/Provisioning.php";
 //if (!CsrfUtils::verifyCsrfToken($_POST['csrf_token'])) {
    // CsrfUtils::csrfNotVerified();
 //}
-
+file_put_contents("/var/www/html/errors/post.txt", print_r($_POST, true));
 $getNumbers = new Provisioning();
 
-$areacodevalue = $_POST['areacode']; //filter_input(INPUT_POST, 'areacode', FILTER_SANITIZE_STRING);
+$areacodevalue = 757; //filter_input(INPUT_POST, 'areacode', FILTER_SANITIZE_STRING);
 $getNumbers->setAreaCode($areacodevalue);
 /*
 $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
