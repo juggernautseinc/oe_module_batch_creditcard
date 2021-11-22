@@ -29,7 +29,7 @@ async function numberSearch(e) {
         .then((res) => res.json())
         .then((data) => {
             if (data != '') {
-                data = JSON.parse(data);
+                //data = JSON.parse(data);
                 console.log(data);
                 console.log(prefix);
                 //data.forEach(function (rows) {
