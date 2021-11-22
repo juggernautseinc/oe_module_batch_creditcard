@@ -34,9 +34,9 @@ function numberSearch(e) {
             </div>
             `;
             });
+            document.getElementById('numberdisplay').innerHTML = output;
+        }).catch((err) => console.log(err));
 
-        });
-    document.getElementById('numberdisplay').innerHTML = output;
 
 }
 
