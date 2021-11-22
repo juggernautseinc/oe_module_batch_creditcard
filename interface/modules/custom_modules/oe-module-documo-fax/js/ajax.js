@@ -22,7 +22,6 @@ async function numberSearch(e) {
     data += "&zip="+zip;
     data += "&token="+token;
 
-
     xhr.onload = function() {
         if(this.status === 200) {
             let response = JSON.parse(this.responseText);

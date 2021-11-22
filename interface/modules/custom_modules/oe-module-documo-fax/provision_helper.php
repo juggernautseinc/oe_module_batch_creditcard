@@ -17,13 +17,13 @@ use OpenEMR\Modules\Documo\Provisioning;
 require_once dirname(__FILE__, 4) . "/globals.php";
 require_once "controller/Provisioning.php";
 
-//if (!CsrfUtils::verifyCsrfToken($_POST['csrf_token'])) {
-   // CsrfUtils::csrfNotVerified();
-//}
-file_put_contents("/var/www/html/errors/post.txt", print_r($_POST, true));
+if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
+    CsrfUtils::csrfNotVerified();
+}
+
 $getNumbers = new Provisioning();
 
-$areacodevalue = 757; //filter_input(INPUT_POST, 'areacode', FILTER_SANITIZE_STRING);
+$areacodevalue = filter_input(INPUT_POST, 'areacode', FILTER_VALIDATE_INT);
 $getNumbers->setAreaCode($areacodevalue);
 /*
 $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
