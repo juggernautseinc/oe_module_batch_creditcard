@@ -15,7 +15,7 @@ function numberSearch(e) {
     const type = document.getElementById('type').value;
     const token = document.getElementById('token').value;
     let output = '<h3>Available Numbers</h3>';
-    try {
+
     fetch('provision_helper.php', {
         method: 'POST',
         headers: {
