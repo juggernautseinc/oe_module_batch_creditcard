@@ -20,7 +20,6 @@ require_once "controller/Provisioning.php";
    // CsrfUtils::csrfNotVerified();
 //}
 
-var_dump($_POST); die;
 $getNumbers = new Provisioning();
 
 $areacodevalue = filter_input(INPUT_POST, 'areacode', FILTER_SANITIZE_STRING);

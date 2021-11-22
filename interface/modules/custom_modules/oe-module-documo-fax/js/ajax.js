@@ -24,7 +24,7 @@ function numberSearch(e) {
         body:JSON.stringify({type:type, areacode:prefix, city:city, zip:zip})
     })
         .then((res) => res.json())
-        .then((data) => {
+        .then((data) => console.log(data))//{
            // data.forEach(function(post) {
            //     output += `
             //<div>
@@ -33,9 +33,9 @@ function numberSearch(e) {
             //`;
             //});
             console.log(body);
-            console.log(data);
+            ;
 
-        });
+        //});
     document.getElementById('numberdisplay').innerHTML = output;
 
 }
