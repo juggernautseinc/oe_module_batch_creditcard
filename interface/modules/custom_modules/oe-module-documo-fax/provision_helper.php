@@ -12,7 +12,7 @@
 
 use OpenEMR\Modules\Documo\Provisioning;
 
-//use OpenEMR\Common\Csrf\CsrfUtils;
+use OpenEMR\Common\Csrf\CsrfUtils;
 
 require_once dirname(__FILE__, 4) . "/globals.php";
 require_once "controller/Provisioning.php";
@@ -23,7 +23,7 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
 
 $getNumbers = new Provisioning();
 
-$areacodevalue = filter_input(INPUT_POST, 'areacode', FILTER_VALIDATE_INT);
+$areacodevalue = $_POST['areacode']; //filter_input(INPUT_POST, 'areacode', FILTER_VALIDATE_INT);
 $getNumbers->setAreaCode($areacodevalue);
 /*
 $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
