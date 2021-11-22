@@ -1,7 +1,5 @@
 <?php
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+
 
 /*
  * package   OpenEMR
@@ -24,7 +22,7 @@ require_once "controller/Provisioning.php";
 //}
 
 $getNumbers = new Provisioning();
-
+var_dump($_POST); die;
 $areacodevalue = 757; //filter_input(INPUT_POST, 'areacode', FILTER_SANITIZE_STRING);
 $getNumbers->setAreaCode($areacodevalue);
 /*
