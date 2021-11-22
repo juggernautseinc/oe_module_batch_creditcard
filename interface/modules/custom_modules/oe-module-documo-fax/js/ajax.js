@@ -24,7 +24,7 @@ function numberSearch(e) {
             'mode': 'cors',
             'credentials': 'same-origin'
         },
-        body:JSON.stringify({type:type, areacode:prefix, city:city, zip:zip})
+        body: JSON.stringify({type:type, areacode:prefix, city:city, zip:zip})
     })
         .then((res) => res.json())
         .then((data) => {
