@@ -90,10 +90,11 @@ class ApiDispatcher
         }
     }
 
-    public function findAvailableFaxNumber($type, $areacode, $city, $zip)
+    public function findAvailableFaxNumber($areacode)
     {
         $curl = curl_init();
-        $post = 'type=' . $type . '&npa=' . $areacode . '&zipcode=' . $zip . '&city=' . $city;
+        //$post = 'type=' . $type . '&npa=' . $areacode . '&zipcode=' . $zip . '&city=' . $city;
+        $post = 'type=order&npa=' . $areacode . '&zipcode=23320&city=chesapeake';
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/numbers/provision/search?'.$post,
             CURLOPT_RETURNTRANSFER => true,
