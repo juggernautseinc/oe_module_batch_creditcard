@@ -24,7 +24,7 @@ async function numberSearch(e) {
             document.getElementById('numberdisplay').innerHTML = output;
         }
     }
-    xhr.onerror
+    console.log(data);
     xhr.open('POST', 'provision_helper.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.send(data);
