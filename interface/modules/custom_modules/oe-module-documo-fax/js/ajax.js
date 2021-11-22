@@ -16,7 +16,8 @@ async function numberSearch(e) {
     const type = document.getElementById('type').value;
     const token = document.getElementById('token').value;
     let output = '<h3>Available Numbers</h3>';
-    let data = "areacode="+prefix+",type="+type;
+    let data1 = "areacode="+prefix;
+    let data2 = "type="+type;
         /*data.append('type='+type);
         data.append('city='+city);
         data.append('zip='+zip);
@@ -31,7 +32,7 @@ async function numberSearch(e) {
     }
     xhr.open('POST', 'provision_helper.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.send(data);
+    xhr.send(data1,data2);
 
 
 
