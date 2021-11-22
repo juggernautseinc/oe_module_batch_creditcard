@@ -17,13 +17,13 @@ use OpenEMR\Common\Csrf\CsrfUtils;
 require_once dirname(__FILE__, 4) . "/globals.php";
 require_once "controller/Provisioning.php";
 
-//if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
-   // CsrfUtils::csrfNotVerified();
-//}
+if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
+    CsrfUtils::csrfNotVerified();
+}
 
 $getNumbers = new Provisioning();
 
-$areacodevalue = 757; //filter_input(INPUT_POST, 'areacode', FILTER_VALIDATE_INT);
+$areacodevalue = filter_input(INPUT_POST, 'areacode', FILTER_VALIDATE_INT);
 $getNumbers->setAreaCode($areacodevalue);
 /*
 $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
