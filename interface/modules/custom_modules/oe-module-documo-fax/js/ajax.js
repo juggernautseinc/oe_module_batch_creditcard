@@ -28,9 +28,7 @@ async function numberSearch(e) {
                 console.log(row.number_e164);
                 output += `
                 <div>
-                    <p>${row.number_e164}</p>
-
-                    <p>${row.regional_data.rate_center}</p>
+                    <p>${row.number_e164}, ${row.regional_data.rate_center}, ${row.regional_data.rate_center.state}</p>
                 </div>
                 `;
             })
