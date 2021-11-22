@@ -15,8 +15,7 @@ async function numberSearch(e) {
     const type = document.getElementById('type').value;
     const token = document.getElementById('token').value;
     let output = '<h3>Available Numbers</h3>';
-
-    await fetch('provision_helper.php', {
+    let requestOptions = {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -25,7 +24,8 @@ async function numberSearch(e) {
             'credentials': 'same-origin'
         },
         body: JSON.stringify({areacode: prefix, city: city, zip: zip})
-    })
+    }
+    await fetch('provision_helper.php', requestOptions)
         .then((res) => res.json())
         .then((data) => {
                 //data = JSON.parse(data);
