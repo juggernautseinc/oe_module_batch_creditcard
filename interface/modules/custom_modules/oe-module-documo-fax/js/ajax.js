@@ -7,7 +7,8 @@ function numberType() {
     }
 }
 document.getElementById('checkfornumbers').addEventListener("click", numberSearch);
-function numberSearch() {
+function numberSearch(e) {
+    e.preventDefault();
     const prefix = document.getElementById('prefix').value;
     const city = document.getElementById('city').value;
     const zip = document.getElementById('zip').value;
