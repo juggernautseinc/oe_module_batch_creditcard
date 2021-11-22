@@ -25,7 +25,8 @@ async function numberSearch(e) {
             let response = JSON.parse(this.responseText);
             console.log(response);
             response.rows.forEach(function(row) {
-                console.log(row.number);
+                //console.log(row.number);
+                console.log(row.number.regional_data);
             })
             document.getElementById('numberdisplay').innerHTML = output;
         }
