@@ -18,9 +18,8 @@ class Provisioning
 {
     private $dispatch;
     private $areaCode;
-    private $city;
+    private $state;
     private $zipcode;
-    private $type;
 
     public function __construct()
     {
@@ -30,24 +29,31 @@ class Provisioning
     public function seekNumber()
     {
         if (isset($this->areaCode)) {
-            //return $this->dispatch->findAvailableFaxNumber($this->type, $this->areaCode, $this->city, $this->zipcode);
-            return $this->dispatch->findAvailableFaxNumber($this->areaCode);
+            return $this->dispatch->findAvailableFaxNumber(
+                $this->areaCode,
+                $this->state,
+                $this->zipcode
+            );
         } else {
             return 'error';
         }
     }
 
-    public function setAreaCode($value) : string
+    /**
+     * @param $value
+     * @return string
+     */
+    public function setAreaCode($value) : int
     {
        return $this->areaCode = $value;
     }
 
     /**
-     * @param mixed $city
+     * @param mixed $state
      */
-    public function setCity($city): string
+    public function setState($state): string
     {
-        return $this->city = $city;
+        return $this->state = $state;
     }
 
     /**
@@ -56,14 +62,6 @@ class Provisioning
     public function setZipcode($zipcode): int
     {
         return $this->zipcode = $zipcode;
-    }
-
-    /**
-     * @param mixed $type
-     */
-    public function setType($type): string
-    {
-        return $this->type = $type;
     }
 
 

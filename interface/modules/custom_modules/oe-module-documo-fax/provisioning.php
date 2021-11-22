@@ -133,15 +133,14 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         </div>
         <div id="areacode" class="card col-4 mb-4">
            <form>
-               <input type="hidden" id="type" name="type" value="order">
                <input type="hidden" id="token" name="csrf_token" value="<?php echo  attr(CsrfUtils::collectCsrfToken()); ?>">
                 <div class="form-group">
                     <label for="prefix"><?php echo xlt("Area/Exchange Code") ?></label>
                     <input id="prefix" class="form-control" type="text" value="" placeholder="801 <?php echo xla(" Enter area / exchange code here"); ?>">
                 </div>
                 <div class="form-group">
-                    <label for="city"><?php echo xlt("City");?></label>
-                    <input id="city" class="form-control" type="text" value="" placeholder="<?php echo xla("Norfolk"); ?>">
+                    <label for="state"><?php echo xlt("City");?></label>
+                    <input id="state" class="form-control" type="text" value="" placeholder="<?php echo xla("VA"); ?>">
                 </div>
                 <div class="form-group">
                     <label for="zip"><?php echo xlt('Zip'); ?></label>

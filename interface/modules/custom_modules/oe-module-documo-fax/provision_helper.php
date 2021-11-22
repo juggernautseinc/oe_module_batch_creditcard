@@ -25,12 +25,12 @@ $getNumbers = new Provisioning();
 
 $areacodevalue = filter_input(INPUT_POST, 'areacode', FILTER_VALIDATE_INT);
 $getNumbers->setAreaCode($areacodevalue);
-/*
-$city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
-$getNumbers->setCity($city);
+
+$state = filter_input(INPUT_POST, 'state', FILTER_SANITIZE_STRING);
+$getNumbers->setState($state);
 
 $zip = filter_input(INPUT_POST, 'zip', FILTER_VALIDATE_INT);
 $getNumbers->setZipcode($zip);
-*/
+
 $list = $getNumbers->seekNumber();
 echo $list;

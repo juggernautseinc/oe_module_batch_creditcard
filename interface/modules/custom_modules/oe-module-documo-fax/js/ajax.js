@@ -11,14 +11,12 @@ async function numberSearch(e) {
     e.preventDefault();
     const xhr = new XMLHttpRequest();
     const prefix = document.getElementById('prefix').value;
-    const city = document.getElementById('city').value;
+    const state = document.getElementById('state').value;
     const zip = document.getElementById('zip').value;
-    const type = document.getElementById('type').value;
     const token = document.getElementById('token').value;
     let output = '<h3>Available Numbers</h3>';
     let data = "areacode="+prefix;
-    data += "&type="+type;
-    data += "&city="+city;
+    data += "&state="+state;
     data += "&zip="+zip;
     data += "&token="+token;
 
@@ -32,9 +30,6 @@ async function numberSearch(e) {
     xhr.open('POST', 'provision_helper.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.send(data);
-
-
-
 
 
 }
