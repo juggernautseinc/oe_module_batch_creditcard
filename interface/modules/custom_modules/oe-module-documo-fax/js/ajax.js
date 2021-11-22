@@ -12,6 +12,7 @@ function numberSearch() {
     const city = document.getElementById('city').value;
     const zip = document.getElementById('zip').value;
     const type = document.getElementById('type').value;
+    const token = document.getElementById('csrf_token').value;
     let output = '<h3>Available Numbers</h3>';
     fetch('provision_helper.php', {
         method: 'POST',
@@ -23,7 +24,14 @@ function numberSearch() {
     })
         .then((res) => res.json())
         .then((data) => {
-            //output += data;
+            data.forEach(function(post) {
+                output += `
+            <div>
+                <p>${post.number}</p>
+            </div>
+            `;
+            });
+
             console.log(data);
 
         });
