@@ -23,7 +23,7 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
 
 $getNumbers = new Provisioning();
 
-$areacodevalue = $_POST['areacode']; //filter_input(INPUT_POST, 'areacode', FILTER_VALIDATE_INT);
+$areacodevalue = filter_input(INPUT_POST, 'areacode', FILTER_VALIDATE_INT);
 $getNumbers->setAreaCode($areacodevalue);
 /*
 $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
