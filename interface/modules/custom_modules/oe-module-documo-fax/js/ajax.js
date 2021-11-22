@@ -17,11 +17,11 @@ async function numberSearch(e) {
     const token = document.getElementById('token').value;
     let output = '<h3>Available Numbers</h3>';
     let data = "areacode="+prefix;
-        data += "&type="+type;
-        /*data.append('type='+type);
-        data.append('city='+city);
-        data.append('zip='+zip);
-        data.append('token='+token);*/
+    data += "&type="+type;
+    data += "&city="+city;
+    data += "&zip="+zip;
+    data += "&token="+token;
+
 
     xhr.onload = function() {
         if(this.status === 200) {
