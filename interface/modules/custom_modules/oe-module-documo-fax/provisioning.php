@@ -108,7 +108,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
             <button id="provision" class="provision mr-4" onclick="toggleOrder('order')"><?php echo xlt("Provision New Number") ?></button>
             <button id="porting" class="port " onclick="toggleTransfer('transfer')"><?php echo xlt("Port Current Number") ?></button>
         </div>
-        <div class="row mb-4" id="order">
+        <div class="row mb-4 float-left" id="order">
             <div class="form-group col-5 mr-4">
                 <label for="provision-type"><?php echo xlt("Provision Type") ?></label>
                 <div role="combobox" class="form-control" aria-expanded="false">
