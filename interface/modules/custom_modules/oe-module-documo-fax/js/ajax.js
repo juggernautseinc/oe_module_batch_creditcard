@@ -23,15 +23,10 @@ async function numberSearch(e) {
     xhr.onload = function() {
         if(this.status === 200) {
             let response = JSON.parse(this.responseText);
-            response = JSON.stringify(response);
             console.log(response);
-            for (let i = 0; i < response.length; i++) {
-                output += `
-                <div>
-                   <p>${response.number}</p>
-                </div>
-                `;
-            }
+            response.rows.forEach(function(row) {
+                console.log(row.number);
+            })
             document.getElementById('numberdisplay').innerHTML = output;
         }
     }
