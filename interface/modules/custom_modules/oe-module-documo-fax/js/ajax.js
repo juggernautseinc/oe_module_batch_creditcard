@@ -21,7 +21,8 @@ function numberSearch(e) {
         headers: {
             'Accept': 'application/json, text/plain, */*',
             'Content-type': 'application/json',
-            'mode': 'cors'
+            'mode': 'cors',
+            'credentials': 'same-origin'
         },
         body:JSON.stringify({type:type, areacode:prefix, city:city, zip:zip})
     })
