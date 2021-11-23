@@ -152,7 +152,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
            </form>
         </div>
 
-        <div class="card col-12" id="numberdisplay">
+        <div class="col-12" id="numberdisplay">
             <!-- placeholder for the returned values -->
         </div>
     </div>
