@@ -100,17 +100,6 @@ require_once dirname(__FILE__, 4) . "/globals.php";
             left: 0;
             width: 100%;
         }
-        .inputstl {
-            padding: 9px;
-            border: solid 1px #460023;
-            outline: 0;
-            background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #FFCEE7), to(#FFFFFF));
-            background: -moz-linear-gradient(top, #FFFFFF, #FFCEE7 1px, #FFFFFF 25px);
-            box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
-            -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
-            -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
-
-        }
     </style>
 </head>
 <body>
@@ -163,7 +152,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
            </form>
         </div>
 
-        <div class="form-group col-12" id="numberdisplay" style="clear: unset">
+        <div class="col-12" id="numberdisplay" style="clear: unset">
             <!-- placeholder for the returned values -->
         </div>
     </div>
