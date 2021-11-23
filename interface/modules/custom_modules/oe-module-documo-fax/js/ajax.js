@@ -26,7 +26,7 @@ async function numberSearch(e) {
             console.log(response);
             response.rows.forEach(function(row) {
                 output += `
-                <div class="checkbox card-body mb-4">
+                <div class="checkbox card-body" style="font-size: large">
                     <input id="${row.number_e164}" type="checkbox" class="styled" name="${row.number_e164}" value="${row.number_e164}">
                     <label for="${row.number_e164}">${row.number_e164}, ${row.regional_data.rate_center}, ${row.regional_data.state}, ${row.regional_data.country_iso}</label>
                 </div>
