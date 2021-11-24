@@ -33,6 +33,7 @@ async function numberSearch(e) {
                 `;
             })
             document.getElementById('numberdisplay').innerHTML = output;
+            toggleProvisionSubmit();
         }
     }
     xhr.open('POST', 'provision_helper.php', true);

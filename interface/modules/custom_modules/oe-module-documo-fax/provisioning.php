@@ -36,6 +36,9 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         #areacode {
             display: none;
         }
+        #provisionSubmit {
+            display: none;
+        }
         .provision {
             box-shadow: 0px 10px 14px -7px #276873;
             background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
@@ -151,12 +154,12 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                 </div>
            </form>
         </div>
+        <div class="col-12" id="numberdisplay">
+            <!-- placeholder for the returned values -->
+        </div>
+        <div class="col-6" id="provisionSubmit">
 
-            <div class="col-12" id="numberdisplay">
-                <table class="table table-striped">
-                <!-- placeholder for the returned values -->
-                </table>
-            </div>
+        </div>
 
     </div>
 <script src="js/ajax.js">
