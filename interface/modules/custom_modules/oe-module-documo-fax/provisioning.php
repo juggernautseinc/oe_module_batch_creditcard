@@ -122,7 +122,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                 <div role="combobox" class="form-control" aria-expanded="false">
                     <select class="form-control" id="searchtype" name="searchtype">
                         <option><?php echo xlt("Select") ?></option>
-                        <option value="prefix"><?php echo xlt("Prefix") ?></option>
+                        <option value="prefix"><?php echo xlt("Prefix/Area Code") ?></option>
                         <option value="tollfree"><?php echo xlt("Toll-free") ?></option>
                     </select>
                 </div>
