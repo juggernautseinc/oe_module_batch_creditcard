@@ -7,6 +7,7 @@ function numberType() {
     }
 }
 document.getElementById('checkfornumbers').addEventListener("click", numberSearch);
+
 async function numberSearch(e) {
     e.preventDefault();
     const xhr = new XMLHttpRequest();
@@ -40,7 +41,7 @@ async function numberSearch(e) {
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.send(data);
 
-
+    toggleProvisionSubmit();
 }
 
 
