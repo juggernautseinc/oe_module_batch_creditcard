@@ -156,7 +156,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
             <!-- placeholder for the returned values -->
         </div>
         <div class="col-6" id="provisionSubmit">
-            <btn btn-primary id="submitNumbers"><?php echo xlt('Provision Numbers'); ?></btn>
+            <btn class="btn btn-primary" id="submitNumbers"><?php echo xlt('Provision Selected Numbers'); ?></btn>
         </div>
 
     </div>

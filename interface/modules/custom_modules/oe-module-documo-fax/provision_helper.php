@@ -33,4 +33,5 @@ $zip = filter_input(INPUT_POST, 'zip', FILTER_VALIDATE_INT);
 $getNumbers->setZipcode($zip);
 
 $list = $getNumbers->seekNumber();
+//TODO might be able to do the translation here before sending back to the browser
 echo $list;
