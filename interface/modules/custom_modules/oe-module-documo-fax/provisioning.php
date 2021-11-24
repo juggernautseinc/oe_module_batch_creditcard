@@ -36,9 +36,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         #areacode {
             display: none;
         }
-        #provisionSubmit {
-            display: none;
-        }
+
         .provision {
             box-shadow: 0px 10px 14px -7px #276873;
             background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);

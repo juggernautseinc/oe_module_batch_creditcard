@@ -33,7 +33,7 @@ async function numberSearch(e) {
                 `;
             })
             document.getElementById('numberdisplay').innerHTML = output;
-            toggleProvisionSubmit();
+            //TODO Toggle the submit button should be hidden until numbers display
         }
     }
     xhr.open('POST', 'provision_helper.php', true);
