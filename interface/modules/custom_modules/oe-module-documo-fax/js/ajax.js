@@ -25,11 +25,11 @@ async function numberSearch(e) {
             let response = JSON.parse(this.responseText);
             console.log(response);
             response.rows.forEach(function(row) {
-                output += `
+                output += `<tr><td>
                 <div class="checkbox card-body" style="font-size: large">
                     <input id="${row.number_e164}" type="checkbox" class="styled" name="${row.number_e164}" value="${row.number_e164}">
                     <label style="padding-left: 10px" for="${row.number_e164}">${row.number_e164}, ${row.regional_data.rate_center}, ${row.regional_data.state}, ${row.regional_data.country_iso}</label>
-                </div>
+                </div></td></tr>
                 `;
             })
             document.getElementById('numberdisplay').innerHTML = output;

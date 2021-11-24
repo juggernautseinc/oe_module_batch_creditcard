@@ -151,10 +151,11 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                 </div>
            </form>
         </div>
-
-        <div class="col-12" id="numberdisplay">
-            <!-- placeholder for the returned values -->
-        </div>
+        <table class="table table-striped">
+            <div class="col-12" id="numberdisplay">
+                <!-- placeholder for the returned values -->
+            </div>
+        </table>
     </div>
 <script src="js/ajax.js">
 </script>
