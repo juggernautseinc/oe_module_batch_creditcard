@@ -34,10 +34,11 @@ async function numberSearch(e) {
                 `;
             })
             document.getElementById('numberdisplay').innerHTML = output;
+            document.getElementById('provisionSubmit').style.display = 'block'
             //TODO Toggle the submit button should be hidden until numbers display
         }
     }
-    success: toggleProvisionSubmit();
+
     xhr.open('POST', 'provision_helper.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.send(data);

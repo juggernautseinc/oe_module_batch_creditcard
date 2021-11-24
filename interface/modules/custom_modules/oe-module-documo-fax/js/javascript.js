@@ -13,6 +13,3 @@ function toggleTransfer(id) {
     document.getElementById('order').style.display = 'none';
 }
 
-function toggleProvisionSubmit() {
-    document.getElementById('provisionSubmit').style.display = 'block'
-}
