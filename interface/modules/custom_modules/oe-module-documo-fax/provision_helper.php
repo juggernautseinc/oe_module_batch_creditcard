@@ -36,11 +36,7 @@ $list = $getNumbers->seekNumber();
 //TODO might be able to do the translation here before sending back to the browser
 if (!empty($list)) {
     echo $list;
+} else {
+    echo "An Error has Occurred";
 }
 
-var_dump($_POST);
-array_shift($_POST);
-
-$numbers_list = implode(", ", $_POST);
-
-var_dump($numbers_list);
