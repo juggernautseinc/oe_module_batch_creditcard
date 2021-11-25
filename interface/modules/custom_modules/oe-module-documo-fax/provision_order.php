@@ -24,10 +24,7 @@ $getNumbers = new Provisioning();
 
 var_dump($_POST);
 array_shift($_POST);
-if (count($_POST) > 2) {
-    $numbers_list = implode(", ", $_POST);
-} else {
-    $numbers_list = $_POST;
-}
+
+$numbers_list = implode(", ", $_POST);
 
 var_dump($numbers_list);
