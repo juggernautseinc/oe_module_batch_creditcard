@@ -155,7 +155,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                 </div>
            </form>
         </div>
-        <form method="post" action="provision_order.php" name="provisionNumbers">
+        <form method="post" action="provision_helper.php" name="provisionNumbers">
             <input type="hidden" id="token" name="token" value="<?php echo  attr(CsrfUtils::collectCsrfToken()); ?>">
             <div class="col-12" id="numberdisplay">
                 <!-- placeholder for the returned values -->
