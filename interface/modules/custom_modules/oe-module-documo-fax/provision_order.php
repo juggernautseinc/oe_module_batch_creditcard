@@ -23,3 +23,11 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
 $getNumbers = new Provisioning();
 
 var_dump($_POST);
+$numbers_to_provision = array_shift($_POST);
+if (count($_POST) > 2) {
+    $numbers_list = implode(", ", $numbers_to_provision);
+} else {
+    $numbers_list = $numbers_to_provision;
+}
+
+var_dump($numbers_list);
