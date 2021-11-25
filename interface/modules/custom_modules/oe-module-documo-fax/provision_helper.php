@@ -16,7 +16,7 @@ use OpenEMR\Common\Csrf\CsrfUtils;
 
 require_once dirname(__FILE__, 4) . "/globals.php";
 require_once "controller/Provisioning.php";
-
+die("Landed!");
 if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
     CsrfUtils::csrfNotVerified();
 }
@@ -38,7 +38,7 @@ if (empty($_POST['name'])) {
     echo $list;
 } else {
     //Do this
-    die("Landed!");
+
     var_dump($_POST);
     //$numbers = implode($_POST);
     //var_dump(array_shift($numbers));
