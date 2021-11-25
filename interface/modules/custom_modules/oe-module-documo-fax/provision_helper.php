@@ -37,4 +37,8 @@ $list = $getNumbers->seekNumber();
 //TODO might be able to do the translation here before sending back to the browser
 echo $list;
 
-var_dump($_POST);
+if (!empty($_POST['name'])) {
+    var_dump($_POST);
+    die;
+}
+
