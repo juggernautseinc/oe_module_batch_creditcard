@@ -22,18 +22,4 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
 
 $getNumbers = new Provisioning();
 
-
-$areacodevalue = filter_input(INPUT_POST, 'areacode', FILTER_VALIDATE_INT);
-$getNumbers->setAreaCode($areacodevalue);
-
-$state = filter_input(INPUT_POST, 'state', FILTER_SANITIZE_STRING);
-$getNumbers->setState($state);
-
-$zip = filter_input(INPUT_POST, 'zip', FILTER_VALIDATE_INT);
-$getNumbers->setZipcode($zip);
-
-$list = $getNumbers->seekNumber();
-//TODO might be able to do the translation here before sending back to the browser
-echo $list;
-
-
+var_dump($_POST);
