@@ -155,13 +155,15 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                 </div>
            </form>
         </div>
-        <div class="col-12" id="numberdisplay">
-            <!-- placeholder for the returned values -->
-        </div>
-        <div class="col-6" id="provisionSubmit">
-            <btn class="btn btn-primary" id="submitNumbers"><?php echo xlt('Provision Selected Numbers'); ?></btn>
-        </div>
-
+        <form method="post" action="provision_helper.php" name="provisionNumbers">
+            <input type="hidden" id="token" name="token" value="<?php echo  attr(CsrfUtils::collectCsrfToken()); ?>">
+            <div class="col-12" id="numberdisplay">
+                <!-- placeholder for the returned values -->
+            </div>
+            <div class="col-6" id="provisionSubmit">
+                <input type="submit" class="btn btn-primary" id="submitNumbers" value="<?php echo xlt('Provision Selected Numbers'); ?>">
+            </div>
+        </form>
     </div>
 <script src="js/ajax.js">
 </script>

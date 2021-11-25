@@ -7,7 +7,6 @@ function numberType() {
     }
 }
 document.getElementById('checkfornumbers').addEventListener("click", numberSearch);
-
 async function numberSearch(e) {
     e.preventDefault();
     const xhr = new XMLHttpRequest();
@@ -24,7 +23,6 @@ async function numberSearch(e) {
     xhr.onload = function() {
         if(this.status === 200) {
             let response = JSON.parse(this.responseText);
-            console.log(response);
             response.rows.forEach(function(row) {
                 output += `<tr><td>
                 <div class="checkbox card-body" style="font-size: large">
@@ -35,7 +33,6 @@ async function numberSearch(e) {
             })
             document.getElementById('numberdisplay').innerHTML = output;
             document.getElementById('provisionSubmit').style.display = 'block'
-            //TODO Toggle the submit button should be hidden until numbers display
         }
     }
 

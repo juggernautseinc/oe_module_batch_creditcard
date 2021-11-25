@@ -23,15 +23,23 @@ if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
 
 $getNumbers = new Provisioning();
 
-$areacodevalue = filter_input(INPUT_POST, 'areacode', FILTER_VALIDATE_INT);
-$getNumbers->setAreaCode($areacodevalue);
+if (empty($_POST['name'])) {
+    $areacodevalue = filter_input(INPUT_POST, 'areacode', FILTER_VALIDATE_INT);
+    $getNumbers->setAreaCode($areacodevalue);
 
-$state = filter_input(INPUT_POST, 'state', FILTER_SANITIZE_STRING);
-$getNumbers->setState($state);
+    $state = filter_input(INPUT_POST, 'state', FILTER_SANITIZE_STRING);
+    $getNumbers->setState($state);
 
-$zip = filter_input(INPUT_POST, 'zip', FILTER_VALIDATE_INT);
-$getNumbers->setZipcode($zip);
+    $zip = filter_input(INPUT_POST, 'zip', FILTER_VALIDATE_INT);
+    $getNumbers->setZipcode($zip);
 
-$list = $getNumbers->seekNumber();
-//TODO might be able to do the translation here before sending back to the browser
-echo $list;
+    $list = $getNumbers->seekNumber();
+    //TODO might be able to do the translation here before sending back to the browser
+    echo $list;
+} else {
+    //Do this
+    var_dump($_POST);
+    $numbers = implode($_POST);
+    var_dump(array_shift($numbers));
+
+}
