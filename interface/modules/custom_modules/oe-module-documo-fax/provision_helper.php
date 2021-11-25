@@ -38,6 +38,7 @@ if (empty($_POST['name'])) {
     echo $list;
 } else {
     //Do this
+    die("Landed!");
     var_dump($_POST);
     $numbers = implode($_POST);
     var_dump(array_shift($numbers));
