@@ -16,31 +16,25 @@ use OpenEMR\Common\Csrf\CsrfUtils;
 
 require_once dirname(__FILE__, 4) . "/globals.php";
 require_once "controller/Provisioning.php";
-die("Landed!");
+
 if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
     CsrfUtils::csrfNotVerified();
 }
 
 $getNumbers = new Provisioning();
 
-if (empty($_POST['name'])) {
-    $areacodevalue = filter_input(INPUT_POST, 'areacode', FILTER_VALIDATE_INT);
-    $getNumbers->setAreaCode($areacodevalue);
 
-    $state = filter_input(INPUT_POST, 'state', FILTER_SANITIZE_STRING);
-    $getNumbers->setState($state);
+$areacodevalue = filter_input(INPUT_POST, 'areacode', FILTER_VALIDATE_INT);
+$getNumbers->setAreaCode($areacodevalue);
 
-    $zip = filter_input(INPUT_POST, 'zip', FILTER_VALIDATE_INT);
-    $getNumbers->setZipcode($zip);
+$state = filter_input(INPUT_POST, 'state', FILTER_SANITIZE_STRING);
+$getNumbers->setState($state);
 
-    $list = $getNumbers->seekNumber();
-    //TODO might be able to do the translation here before sending back to the browser
-    echo $list;
-} else {
-    //Do this
+$zip = filter_input(INPUT_POST, 'zip', FILTER_VALIDATE_INT);
+$getNumbers->setZipcode($zip);
 
-    var_dump($_POST);
-    //$numbers = implode($_POST);
-    //var_dump(array_shift($numbers));
+$list = $getNumbers->seekNumber();
+//TODO might be able to do the translation here before sending back to the browser
+echo $list;
 
-}
+var_dump($_POST);
