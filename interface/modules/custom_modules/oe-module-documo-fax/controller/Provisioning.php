@@ -105,7 +105,7 @@ class Provisioning
     /**
      * @param mixed $type
      */
-    public function setType($type): mixed
+    public function setType($type)
     {
         $this->type = $type;
         return $this->type;
@@ -114,7 +114,7 @@ class Provisioning
     /**
      * @param mixed $numbers
      */
-    public function setNumbers($numbers): mixed
+    public function setNumbers($numbers)
     {
         $this->numbers = $numbers;
         return $this->numbers;
@@ -123,7 +123,7 @@ class Provisioning
     /**
      * @param mixed $quanity
      */
-    public function setQuanity($quantity): mixed
+    public function setQuanity($quantity)
     {
         $this->quantity = $quantity;
         return $this->quantity;
@@ -132,7 +132,7 @@ class Provisioning
     /**
      * @param mixed $accountId
      */
-    public function setAccountId($accountId): mixed
+    public function setAccountId($accountId)
     {
         $this->accountId = $accountId;
         return $this->accountId;
@@ -141,7 +141,7 @@ class Provisioning
     /**
      * @param mixed $storage
      */
-    public function setStorage($storage): mixed
+    public function setStorage($storage)
     {
         $this->storage = $storage;
         return $this->storage;

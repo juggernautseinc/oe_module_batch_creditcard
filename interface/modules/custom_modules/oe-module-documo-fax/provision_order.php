@@ -15,7 +15,6 @@ error_reporting(E_ALL);
 
 use OpenEMR\Modules\Documo\Database;
 use OpenEMR\Modules\Documo\Provisioning;
-
 use OpenEMR\Common\Csrf\CsrfUtils;
 
 require_once dirname(__FILE__, 4) . "/globals.php";
