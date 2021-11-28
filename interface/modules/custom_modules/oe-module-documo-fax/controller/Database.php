@@ -42,9 +42,6 @@ DB;
 ) ENGINE = InnoDB COMMENT = 'documo account information';
 DB;
 
-        /**
-         * TODO question do we really need the auto increment on the table?
-         */
         $db = $GLOBALS['dbase'];
         $exist = sqlQuery("SHOW TABLES FROM `$db` LIKE 'documo_user'");
         if (empty($exist)) {
@@ -130,6 +127,17 @@ DB;
         $account_number = sqlQuery($sql);
         $accid = json_decode($account_number['account_info'], true);
         return $accid['uuid'];
+    }
+
+    public function saveProvisionedNumbers($provision)
+    {
+        $sql = "UPDATE documo_user SET fax_numbers = ? WHERE id = 1";
+        try {
+            sqlInsert($sql, [$provision]);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+        return "finished";
     }
 
 }

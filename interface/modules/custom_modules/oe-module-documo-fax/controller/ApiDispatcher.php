@@ -135,9 +135,8 @@ class ApiDispatcher
         return $result->data;
     }
 
-    public function registerSelectedNumbers($faxNumbers)
+    public function registerSelectedNumbers($faxNumbersRequest)
     {
-
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -149,7 +148,7 @@ class ApiDispatcher
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => 'type=order',
+            CURLOPT_POSTFIELDS => $faxNumbersRequest,
             CURLOPT_HTTPHEADER => self::headerArray(),
         ));
 
@@ -157,10 +156,9 @@ class ApiDispatcher
         $status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
         curl_close($curl);
         if ($status === 200) {
-            echo $response;
+            return $response;
         } else {
-            echo $status;
+            return $status;
         }
-
     }
 }

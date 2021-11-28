@@ -1,9 +1,9 @@
 <?php
-
+/*
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
-
+*/
 /*
  * package   OpenEMR
  *  link      http://www.open-emr.org
@@ -50,4 +50,13 @@ $accountdata = new Database();
 echo $a = $accountdata->getAccountId();
 $provision->setAccountId($a);
 
-//$provision->numberProvisioning();
+//make provision request to documo
+$request = $provision->numberProvisioning();
+
+if (!is_int($request)) {
+    //Save the returned JSON
+    $finish = $accountdata->saveProvisionedNumbers($request);
+    echo $finish;
+} else {
+    echo $request;
+}
