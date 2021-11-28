@@ -34,13 +34,22 @@ class Provisioning
      */
     private $zipcode;
 
+    /**
+     * @var
+     */
     private $type;
-
-
+    /**
+     * @var
+     */
     private $numbers;
+    /**
+     * @var
+     */
     private $quantity;
+    /**
+     * @var
+     */
     private $accountId;
-    private $storage;
 
 
     public function __construct()
