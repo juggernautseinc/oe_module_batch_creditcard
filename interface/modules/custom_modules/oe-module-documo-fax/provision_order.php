@@ -9,22 +9,42 @@
  *
  */
 
+use OpenEMR\Modules\Documo\Database;
 use OpenEMR\Modules\Documo\Provisioning;
 
 use OpenEMR\Common\Csrf\CsrfUtils;
 
 require_once dirname(__FILE__, 4) . "/globals.php";
 require_once "controller/Provisioning.php";
+require_once "controller/Database.php";
 
 if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
     CsrfUtils::csrfNotVerified();
 }
 
-$getNumbers = new Provisioning();
+$provision = new Provisioning();
 
-var_dump($_POST);
+//set order type
+$provision->setType($_POST['type']);
+
+//remove token & order type
+array_shift($_POST);
 array_shift($_POST);
 
+//Need number count
+$quantity = count($_POST);
+$provision->setQuanity($quantity);
+
+//convert list to a comma seperated string if more than one number is selected
 $numbers_list = implode(", ", $_POST);
 
-var_dump($numbers_list);
+//set number values
+//var_dump($numbers_list);
+$provision->setNumbers($numbers_list);
+
+//set account ID
+$accountdata = new Database();
+echo $a = $accountdata->getAccountId();
+$provision->setAccountId($a);
+
+//$provision->numberProvisioning();

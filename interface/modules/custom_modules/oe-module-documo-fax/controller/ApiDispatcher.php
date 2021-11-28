@@ -134,4 +134,33 @@ class ApiDispatcher
         $result = json_decode($response);
         return $result->data;
     }
+
+    public function registerSelectedNumbers($faxNumbers)
+    {
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.documo.com/v1/numbers/provision',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => 'type=order',
+            CURLOPT_HTTPHEADER => self::headerArray(),
+        ));
+
+        $response = curl_exec($curl);
+        $status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
+        curl_close($curl);
+        if ($status === 200) {
+            echo $response;
+        } else {
+            echo $status;
+        }
+
+    }
 }

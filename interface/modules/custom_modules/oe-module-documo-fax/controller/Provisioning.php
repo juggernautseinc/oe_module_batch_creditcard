@@ -16,10 +16,32 @@ require_once "Database.php";
 
 class Provisioning
 {
+
+    /**
+     * @var ApiDispatcher
+     */
     private $dispatch;
+    /**
+     * @var
+     */
     private $areaCode;
+    /**
+     * @var
+     */
     private $state;
+    /**
+     * @var
+     */
     private $zipcode;
+
+    private $type;
+
+
+    private $numbers;
+    private $quantity;
+    private $accountId;
+    private $storage;
+
 
     public function __construct()
     {
@@ -35,7 +57,22 @@ class Provisioning
                 $this->zipcode
             );
         } else {
-            return 'error';
+            return 'Error area code is missing';
+        }
+    }
+
+    public function numberProvisioning()
+    {
+        $faxnumbers = "type=" . $this->type . "&
+        numbers=" . $this->numbers ."&
+        quantity=" . $this->quantity . "&
+        accountId=" . $this->accountId . "&
+        storage=FTP/SFTP";
+
+        if (isset($this->type)) {
+            return $this->dispatch->registerSelectedNumbers($faxnumbers);
+        } else {
+            return "Error order type is missing";
         }
     }
 
@@ -64,5 +101,49 @@ class Provisioning
         return $this->zipcode = $zipcode;
     }
 
+    //Make provisioning API call
+    /**
+     * @param mixed $type
+     */
+    public function setType($type): mixed
+    {
+        $this->type = $type;
+        return $this->type;
+    }
 
+    /**
+     * @param mixed $numbers
+     */
+    public function setNumbers($numbers): mixed
+    {
+        $this->numbers = $numbers;
+        return $this->numbers;
+    }
+
+    /**
+     * @param mixed $quanity
+     */
+    public function setQuanity($quantity): mixed
+    {
+        $this->quantity = $quantity;
+        return $this->quantity;
+    }
+
+    /**
+     * @param mixed $accountId
+     */
+    public function setAccountId($accountId): mixed
+    {
+        $this->accountId = $accountId;
+        return $this->accountId;
+    }
+
+    /**
+     * @param mixed $storage
+     */
+    public function setStorage($storage): mixed
+    {
+        $this->storage = $storage;
+        return $this->storage;
+    }
 }
