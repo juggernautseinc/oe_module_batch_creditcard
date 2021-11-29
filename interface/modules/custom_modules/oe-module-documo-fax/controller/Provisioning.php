@@ -72,7 +72,7 @@ class Provisioning
 
     public function numberProvisioning()
     {
-        $faxnumbers = "type=" . $this->type . "&numbers=" . $this->numbers ."&quantity=" . $this->quantity . "&accountId=" . $this->accountId . "&storage=";
+        $faxnumbers = "type=" . $this->type . "&numbers=" . $this->numbers ."&quantity=" . $this->quantity . "&accountId=" . $this->accountId;
 
         if (isset($this->type)) {
             return $this->dispatch->registerSelectedNumbers($faxnumbers);
