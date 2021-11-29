@@ -37,18 +37,13 @@ $provision->setQuanity($quantity);
 //convert list to a comma seperated string if more than one number is selected
 $numbers_list = implode(", ", $_POST);
 
-//set number values
-$numbers_list = trim($numbers_list);  //trim white space from front of number(s)
-echo "numbers".$numbers_list;
-$provision->setNumbers($numbers_list);
-
 //set account ID after retrieving it from database
 $accountdata = new Database();
 $a = $accountdata->getAccountId();
 $provision->setAccountId($a);
 
 //make provision request to documo
-$request = $provision->numberProvisioning();
+$request = $provision->numberProvisioning($numbers_list);
 if ($request !== 400) {
     //Save the returned JSON
     $finish = $accountdata->saveProvisionedNumbers($request);
