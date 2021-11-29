@@ -49,8 +49,8 @@ $provision->setAccountId($a);
 $request = $provision->numberProvisioning();
 if ($request !== 400) {
     //Save the returned JSON
-    $finish = $accountdata->saveProvisionedNumbers($request);
-    echo $finish;
+    $accountdata->saveProvisionedNumbers($request);
+    header("Location account/account_status.php");
 } else {
-    echo $request;
+    echo xlt("There has been an error. ") . $request;
 }

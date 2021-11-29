@@ -140,7 +140,6 @@ DB;
         } catch (Exception $e) {
             return $e->getMessage();
         }
-        return "finished";
     }
 
     public function hasNumbersProvisioned()

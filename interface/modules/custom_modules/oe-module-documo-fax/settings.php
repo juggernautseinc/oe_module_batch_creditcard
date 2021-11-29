@@ -21,6 +21,7 @@ $localtz = $dbcall->getTimeZone();
 $hastable = $dbcall->tableCheck();
 $hasAccount = $dbcall->hasSavedAccount();
 $hasUser = $dbcall->hasUserAccount();
+$hasFaxNumber = $dbcall->hasNumbersProvisioned();
 ?>
 <!doctype html>
 <html lang="en">
@@ -85,7 +86,12 @@ $hasUser = $dbcall->hasUserAccount();
         </div>
         <?php }  ?>
         <?php if ($hasAccount && $hasUser) {
-            header('Location: provisioning.php');
+            if (!$dbcall->hasNumbersProvisioned()) {
+                header('Location: provisioning.php');
+            } else {
+                header("Location account/account_status.php");
+            }
+
          } ?>
     </div>
 </body>
