@@ -90,7 +90,7 @@ $hasFaxNumber = $dbcall->hasNumbersProvisioned();
                 echo "No";
             } else {
                 echo "Yes";
-            }
+            } die;
             header('Location: provisioning.php');
          } ?>
     </div>
