@@ -38,7 +38,8 @@ $provision->setQuanity($quantity);
 $numbers_list = implode(", ", $_POST);
 
 //set number values
-$numbers_list =trim($numbers_list);  //trim white space from front of number(s)
+$numbers_list = trim($numbers_list);  //trim white space from front of number(s)
+echo "numbers".$numbers_list;
 $provision->setNumbers($numbers_list);
 
 //set account ID after retrieving it from database
