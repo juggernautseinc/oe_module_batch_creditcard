@@ -38,7 +38,7 @@ $provision->setQuanity($quantity);
 $numbers_list = implode(", ", $_POST);
 
 //set number values
-$provision->setNumbers($numbers_list);
+$provision->setNumbers(trim($numbers_list));
 
 //set account ID after retrieving it from database
 $accountdata = new Database();
@@ -48,7 +48,7 @@ $provision->setAccountId($a);
 //make provision request to documo
 $request = $provision->numberProvisioning();
 var_dump($request);
-if (!is_int($request)) {
+if ($request !== 400 || 401 || 403 || 404 || 500) {
     //Save the returned JSON
     $finish = $accountdata->saveProvisionedNumbers($request);
     echo $finish;
