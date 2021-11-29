@@ -9,6 +9,7 @@ function numberType() {
 document.getElementById('checkfornumbers').addEventListener("click", numberSearch);
 async function numberSearch(e) {
     e.preventDefault();
+    document.getElementById('awaiting').style.display = 'block';
     const xhr = new XMLHttpRequest();
     const prefix = document.getElementById('prefix').value;
     const state = document.getElementById('state').value;
@@ -31,6 +32,7 @@ async function numberSearch(e) {
                 </div></td></tr>
                 `;
             })
+            document.getElementById('awaiting').style.display = 'none';
             document.getElementById('numberdisplay').innerHTML = output;
             document.getElementById('provisionSubmit').style.display = 'block'
         }

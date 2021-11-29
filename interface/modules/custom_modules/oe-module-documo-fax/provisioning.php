@@ -39,6 +39,9 @@ require_once dirname(__FILE__, 4) . "/globals.php";
         #provisionSubmit {
             display: none;
         }
+        #awaiting {
+            display: none;
+        }
 
         .provision {
             box-shadow: 0px 10px 14px -7px #276873;
@@ -155,6 +158,7 @@ require_once dirname(__FILE__, 4) . "/globals.php";
                 </div>
            </form>
         </div>
+        <div class="spinner-border text-success" style="width: 6rem; height: 6rem;" id="awaiting"></div>
         <form method="post" action="provision_order.php" name="provisionNumbers">
             <input type="hidden" id="token" name="token" value="<?php echo  attr(CsrfUtils::collectCsrfToken()); ?>">
             <input type="hidden" id="type" name="type" value="order">

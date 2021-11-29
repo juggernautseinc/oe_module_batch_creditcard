@@ -59,10 +59,11 @@ DB;
         $db = $GLOBALS['dbase'];
         $exist = sqlQuery("SHOW TABLES FROM `$db` LIKE 'documo_account'");
         if (empty($exist)) {
-            return false;
+            $state = false;
         } else {
-            return true;
+            $state = true;
         }
+        return $state;
     }
 
     public function getTimeZone()
@@ -84,10 +85,11 @@ DB;
         $sql = "SELECT * FROM `documo_account`";
         $hasRow = sqlQuery($sql);
         if (!empty($hasRow)) {
-            return true;
+            $state = true;
         } else {
-            return false;
+            $state = false;
         }
+        return $state;
     }
 
     public function hasUserAccount()
@@ -95,15 +97,16 @@ DB;
         $sql = "SELECT * FROM `documo_user`";
         $hasRow = sqlQuery($sql);
         if (!empty($hasRow)) {
-            return true;
+            $state = true;
         } else {
-            return false;
+            $state = false;
         }
+        return $state;
     }
 
     private function getPrivateKey()
     {
-        $key = 'unique_installation_id';
+        $gkey = 'unique_installation_id';
         $sql = "select gl_value from globals where gl_name = ?";
         $privateKey = sqlQuery($sql, [$key]);
         return $privateKey['gl_value'];
@@ -138,6 +141,18 @@ DB;
             return $e->getMessage();
         }
         return "finished";
+    }
+
+    public function hasNumbersProvisioned()
+    {
+        $sql = "select fax_numbers from documo_user where id = 1";
+        $provisioned = sqlQuery($sql);
+        if (!empty($provisioned)) {
+            $state = true;
+        } else {
+            $state = false;
+        }
+        return $state;
     }
 
 }
