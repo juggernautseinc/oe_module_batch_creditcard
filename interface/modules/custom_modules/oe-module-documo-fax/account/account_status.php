@@ -27,7 +27,7 @@ require_once dirname(__FILE__, 5) . "/globals.php";
 <body>
     <div class="container mt-5">
         <h3>Account Status</h3>
-        <btn class="btn btn-primary"><a href="../provisioning.php" >Provision new numbers</a></btn>
+        <btn class="btn btn-primary"><a class="btn btn-primary" href="../provisioning.php" >Provision new numbers</a></btn>
     </div>
 </body>
 </html>
