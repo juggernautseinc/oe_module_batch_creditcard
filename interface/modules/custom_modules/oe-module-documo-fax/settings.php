@@ -87,11 +87,10 @@ $hasFaxNumber = $dbcall->hasNumbersProvisioned();
         <?php }  ?>
         <?php if ($hasAccount && $hasUser) {
             if (!$dbcall->hasNumbersProvisioned()) {
-                echo "No";
+                header('Location: provisioning.php');
             } else {
-                echo "Yes";
-            } die;
-            header('Location: provisioning.php');
+                header('Location: account/account_status.php');
+            }
          } ?>
     </div>
 </body>
