@@ -73,7 +73,7 @@ class Provisioning
     public function numberProvisioning()
     {
         $faxnumbers = "type=" . $this->type . "&
-        numbers=" . $this->numbers ."&
+        numbers='" . $this->numbers ."'&
         quantity=" . $this->quantity . "&
         accountId=" . $this->accountId . "&
         storage=FTP/SFTP";
