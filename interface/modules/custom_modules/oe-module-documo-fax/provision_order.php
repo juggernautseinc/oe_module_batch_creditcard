@@ -38,17 +38,18 @@ $provision->setQuanity($quantity);
 $numbers_list = implode(", ", $_POST);
 
 //set number values
-$provision->setNumbers(trim($numbers_list));
+$numbers_list =trim($numbers_list);  //trim white space from front of number(s)
+$provision->setNumbers($numbers_list);
 
 //set account ID after retrieving it from database
 $accountdata = new Database();
-echo $a = $accountdata->getAccountId();
+$a = $accountdata->getAccountId();
 $provision->setAccountId($a);
 
 //make provision request to documo
 $request = $provision->numberProvisioning();
-var_dump($request);
-if ($request !== 400 || 401 || 403 || 404 || 500) {
+echo $request;
+if ($request !== 400) {
     //Save the returned JSON
     $finish = $accountdata->saveProvisionedNumbers($request);
     echo $finish;
