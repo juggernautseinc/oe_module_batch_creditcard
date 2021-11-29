@@ -25,7 +25,7 @@ require_once dirname(__FILE__, 5) . "/globals.php";
     <?php Header::setupHeader(['common']) ?>
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-5">
         <h3>Account Status</h3>
 
     </div>
