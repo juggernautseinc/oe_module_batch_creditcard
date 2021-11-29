@@ -62,10 +62,10 @@ $hasUser = $dbcall->hasUserAccount();
         <div>
             <h1>Welcome to the Documo Module</h1>
             <?php if(!$hasAccount) { ?>
-                <p>There are two steps to complete to enable this module</p>
+                <p>There are a few steps to complete to enable this module</p>
             <?php }
             if (!$hasUser) {?>
-                <p>There is one more step to complete!</p>
+                <p>Now, create a facility/user!</p>
             <?php } ?>
         </div>
         <?php if(!$hasAccount) { ?>
@@ -81,7 +81,7 @@ $hasUser = $dbcall->hasUserAccount();
         <?php if (!$hasUser) { ?>
         <div>
             <p>Step 2</p>
-            <button class="btn btn-primary" onclick="createAccount('user')">Create a user</button>
+            <button class="btn btn-primary" onclick="createAccount('user')">Create a facility/user</button>
         </div>
         <?php }  ?>
         <?php if ($hasAccount && $hasUser) {

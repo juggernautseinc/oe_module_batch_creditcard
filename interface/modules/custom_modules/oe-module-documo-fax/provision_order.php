@@ -1,9 +1,5 @@
 <?php
-/*
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-*/
+
 /*
  * package   OpenEMR
  *  link      http://www.open-emr.org
@@ -42,10 +38,9 @@ $provision->setQuanity($quantity);
 $numbers_list = implode(", ", $_POST);
 
 //set number values
-//var_dump($numbers_list);
 $provision->setNumbers($numbers_list);
 
-//set account ID
+//set account ID after retrieving it from database
 $accountdata = new Database();
 echo $a = $accountdata->getAccountId();
 $provision->setAccountId($a);
