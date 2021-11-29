@@ -138,7 +138,7 @@ class ApiDispatcher
     public function registerSelectedNumbers($faxNumbersRequest)
     {
         $curl = curl_init();
-
+        file_put_contents("/var/www/html/errors/numbersrequest.txt", $faxNumbersRequest);
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/numbers/provision',
             CURLOPT_RETURNTRANSFER => true,

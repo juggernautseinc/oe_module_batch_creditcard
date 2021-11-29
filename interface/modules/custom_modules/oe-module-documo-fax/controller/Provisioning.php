@@ -72,7 +72,6 @@ class Provisioning
 
     public function numberProvisioning()
     {
-        file_put_contents("/var/www/html/errors/numbers.txt", $this->numbers);
         $faxnumbers = "type=" . $this->type . "&
         numbers=" . $this->numbers ."&
         quantity=" . $this->quantity . "&
