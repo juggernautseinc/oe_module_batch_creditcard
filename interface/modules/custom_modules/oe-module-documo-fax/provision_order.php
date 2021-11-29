@@ -47,7 +47,7 @@ $provision->setAccountId($a);
 
 //make provision request to documo
 $request = $provision->numberProvisioning();
-
+var_dump($request);
 if (!is_int($request)) {
     //Save the returned JSON
     $finish = $accountdata->saveProvisionedNumbers($request);
