@@ -30,8 +30,6 @@ $documoaccount = $account_data->getAllAccountInfo();
 $documouser = $account_data->getUserInfo();
 $documofaxnumbers = $account_data->getFaxNumbers();
 
-var_dump($documoaccount, $documouser, $documofaxnumbers);
-die;
 try {
     print $twig->render('account.twig', [
         'pageTitle' => 'Account Information',
