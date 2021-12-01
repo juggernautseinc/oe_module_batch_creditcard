@@ -18,15 +18,16 @@ use Twig\Error\SyntaxError;
 require_once dirname(__FILE__, 5) . "/globals.php";
 require_once dirname(__FILE__, 2) . "/controller/Database.php";
 
-
+$header = Header::setupHeader(['common']);
 $path = dirname(__FILE__) . "/templates";
-$twigloader = new TwigContainer($path, $GLOBALS['kernel']);
+$twigloader = new TwigContainer($path);
 $twig = $twigloader->getTwig();
 $twig->addExtension(new Twig_Extension_Debug());
 
 try {
     print $twig->render('account.twig', [
-        'pageTitle' => 'Account Information'
+        'pageTitle' => 'Account Information',
+        'header' => $header
 
     ]);
 } catch (LoaderError | RuntimeError | SyntaxError $e) {
