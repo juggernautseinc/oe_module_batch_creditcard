@@ -158,15 +158,16 @@ DB;
     public function getAllAccountInfo()
     {
         $sql = "select account_info from documo_account where id = 1";
-        //$data = sqlQuery($sql);
-        return sqlQuery($sql);
+        $data = sqlQuery($sql);
+        return json_decode($data['account_info'], true);
     }
 
     public function getAllUserInfo()
     {
         $sql = "select user, fax_numbers from documo_user where id = 1";
-        //$data = sqlQuery($sql);
-        return sqlQuery($sql);
+        $data = sqlQuery($sql);
+        array_push($data['user'], $data['fax_numbers']);
+        return json_decode(data['user'], true);
     }
 
 }
