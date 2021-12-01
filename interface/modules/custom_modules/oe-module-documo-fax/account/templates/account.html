@@ -8,18 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ pageTitle }}</title>
         {{ header }}
-    {%  block head %}
-    {% endblock head %}
+    {%  block head %}{% endblock head %}
 </head>
 <body>
-<div class="container">
+<div id="body" class="container">
     <h1 class="mt-5">{{ pageTitle }}</h1>
-    {% block body %}
-    {% endblock body %}
+    {% block body %}M{% endblock body %}
 </div>
 <div id="footer">
-    {% block footer %}
-    {% endblock footer %}
+    {% block footer %}P{% endblock footer %}
 </div>
 </body>
 </html>
