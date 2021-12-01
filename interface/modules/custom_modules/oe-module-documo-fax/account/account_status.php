@@ -14,13 +14,15 @@ use OpenEMR\Common\Twig\TwigContainer;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+use OpenEMR\Core\Kernel;
 
 require_once dirname(__FILE__, 5) . "/globals.php";
 require_once dirname(__FILE__, 2) . "/controller/Database.php";
 
 $header = Header::setupHeader(['common']);
 $path = dirname(__FILE__) . "/templates";
-$twigloader = new TwigContainer($path);
+$kernel = new Kernel();
+$twigloader = new TwigContainer($path, $kernel);
 $twig = $twigloader->getTwig();
 $twig->addExtension(new Twig_Extension_Debug());
 
