@@ -168,8 +168,8 @@ DB;
         $data = sqlQuery($sql);
         $a = $data['user'];
         $b = $data['fax_numbers'];
-        array_push($a, $b);
-        return json_decode($a, true);
+        $bindings = array_push($a, $b);
+        return json_decode($bindings, true);
     }
 
 }
