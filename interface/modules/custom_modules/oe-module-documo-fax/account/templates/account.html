@@ -9,17 +9,17 @@
     <title>{{ pageTitle }}</title>
         {{ header }}
     {%  block head %}
-    {% endblock %}
+    {% endblock head %}
 </head>
 <body>
 <div class="container">
     <h1 class="mt-5">{{ pageTitle }}</h1>
-    {% block content %}
-    {% endblock %}
+    {% block body %}
+    {% endblock body %}
 </div>
 <div id="footer">
     {% block footer %}
-    {% endblock %}
+    {% endblock footer %}
 </div>
 </body>
 </html>
