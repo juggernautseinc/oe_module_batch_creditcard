@@ -168,7 +168,7 @@ DB;
         $data = sqlQuery($sql);
         $a = json_decode($data['user'], true);
         $b = json_decode($data['fax_numbers'], true);
-        return array_push($a, $b);
+        return $a . $b;
     }
 
 }
