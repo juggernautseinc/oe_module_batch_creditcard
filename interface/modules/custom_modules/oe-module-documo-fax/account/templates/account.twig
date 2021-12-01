@@ -13,10 +13,20 @@
 <body>
 <div id="body" class="container">
     <h1 class="mt-5">{{ pageTitle }}</h1>
+
+        <table class="table">
+            <tr>
+                <td><span style="font-weight: bold">{{ "Account Unique Identifier"|xlt }}:</span></td><td>{{ uuid }}</td>
+            </tr>
+            <tr>
+                <td><span style="font-weight: bold">{{ "Account Name"|xlt }}:</span></td><td>{{ accountname }}</td>
+            </tr>
+            <tr>
+                <td><span style="font-weight: bold">{{ "Fax Caller ID"|xlt }}:</span></td><td>{{ callerid }}</td>
+            </tr>
+        </table>
+
     {% block body %}
-        <span style="font-weight: bold"><p>{{ "Account Unique Identifier"|xlt }}: {{ uuid }}</p></span>
-        <span style="font-weight: bold"><p>{{ "Account Name"|xlt }}: {{ accountname }}</p></span>
-        <span style="font-weight: bold"><p>{{ "Fax Caller ID"|xlt }}: {{ callerid }}</p></span>
     {% endblock body %}
 
     <div id="footer">
