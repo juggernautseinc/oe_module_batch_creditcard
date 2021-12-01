@@ -34,7 +34,9 @@ try {
     print $twig->render('account.twig', [
         'pageTitle' => 'Account Summary',
         'header' => $header,
-        'uuid' => $documoaccount['uuid']
+        'uuid' => $documoaccount['uuid'],
+        'accountname' => $documoaccount['accountName'],
+        'callerid' => $documoaccount['faxCallerId']
 
     ]);
 } catch (LoaderError | RuntimeError | SyntaxError $e) {

@@ -14,7 +14,9 @@
 <div id="body" class="container">
     <h1 class="mt-5">{{ pageTitle }}</h1>
     {% block body %}
-    <p>{{ "Account Unique Identifier"|xlt }}:</p>{{ uuid }}
+        <span style="font-weight: bold"><p>{{ "Account Unique Identifier"|xlt }}: {{ uuid }}</p></span>
+        <span style="font-weight: bold"><p>{{ "Account Name"|xlt }}: {{ accountname }}</p></span>
+        <span style="font-weight: bold"><p>{{ "Fax Caller ID"|xlt }}: {{ callerid }}</p></span>
     {% endblock body %}
 
     <div id="footer">
