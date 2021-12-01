@@ -166,10 +166,9 @@ DB;
     {
         $sql = "select user, fax_numbers from documo_user where id = 1";
         $data = sqlQuery($sql);
-        $a = $data['user'];
-        $b = $data['fax_numbers'];
-        $bindings = array_push($a, $b);
-        return json_decode($bindings, true);
+        $a = json_decode($data['user'], true);
+        $b = json_decode($data['fax_numbers'], true);
+        return array_push($a, $b);
     }
 
 }
