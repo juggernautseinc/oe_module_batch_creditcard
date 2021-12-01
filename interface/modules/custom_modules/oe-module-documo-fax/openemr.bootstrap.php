@@ -10,6 +10,7 @@
  *
  */
 
+namespace OpenEMR\Modules\Documo;
 
 use OpenEMR\Menu\MenuEvent;
 use Symfony\Component\EventDispatcher\Event;
@@ -42,6 +43,7 @@ function oe_module_faxsms_add_menu_item(MenuEvent $event)
 
     return $event;
 }
+
 /**
  * @var EventDispatcherInterface $eventDispatcher
  * @var array                    $module
@@ -51,13 +53,10 @@ function oe_module_faxsms_add_menu_item(MenuEvent $event)
 
 function createFaxModuleGlobals(GlobalsInitializedEvent $event)
 {
-    //$select_array = array();
     $instruct = xl('Obtain API Key to install service');
-
     $event->getGlobalsService()->createSection("Modules", "Report");
     $setting = new GlobalSetting(xl('Documo Fax API Public Key'), 'encrypted', 'y?fus50p+aPhodrl?0he', $instruct);
     $event->getGlobalsService()->appendToSection("Modules", "oedocumofax_enable", $setting);
-
 }
 
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_faxsms_add_menu_item');
