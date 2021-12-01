@@ -33,7 +33,8 @@ $documofaxnumbers = $account_data->getFaxNumbers();
 try {
     print $twig->render('base.html', [
         'pageTitle' => 'Account Information',
-        'header' => $header
+        'header' => $header,
+        'uuid' => $documoaccount['uuid']
 
     ]);
 } catch (LoaderError | RuntimeError | SyntaxError $e) {

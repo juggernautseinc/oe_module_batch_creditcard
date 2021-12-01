@@ -13,7 +13,9 @@
 <body>
 <div id="body" class="container">
     <h1 class="mt-5">{{ pageTitle }}</h1>
-    {% block body %}M{% endblock body %}
+    {% block body %}M
+    {{ uuid }}
+    {% endblock body %}
 
     <div id="footer">
         {% block footer %}P{% endblock footer %}
