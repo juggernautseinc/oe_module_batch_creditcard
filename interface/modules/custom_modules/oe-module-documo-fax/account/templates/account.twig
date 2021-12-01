@@ -13,8 +13,8 @@
 <body>
 <div id="body" class="container">
     <h1 class="mt-5">{{ pageTitle }}</h1>
-    {% block body %}M
-    {{ uuid }}
+    {% block body %}
+    <p>{{ "Account Unique Identifier"|xlt }}:</p>{{ uuid }}
     {% endblock body %}
 
     <div id="footer">

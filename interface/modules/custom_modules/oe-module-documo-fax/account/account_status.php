@@ -31,8 +31,8 @@ $documouser = $account_data->getUserInfo();
 $documofaxnumbers = $account_data->getFaxNumbers();
 
 try {
-    print $twig->render('base.html', [
-        'pageTitle' => 'Account Information',
+    print $twig->render('account.twig', [
+        'pageTitle' => 'Account Summary',
         'header' => $header,
         'uuid' => $documoaccount['uuid']
 
