@@ -21,7 +21,7 @@ $localtz = $dbcall->getTimeZone();
 $hastable = $dbcall->tableCheck();
 $hasAccount = $dbcall->hasSavedAccount();
 $hasUser = $dbcall->hasUserAccount();
-$hasFaxNumber = $dbcall->hasNumbersProvisioned();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -55,7 +55,7 @@ $hasFaxNumber = $dbcall->hasNumbersProvisioned();
             if (empty($localtz['gl_value'])) {
                 echo "<h1>Time zone is not set, Please set time zone.</h1>";
                 die;
-             } elseif (!$hastable) {
+             } elseif (!$dbcall->tableCheck()) {
                 echo "<h3>Database tables not installed</h3>";
                 die;
             }

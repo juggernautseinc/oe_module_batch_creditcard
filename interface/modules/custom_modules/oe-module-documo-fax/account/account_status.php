@@ -10,24 +10,25 @@
  */
 
 use OpenEMR\Core\Header;
+use OpenEMR\Common\Twig\TwigContainer;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
 require_once dirname(__FILE__, 5) . "/globals.php";
+require_once dirname(__FILE__, 2) . "/controller/Database.php";
 
-?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Account Status</title>
-    <?php Header::setupHeader(['common']) ?>
-</head>
-<body>
-    <div class="container mt-5">
-        <h3>Account Status</h3>
-        <btn class="btn btn-primary"><a class="btn btn-primary" href="../provisioning.php" >Provision new numbers</a></btn>
-    </div>
-</body>
-</html>
+
+$path = dirname(__FILE__) . "/templates";
+$twigloader = new TwigContainer($path);
+$twig = $twigloader->getTwig();
+$twig->addExtension(new Twig_Extension_Debug());
+
+try {
+    print $twig->render('account.twig', [
+        'pageTitle' => 'Account Information'
+
+    ]);
+} catch (LoaderError | RuntimeError | SyntaxError $e) {
+    print $e->getMessage();
+}
