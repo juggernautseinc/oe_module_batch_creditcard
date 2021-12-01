@@ -20,7 +20,7 @@ require_once dirname(__FILE__, 2) . "/controller/Database.php";
 
 
 $path = dirname(__FILE__) . "/templates";
-$twigloader = new TwigContainer($path, $GLOBALS['kernel']);
+$twigloader = new TwigContainer($path);
 $twig = $twigloader->getTwig();
 $twig->addExtension(new Twig_Extension_Debug());
 
