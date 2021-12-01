@@ -21,7 +21,7 @@ require_once dirname(__FILE__, 2) . "/controller/Database.php";
 
 $header = Header::setupHeader(['common']);
 $path = dirname(__FILE__) . "/templates";
-$twigloader = new TwigContainer($path);
+$twigloader = new TwigContainer($path, $GLOBALS['kernel']);
 $twig = $twigloader->getTwig();
 $twig->addExtension(new Twig_Extension_Debug());
 
