@@ -108,7 +108,7 @@ DB;
     {
         $gkey = 'unique_installation_id';
         $sql = "select gl_value from globals where gl_name = ?";
-        $privateKey = sqlQuery($sql, [$key]);
+        $privateKey = sqlQuery($sql, [$gkey]);
         return $privateKey['gl_value'];
     }
 
@@ -152,6 +152,20 @@ DB;
             $state = false;
         }
         return $state;
+    }
+
+    public function getAllAccountInfo()
+    {
+        $sql = "select * from documo_account where id = 1";
+        $data = sqlQuery($sql);
+        return json_decode($data, true);
+    }
+
+    public function getAllUserInfo()
+    {
+        $sql = "select * from documo_user where id = 1";
+        $data = sqlQuery($sql);
+        return json_decode($data, true);
     }
 
 }

@@ -11,6 +11,7 @@
 
 use OpenEMR\Core\Header;
 use OpenEMR\Common\Twig\TwigContainer;
+use OpenEMR\Modules\Documo\Database;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -24,6 +25,12 @@ $twigloader = new TwigContainer($path);
 $twig = $twigloader->getTwig();
 $twig->addExtension(new Twig_Extension_Debug());
 
+$account_data = new Database();
+$documoaccount = $account_data->getAllAccountInfo();
+$documouser = $account_data->getAllUserInfo();
+
+var_dump($documoaccount, $documouser);
+die;
 try {
     print $twig->render('account.twig', [
         'pageTitle' => 'Account Information',
