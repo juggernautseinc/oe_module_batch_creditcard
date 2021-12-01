@@ -162,13 +162,18 @@ DB;
         return json_decode($data['account_info'], true);
     }
 
-    public function getAllUserInfo()
+    public function getUserInfo()
     {
-        $sql = "select user, fax_numbers from documo_user where id = 1";
+        $sql = "select user from documo_user where id = 1";
         $data = sqlQuery($sql);
-        $a = json_decode($data['user'], true);
-        $b = json_decode($data['fax_numbers'], true);
-        return $a . $b;
+        return json_decode($data['user'], true);
+    }
+
+    public function getFaxNumbers()
+    {
+        $sql = "select fax_numbers from documo_user where id = 1";
+        $data = sqlQuery($sql);
+        return json_decode($data['fax_numbers']);
     }
 
 }
