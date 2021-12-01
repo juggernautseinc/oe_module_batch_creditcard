@@ -14,6 +14,7 @@ namespace OpenEMR\Modules\Documo;
 class Database
 {
     public $key;
+    const ALT_TABLE = 'ALTER TABLE';
 
     public function __construct()
     {
@@ -47,10 +48,10 @@ DB;
         if (empty($exist)) {
             sqlQuery($DBSQLACCOUNT);
             sqlQuery($DBSQLUSER);
-            sqlStatement("ALTER TABLE `" . add_escape_custom('documo_user') . "` ADD PRIMARY KEY(`id`)");
-            sqlStatement("ALTER TABLE `" . add_escape_custom('documo_user') . "` MODIFY " . add_escape_custom('id') . " INT AUTO_INCREMENT");
-            sqlStatement("ALTER TABLE `" . add_escape_custom('documo_account') . "` ADD PRIMARY KEY(`id`)");
-            sqlStatement("ALTER TABLE `" . add_escape_custom('documo_account') . "` MODIFY " . add_escape_custom('id') . " INT AUTO_INCREMENT");
+            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_user') . "` ADD PRIMARY KEY(`id`)");
+            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_user') . "` MODIFY " . add_escape_custom('id') . " INT AUTO_INCREMENT");
+            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_account') . "` ADD PRIMARY KEY(`id`)");
+            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_account') . "` MODIFY " . add_escape_custom('id') . " INT AUTO_INCREMENT");
         }
     }
 
@@ -156,14 +157,14 @@ DB;
 
     public function getAllAccountInfo()
     {
-        $sql = "select * from documo_account where id = 1";
+        $sql = "select account_info from documo_account where id = 1";
         $data = sqlQuery($sql);
         return json_decode($data, true);
     }
 
     public function getAllUserInfo()
     {
-        $sql = "select * from documo_user where id = 1";
+        $sql = "select user, fax_numbers from documo_user where id = 1";
         $data = sqlQuery($sql);
         return json_decode($data, true);
     }
