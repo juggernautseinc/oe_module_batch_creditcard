@@ -173,7 +173,7 @@ DB;
     {
         $sql = "select fax_numbers from documo_user where id = 1";
         $data = sqlQuery($sql);
-        return json_decode($data['fax_numbers']);
+        return json_decode($data['fax_numbers'], true);
     }
 
 }
