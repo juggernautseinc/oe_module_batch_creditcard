@@ -27,18 +27,11 @@
             <tr>
                 <td><span style="font-weight: bold">{{ "Fax Numbers"|xlt }}:</span></td><td></td>
             </tr>
+            {% for key, number in numbers %}
             <tr>
-                <td></td><td>{{ fax1 }}</td>
+                <td></td><td>{{ number.numberE164 }}</td>
             </tr>
-            <tr>
-                <td></td><td></td>
-            </tr>
-            <tr>
-                <td></td><td></td>
-            </tr>
-            <tr>
-                <td></td><td></td>
-            </tr>
+            {% endfor %}
         </table>
 
     {% block body %}
