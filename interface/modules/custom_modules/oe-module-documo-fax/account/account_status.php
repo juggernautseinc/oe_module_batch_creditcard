@@ -36,7 +36,8 @@ try {
         'header' => $header,
         'uuid' => $documoaccount['uuid'],
         'accountname' => $documoaccount['accountName'],
-        'callerid' => $documoaccount['faxCallerId']
+        'callerid' => $documoaccount['faxCallerId'],
+        'fax1' => $documofaxnumbers[0]['numberE164']
 
     ]);
 } catch (LoaderError | RuntimeError | SyntaxError $e) {
