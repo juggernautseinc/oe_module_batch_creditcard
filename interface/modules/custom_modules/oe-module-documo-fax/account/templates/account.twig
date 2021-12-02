@@ -14,7 +14,7 @@
 <div id="body" class="container">
     <h1 class="mt-5">{{ pageTitle }}</h1>
         <div class="m-15">
-            <span>{{ status }}</span>
+            <span>{{ "Network Status"|xlt }}:  <btn {% if status == Ok  %} btn-success {% else %} btn-danger {% endif %}>{{ status }}</btn> {% endif %}</span>
         </div>
 
         <table class="table">
