@@ -35,11 +35,7 @@ class ApiDispatcher
     public function createUser($postData)
     {
         $curl = curl_init();
-        $value = 'Authorization: Basic ' . $this->apiKey;
-        $header = array(
-            $value,
-            'Content-Type: application/x-www-form-urlencoded'
-        );
+
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/users',
             CURLOPT_RETURNTRANSFER => true,
@@ -109,19 +105,17 @@ class ApiDispatcher
         $response = curl_exec($curl);
         $status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
         curl_close($curl);
-        if ($status === 200) {
-            return $response;
-        } else {
+        if ($status !== 200) {
+
             if ($status === 400) {
-                return xlt("Invalid Input");
+                $response = xlt("Invalid Input");
             } elseif ($status === 401) {
-                return xlt("Unauthorized - Key may be expired");
+                $response = xlt("Unauthorized - Key may be expired");
             } elseif ($status === 404) {
-                return xlt("Not Found");
-            } else {
-                return $status;
+                $response = xlt("Not Found");
             }
         }
+        return $response;
     }
 
     private function findApiKey()
@@ -160,5 +154,26 @@ class ApiDispatcher
         } else {
             return $status;
         }
+    }
+
+    public function getNetworkStatus()
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.documo.com/ping',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        return $response;
     }
 }

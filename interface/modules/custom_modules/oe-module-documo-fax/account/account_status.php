@@ -11,6 +11,7 @@
 
 use OpenEMR\Core\Header;
 use OpenEMR\Common\Twig\TwigContainer;
+use OpenEMR\Modules\Documo\ApiDispatcher;
 use OpenEMR\Modules\Documo\Database;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -18,10 +19,12 @@ use Twig\Error\SyntaxError;
 
 require_once dirname(__FILE__, 5) . "/globals.php";
 require_once dirname(__FILE__, 2) . "/controller/Database.php";
+require_once dirname(__FILE__, 2) . "/controller/ApiDispatcher.php";
 
 $header = Header::setupHeader(['common']);
 $path = dirname(__FILE__) . "/templates";
 $twigloader = new TwigContainer($path, $GLOBALS['kernel']);
+$status = new ApiDispatcher();
 $twig = $twigloader->getTwig();
 $twig->addExtension(new Twig_Extension_Debug());
 
@@ -37,7 +40,8 @@ try {
         'uuid' => $documoaccount['uuid'],
         'accountname' => $documoaccount['accountName'],
         'callerid' => $documoaccount['faxCallerId'],
-        'numbers' => $documofaxnumbers
+        'numbers' => $documofaxnumbers,
+        'status' => $status->getNetworkStatus()
 
     ]);
 } catch (LoaderError | RuntimeError | SyntaxError $e) {
