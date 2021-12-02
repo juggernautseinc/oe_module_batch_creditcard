@@ -14,7 +14,10 @@
 <div id="body" class="container">
     <h1 class="mt-5">{{ pageTitle }}</h1>
         <div class="m-15">
-            {{ "Network Status"|xlt }}:  <button btn {% if status == OK  %} btn-success {% else %} btn-danger {% endif %}> {{ status }} </button>
+            {{ "Network Status"|xlt }}:  <button
+                {% if status == OK  %} style="background-color: darkgreen"
+                {% else %} style="background-color: red"
+                {% endif %}> {{ status }} </button>
         </div>
 
         <table class="table">
@@ -38,6 +41,7 @@
         </table>
 
     {% block body %}
+
     {% endblock body %}
 
     <div class="mt-10" id="footer">
