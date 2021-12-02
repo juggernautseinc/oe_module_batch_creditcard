@@ -15,7 +15,7 @@
     <h1 class="mt-5">{{ pageTitle }}</h1>
         <div class="m-15">
             {{ "Network Status"|xlt }}:  <button
-                {% if status == OK  %} style="background-color: darkgreen"
+                {% if status == true  %} style="background-color: darkgreen"
                 {% else %} style="background-color: red"
                 {% endif %}> {{ status }} </button>
         </div>

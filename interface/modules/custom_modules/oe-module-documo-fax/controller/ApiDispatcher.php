@@ -174,6 +174,11 @@ class ApiDispatcher
         $response = curl_exec($curl);
 
         curl_close($curl);
+        if ($response === 'OK') {
+            $response = true;
+        } else {
+            $response = false;
+        }
         return $response;
     }
 }
