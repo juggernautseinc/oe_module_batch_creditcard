@@ -15,8 +15,8 @@
     <h1 class="mt-5">{{ pageTitle }}</h1>
         <div class="m-15">
             {{ "Network Status"|xlt }}:  <button
-                {% if status == true  %} style="background-color: darkgreen; color: whitesmoke" {{ "Systems Online"|alt }}
-                {% else %} style="background-color: red; color: aliceblue" {{ "System Offline"|alt }}
+                {% if status == true  %} style="background-color: darkgreen; color: whitesmoke" {{ "Systems Online"|xlt }}
+                {% else %} style="background-color: red; color: aliceblue" {{ "System Offline"|xlt }}
                 {% endif %}> </button>
         </div>
         <div class="m-15">
