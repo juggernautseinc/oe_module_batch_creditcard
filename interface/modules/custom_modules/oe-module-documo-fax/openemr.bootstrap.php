@@ -42,6 +42,32 @@ function oe_module_faxsms_add_menu_item(MenuEvent $event)
 
     return $event;
 }
+
+function oe_module_documofax_add_menu_item(MenuEvent $event)
+{
+    $menu = $event->getMenu();
+
+    $menuItem = new stdClass();
+    $menuItem->requirement = 0;
+    $menuItem->target = 'mod';
+    $menuItem->menu_id = 'mod0';
+    $menuItem->label = xlt("Fax ");
+    $menuItem->url = "/interface/fax/faxq.php";
+    $menuItem->children = [];
+    $menuItem->acl_req = ["patients", "docs"];
+    $menuItem->global_req = [];
+
+    foreach ($menu as $item) {
+        if ($item->menu_id == 'misimg') {
+            $item->children[] = $menuItem;
+            break;
+        }
+    }
+
+    $event->setMenu($menu);
+
+    return $event;
+}
 /**
  * @var EventDispatcherInterface $eventDispatcher
  * @var array                    $module
@@ -61,4 +87,5 @@ function createFaxModuleGlobals(GlobalsInitializedEvent $event)
 }
 
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_faxsms_add_menu_item');
+$eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_documofax_add_menu_item');
 $eventDispatcher->addListener(GlobalsInitializedEvent::EVENT_HANDLE, 'createFaxModuleGlobals');
