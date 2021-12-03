@@ -62,5 +62,13 @@ function createFaxModuleGlobals(GlobalsInitializedEvent $event)
 
 }
 
+function oe_module_faxsms_document_render_action_anchors(Event $event)
+{
+    ?>
+    <a class="btn btn-secondary btn-send-msg" href="" onclick="return doFax(event,file,mime)"><span><?php echo xlt('Send Fax'); ?></span></a>
+    <?php
+}
+
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_faxsms_add_menu_item');
 $eventDispatcher->addListener(GlobalsInitializedEvent::EVENT_HANDLE, 'createFaxModuleGlobals');
+$eventDispatcher->addListener(PatientDocumentEvent::ACTIONS_RENDER_FAX_ANCHOR, 'oe_module_faxsms_document_render_action_anchors');
