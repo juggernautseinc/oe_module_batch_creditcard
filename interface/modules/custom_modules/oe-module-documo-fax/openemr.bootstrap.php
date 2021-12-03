@@ -51,7 +51,7 @@ function oe_module_documofax_add_menu_item(MenuEvent $event)
     $menuItem->requirement = 0;
     $menuItem->target = 'mod';
     $menuItem->menu_id = 'mod0';
-    $menuItem->label = xlt("Documo Fax Module");
+    $menuItem->label = xlt("Fax");
     $menuItem->url = "/interface/fax/faxq.php";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
