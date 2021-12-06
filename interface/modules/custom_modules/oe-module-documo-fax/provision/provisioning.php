@@ -13,7 +13,7 @@ use OpenEMR\Core\Header;
 use OpenEMR\Common\Csrf\CsrfUtils;
 use GuzzleHttp\Client;
 
-require_once dirname(__FILE__, 4) . "/globals.php";
+require_once dirname(__FILE__, 5) . "/globals.php";
 
 ?>
 <!doctype html>

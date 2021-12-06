@@ -13,9 +13,9 @@ use OpenEMR\Modules\Documo\Database;
 use OpenEMR\Modules\Documo\Provisioning;
 use OpenEMR\Common\Csrf\CsrfUtils;
 
-require_once dirname(__FILE__, 4) . "/globals.php";
-require_once "controller/Provisioning.php";
-require_once "controller/Database.php";
+require_once dirname(__FILE__, 5) . "/globals.php";
+require_once dirname(__FILE__, 2) . "/controller/Provisioning.php";
+require_once dirname(__FILE__, 2) . "/controller/Database.php";
 
 if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
     CsrfUtils::csrfNotVerified();
@@ -50,7 +50,7 @@ $request = $provision->numberProvisioning();
 if ($request !== 400) {
     //Save the returned JSON
     $accountdata->saveProvisionedNumbers($request);
-    header("Location account/account_status.php");
+    header("Location ../account/account_status.php");
 } else {
     echo xlt("There has been an error. ") . $request;
 }
