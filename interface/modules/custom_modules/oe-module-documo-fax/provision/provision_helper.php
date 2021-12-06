@@ -13,8 +13,8 @@ use OpenEMR\Modules\Documo\Provisioning;
 
 use OpenEMR\Common\Csrf\CsrfUtils;
 
-require_once dirname(__FILE__, 4) . "/globals.php";
-require_once "controller/Provisioning.php";
+require_once dirname(__FILE__, 5) . "/globals.php";
+require_once dirname(__FILE__, 2) . "/controller/Provisioning.php";
 
 if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
     CsrfUtils::csrfNotVerified();
