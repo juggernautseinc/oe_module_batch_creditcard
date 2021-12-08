@@ -30,15 +30,10 @@
             </table>
         </div>
     {% endblock %}
-
+    {% block footer %}
     <div class="mt-10" id="footer">
         <a class="btn btn-primary" href="../provision/provisioning.php">{{ "Add/Remove Numbers" }}</a>
-        {% block footer %}{% endblock footer %}
-    </div>
-    <div class="mt-10">
-        &copy; {{ 'now'|date('Y') }}
-    </div>
-</div>
 
-</body>
-</html>
+    </div>
+    {% endblock footer %}
+
