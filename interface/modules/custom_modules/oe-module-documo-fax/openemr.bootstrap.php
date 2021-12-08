@@ -51,8 +51,8 @@ function oe_module_documofax_add_menu_item(MenuEvent $event)
     $menuItem->requirement = 0;
     $menuItem->target = 'mod';
     $menuItem->menu_id = 'mod0';
-    $menuItem->label = xlt("Fax");
-    $menuItem->url = "/interface/fax/faxq.php";
+    $menuItem->label = xlt("Fax Manager");
+    $menuItem->url = "/interface/modules/custom_modules/oe-module-documo-fax/fax/faxque.php";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
     $menuItem->global_req = [];

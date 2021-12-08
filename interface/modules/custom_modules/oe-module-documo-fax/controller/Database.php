@@ -42,16 +42,30 @@ DB;
     `account_info` TEXT NOT NULL
 ) ENGINE = InnoDB COMMENT = 'documo account information';
 DB;
+        $DBSQLLOG = <<<'DB'
+    CREATE TABLE `documo_fax_log`
+(
+    `id` INT NOT NULL,
+    `date` DATETIME NOT NULL,
+    `messageid` VARCHAR(100) NOT NULL,
+    `sender` VARCHAR(50) NOT NULL,
+    `number` VARCHAR(25) NOT NULL,
+    `status` VARCHAR(10) NULL
+) ENGINE = InnoDB COMMENT = 'documo fax log';
+DB;
 
         $db = $GLOBALS['dbase'];
         $exist = sqlQuery("SHOW TABLES FROM `$db` LIKE 'documo_user'");
         if (empty($exist)) {
             sqlQuery($DBSQLACCOUNT);
             sqlQuery($DBSQLUSER);
+            sqlQuery($DBSQLLOG);
             sqlStatement(self::ALT_TABLE . add_escape_custom('documo_user') . "` ADD PRIMARY KEY(`id`)");
             sqlStatement(self::ALT_TABLE . add_escape_custom('documo_user') . "` MODIFY " . add_escape_custom('id') . " INT AUTO_INCREMENT");
             sqlStatement(self::ALT_TABLE . add_escape_custom('documo_account') . "` ADD PRIMARY KEY(`id`)");
             sqlStatement(self::ALT_TABLE . add_escape_custom('documo_account') . "` MODIFY " . add_escape_custom('id') . " INT AUTO_INCREMENT");
+            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_log') . "` ADD PRIMARY KEY(`id`)");
+            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_log') . "` MODIFY " . add_escape_custom('id') . " INT AUTO_INCREMENT");
         }
     }
 
