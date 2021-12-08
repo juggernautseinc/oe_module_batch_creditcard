@@ -1,23 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
+{% extends "layout.twig"  %}
 
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ pageTitle }}</title>
-        {{ header }}
-    {%  block head %}{% endblock head %}
-</head>
-<body>
-<div id="body" class="container">
-    <h1 class="mt-5">{{ pageTitle }}</h1>
+    {% block body %}
+        <h1 class="mt-5">{{ pageTitle }}</h1>
         <div class="mt-15 mb-15">
             {{ "Network Status"|xlt }}:
-                {% if status == true  %}<button style="background-color: darkgreen; color: whitesmoke;"> {{ "Systems Online"|xlt }} </button>
-                {% else %} <button style="background-color: red; color: aliceblue;">{{ "System Offline"|xlt }}</button>
-                {% endif %}
+            {% if status == true  %}<button style="background-color: darkgreen; color: whitesmoke;"> {{ "Systems Online"|xlt }} </button>
+            {% else %} <button style="background-color: red; color: aliceblue;">{{ "System Offline"|xlt }}</button>
+            {% endif %}
         </div>
         <div class="mt-15 mb-10">
             <table class="table">
@@ -34,15 +23,13 @@
                     <td><span style="font-weight: bold">{{ "Fax Numbers"|xlt }}:</span></td><td></td>
                 </tr>
                 {% for key, number in numbers %}
-                <tr>
-                    <td></td><td>{{ number.numberE164 }}</td>
-                </tr>
+                    <tr>
+                        <td></td><td>{{ number.numberE164 }}</td>
+                    </tr>
                 {% endfor %}
             </table>
         </div>
-    {% block body %}
-
-    {% endblock body %}
+    {% endblock %}
 
     <div class="mt-10" id="footer">
         <a class="btn btn-primary" href="../provision/provisioning.php">{{ "Add/Remove Numbers" }}</a>
