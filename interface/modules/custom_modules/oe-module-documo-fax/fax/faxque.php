@@ -19,7 +19,7 @@ use Twig\Error\SyntaxError;
 
 require_once dirname(__FILE__, 5) . "/globals.php";
 
-$header = Header::setupHeader(['common']);
+$header = ;
 $path = dirname(__FILE__, 2) . "/templates";
 $twigloader = new TwigContainer($path, $GLOBALS['kernel']);
 $status = new ApiDispatcher();
@@ -29,7 +29,7 @@ $twig->addExtension(new Twig_Extension_Debug());
 try {
     print $twig->render('que.twig', [
         'pageTitle' => 'Fax Que',
-        'header' => $header
+        'header' => Header::setupHeader(['common'])
     ]);
 } catch (LoaderError | RuntimeError | SyntaxError $e) {
     print $e->getMessage();
