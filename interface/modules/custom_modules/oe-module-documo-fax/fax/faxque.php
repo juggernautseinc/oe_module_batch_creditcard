@@ -9,7 +9,6 @@
  *
  */
 
-use OpenEMR\Core\Header;
 use OpenEMR\Common\Twig\TwigContainer;
 use OpenEMR\Modules\Documo\ApiDispatcher;
 use OpenEMR\Modules\Documo\Database;
@@ -21,7 +20,7 @@ require_once dirname(__FILE__, 5) . "/globals.php";
 
 $path = dirname(__FILE__, 2) . "/templates";
 $twigloader = new TwigContainer($path, $GLOBALS['kernel']);
-//$status = new ApiDispatcher();die('here loader dispatch');
+$status = new ApiDispatcher();
 $twig = $twigloader->getTwig();
 $twig->addExtension(new Twig_Extension_Debug());
 
