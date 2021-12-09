@@ -26,7 +26,6 @@ $twigloader = new TwigContainer($path, $GLOBALS['kernel']);
 $status = new ApiDispatcher();
 $twig = $twigloader->getTwig();
 $twig->addExtension(new Twig_Extension_Debug());
-$header = $twig->getFunctions();
 $account_data = new Database();
 $documoaccount = $account_data->getAllAccountInfo();
 $documouser = $account_data->getUserInfo();
@@ -35,7 +34,7 @@ $documofaxnumbers = $account_data->getFaxNumbers();
 try {
     print $twig->render('account.twig', [
         'pageTitle' => 'Account Summary',
-        'header' => $header,
+        'header' => Header::setupHeader(['common']),
         'uuid' => $documoaccount['uuid'],
         'accountname' => $documoaccount['accountName'],
         'callerid' => $documoaccount['faxCallerId'],
