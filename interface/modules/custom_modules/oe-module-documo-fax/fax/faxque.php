@@ -26,7 +26,7 @@ $twig = $twigloader->getTwig();
 $twig->addExtension(new Twig_Extension_Debug());
 
 try {
-    print $twig->render('que.twig', [
+    print $twig->render('account.twig', [
         'pageTitle' => 'Fax Que',
         'header' => Header::setupHeader(['common'])
     ]);
