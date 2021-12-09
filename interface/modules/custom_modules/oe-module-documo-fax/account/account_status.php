@@ -9,7 +9,7 @@
  *
  */
 
-use OpenEMR\Core\Header;
+
 use OpenEMR\Common\Twig\TwigContainer;
 use OpenEMR\Modules\Documo\ApiDispatcher;
 use OpenEMR\Modules\Documo\Database;
@@ -34,7 +34,6 @@ $documofaxnumbers = $account_data->getFaxNumbers();
 try {
     print $twig->render('account.twig', [
         'pageTitle' => 'Account Summary',
-        'header' => Header::setupHeader(['common']),
         'uuid' => $documoaccount['uuid'],
         'accountname' => $documoaccount['accountName'],
         'callerid' => $documoaccount['faxCallerId'],

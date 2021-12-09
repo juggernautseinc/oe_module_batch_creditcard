@@ -27,8 +27,8 @@ $twig->addExtension(new Twig_Extension_Debug());
 
 try {
     print $twig->render('que.twig', [
-        'pageTitle' => 'Fax Que',
-        'header' => Header::setupHeader(['common'])
+        'pageTitle' => 'Fax Que'
+
     ]);
 } catch (LoaderError | RuntimeError | SyntaxError $e) {
     print $e->getMessage();
