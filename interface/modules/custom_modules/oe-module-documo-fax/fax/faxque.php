@@ -11,7 +11,7 @@
 
 use OpenEMR\Common\Twig\TwigContainer;
 
-use OpenEMR\Documo\ApiDispatcher;
+use OpenEMR\Modules\Documo\ApiDispatcher;
 use OpenEMR\Modules\Documo\Database;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
