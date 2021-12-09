@@ -50,7 +50,9 @@ DB;
     `messageid` VARCHAR(100) NOT NULL,
     `sender` VARCHAR(50) NOT NULL,
     `number` VARCHAR(25) NOT NULL,
-    `status` VARCHAR(10) NULL
+    `status` VARCHAR(10) NULL,
+    `cancel` TINYINT NULL,
+    `retry` TINYINT NULL
 ) ENGINE = InnoDB COMMENT = 'documo fax log';
 DB;
 

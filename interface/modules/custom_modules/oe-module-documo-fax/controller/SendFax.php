@@ -13,6 +13,13 @@ namespace OpenEMR\Modules\Documo;
 class SendFax
 {
     private $uuid;
+    const STATUS_WAITING = "waiting";
+    const STATUS_PARAMETER_ERROR = 'parameter-error';
+    const STATUS_UPLOAD_ERROR = 'fax upload error';
+    const STATUS_IN_PROGRESS = 'in progress';
+    const STATUS_SUCCESS = 'success';
+
+    const TABLE_NAME = 'documo_fax_log';
 
     public function __construct()
     {
