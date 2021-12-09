@@ -18,7 +18,7 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 require_once dirname(__FILE__, 5) . "/globals.php";
-require_once dirname(__FILE__, 2) . "controller/ApiDispatcher.php";
+require_once dirname(__FILE__, 2) . "/controller/ApiDispatcher.php";
 
 $path = dirname(__FILE__, 2) . "/templates";
 $twigloader = new TwigContainer($path, $GLOBALS['kernel']);
