@@ -14,7 +14,7 @@
     "keywords": ["openemr", "openemr-module"],
     "minimum-stability": "stable",
     "autoload": {
-        "psr-4": {"Juggernaut\\Documo\\": "controller"}
+        "psr-4": {"Juggernaut\\Documo\\": "controller/"}
     },
     "require": {
         "openemr/oe-module-installer-plugin": "^0.1.0",
