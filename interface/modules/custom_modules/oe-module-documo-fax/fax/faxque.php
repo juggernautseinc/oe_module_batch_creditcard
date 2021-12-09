@@ -21,7 +21,12 @@ require_once dirname(__FILE__, 5) . "/globals.php";
 
 $path = dirname(__FILE__, 2) . "/templates";
 $twigloader = new TwigContainer($path, $GLOBALS['kernel']);
-$status = new ApiDispatcher();
+try {
+    $status = new ApiDispatcher();
+} catch (Error $e) {
+    print $e->getMessage();
+}
+
 $twig = $twigloader->getTwig();
 $twig->addExtension(new Twig_Extension_Debug());
 
