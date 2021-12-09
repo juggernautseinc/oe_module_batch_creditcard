@@ -21,7 +21,6 @@ require_once dirname(__FILE__, 5) . "/globals.php";
 require_once dirname(__FILE__, 2) . "/controller/Database.php";
 require_once dirname(__FILE__, 2) . "/controller/ApiDispatcher.php";
 
-$header = Header::setupHeader(['common']);
 $path = dirname(__FILE__, 2) . "/templates";
 $twigloader = new TwigContainer($path, $GLOBALS['kernel']);
 $status = new ApiDispatcher();
@@ -36,7 +35,7 @@ $documofaxnumbers = $account_data->getFaxNumbers();
 try {
     print $twig->render('account.twig', [
         'pageTitle' => 'Account Summary',
-        'header' => $header,
+        'header' => Header::setupHeader(['common']),
         'uuid' => $documoaccount['uuid'],
         'accountname' => $documoaccount['accountName'],
         'callerid' => $documoaccount['faxCallerId'],
