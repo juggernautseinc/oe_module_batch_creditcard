@@ -11,13 +11,14 @@
 
 use OpenEMR\Common\Twig\TwigContainer;
 
-use Juggernaut\Documo\ApiDispatcher;
+use OpenEMR\Documo\ApiDispatcher;
 use OpenEMR\Modules\Documo\Database;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 require_once dirname(__FILE__, 5) . "/globals.php";
+require_once dirname(__FILE__, 2) . "controller/ApiDispatcher.php";
 
 $path = dirname(__FILE__, 2) . "/templates";
 $twigloader = new TwigContainer($path, $GLOBALS['kernel']);
