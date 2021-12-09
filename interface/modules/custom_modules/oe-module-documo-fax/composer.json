@@ -12,7 +12,6 @@
         }
     ],
     "keywords": ["openemr", "openemr-module"],
-    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {"Juggernaut\\Documo\\": "controller/"}
     },
