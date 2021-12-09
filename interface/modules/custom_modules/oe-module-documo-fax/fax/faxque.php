@@ -10,6 +10,7 @@
  */
 
 use OpenEMR\Common\Twig\TwigContainer;
+
 use OpenEMR\Modules\Documo\ApiDispatcher;
 use OpenEMR\Modules\Documo\Database;
 use Twig\Error\LoaderError;
