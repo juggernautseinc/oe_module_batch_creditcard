@@ -35,6 +35,7 @@ $documofaxnumbers = $account_data->getFaxNumbers();
 try {
     print $twig->render('account.twig', [
         'pageTitle' => 'Account Summary',
+        'header' => $twig->getFunctions(),
         'uuid' => $documoaccount['uuid'],
         'accountname' => $documoaccount['accountName'],
         'callerid' => $documoaccount['faxCallerId'],
