@@ -20,7 +20,7 @@ use Twig\Error\SyntaxError;
 require_once dirname(__FILE__, 5) . "/globals.php";
 
 $path = dirname(__FILE__, 2) . "/templates";
-$twigloader = new TwigContainer($path, $GLOBALS['kernel']);die('here loader');
+$twigloader = new TwigContainer($path, $GLOBALS['kernel']);
 $status = new ApiDispatcher();die('here loader dispatch');
 $twig = $twigloader->getTwig();
 $twig->addExtension(new Twig_Extension_Debug());
