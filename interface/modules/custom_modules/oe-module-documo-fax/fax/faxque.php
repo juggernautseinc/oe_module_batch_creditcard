@@ -29,7 +29,7 @@ $twig->addExtension(new Twig_Extension_Debug());
 try {
     print $twig->render('que.twig', [
         'pageTitle' => 'Fax Que',
-        'header' => $header,
+        'header' => $header
     ]);
 } catch (LoaderError | RuntimeError | SyntaxError $e) {
     print $e->getMessage();
