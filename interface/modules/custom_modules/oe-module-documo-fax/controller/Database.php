@@ -43,7 +43,7 @@ DB;
 ) ENGINE = InnoDB COMMENT = 'documo account information';
 DB;
         $DBSQLLOG = <<<'DB'
-    CREATE TABLE `documo_fax_log`
+    CREATE TABLE `documo_fax_que`
 (
     `id` INT NOT NULL,
     `date` DATETIME NOT NULL,
@@ -53,7 +53,7 @@ DB;
     `status` VARCHAR(10) NULL,
     `cancel` TINYINT NULL,
     `retry` TINYINT NULL
-) ENGINE = InnoDB COMMENT = 'documo fax log';
+) ENGINE = InnoDB COMMENT = 'documo fax que';
 DB;
 
         $db = $GLOBALS['dbase'];
