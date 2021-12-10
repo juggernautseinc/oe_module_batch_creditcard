@@ -90,3 +90,15 @@ function createFaxModuleGlobals(GlobalsInitializedEvent $event)
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_faxsms_add_menu_item');
 $eventDispatcher->addListener(MenuEvent::MENU_UPDATE, 'oe_module_documofax_add_menu_item');
 $eventDispatcher->addListener(GlobalsInitializedEvent::EVENT_HANDLE, 'createFaxModuleGlobals');
+
+
+$eventDispatcher->addListener(PatientReportEvent::ACTIONS_RENDER_POST, 'oe_module_documo_fax_render_action_anchors');
+
+// patient document fax anchor
+
+function oe_module_documo_fax_render_action_anchors(Event)
+{
+    ?>
+    <a class="btn btn-secondary btn-send-msg" href="" onclick="return doFax(event,file,mime)"><span><?php echo xlt('Que Fax'); ?></span></a>
+<?php
+}
