@@ -13,6 +13,8 @@
 
 use OpenEMR\Menu\MenuEvent;
 use Symfony\Component\EventDispatcher\Event;
+use OpenEMR\Events\PatientReport\PatientReportEvent;
+use OpenEMR\Events\PatientDocuments\PatientDocumentEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use OpenEMR\Events\Globals\GlobalsInitializedEvent;
 use OpenEMR\Services\Globals\GlobalSetting;
@@ -98,6 +100,8 @@ $eventDispatcher->addListener(PatientReportEvent::ACTIONS_RENDER_POST, 'oe_modul
 
 function oe_module_documo_fax_render_action_anchors(Event $event)
 {
-  return '<a class="btn btn-secondary btn-send-msg" href="" onclick="return doFax(event,file,mime)"><span> xlt("Que Fax"); </span></a>';
-
+?>
+    <a class="btn btn-secondary btn-send-msg" href="" onclick="return doFax(event,file,mime)"><span><?php echo xlt('Que Fax'); ?></span></a>
+<?php
 }
+?>
