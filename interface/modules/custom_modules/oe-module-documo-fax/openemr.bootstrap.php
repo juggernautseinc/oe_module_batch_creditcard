@@ -96,9 +96,9 @@ $eventDispatcher->addListener(PatientReportEvent::ACTIONS_RENDER_POST, 'oe_modul
 
 // patient document fax anchor
 
-function oe_module_documo_fax_render_action_anchors(Event)
+function oe_module_documo_fax_render_action_anchors(Event $event)
 {
-    ?>
+?>
     <a class="btn btn-secondary btn-send-msg" href="" onclick="return doFax(event,file,mime)"><span><?php echo xlt('Que Fax'); ?></span></a>
 <?php
 }
