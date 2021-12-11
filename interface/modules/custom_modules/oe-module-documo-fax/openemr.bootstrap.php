@@ -95,6 +95,7 @@ $eventDispatcher->addListener(GlobalsInitializedEvent::EVENT_HANDLE, 'createFaxM
 
 
 $eventDispatcher->addListener(PatientReportEvent::ACTIONS_RENDER_POST, 'oe_module_documo_fax_render_action_anchors');
+$eventDispatcher->addListener(PatientReportEvent::JAVASCRIPT_READY_POST, 'oe_module_documo_patient_report_render_javascript_post_load');
 
 // patient document fax anchor
 
@@ -103,5 +104,35 @@ function oe_module_documo_fax_render_action_anchors(Event $event)
 ?>
     <a class="btn btn-secondary btn-send-msg" href="" onclick="return doFax(event,file,mime)"><span><?php echo xlt('Que Fax'); ?></span></a>
 <?php
+}
+
+function oe_module_documo_patient_report_render_javascript_post_load(Event $event)
+{
+    ?>
+    function getFaxContent() {
+    top.restoreSession();
+    document.report_form.fax.value = 1;
+    let url = 'custom_report.php';
+    let wait = '<span id="wait"><?php echo xlt("Building Document .. "); ?><i class="fa fa-cog fa-spin fa-2x"></i></span>';
+    $("#waitplace").append(wait);
+    $.ajax({
+    type: "POST",
+    url: url,
+    data: $("#report_form").serialize(),
+    success: function (content) {
+    document.report_form.fax.value = 0;
+    let btnClose = <?php echo xlj("Cancel"); ?>;
+    let title = <?php echo xlj("Send To Contact"); ?>;
+    let url = top.webroot_url + '/interface/modules/custom_modules/oe-module-faxsms/contact.php?isContent=0&file=' + content;
+    dlgopen(url, '', 'modal-md', 625, '', title, {buttons: [{text: btnClose, close: true, style: 'secondary'}]});
+    return false;
+    }
+    }).always(function () {
+    $("#wait").remove();
+    });
+    return false;
+    }
+    $(".genfax").click(function() {getFaxContent();});
+    <?php
 }
 ?>
