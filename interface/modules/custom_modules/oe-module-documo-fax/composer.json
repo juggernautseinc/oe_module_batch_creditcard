@@ -13,7 +13,7 @@
     ],
     "keywords": ["openemr", "openemr-module"],
     "autoload": {
-        "psr-4": {"OpenEMR\\Modules\\Juggernaut\\Controllers\\": "controller/"}
+        "psr-4": {"OpenEMR\\Modules\\Documo\\": "controller/"}
     },
     "require": {
         "openemr/oe-module-installer-plugin": "^0.1.0",
