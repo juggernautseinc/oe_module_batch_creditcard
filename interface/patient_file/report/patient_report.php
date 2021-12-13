@@ -733,9 +733,9 @@ $(function () {
     <?php } ?>
 
     <?php
-    if ($oefax) {
+
         $eventDispatcher->dispatch(PatientReportEvent::JAVASCRIPT_READY_POST, new GenericEvent());
-    }
+
     ?>
 
 });
