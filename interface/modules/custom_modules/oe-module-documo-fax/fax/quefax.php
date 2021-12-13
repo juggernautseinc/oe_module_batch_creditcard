@@ -18,7 +18,8 @@ $file = explode("/", $_GET['file']);
 $que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documo/outbound/" . $file[2];
 
 $dir = new SendFax();
-var_dump($dir::faxDir());
+$isDir = $dir::faxDir();
+var_dump($isDir);
 
 if ($_POST) {
     copy($_GET['file'], $que);
