@@ -15,7 +15,7 @@ $file = explode("/", $_GET['file']);
 var_dump($file);
 
 $que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documo/outbound/";
-
+var_dump($que);
 copy($_GET['file'], $que . $file[2]);
 
 
