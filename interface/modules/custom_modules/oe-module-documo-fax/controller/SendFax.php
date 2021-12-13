@@ -29,7 +29,7 @@ class SendFax
         $this->uuid = $getuuid->getAccountId();
     }
 
-    public static function faxDir()
+    public static function faxDir(): string
     {
         $documo_path = $GLOBALS['webroot'] . "sites/" . $_SESSION['site_id'] . "/documo";
         $inbound_path = $GLOBALS['webroot'] . "sites/" . $_SESSION['site_id'] . "/documo/inbound";
@@ -42,7 +42,7 @@ class SendFax
             } catch (Exception $e) {
                 return  $e->getMessage();
             }
-            $exits = true;
+            $exits = $documo_path;
         }
         return $exits;
     }
