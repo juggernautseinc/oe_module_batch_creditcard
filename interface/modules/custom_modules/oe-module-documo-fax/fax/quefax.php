@@ -9,6 +9,7 @@
  *
  */
 
+require_once dirname(__FILE__, 5) . "/globals.php";
 
 $file = explode("/", $_GET['file']);
 
