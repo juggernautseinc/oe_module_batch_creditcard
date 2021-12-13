@@ -10,6 +10,8 @@
 
 namespace OpenEMR\Modules\Documo;
 
+use Exception;
+
 class SendFax
 {
     private $uuid;
@@ -29,14 +31,19 @@ class SendFax
 
     public static function faxDir()
     {
-        $filepath = $GLOBALS['webroot'] . "sites/" . $_SESSION['site_id'] . "/documents/fax";
-        if (file_exists($filepath)) {
-            $exits = "Path exists";
-        } else {
-            $exits = "Not there";
+        $documo_path = $GLOBALS['webroot'] . "sites/" . $_SESSION['site_id'] . "/documo";
+        $inbound_path = $GLOBALS['webroot'] . "sites/" . $_SESSION['site_id'] . "/documo/inbound";
+        $outbound_path = $GLOBALS['webroot'] . "sites/" . $_SESSION['site_id'] . "/documo/outbound";
+
+        if (!file_exists($documo_path)) {
+            try {
+                mkdir($documo_path, 0755);
+                chown($documo_path, "www-data:www-data");
+            } catch (Exception $e) {
+                return  $e->getMessage();
+            }
+            $exits = true;
         }
         return $exits;
     }
-
-
 }

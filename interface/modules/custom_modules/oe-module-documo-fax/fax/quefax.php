@@ -1,7 +1,5 @@
 <?php
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+
 /*
  * package   OpenEMR
  *  link      http://www.open-emr.org
@@ -11,14 +9,18 @@ error_reporting(E_ALL);
  *
  */
 
+use OpenEMR\Modules\Documo\SendFax;
+
 require_once dirname(__FILE__, 5) . "/globals.php";
 
 $file = explode("/", $_GET['file']);
 
-var_dump($file);
-
 $que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documo/outbound/" . $file[2];
-var_dump($que);
-copy($_GET['file'], $que);
 
+$dir = new SendFax();
+var_dump($dir::faxDir());
+
+if ($_POST) {
+    copy($_GET['file'], $que);
+}
 
