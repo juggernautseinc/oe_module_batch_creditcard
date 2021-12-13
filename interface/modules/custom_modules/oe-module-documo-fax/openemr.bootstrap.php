@@ -102,7 +102,8 @@ $eventDispatcher->addListener(PatientReportEvent::JAVASCRIPT_READY_POST, 'oe_mod
 function oe_module_documo_fax_render_action_anchors(Event $event)
 {
 ?>
-    <a class="btn btn-secondary btn-send-msg" href="" onclick="return doFax(event,file,mime)"><span><?php echo xlt('Que Fax'); ?></span></a>
+    <button type="button" class="genfax btn btn-secondary btn-send-msg" value="<?php echo xla('Que Fax'); ?>"><?php echo xlt('Que Fax'); ?></button><span id="waitplace"></span>
+    <input type='hidden' name='fax' value='0'>
 <?php
 }
 
