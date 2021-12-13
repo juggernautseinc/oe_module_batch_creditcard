@@ -9,6 +9,7 @@
  *
  */
 
-var_dump($_GET['isContent'], $_GET['file']);
 
+$file = explode("/", $_GET['file']);
 
+var_dump($file);
