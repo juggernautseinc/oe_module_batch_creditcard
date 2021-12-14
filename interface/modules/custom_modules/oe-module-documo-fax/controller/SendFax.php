@@ -33,7 +33,7 @@ class SendFax
 
     public static function faxDir(): string
     {
-        $documo_path = $GLOBALS['webroot'] . self::SITE_ID . "/" . $_SESSION['site_id'] . "/documo";
+        $documo_path = ".." . $GLOBALS['webroot'] . self::SITE_ID . "/" . $_SESSION['site_id'] . "/documo";
         $inbound_path = $GLOBALS['webroot'] . self::SITE_ID . "/"  . $_SESSION['site_id'] . "/documo/inbound";
         $outbound_path = $GLOBALS['webroot'] . self::SITE_ID . "/" . $_SESSION['site_id'] . "/documo/outbound";
 
