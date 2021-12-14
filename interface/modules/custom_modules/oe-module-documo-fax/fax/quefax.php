@@ -15,7 +15,7 @@ error_reporting(E_ALL);
 use OpenEMR\Modules\Documo\SendFax;
 
 require_once dirname(__FILE__, 5) . "/globals.php";
-require_once dirname(__FILE__, 2) . "/controller/SendFax.php";
+require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
 
 $file = explode("/", $_GET['file']);
 
