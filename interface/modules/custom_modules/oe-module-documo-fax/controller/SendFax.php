@@ -34,12 +34,14 @@ class SendFax
     public static function faxDir(): string
     {
         $documo_path = dirname(__FILE__, 6) . self::SITE_ID . DIRECTORY_SEPARATOR . $_SESSION['site_id'] . "/documents/documo";
-        $inbound_path = $GLOBALS['webroot'] . self::SITE_ID . DIRECTORY_SEPARATOR  . $_SESSION['site_id'] . "/documo/inbound";
-        $outbound_path = $GLOBALS['webroot'] . self::SITE_ID . DIRECTORY_SEPARATOR . $_SESSION['site_id'] . "/documo/outbound";
+        $inbound_path = $GLOBALS['webroot'] . self::SITE_ID . DIRECTORY_SEPARATOR  . $_SESSION['site_id'] . "/documents/documo/inbound";
+        $outbound_path = $GLOBALS['webroot'] . self::SITE_ID . DIRECTORY_SEPARATOR . $_SESSION['site_id'] . "/documents/documo/outbound";
 
         if (!is_dir($documo_path)) {
             try {
-                mkdir($documo_path, 0755, true);
+                mkdir($documo_path);
+                mkdir($inbound_path);
+                mkdir($outbound_path);
             } catch (Exception $e) {
                 return  $e->getMessage();
             }
