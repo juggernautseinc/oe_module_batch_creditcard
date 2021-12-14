@@ -39,7 +39,7 @@ class SendFax
 
         if (!is_dir($documo_path)) {
             try {
-                mkdir($documo_path, 755, true);
+                mkdir($documo_path);
             } catch (Exception $e) {
                 return  $e->getMessage();
             }
