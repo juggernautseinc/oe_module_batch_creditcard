@@ -9,6 +9,7 @@
  */
 
 namespace OpenEMR\Modules\Documo;
+require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
 
 use Exception;
 
@@ -20,6 +21,7 @@ class SendFax
     const STATUS_UPLOAD_ERROR = 'fax upload error';
     const STATUS_IN_PROGRESS = 'in progress';
     const STATUS_SUCCESS = 'success';
+    const SITE_ID = 'sites';
 
     const TABLE_NAME = 'documo_fax_log';
 
@@ -31,9 +33,9 @@ class SendFax
 
     public static function faxDir(): string
     {
-        $documo_path = $GLOBALS['webroot'] . "sites/" . $_SESSION['site_id'] . "/documo";
-        $inbound_path = $GLOBALS['webroot'] . "sites/" . $_SESSION['site_id'] . "/documo/inbound";
-        $outbound_path = $GLOBALS['webroot'] . "sites/" . $_SESSION['site_id'] . "/documo/outbound";
+        $documo_path = $GLOBALS['webroot'] . self::SITE_ID . "/" . $_SESSION['site_id'] . "/documo";
+        $inbound_path = $GLOBALS['webroot'] . self::SITE_ID . "/"  . $_SESSION['site_id'] . "/documo/inbound";
+        $outbound_path = $GLOBALS['webroot'] . self::SITE_ID . "/" . $_SESSION['site_id'] . "/documo/outbound";
 
         if (!file_exists($documo_path)) {
             try {
