@@ -59,7 +59,8 @@ if ($_POST) {
         <form action="faxque.php" method="post" >
             <select>
                 <?php
-                    while ($row = sqlFetchArray($destinations->getOrganizations())) {
+                    $places = $destinations->getOrganizations();
+                    while ($row = sqlFetchArray($places)) {
                         var_dump($row);
                     }
                 ?>
