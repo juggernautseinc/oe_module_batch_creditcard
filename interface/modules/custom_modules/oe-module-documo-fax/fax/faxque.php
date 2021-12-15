@@ -11,6 +11,7 @@
 
 use OpenEMR\Common\Twig\TwigContainer;
 use OpenEMR\Modules\Documo\ApiDispatcher;
+use OpenEMR\Common\Csrf\CsrfUtils;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
