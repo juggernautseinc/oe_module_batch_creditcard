@@ -26,7 +26,7 @@ $dir = new SendFax();
 $destinations = new Database();
 $isDir = $dir::faxDir();
 echo $isDir;
-if ($isDir != "Found" || $isDir != "Created") {
+if ($isDir != "Found") {
     echo xlt('Fax directories were not created. Check php error log to see what the issue is.');
     die;
 }
