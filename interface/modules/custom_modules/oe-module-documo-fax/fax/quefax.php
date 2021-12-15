@@ -33,7 +33,7 @@ if ($isDir != "Found") {
 if ($_POST) {
     copy($_GET['file'], $que);
 }
-var_dump($destinations->getOrganizations());
+$places = $destinations->getOrganizations();
 die;
 ?>
 <!doctype html>
@@ -60,7 +60,7 @@ die;
         <form action="faxque.php" method="post" >
             <select>
                 <?php
-                    while ($row = sqlFetchArray($destinations->getOrganizations())) {
+                    while ($row = sqlFetchArray($places)) {
                         var_dump($row);
                     }
                 ?>
