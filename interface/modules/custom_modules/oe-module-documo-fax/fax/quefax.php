@@ -56,8 +56,8 @@ if ($isDir != "Found") {
     <div class="container">
         <?php
             if (!empty($_POST['number'])) {
-                $sendto = filter_input(POST, 'number', FILTER_SANITIZE_NUMBER_INT);
-                echo $sendto; die;
+                //$sendto = filter_input(POST, 'number', FILTER_SANITIZE_NUMBER_INT);
+                echo $_POST['number']; die;
                 //copy($_GET['file'], $que);
             }
         ?>
