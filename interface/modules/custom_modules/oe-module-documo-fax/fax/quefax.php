@@ -61,7 +61,7 @@ if ($_POST) {
             <select>
                 <?php
                     while ($row = sqlFetchArray($places)) {
-                        print "<option>" . $row . "</option>";
+                        print "<option value='" . $row['id'] . "'>" . $row['id'] . " " . $row['specialty'] . " " . $row['organization'] . " " . $row['street'] . " " . $row['fax'] . "</option>";
                     }
                 ?>
             </select>
