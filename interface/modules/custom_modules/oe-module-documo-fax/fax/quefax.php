@@ -12,6 +12,7 @@
 use OpenEMR\Modules\Documo\Database;
 use OpenEMR\Modules\Documo\SendFax;
 use OpenEMR\Core\Header;
+use OpenEMR\Common\Csrf\CsrfUtils;
 
 require_once dirname(__FILE__, 5) . "/globals.php";
 require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
@@ -31,10 +32,9 @@ if ($isDir != "Found") {
     echo xlt('Fax directories were not created. Check php error log to see what the issue is.');
     die;
 }
-if ($_POST) {
-    copy($_GET['file'], $que);
+if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token"])) {
+    CsrfUtils::csrfNotVerified();
 }
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -56,9 +56,17 @@ if ($_POST) {
 </head>
 <body>
     <div class="container">
+        <?php
+            if (!empty($_POST['number'])) {
+                $sendto = filter_input(POST, 'name', FILTER_SANITIZE_NUMBER_INT);
+                echo $sendto; die;
+                //copy($_GET['file'], $que);
+            }
+        ?>
         <h2 class="mt-5 mb-5">Send Document to Fax Que</h2>
         <form action="faxque.php" method="post" id="theform" >
-            <select class="select-dropdown">
+            <input type="hidden" name="csrf_token" value="<?php echo CsrfUtils::collectCsrfToken(); ?>">
+            <select name="number" id="number" class="select-dropdown">
 
                 <?php
                     print "<option>" . xlt('Select Destination') . "</option>";

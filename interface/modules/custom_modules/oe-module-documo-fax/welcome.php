@@ -48,6 +48,7 @@ use OpenEMR\Core\Header;
             <div>
                 <p><?php echo xlt("This module was developed by") ?> <a href="https://affordablecustomehr.com" target="_blank" ><?php echo xlt("Affordable Custom EHR") ?></a></p>
                 <p><?php echo xlt("Please contact them for technical support of this module") ?></p>
+                <p>&copy; <?php echo date('Y')?></p>
             </div>
         </div>
     </body>
