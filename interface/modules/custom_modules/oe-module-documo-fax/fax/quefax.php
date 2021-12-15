@@ -62,7 +62,7 @@ if ($isDir != "Found") {
             }
         ?>
         <h2 class="mt-5 mb-5">Send Document to Fax Que</h2>
-        <form action="faxque.php" method="post" id="theform" >
+        <form action="quefax.php" method="post" id="theform" >
             <input type="hidden" name="csrf_token" value="<?php echo CsrfUtils::collectCsrfToken(); ?>">
             <select name="number" id="number" class="select-dropdown">
 
