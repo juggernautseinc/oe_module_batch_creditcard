@@ -45,29 +45,21 @@ if ($_POST) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Que Fax Document</title>
     <?php Header::setupHeader(['common', 'select2']); ?>
-    <script>
-        $(function() {
-            $(".select-dropdown").select2({
-                theme: "bootstrap4",
-                <?php require($GLOBALS['srcdir'] . '/js/xl/select2.js.php'); ?>
-            });
-        });
-    </script>
 </head>
 <body>
     <div class="container">
         <h2 class="mt-5 mb-5">Send Document to Fax Que</h2>
         <form action="faxque.php" method="post" >
-            <select>
+            <select class="select2-dropdown">
 
                 <?php
                     print "<option>" . xlt('Select Destination') . "</option>";
                     while ($row = sqlFetchArray($places)) {
-                        print "<option value='" . $row['id'] . "'>" . $row['specialty'] . " " . $row['organization'] . " " . $row['street'] . " " . $row['fax'] . "</option>";
+                        print "<option value='" . $row['fax'] . "'>" . $row['specialty'] . " " . $row['organization'] . " " . $row['street'] . " " . $row['fax'] . "</option>";
                     }
                 ?>
             </select>
-            <input type="submit" value="Send">
+            <input class="btn btn-primary" type="submit" value="Send">
         </form>
     </div>
 </body>
