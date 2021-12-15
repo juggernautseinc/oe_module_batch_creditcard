@@ -192,4 +192,10 @@ DB;
         return json_decode($data['fax_numbers'], true);
     }
 
+    public function getOrganizations()
+    {
+        $sql = "select id, specialty, organization, street, fax from users GROUP BY specialty";
+        return sqlStatement($sql);
+    }
+
 }

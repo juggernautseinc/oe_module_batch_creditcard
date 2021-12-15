@@ -9,7 +9,9 @@
  *
  */
 
+use OpenEMR\Modules\Documo\Database;
 use OpenEMR\Modules\Documo\SendFax;
+use OpenEMR\Core\Header;
 
 require_once dirname(__FILE__, 5) . "/globals.php";
 require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
@@ -21,10 +23,47 @@ $queFile = $d . "_" . $s . "_" . $file[2];
 $que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documents/documo/outbound/" . $queFile;
 
 $dir = new SendFax();
+$destinations = new Database();
 $isDir = $dir::faxDir();
-var_dump($isDir);
 
+if ($isDir !== 'Found' || $isDir !== 'Created') {
+    echo xlt('Fax directories were not created. Check php error log to see what the issue is.');
+    die;
+}
 if ($_POST) {
     copy($_GET['file'], $que);
 }
-
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Que Fax Document</title>
+    <?php Header::setupHeader(['common', 'select2']); ?>
+    <script>
+        $(function() {
+            $(".select-dropdown").select2({
+                theme: "bootstrap4",
+                <?php require($GLOBALS['srcdir'] . '/js/xl/select2.js.php'); ?>
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5 mb-5">Send Document to Fax Que</h2>
+        <form action="faxque.php" method="post" >
+            <select>
+                <?php
+                    while ($row = sqlFetchArray($destinations->getOrganizations())) {
+                        var_dump($row);
+                    }
+                ?>
+            </select>
+        </form>
+    </div>
+</body>
+</html>
