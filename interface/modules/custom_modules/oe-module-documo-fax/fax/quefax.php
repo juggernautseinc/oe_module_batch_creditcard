@@ -67,7 +67,7 @@ if ($isDir != "Found") {
                     }
                 ?>
             </select>
-            <input class="btn btn-primary" type="submit" value="Send">
+            <input class="btn btn-primary" type="submit" value="Send" onsubmit="return top.restoreSession()">
         </form>
     </div>
 </body>
