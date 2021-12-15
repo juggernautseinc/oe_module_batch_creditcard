@@ -32,9 +32,7 @@ if ($isDir != "Found") {
     echo xlt('Fax directories were not created. Check php error log to see what the issue is.');
     die;
 }
-if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token"])) {
-    CsrfUtils::csrfNotVerified();
-}
+
 ?>
 <!doctype html>
 <html lang="en">
