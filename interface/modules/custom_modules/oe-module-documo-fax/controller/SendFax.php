@@ -9,7 +9,7 @@
  */
 
 namespace OpenEMR\Modules\Documo;
-require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
+//require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
 
 use Exception;
 use http\Exception\UnexpectedValueException;
