@@ -58,7 +58,7 @@ if ($_POST) {
     <div class="container">
         <h2 class="mt-5 mb-5">Send Document to Fax Que</h2>
         <form action="faxque.php" method="post" >
-            <select class="select2-dropdown">
+            <select>
 
                 <?php
                     print "<option>" . xlt('Select Destination') . "</option>";
