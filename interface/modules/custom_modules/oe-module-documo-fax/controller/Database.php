@@ -194,7 +194,7 @@ DB;
 
     public function getOrganizations()
     {
-        $sql = "select id, specialty, organization, street, fax from users GROUP BY specialty";
+        $sql = "select id, specialty, organization, street, fax from users ORDER BY specialty";
         return sqlStatement($sql);
     }
 
