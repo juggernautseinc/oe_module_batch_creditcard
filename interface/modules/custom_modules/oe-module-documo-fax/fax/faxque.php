@@ -10,9 +10,7 @@
  */
 
 use OpenEMR\Common\Twig\TwigContainer;
-
 use OpenEMR\Modules\Documo\ApiDispatcher;
-use OpenEMR\Modules\Documo\Database;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -42,5 +40,15 @@ if (!$_POST['number']) {
         print $e->getMessage();
     }
 } else {
-    print "Show template here";
+    if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token"])) {
+        CsrfUtils::csrfNotVerified();
+    }
+
+    try {
+        print $twig->render('geuingfile.twig', [
+           'pageTitle' => 'Adding Fax to Outbound Que'
+        ]);
+    } catch (LoaderError|RuntimeError|SyntaxError $e) {
+        print $e->getMessage();
+    }
 }
