@@ -32,20 +32,23 @@ use OpenEMR\Core\Header;
     <body>
         <div class="container-fluid">
             <div>
-                <h1>Welcome</h1>
+                <h1><?php xlt("Welcome") ?></h1>
             </div>
             <div>
-                <p>Our document workflow solutions make working with documents easy, more secure, and better for our planet.</p>
+                <p><?php xlt("Our document workflow solutions make sending faxes within this application easy, more secure, and better for our planet") ?>.</p>
             </div>
             <div>
-                <h2 class="font-weight-bold pb-4">Enterprise <span class="text-primary">cloud fax</span> for regulated industries</h2>
-                <p class="pr-xl-9 font-size-md-font-weight-bold">The easiest way for both large and small businesses to achieve real digital transformation. Save time and money by eliminating hardware and outsourcing fax to the cloud. Easily integrate secure and reliable cloud fax into existing apps and workflows.</p>
+                <h2 class="font-weight-bold pb-4"><?php xlt("Enterprise") ?> <span class="text-primary"><?php xlt("cloud fax") ?></span> <?php xlt("for regulated industries") ?></h2>
+                <p class="pr-xl-9 font-size-md-font-weight-bold"><?php xlt("The easiest way for both large and small businesses to achieve real digital transformation. Save time and money by eliminating hardware and outsourcing fax to the cloud. Easily integrate secure and reliable cloud fax into existing apps and workflows") ?>.</p>
             </div>
             <div>
-                <p class="note">Use the Fax Module selection from the main menu to configure the settings.</p>
-                <p>Log out and log back in to the program to see the new menu item.</p>
+                <p class="note"><?php xlt("Use the Fax Module selection from the main menu to configure the settings") ?>.</p>
+                <p><?php xlt("Log out and log back in to the program to see the new menu item") ?>.</p>
             </div>
-
+            <div>
+                <p><?php xlt("This module was developed by") ?> <a href="https://affordablecustomehr.com" target="_blank" ><?php xlt("Affordable Custom EHR") ?></a></p>
+                <p><?php xlt("Please contact them for technical support of this module") ?></p>
+            </div>
         </div>
     </body>
 </html>
