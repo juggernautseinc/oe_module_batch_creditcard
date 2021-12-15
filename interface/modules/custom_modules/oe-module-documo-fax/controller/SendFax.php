@@ -42,10 +42,7 @@ class SendFax
         $outbound_path = dirname(__FILE__, 6) . self::SITE_ID . DIRECTORY_SEPARATOR . $_SESSION['site_id'] . "/documents/documo/outbound";
 
         if (!is_dir($documo_path)) {
-                if (!mkdir($documo_path)) {
-                    $mkdirErrorArray = error_get_last();
-                    throw new UnexpectedValueException('cannot create director ' . $mkdirErrorArray['message']);
-                }
+                mkdir($documo_path);
                 mkdir($inbound_path);
                 mkdir($outbound_path);
                 $response = "Created";
