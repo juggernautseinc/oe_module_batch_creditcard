@@ -45,6 +45,14 @@ if ($_POST) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Que Fax Document</title>
     <?php Header::setupHeader(['common', 'select2']); ?>
+    <script>
+        $(function() {
+            $(".select-dropdown").select2({
+                theme: "bootstrap4",
+                <?php require($GLOBALS['srcdir'] . '/js/xl/select2.js.php'); ?>
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
