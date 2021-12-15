@@ -26,6 +26,7 @@ $dir = new SendFax();
 $destinations = new Database();
 $isDir = $dir::faxDir();
 $places = $destinations->getOrganizations();
+
 if ($isDir != "Found") {
     echo xlt('Fax directories were not created. Check php error log to see what the issue is.');
     die;
@@ -33,7 +34,7 @@ if ($isDir != "Found") {
 if ($_POST) {
     copy($_GET['file'], $que);
 }
-var_dump($places);
+
 ?>
 <!doctype html>
 <html lang="en">
