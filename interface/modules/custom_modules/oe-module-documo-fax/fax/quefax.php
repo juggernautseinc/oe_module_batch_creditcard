@@ -25,7 +25,7 @@ $que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documents/doc
 $dir = new SendFax();
 $destinations = new Database();
 $isDir = $dir::faxDir();
-
+echo $isDir;
 if ($isDir !== 'Found' || $isDir !== 'Created') {
     echo xlt('Fax directories were not created. Check php error log to see what the issue is.');
     die;
