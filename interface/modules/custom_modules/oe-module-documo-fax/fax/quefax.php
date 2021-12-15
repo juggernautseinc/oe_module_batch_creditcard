@@ -25,7 +25,7 @@ $que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documents/doc
 $dir = new SendFax();
 $destinations = new Database();
 $isDir = $dir::faxDir();
-
+$places = $destinations->getOrganizations();
 if ($isDir != "Found") {
     echo xlt('Fax directories were not created. Check php error log to see what the issue is.');
     die;
@@ -33,7 +33,7 @@ if ($isDir != "Found") {
 if ($_POST) {
     copy($_GET['file'], $que);
 }
-
+var_dump($places);
 ?>
 <!doctype html>
 <html lang="en">
@@ -59,7 +59,7 @@ if ($_POST) {
         <form action="faxque.php" method="post" >
             <select>
                 <?php
-                    $places = $destinations->getOrganizations();
+
                     var_dump($places);
                     while ($row = sqlFetchArray($places)) {
                         var_dump($row);
