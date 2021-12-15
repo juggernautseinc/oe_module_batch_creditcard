@@ -122,7 +122,7 @@ function oe_module_documo_patient_report_render_javascript_post_load(Event $even
     data: $("#report_form").serialize(),
     success: function (content) {
     document.report_form.fax.value = 0;
-    let btnClose = <?php echo xlj("Cancel"); ?>;
+    let btnClose = <?php echo xlj("Close"); ?>;
     let title = <?php echo xlj("Send To Contact"); ?>;
     let url = top.webroot_url + '/interface/modules/custom_modules/oe-module-documo-fax/fax/quefax.php?isContent=0&file=' + content;
     dlgopen(url, '', 'modal-md', 625, '', title, {buttons: [{text: btnClose, close: true, style: 'secondary'}]});

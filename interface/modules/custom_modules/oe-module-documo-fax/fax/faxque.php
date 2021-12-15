@@ -47,7 +47,7 @@ if (!$_POST['number']) {
 
     try {
         print $twig->render('queingfile.twig', [
-           'pageTitle' => 'Adding Fax to Outbound Que'
+           'pageTitle' => 'Added Fax to Outbound Que'
         ]);
     } catch (LoaderError|RuntimeError|SyntaxError $e) {
         print $e->getMessage();
