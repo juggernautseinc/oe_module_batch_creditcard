@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
 
 /*
  * package   OpenEMR
@@ -18,8 +15,10 @@ require_once dirname(__FILE__, 5) . "/globals.php";
 require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
 
 $file = explode("/", $_GET['file']);
-
-$que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documo/outbound/" . $file[2];
+$d = date("Y-m-d");
+$s = date('H:i:s');
+$queFile = $d . "_" . $s . "_" . $file[2];
+$que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documents/documo/outbound/" . $queFile;
 
 $dir = new SendFax();
 $isDir = $dir::faxDir();
