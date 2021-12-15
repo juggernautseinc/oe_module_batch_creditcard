@@ -60,6 +60,7 @@ if ($_POST) {
             <select>
                 <?php
                     $places = $destinations->getOrganizations();
+                    var_dump($places);
                     while ($row = sqlFetchArray($places)) {
                         var_dump($row);
                     }
