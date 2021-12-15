@@ -67,6 +67,7 @@ if ($_POST) {
                     }
                 ?>
             </select>
+            <input type="submit" value="Send">
         </form>
     </div>
 </body>
