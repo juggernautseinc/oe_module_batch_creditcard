@@ -194,7 +194,7 @@ DB;
 
     public function getOrganizations()
     {
-        $sql = "select id, specialty, organization, street, fax from users WHERE specialty != NULL ORDER BY specialty";
+        $sql = "select id, specialty, organization, street, fax from users WHERE specialty != '' ORDER BY specialty";
         return sqlStatement($sql);
     }
 
