@@ -34,7 +34,6 @@ if ($_POST) {
     copy($_GET['file'], $que);
 }
 $places = $destinations->getOrganizations();
-die;
 ?>
 <!doctype html>
 <html lang="en">
