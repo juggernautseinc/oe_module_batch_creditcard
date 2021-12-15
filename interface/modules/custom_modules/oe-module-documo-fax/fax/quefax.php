@@ -60,10 +60,8 @@ if ($_POST) {
         <form action="faxque.php" method="post" >
             <select>
                 <?php
-
-                    var_dump($places);
                     while ($row = sqlFetchArray($places)) {
-                        var_dump($row);
+                        print "<option>" . $row . "</option>";
                     }
                 ?>
             </select>
