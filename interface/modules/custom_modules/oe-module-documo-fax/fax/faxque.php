@@ -18,7 +18,8 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 require_once dirname(__FILE__, 5) . "/globals.php";
-require_once dirname(__FILE__, 2) . "/controller/ApiDispatcher.php";
+require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
+
 
 $path = dirname(__FILE__, 2) . "/templates";
 $twigloader = new TwigContainer($path, $GLOBALS['kernel']);
@@ -31,11 +32,15 @@ try {
 $twig = $twigloader->getTwig();
 $twig->addExtension(new Twig_Extension_Debug());
 
-try {
-    print $twig->render('que.twig', [
-        'pageTitle' => 'Fax Que'
+if (!$_POST['number']) {
+    try {
+        print $twig->render('que.twig', [
+            'pageTitle' => 'Fax Que'
 
-    ]);
-} catch (LoaderError | RuntimeError | SyntaxError $e) {
-    print $e->getMessage();
+        ]);
+    } catch (LoaderError|RuntimeError|SyntaxError $e) {
+        print $e->getMessage();
+    }
+} else {
+    print "Show template here";
 }
