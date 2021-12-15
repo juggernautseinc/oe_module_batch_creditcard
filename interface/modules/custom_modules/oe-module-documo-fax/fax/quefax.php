@@ -54,21 +54,15 @@ if ($isDir != "Found") {
 </head>
 <body>
     <div class="container">
-        <?php
-            if (!empty($_POST['number'])) {
-                //$sendto = filter_input(POST, 'number', FILTER_SANITIZE_NUMBER_INT);
-                echo $_POST['number']; die;
-                //copy($_GET['file'], $que);
-            }
-        ?>
         <h2 class="mt-5 mb-5">Send Document to Fax Que</h2>
         <form action="quefax.php" method="post" id="theform" >
             <input type="hidden" name="csrf_token" value="<?php echo CsrfUtils::collectCsrfToken(); ?>">
+            <input type="hidden" name="file" value="<?php echo $queFile; ?>">
             <select name="number" id="number" class="select-dropdown">
 
                 <?php
                     print "<option>" . xlt('Select Destination') . "</option>";
-                    while ($row = sqlFetchArray($places)) {
+                    while ($row = sqlFetchArray($destinations->getOrganizations())) {
                         print "<option value='" . $row['fax'] . "'>" . $row['specialty'] . " " . $row['organization'] . " " . $row['street'] . " " . $row['fax'] . "</option>";
                     }
                 ?>
