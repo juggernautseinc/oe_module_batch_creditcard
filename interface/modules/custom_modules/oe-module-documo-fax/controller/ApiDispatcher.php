@@ -182,7 +182,7 @@ class ApiDispatcher
         return $response;
     }
 
-    public function sendFax()
+    public function sendFax($postFields)
     {
 
         $curl = curl_init();
@@ -196,15 +196,12 @@ class ApiDispatcher
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => array('faxNumber' => '11234567890', 'attachments' => new CURLFILE('/path/to/file'), 'coverPage' => 'false', 'coverPageId' => 'd1077489-5ea1-4db1-9760-853f175e8288', 'tags' => 'example', 'recipientName' => 'example', 'senderName' => 'example', 'subject' => 'example', 'callerId' => 'example', 'notes' => 'example', 'cf' => '{"example": "value"}', 'scheduledDate' => '2020-01-01T00:00:00.000Z', 'webhookId' => 'd1077489-5ea1-4db1-9760-853f175e8288'),
-            CURLOPT_HTTPHEADER => array(
-                'Authorization: Basic API_KEY',
-                'Content-Type: multipart/form-data'
-            ),
+            CURLOPT_POSTFIELDS => $postFields,
+            CURLOPT_HTTPHEADER => self::headerArray()
         ));
 
         $response = curl_exec($curl);
-
+        $status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
         curl_close($curl);
         echo $response;
 
