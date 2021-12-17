@@ -44,6 +44,8 @@ if (!$_POST['number']) {
     if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token"])) {
         CsrfUtils::csrfNotVerified();
     }
+    var_dump($_POST);
+    die;
 
     try {
         print $twig->render('queingfile.twig', [

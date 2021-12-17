@@ -68,7 +68,7 @@ if ($isDir != "Found") {
                     }
                 ?>
             </select>
-            <div class="form-group">
+            <div class="form-group mt-5">
                 <label for="name">Name:</label>
                 <input type="text" class="form-control" placeholder="Name of person or organization" name="name">
             </div>
