@@ -72,15 +72,15 @@ if ($isDir != "Found") {
             </select>
             <div class="form-group mt-2">
                 <label for="subject"><?php echo xlt('Subject'); ?>:</label>
-                <input type="text" class="form-control" name="subject">
+                <input type="text" class="form-control" name="subject" placeholder="Please add a subject">
             </div>
             <div class="form-group">
                 <label for="name"><?php echo xlt('Name'); ?>:</label>
-                <input type="text" class="form-control" placeholder="Name of person or organization. Use to add a name also" name="name">
+                <input type="text" class="form-control" placeholder="Name of person or organization. Use to add additional name also" name="name">
             </div>
             <div class="form-group">
                 <label for="faxnumber"><?php echo xlt('Number'); ?>:</label>
-                <input type="text" class="form-control" placeholder="Fax Number" name="faxnumber">
+                <input type="text" class="form-control" placeholder="Fax Number. Use only if not selecting from address book" name="faxnumber">
             </div>
             <input class="btn btn-primary" type="submit" value="Send" onsubmit="return top.restoreSession()">
         </form>
