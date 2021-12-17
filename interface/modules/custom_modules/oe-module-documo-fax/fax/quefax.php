@@ -58,6 +58,7 @@ if ($isDir != "Found") {
         <form action="faxque.php" method="post" id="theform" >
             <input type="hidden" name="csrf_token" value="<?php echo CsrfUtils::collectCsrfToken(); ?>">
             <input type="hidden" name="file" value="<?php echo $queFile; ?>">
+            <label for="number">Select from address book</label>
             <select name="number" id="number" class="select-dropdown">
 
                 <?php
@@ -67,6 +68,14 @@ if ($isDir != "Found") {
                     }
                 ?>
             </select>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" placeholder="Name of person or organization" name="name">
+            </div>
+            <div class="form-group">
+                <label for="faxnumber">Number:</label>
+                <input type="text" class="form-control" placeholder="Fax Number" name="faxnumber">
+            </div>
             <input class="btn btn-primary" type="submit" value="Send" onsubmit="return top.restoreSession()">
         </form>
     </div>
