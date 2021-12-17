@@ -66,16 +66,19 @@ if ($isDir != "Found") {
                 <?php
                     print "<option>" . xlt('Select Destination') . "</option>";
                     while ($row = sqlFetchArray($places)) {
-                        print "<option value='" . $row['fax'] . "'>" . $row['specialty'] . " " . $row['organization'] . " " . $row['street'] . " " . $row['fax'] . "</option>";
+                        print "<option value='" . $row['fax'] ."-" . $row['organization'] . "'>" . $row['specialty'] . " " . $row['organization'] . " " . $row['street'] . " " . $row['fax'] . "</option>";
                     }
                 ?>
             </select>
             <div class="form-group mt-2">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" placeholder="Name of person or organization" name="name">
+                <label for="subject"><?php echo xlt('Subject'); ?>:</label>
             </div>
             <div class="form-group">
-                <label for="faxnumber">Number:</label>
+                <label for="name"><?php echo xlt('Name'); ?>:</label>
+                <input type="text" class="form-control" placeholder="Name of person or organization. Use to add a name also" name="name">
+            </div>
+            <div class="form-group">
+                <label for="faxnumber"><?php echo xlt('Number'); ?>:</label>
                 <input type="text" class="form-control" placeholder="Fax Number" name="faxnumber">
             </div>
             <input class="btn btn-primary" type="submit" value="Send" onsubmit="return top.restoreSession()">
