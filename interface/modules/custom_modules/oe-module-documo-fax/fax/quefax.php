@@ -31,6 +31,8 @@ $places = $destinations->getOrganizations();
 if ($isDir != "Found") {
     echo xlt('Fax directories were not created. Check php error log to see what the issue is.');
     die;
+} else {
+    //copy($_GET['file'], $que);  //copy file from tmp directory to the outbound folder
 }
 
 ?>
@@ -57,7 +59,7 @@ if ($isDir != "Found") {
         <h2 class="mt-5 mb-5">Send Document to Fax Que</h2>
         <form action="faxque.php" method="post" id="theform" >
             <input type="hidden" name="csrf_token" value="<?php echo CsrfUtils::collectCsrfToken(); ?>">
-            <input type="hidden" name="file" value="<?php echo $queFile; ?>">
+            <input type="hidden" name="file" value="<?php echo $que; ?>">
             <label for="number">Select from address book</label>
             <select name="number" id="number" class="select-dropdown">
 

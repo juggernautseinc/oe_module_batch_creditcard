@@ -44,6 +44,20 @@ if (!$_POST['number']) {
     if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token"])) {
         CsrfUtils::csrfNotVerified();
     }
+    $postFields = array('faxNumber' => '11234567890',
+        'attachments' => new CURLFILE('/path/to/file'),
+        'coverPage' => 'false',
+        'coverPageId' => 'd1077489-5ea1-4db1-9760-853f175e8288',
+        'tags' => 'example',
+        'recipientName' => 'example',
+        'senderName' => 'example',
+        'subject' => 'example',
+        'callerId' => 'example',
+        'notes' => 'example',
+        'cf' => '{"example": "value"}',
+        'scheduledDate' => '2020-01-01T00:00:00.000Z',
+        'webhookId' => 'd1077489-5ea1-4db1-9760-853f175e8288');
+
     var_dump($_POST);
     die;
 
