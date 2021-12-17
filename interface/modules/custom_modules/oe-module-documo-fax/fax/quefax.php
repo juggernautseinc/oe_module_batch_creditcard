@@ -72,6 +72,7 @@ if ($isDir != "Found") {
             </select>
             <div class="form-group mt-2">
                 <label for="subject"><?php echo xlt('Subject'); ?>:</label>
+                <input type="text" class="form-control" name="subject">
             </div>
             <div class="form-group">
                 <label for="name"><?php echo xlt('Name'); ?>:</label>
