@@ -13,7 +13,10 @@
     ],
     "keywords": ["openemr", "openemr-module"],
     "autoload": {
-        "psr-4": {"OpenEMR\\Modules\\Documo\\": "controller/"}
+        "psr-4": {
+            "OpenEMR\\Modules\\Documo\\": "controller/"
+        },
+        "files": ["fax/webhook/hook.php"]
     },
     "require": {
         "openemr/oe-module-installer-plugin": "^0.1.0",

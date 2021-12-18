@@ -31,7 +31,7 @@ class ApiDispatcher
             'Content-Type: application/x-www-form-urlencoded'
         );
     }
-    //TODO consolidate these api calls if possible
+
     public function createUser($postData)
     {
         $curl = curl_init();
@@ -182,9 +182,8 @@ class ApiDispatcher
         return $response;
     }
 
-    public function sendFax($postFields)
+    public function sendFax($postFields) : array
     {
-
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -203,7 +202,35 @@ class ApiDispatcher
         $response = curl_exec($curl);
         $status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
         curl_close($curl);
-        echo $response;
+        if ($status === 200) {
+            return $response;
+        } else {
+            return $status;
+        }
+
+    }
+
+    public function setWebHook($hookstring) : string
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.documo.com/webhooks',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => $hookstring,
+            CURLOPT_HTTPHEADER => self::headerArray(),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        return $response;
 
     }
 }

@@ -11,7 +11,6 @@
 
 require_once dirname(__FILE__, 6) . "/globals.php";
 function getWebHookURI() {
-    $http = '';
     if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
         $http = "https://";
     } else {
@@ -19,4 +18,4 @@ function getWebHookURI() {
     }
     return $http.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 }
-echo $hook = substr(getWebHookURI(), 0, -9);
+$hook = substr(getWebHookURI(), 0, -9);
