@@ -17,7 +17,7 @@ function getURI() {
     } else {
         $http = "http://";
     }
-    return $http.$_SERVER['REQUEST_URI'];
+    return $http.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
 }
 
 echo getURI();
