@@ -1,5 +1,5 @@
 {
-    "name": "Juggernaut/oe-module-documo-fax",
+    "name": "juggernaut/oe-module-documo-fax",
     "description": "EFax service provided by documo via Juggernaut Systems Express",
     "type": "openemr-module",
     "minimum-stability": "stable",
