@@ -1,4 +1,5 @@
 <?php
+
 /*
  * package   OpenEMR
  *  link      http://www.open-emr.org
@@ -8,6 +9,9 @@
  *
  */
 
-$uri = $_SERVER['REQUEST_URI'];
+function getURI() {
+    return $_SERVER['REQUEST_URI'];
+}
 
-echo $uri;
+
+echo getURI();
