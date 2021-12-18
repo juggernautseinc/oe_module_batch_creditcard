@@ -66,7 +66,7 @@ if ($isDir != "Found") {
                 <?php
                     print "<option>" . xlt('Select Destination') . "</option>";
                     while ($row = sqlFetchArray($places)) {
-                        print "<option value='" . $row['fax'] ."-" . $row['organization'] . "'>" . $row['specialty'] . " " . $row['organization'] . " " . $row['street'] . " " . $row['fax'] . "</option>";
+                        print "<option value='" . $row['fax'] ."@" . $row['organization'] . "'>" . $row['specialty'] . " " . $row['organization'] . " " . $row['street'] . " " . $row['fax'] . "</option>";
                     }
                 ?>
             </select>

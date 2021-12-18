@@ -47,9 +47,11 @@ if (!$_POST['number']) {
     }
 
     var_dump($_POST);
-    $the_number = explode("-", $_POST['number']);
+    $the_number = explode("@", $_POST['number']);
     $fax_number = '';
     $name = '';
+    $scheduled = '';
+    $scheduled = date('Y-m-d'.'T'.'H:i:s'.'.000Z');
     if ($the_number[0]) {
         $fax_number = $the_number[0];
     }
@@ -59,7 +61,7 @@ if (!$_POST['number']) {
     if ($the_number[1]) {
         $name = $the_number[1];
     }
-
+    //need country code
     $postFields = array('faxNumber' => $fax_number,
         'attachments' => new CURLFILE($_POST['file']),
         'coverPage' => 'false',
@@ -71,7 +73,7 @@ if (!$_POST['number']) {
         'callerId' => 'example',
         'notes' => 'example',
         'cf' => '{"example": "value"}',
-        'scheduledDate' => '2020-01-01T00:00:00.000Z',
+        'scheduledDate' => $scheduled,
         'webhookId' => 'd1077489-5ea1-4db1-9760-853f175e8288');
     var_dump($postFields);
     die;
