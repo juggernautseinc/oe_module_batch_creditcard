@@ -31,7 +31,8 @@ class Database
 (
     `id` INT NOT NULL,
     `user` TEXT NOT NULL,
-    `fax_numbers` TEXT NULL
+    `fax_numbers` TEXT NULL,
+    `webhook` TEXT NULL
 ) ENGINE = InnoDB COMMENT = 'documo account users';
 DB;
 
