@@ -52,7 +52,7 @@ if (!$_POST['number']) {
     $documohook = $hook->getWebHook();
     if (empty($documohook['webhook'])) {
         $hookstring = 'name=oe-fax-module
-        &url=' . $hookurl . '/webhook
+        &url=' . $hookurl . 'webhook
         &events=%7B%20%22fax.inbound%22%3A%20true%2C%20%22fax.outbound%22%3A%20true%2C%20%22fax.outbound.extended%22%3A%20true%2C%20%22user.create%22%3A%20true%2C%20%22user.delete%22%3A%20true%2C%20%22number.add%22%3A%20false%2C%20%22number.release%22%3A%20false%2C%20%22document.complete%22%3A%20false%2C%20%22document.failed%22%3A%20false%20%7D
         &auth=example
         &accountId=d1077489-5ea1-4db1-9760-853f175e8288
@@ -60,6 +60,7 @@ if (!$_POST['number']) {
         &attachmentEnabled=false
         &notificationEmails=example%2Cexample';
         $hookstring = str_replace(PHP_EOL, '', $hookstring);
+        $hookstring = str_replace(' ', '', $hookstring);
         var_dump($hookstring);
         //$status->setWebHook($hookstring);
     }
