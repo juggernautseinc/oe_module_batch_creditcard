@@ -9,9 +9,15 @@
  *
  */
 
+require_once dirname(__FILE__, 6) . "/globals.php";
 function getURI() {
-    return $_SERVER['REQUEST_URI'];
+    $http = '';
+    if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+        $http = "https://";
+    } else {
+        $http = "http://";
+    }
+    return $http.$_SERVER['REQUEST_URI'];
 }
-
 
 echo getURI();
