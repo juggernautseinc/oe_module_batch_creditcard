@@ -58,7 +58,8 @@ if (!$_POST['number']) {
         &attachmentEnabled=false
         &notificationEmails=example%2Cexample';
         $hookstring = str_replace(PHP_EOL, '', $hookstring);
-        $status->setWebHook($hookstring);
+        var_dump($hookstring);
+        //$status->setWebHook($hookstring);
     }
 
     var_dump($_POST);
