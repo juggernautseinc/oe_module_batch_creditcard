@@ -70,10 +70,7 @@ if (!$_POST['number']) {
     }
 
     var_dump($_POST);
-    $the_number = explode("@", $_POST["number']);
-    $fax_number = '';
-    $name = '';
-    $scheduled = '';
+    $the_number = explode("@", $_POST['number']);
     $scheduled = date('Y-m-d'.'T'.'H:i:s'.'.000Z');
     if ($the_number[0]) {
         $fax_number = $the_number[0];
