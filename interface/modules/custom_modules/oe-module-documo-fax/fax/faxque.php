@@ -49,6 +49,7 @@ if (!$_POST['number']) {
     $hook = new Database();
     $number_uuid = $hook->getFaxNumbers();
     $user = $hook->getUserInfo();
+    var_dump($user);
     //this url will change based on where I put the call to the hook function
     $hookurl = substr(getWebHookURI(), 0, -10);
     $hookstring = str_replace(PHP_EOL, '', $hookstring); //remove returns
