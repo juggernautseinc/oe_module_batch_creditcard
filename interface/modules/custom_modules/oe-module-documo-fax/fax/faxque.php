@@ -51,7 +51,6 @@ if (!$_POST['number']) {
     $user = $hook->getUserInfo();
     $facility = $hook->getAllAccountInfo();
 
-    var_dump($facility);
     //this url will change based on where I put the call to the hook function
     $hookurl = substr(getWebHookURI(), 0, -10);
 
@@ -66,7 +65,7 @@ if (!$_POST['number']) {
         &accountId=' . $hook->getAccountId() . '
         &numberId=' . $number_uuid[0]['uuid'] . '
         &attachmentEnabled=false
-        &notificationEmails=$user["email"]';
+        &notificationEmails=' . $user["email"] . "'";
         $hookstring = str_replace(PHP_EOL, '', $hookstring); //remove returns
         $hookstring = str_replace(' ', '', $hookstring); //remove white spaces
         //$status->setWebHook($hookstring);
