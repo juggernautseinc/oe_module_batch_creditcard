@@ -208,7 +208,7 @@ DB;
         sqlStatement($sql);
     }
 
-    public function getWebHookUuid()
+    public function getWebHook()
     {
         $sql = "select webhook from documo_user where id = 1";
         return sqlQuery($sql);
