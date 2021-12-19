@@ -54,8 +54,6 @@ if (!$_POST['number']) {
     var_dump($facility);
     //this url will change based on where I put the call to the hook function
     $hookurl = substr(getWebHookURI(), 0, -10);
-    $hookstring = str_replace(PHP_EOL, '', $hookstring); //remove returns
-    $hookstring = str_replace(' ', '', $hookstring); //remove white spaces
 
     $documohook = $hook->getWebHook(); //This is to get the webhook UUID
 
@@ -69,6 +67,8 @@ if (!$_POST['number']) {
         &numberId=' . $number_uuid[0]['uuid'] . '
         &attachmentEnabled=false
         &notificationEmails=$user["email"]';
+        $hookstring = str_replace(PHP_EOL, '', $hookstring); //remove returns
+        $hookstring = str_replace(' ', '', $hookstring); //remove white spaces
         //$status->setWebHook($hookstring);
     }
 
