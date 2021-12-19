@@ -47,9 +47,16 @@ if (!$_POST['number']) {
         CsrfUtils::csrfNotVerified();
     }
     $hook = new Database();
+    $user = $hook->getUserInfo();
+    var_dump($user);
     //this url will change based on where I put the call to the hook function
     $hookurl = substr(getWebHookURI(), 0, -10);
-    $documohook = $hook->getWebHook();
+    $hookstring = str_replace(PHP_EOL, '', $hookstring); //remove returns
+    $hookstring = str_replace(' ', '', $hookstring); //remove white spaces
+
+    $documohook = $hook->getWebHook(); //This is to get the webhook UUID
+
+    //if there is no webhook create one
     if (empty($documohook['webhook'])) {
         $hookstring = 'name=oe-fax-module
         &url=' . $hookurl . 'webhook
@@ -59,8 +66,6 @@ if (!$_POST['number']) {
         &numberId=d1077489-5ea1-4db1-9760-853f175e8288
         &attachmentEnabled=false
         &notificationEmails=example%2Cexample';
-        $hookstring = str_replace(PHP_EOL, '', $hookstring);
-        $hookstring = str_replace(' ', '', $hookstring);
         var_dump($hookstring);
         //$status->setWebHook($hookstring);
     }
