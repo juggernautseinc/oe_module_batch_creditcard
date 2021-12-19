@@ -15,6 +15,9 @@ class Database
 {
     public $key;
     const ALT_TABLE = 'ALTER TABLE';
+    const PRIMARY_ID = 'ADD PRIMARY KEY(`id`)';
+    const MODIFY = 'MODIFY';
+    const INT_AUTO = 'INT AUTO_INCREMENT';
 
     public function __construct()
     {
@@ -63,12 +66,12 @@ DB;
             sqlQuery($DBSQLACCOUNT);
             sqlQuery($DBSQLUSER);
             sqlQuery($DBSQLLOG);
-            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_user') . "` ADD PRIMARY KEY(`id`)");
-            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_user') . "` MODIFY " . add_escape_custom('id') . " INT AUTO_INCREMENT");
-            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_account') . "` ADD PRIMARY KEY(`id`)");
-            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_account') . "` MODIFY " . add_escape_custom('id') . " INT AUTO_INCREMENT");
-            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_log') . "` ADD PRIMARY KEY(`id`)");
-            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_log') . "` MODIFY " . add_escape_custom('id') . " INT AUTO_INCREMENT");
+            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_user') . self::PRIMARY_ID);
+            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_user') . self::MODIFY . add_escape_custom('id') . self::INT_AUTO);
+            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_account') . self::PRIMARY_ID);
+            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_account') . self::MODIFY . add_escape_custom('id') . self::INT_AUTO);
+            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_log') . self::PRIMARY_ID);
+            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_log') . self::MODIFY . add_escape_custom('id') . self::INT_AUTO);
         }
     }
 
@@ -199,7 +202,13 @@ DB;
         return sqlStatement($sql);
     }
 
-    public function getWebHook()
+    public function saveWebHook($data)
+    {
+        $sql = "update documo_user set webhook = ?, [$data]";
+        sqlStatement($sql);
+    }
+
+    public function getWebHookUuid()
     {
         $sql = "select webhook from documo_user where id = 1";
         return sqlQuery($sql);

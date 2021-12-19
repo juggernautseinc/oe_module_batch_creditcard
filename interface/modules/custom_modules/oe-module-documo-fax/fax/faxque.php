@@ -66,8 +66,7 @@ if (!$_POST['number']) {
         &accountId=' . $hook->getAccountId() . '
         &numberId=' . $number_uuid[0]['uuid'] . '
         &attachmentEnabled=false
-        &notificationEmails=example%2Cexample';
-        var_dump($hookstring);
+        &notificationEmails=' . $user['email'];
         //$status->setWebHook($hookstring);
     }
 
