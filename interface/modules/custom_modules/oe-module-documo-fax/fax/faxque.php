@@ -91,11 +91,11 @@ if (!$_POST['number']) {
         'coverPageId' => '',
         'tags' => '',
         'recipientName' => $name,
-        'senderName' => 'example',
-        'subject' => 'example',
-        'callerId' => 'example',
-        'notes' => 'example',
-        'cf' => '{"example": "value"}',
+        'senderName' => $facility['accountName'],
+        'subject' => filter_input(POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS),
+        'callerId' => $facility['faxCallerId'],
+        'notes' => '',
+        'cf' => '',
         'scheduledDate' => $scheduled,
         'webhookId' => 'd1077489-5ea1-4db1-9760-853f175e8288');
     var_dump($postFields);
