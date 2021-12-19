@@ -49,7 +49,6 @@ if (!$_POST['number']) {
     $hook = new Database();
     $number_uuid = $hook->getFaxNumbers();
     $user = $hook->getUserInfo();
-    var_dump($user);
     //this url will change based on where I put the call to the hook function
     $hookurl = substr(getWebHookURI(), 0, -10);
     $hookstring = str_replace(PHP_EOL, '', $hookstring); //remove returns
@@ -66,12 +65,12 @@ if (!$_POST['number']) {
         &accountId=' . $hook->getAccountId() . '
         &numberId=' . $number_uuid[0]['uuid'] . '
         &attachmentEnabled=false
-        &notificationEmails=' . $user['email'];
+        &notificationEmails=' . $user['email'] . "'";
         //$status->setWebHook($hookstring);
     }
 
     var_dump($_POST);
-    $the_number = explode("@", $_POST['number']);
+    $the_number = explode("@", $_POST["number']);
     $fax_number = '';
     $name = '';
     $scheduled = '';
