@@ -62,7 +62,6 @@ if ($isDir != "Found") {
             <input type="hidden" name="file" value="<?php echo $que; ?>">
             <label for="number">Select from address book</label>
             <select name="number" id="number" class="select-dropdown">
-
                 <?php
                     print "<option>" . xlt('Select Destination') . "</option>";
                     while ($row = sqlFetchArray($places)) {
@@ -88,6 +87,7 @@ if ($isDir != "Found") {
 <script>
     document.getElementById('number').addEventListener("change", changeAttribute);
     function changeAttribute() {
+        alert('Change');
         const x = document.getElementById('faxnumber');
         x.style.display = 'none';
     }
