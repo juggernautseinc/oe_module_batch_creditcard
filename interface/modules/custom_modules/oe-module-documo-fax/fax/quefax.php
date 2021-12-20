@@ -77,15 +77,14 @@ if ($isDir != "Found") {
                 <label for="name"><?php echo xlt('Name'); ?>:</label>
                 <input type="text" class="form-control" placeholder="Name of person or organization. Use to add additional name also" name="name">
             </div>
-            <div class="form-group">
+            <div class="form-group" id="faxnumber">
                 <label for="faxnumber"><?php echo xlt('Number'); ?>:</label>
-                <input id="faxnumber" type="text" class="form-control" placeholder="Fax Number. Use only if not selecting from address book" name="faxnumber">
+                <input  type="text" class="form-control" placeholder="Fax Number. Use only if not selecting from address book" name="faxnumber">
             </div>
             <input class="btn btn-primary" type="submit" value="Send" onsubmit="return top.restoreSession()">
         </form>
     </div>
 <script>
-    document.getElementById('number').addEventListener("change", changeAttribute);
     function changeAttribute() {
         alert('Change');
         const x = document.getElementById('faxnumber');
