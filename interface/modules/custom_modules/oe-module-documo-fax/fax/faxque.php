@@ -71,7 +71,6 @@ if (!$_POST['number']) {
         //$status->setWebHook($hookstring);
     }
 
-    var_dump($_POST);
     $the_number = explode("@", $_POST['number']);
     $scheduled = date('Y-m-d') . 'T' . date('H:i:s') . '.000Z';
     if ($the_number[0]) {
@@ -83,6 +82,9 @@ if (!$_POST['number']) {
     if ($the_number[1]) {
         $name = $the_number[1];
     }
+    if ($_POST['name'] && $name) {
+        $name = $the_number[1] . " Attn: " . filter_input( INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+    }
     //need country code
     $postFields = array('faxNumber' => $hook->countryCode()['gl_value'] . str_replace('-', '', $fax_number),
         'attachments' => new CURLFILE($_POST['file']),
@@ -90,7 +92,7 @@ if (!$_POST['number']) {
         'coverPageId' => '',
         'tags' => '',
         'recipientName' => $name,
-        'senderName' => $facility['accountName'],
+        'senderName' => $facility['accountName'] ,
         'subject' => filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS),
         'callerId' => $facility['faxCallerId'],
         'notes' => '',
