@@ -80,10 +80,16 @@ if ($isDir != "Found") {
             </div>
             <div class="form-group">
                 <label for="faxnumber"><?php echo xlt('Number'); ?>:</label>
-                <input type="text" class="form-control" placeholder="Fax Number. Use only if not selecting from address book" name="faxnumber">
+                <input id="faxnumber" type="text" class="form-control" placeholder="Fax Number. Use only if not selecting from address book" name="faxnumber">
             </div>
             <input class="btn btn-primary" type="submit" value="Send" onsubmit="return top.restoreSession()">
         </form>
     </div>
+<script>
+    document.getElementById('number').addEventListener("change", changeAttribute);
+    function changeAttribute() {
+        document.getElementById('faxnumber').style.display = 'none';
+    }
+</script>
 </body>
 </html>
