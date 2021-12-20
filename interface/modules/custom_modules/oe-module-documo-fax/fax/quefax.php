@@ -61,7 +61,7 @@ if ($isDir != "Found") {
             <input type="hidden" name="csrf_token" value="<?php echo CsrfUtils::collectCsrfToken(); ?>">
             <input type="hidden" name="file" value="<?php echo $que; ?>">
             <label for="number">Select from address book</label>
-            <select name="number" id="number" class="select-dropdown">
+            <select name="number" id="number" class="select-dropdown" onchange="changeAttribute()">
                 <?php
                     print "<option>" . xlt('Select Destination') . "</option>";
                     while ($row = sqlFetchArray($places)) {
