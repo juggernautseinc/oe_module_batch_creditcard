@@ -91,7 +91,7 @@ if (!$_POST['number']) {
         'tags' => '',
         'recipientName' => $name,
         'senderName' => $facility['accountName'],
-        'subject' => filter_input(POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS),
+        'subject' => filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS),
         'callerId' => $facility['faxCallerId'],
         'notes' => '',
         'cf' => '',
