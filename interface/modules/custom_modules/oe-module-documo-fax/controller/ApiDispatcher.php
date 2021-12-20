@@ -233,9 +233,7 @@ class ApiDispatcher
         if ($status === 200) {
             return $response;
         } else {
-            return "error";
+            return $response;
         }
-
-
     }
 }

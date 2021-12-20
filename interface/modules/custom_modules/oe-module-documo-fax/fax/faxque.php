@@ -61,7 +61,7 @@ if (!$_POST['number']) {
         $hookstring = 'name=oe-fax-module
         &url=' . $hookurl . 'webhook
         &events=%7B%20%22fax.inbound%22%3A%20true%2C%20%22fax.outbound%22%3A%20true%2C%20%22fax.outbound.extended%22%3A%20true%2C%20%22user.create%22%3A%20true%2C%20%22user.delete%22%3A%20true%2C%20%22number.add%22%3A%20false%2C%20%22number.release%22%3A%20false%2C%20%22document.complete%22%3A%20false%2C%20%22document.failed%22%3A%20false%20%7D
-        &auth=example
+        &auth='.'
         &accountId=' . $hook->getAccountId() . '
         &numberId=' . $number_uuid[0]['uuid'] . '
         &attachmentEnabled=false
@@ -69,9 +69,11 @@ if (!$_POST['number']) {
         $hookstring = str_replace(PHP_EOL, '', $hookstring); //remove returns
         $hookstring = str_replace(' ', '', $hookstring); //remove white spaces
         $response = $status->setWebHook($hookstring);
-        if ($response !== 'error') {
+        $iint = is_int($response);
+        if ($iint === false && !empty($response)) {
             $hook->saveWebHook($response);
         } else {
+            echo $response;
             die('Unable to get webhook, contact support: support@affordablecustomehr.com');
         }
     }
