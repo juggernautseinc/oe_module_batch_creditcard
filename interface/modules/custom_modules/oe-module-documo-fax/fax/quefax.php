@@ -86,7 +86,6 @@ if ($isDir != "Found") {
     </div>
 <script>
     function changeAttribute() {
-        alert('Change');
         const x = document.getElementById('faxnumber');
         x.style.display = 'none';
     }

@@ -68,8 +68,14 @@ if (!$_POST['number']) {
         &notificationEmails=' . $user["email"] . "'";
         $hookstring = str_replace(PHP_EOL, '', $hookstring); //remove returns
         $hookstring = str_replace(' ', '', $hookstring); //remove white spaces
-        //$status->setWebHook($hookstring);
+        $response = $status->setWebHook($hookstring);
+        if ($response !== 'error') {
+            $hook->saveWebHook($response);
+        } else {
+            die('Unable to get webhook, contact support: support@affordablecustomehr.com');
+        }
     }
+    $the_hook = $hook->getWebHook();
 
     $the_number = explode("@", $_POST['number']);
     $scheduled = date('Y-m-d') . 'T' . date('H:i:s') . '.000Z';
@@ -98,7 +104,7 @@ if (!$_POST['number']) {
         'notes' => '',
         'cf' => '',
         'scheduledDate' => $scheduled,
-        'webhookId' => 'd1077489-5ea1-4db1-9760-853f175e8288');
+        'webhookId' => $the_hook['uuid']);
     var_dump($postFields);
     die;
     $status->sendFax($postFields);
