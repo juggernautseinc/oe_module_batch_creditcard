@@ -174,7 +174,11 @@ DB;
         }
         return $state;
     }
-
+    public function countryCode()
+    {
+        $sql = "select gl_value from globals where gl_name = 'phone_country_code'";
+        return sqlQuery($sql);
+    }
     public function getAllAccountInfo()
     {
         $sql = "select account_info from documo_account where id = 1";

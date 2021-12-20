@@ -84,7 +84,7 @@ if (!$_POST['number']) {
         $name = $the_number[1];
     }
     //need country code
-    $postFields = array('faxNumber' => str_replace('-', '', $fax_number),
+    $postFields = array('faxNumber' => $hook->countryCode()['gl_value'] . str_replace('-', '', $fax_number),
         'attachments' => new CURLFILE($_POST['file']),
         'coverPage' => 'false',
         'coverPageId' => '',
