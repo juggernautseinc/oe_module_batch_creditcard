@@ -32,7 +32,7 @@ if ($isDir != "Found") {
     echo xlt('Fax directories were not created. Check php error log to see what the issue is.');
     die;
 } else {
-    //copy($_GET['file'], $que);  //copy file from tmp directory to the outbound folder
+    copy($_GET['file'], $que);  //copy file from tmp directory to the outbound folder
 }
 
 ?>

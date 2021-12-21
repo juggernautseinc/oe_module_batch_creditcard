@@ -57,6 +57,8 @@ if (!$_POST['number']) {
     $documohook = $hook->getWebHook(); //This is to get the webhook UUID
 
     //if there is no webhook create one
+    //webhooks are not needed to send a fax but used to get the status update so says tech support
+    //leaving and skipping forward for now will return later
     if (empty($documohook['webhook'])) {
         $hookstring = 'name=oe-fax-module
         &url=' . $hookurl . 'webhook
@@ -106,11 +108,11 @@ if (!$_POST['number']) {
         'notes' => '',
         'cf' => '',
         'scheduledDate' => $scheduled,
-        'webhookId' => $the_hook['uuid']);
+        'webhookId' => '');
     var_dump($postFields);
     die;
-    $status->sendFax($postFields);
-
+    $sent = $status->sendFax($postFields);
+    var_dump($sent);
     try {
         print $twig->render('queingfile.twig', [
            'pageTitle' => 'Added Fax to Outbound Que'
