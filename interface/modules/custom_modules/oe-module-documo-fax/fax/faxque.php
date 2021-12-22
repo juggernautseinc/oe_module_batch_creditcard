@@ -109,7 +109,7 @@ if (!$_POST['number']) {
         'cf' => '',
         'scheduledDate' => $scheduled,
         'webhookId' => '');
-
+var_dump($postFields);
     $sent = $status->sendFax($postFields);
     var_dump($sent); die;
     try {
