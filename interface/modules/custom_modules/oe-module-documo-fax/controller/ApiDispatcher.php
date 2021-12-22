@@ -182,7 +182,7 @@ class ApiDispatcher
         return $response;
     }
 
-    public function sendFax($postFields) : array
+    public function sendFax($postFields)
     {
         $curl = curl_init();
 
