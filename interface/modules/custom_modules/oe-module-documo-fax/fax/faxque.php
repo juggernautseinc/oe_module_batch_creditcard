@@ -79,7 +79,7 @@ if (!$_POST['number']) {
             die('Unable to get webhook, contact support: support@affordablecustomehr.com');
         }
     }
-    $the_hook = $hook->getWebHook();
+    //$the_hook = $hook->getWebHook();
 
     $the_number = explode("@", $_POST['number']);
     $scheduled = date('Y-m-d') . 'T' . date('H:i:s') . '.000Z';
@@ -109,10 +109,9 @@ if (!$_POST['number']) {
         'cf' => '',
         'scheduledDate' => $scheduled,
         'webhookId' => '');
-    var_dump($postFields);
-    die;
+
     $sent = $status->sendFax($postFields);
-    var_dump($sent);
+    var_dump($sent); die;
     try {
         print $twig->render('queingfile.twig', [
            'pageTitle' => 'Added Fax to Outbound Que'
