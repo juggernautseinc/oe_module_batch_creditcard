@@ -202,7 +202,7 @@ class ApiDispatcher
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => array("faxNumber" => $this->faxNumber,"attachments" => $this->filePost,"coverPage" => 'false',"coverPageId" => '','tags' => '','recipientName' => $this->name,'senderName' => $this->senderName,'subject' => $this->subject,'callerId' => $this->callerID,'notes' => '','cf' => '','scheduledDate' => $this->schedule,'webhookId' => ''),
+            CURLOPT_POSTFIELDS => array("faxNumber"=>$this->faxNumber,"attachments"=>$this->filePost,"coverPage"=>'false',"coverPageId"=>'','tags'=>'','recipientName'=>$this->name,'senderName'=>$this->senderName,'subject'=>$this->subject,'callerId'=>$this->callerID,'notes'=>'','cf'=>'','scheduledDate'=>$this->schedule,'webhookId'=>''),
             CURLOPT_HTTPHEADER => self::headerArray()
         ));
 
