@@ -70,7 +70,7 @@ if (!$_POST['number']) {
         &notificationEmails=' . $user["email"] . "'";
         $hookstring = str_replace(PHP_EOL, '', $hookstring); //remove returns
         $hookstring = str_replace(' ', '', $hookstring); //remove white spaces
-        $response = $status->setWebHook($hookstring);
+        //$response = $status->setWebHook($hookstring);
         $iint = is_int($response);
         if ($iint === false && !empty($response)) {
             //$hook->saveWebHook($response);
