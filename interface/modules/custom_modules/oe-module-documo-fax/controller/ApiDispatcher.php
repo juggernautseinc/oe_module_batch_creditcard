@@ -185,7 +185,7 @@ class ApiDispatcher
     public function sendFax($postFields)
     {
         $curl = curl_init();
-
+file_put_contents("/var/www/html/errors/postfields.txt", print_r($postFields, true));
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/faxes',
             CURLOPT_RETURNTRANSFER => true,
