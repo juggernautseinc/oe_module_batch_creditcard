@@ -203,7 +203,7 @@ class ApiDispatcher
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => array("faxNumber" => $this->faxNumber,
-                "attachments" => new CURLFILE($this->filePost),
+                "attachments" => $this->filePost,
                 "coverPage" => 'false',
                 "coverPageId" => '',
                 'tags' => '',

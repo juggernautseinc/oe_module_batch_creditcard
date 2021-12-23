@@ -97,7 +97,7 @@ if (!$_POST['number']) {
     }
     //need country code
     $status->faxNumber = $hook->countryCode()['gl_value'] . str_replace('-', '', $fax_number);
-    $status->filePost = $_POST['file'];
+    $status->filePost = new CURLFILE($_POST['file']);
     $status->name = $name;
     $status->senderName = $facility['accountName'];
     $status->subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS);
