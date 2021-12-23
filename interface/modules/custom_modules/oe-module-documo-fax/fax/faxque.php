@@ -80,7 +80,7 @@ if (!$_POST['number']) {
         }
     }
     //$the_hook = $hook->getWebHook();
-
+    $name = '';
     $the_number = explode("@", $_POST['number']);
     $scheduled = date('Y-m-d') . 'T' . date('H:i:s') . '.000Z';
     if ($the_number[0]) {
@@ -96,21 +96,15 @@ if (!$_POST['number']) {
         $name = $the_number[1] . " Attn: " . filter_input( INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
     }
     //need country code
-    $postFields = array("faxNumber" => '"' . $hook->countryCode()['gl_value'] . str_replace('-', '', $fax_number) . '"',
-        "attachments" => new CURLFILE($_POST['file']),
-        "coverPage" => 'false',
-        "coverPageId" => '',
-        "tags" => '',
-        "recipientName" => $name,
-        "senderName" => $facility['accountName'] ,
-        "subject" => filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS),
-        "callerId" => $facility['faxCallerId'],
-        "notes" => '',
-        "cf" => '',
-        "scheduledDate" => $scheduled,
-        "webhookId" => '');
-var_dump($postFields);
-    $sent = $status->sendFax($postFields);
+    $status->faxNumber = $hook->countryCode()['gl_value'] . str_replace('-', '', $fax_number);
+    $status->filePost = $_POST['file'];
+    $status->name = $name;
+    $status->senderName = $facility['accountName'];
+    $status->subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS);
+    $status->callerID = $facility['faxCallerId'];
+    $status->schedule = $scheduled;
+
+    $sent = $status->sendFax();
     var_dump($sent); die;
     try {
         print $twig->render('queingfile.twig', [
@@ -120,4 +114,3 @@ var_dump($postFields);
         print $e->getMessage();
     }
 }
-

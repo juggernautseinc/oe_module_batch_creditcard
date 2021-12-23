@@ -16,7 +16,14 @@ class ApiDispatcher
 {
     private $apiKey;
     public $areacode;
-
+    public $faxNumber;
+    public $attachment;
+    public $subject;
+    public $filePost;
+    public $name;
+    public $senderName;
+    public $callerID;
+    public $schedule;
 
     public function __construct()
     {
@@ -182,10 +189,10 @@ class ApiDispatcher
         return $response;
     }
 
-    public function sendFax($postFields)
+    public function sendFax()
     {
         $curl = curl_init();
-file_put_contents("/var/www/html/errors/postfields.txt", print_r($postFields, true));
+
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/faxes',
             CURLOPT_RETURNTRANSFER => true,
@@ -195,7 +202,19 @@ file_put_contents("/var/www/html/errors/postfields.txt", print_r($postFields, tr
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => $postFields,
+            CURLOPT_POSTFIELDS => array("faxNumber" => $this->faxNumber,
+                "attachments" => new CURLFILE($this->filePost),
+                "coverPage" => 'false',
+                "coverPageId" => '',
+                'tags' => '',
+                'recipientName' => $this->name,
+                'senderName' => $this->senderName,
+                'subject' => $this->subject,
+                'callerId' => $this->callerID,
+                'notes' => '',
+                'cf' => '',
+                'scheduledDate' => $this->schedule,
+                'webhookId' => ''),
             CURLOPT_HTTPHEADER => self::headerArray()
         ));
 
