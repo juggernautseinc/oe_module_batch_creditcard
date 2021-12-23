@@ -96,19 +96,19 @@ if (!$_POST['number']) {
         $name = $the_number[1] . " Attn: " . filter_input( INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
     }
     //need country code
-    $postFields = array('faxNumber' => $hook->countryCode()['gl_value'] . str_replace('-', '', $fax_number),
-        'attachments' => new CURLFILE($_POST['file']),
-        'coverPage' => 'false',
-        'coverPageId' => '',
-        'tags' => '',
-        'recipientName' => $name,
-        'senderName' => $facility['accountName'] ,
-        'subject' => filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS),
-        'callerId' => $facility['faxCallerId'],
-        'notes' => '',
-        'cf' => '',
-        'scheduledDate' => $scheduled,
-        'webhookId' => '');
+    $postFields = array("faxNumber" => '"' . $hook->countryCode()['gl_value'] . str_replace('-', '', $fax_number) . '"',
+        "attachments" => new CURLFILE($_POST['file']),
+        "coverPage" => 'false',
+        "coverPageId" => '',
+        "tags" => '',
+        "recipientName" => $name,
+        "senderName" => $facility['accountName'] ,
+        "subject" => filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS),
+        "callerId" => $facility['faxCallerId'],
+        "notes" => '',
+        "cf" => '',
+        "scheduledDate" => $scheduled,
+        "webhookId" => '');
 var_dump($postFields);
     $sent = $status->sendFax($postFields);
     var_dump($sent); die;
@@ -120,3 +120,4 @@ var_dump($postFields);
         print $e->getMessage();
     }
 }
+
