@@ -101,11 +101,13 @@ if (!$_POST['number']) {
     $status->name = $name;
     $status->senderName = $facility['accountName'];
     $status->subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS);
-    $status->callerID = $facility['faxCallerId'];
+    $status->callerID = $hook->countryCode()['gl_value'] .$facility['faxCallerId'];
     $status->schedule = $scheduled;
 
     $sent = $status->sendFax();
-    var_dump($sent); die;
+    echo  $sent;
+    //var_dump($sent);
+    die;
     try {
         print $twig->render('queingfile.twig', [
            'pageTitle' => 'Added Fax to Outbound Que'
