@@ -204,7 +204,10 @@ class ApiDispatcher
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => str_replace(PHP_EOL, '',$postData),
-            CURLOPT_HTTPHEADER => self::headerArray()
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Basic ' . $this->apiKey,
+                'Content-Type: multipart/form-data'
+            )
         ));
 
         $response = curl_exec($curl);
