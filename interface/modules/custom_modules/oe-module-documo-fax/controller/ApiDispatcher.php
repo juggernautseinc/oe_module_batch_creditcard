@@ -193,13 +193,11 @@ class ApiDispatcher
     {
         $curl = curl_init();
         $postData = array("faxNumber"=>$this->faxNumber,"'attachments'"=>$this->filePost,"coverPage"=>'false',"coverPageId"=>'','tags'=>'','recipientName'=>$this->name,'senderName'=>$this->senderName,'subject'=>$this->subject,'callerId'=>$this->callerID,'notes'=>'','cf'=>'','scheduledDate'=>$this->schedule,'webhookId'=>'');
-        $postData = str_replace(PHP_EOL, '', $postData);
-        $postData = str_replace(' ', '', $postData);
         file_put_contents("/var/www/html/errors/postData.txt", print_r($postData,true));
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/faxes',
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
+            CURLOPT_ENCODING => 1,
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 0,
             CURLOPT_FOLLOWLOCATION => true,
@@ -217,7 +215,6 @@ class ApiDispatcher
         } else {
             return $status;
         }
-
     }
 
     public function setWebHook($hookstring) : string
