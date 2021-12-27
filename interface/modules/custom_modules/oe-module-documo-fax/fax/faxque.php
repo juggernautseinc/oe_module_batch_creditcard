@@ -50,7 +50,7 @@ if (!$_POST['number']) {
     $number_uuid = $hook->getFaxNumbers();
     $user = $hook->getUserInfo();
     $facility = $hook->getAllAccountInfo();
-
+var_dump($facility); die;
     //this url will change based on where I put the call to the hook function
     $hookurl = substr(getWebHookURI(), 0, -10);
 
@@ -101,7 +101,7 @@ if (!$_POST['number']) {
     $status->name = $name;
     $status->senderName = $facility['accountName'];
     $status->subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS);
-    $status->callerID = $hook->countryCode()['gl_value'] .$facility['faxCallerId'];
+    $status->callerID = $facility['faxCallerId'];
     $status->schedule = $scheduled;
 
     $sent = $status->sendFax();

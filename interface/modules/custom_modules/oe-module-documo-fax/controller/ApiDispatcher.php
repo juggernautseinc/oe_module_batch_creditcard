@@ -193,7 +193,6 @@ class ApiDispatcher
     {
         $curl = curl_init();
         $postData = array("faxNumber"=>$this->faxNumber,"'attachments'"=>$this->filePost,"coverPage"=>'false',"coverPageId"=>'','tags'=>'','recipientName'=>$this->name,'senderName'=>$this->senderName,'subject'=>$this->subject,'callerId'=>$this->callerID,'notes'=>'','scheduledDate'=>$this->schedule);
-        file_put_contents("/var/www/html/errors/postData.txt", print_r($postData,true));
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/faxes',
             CURLOPT_RETURNTRANSFER => true,
@@ -203,7 +202,7 @@ class ApiDispatcher
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => str_replace(PHP_EOL, '',$postData),
+            CURLOPT_POSTFIELDS => $postData,
             CURLOPT_HTTPHEADER => array(
                 'Authorization: Basic ' . $this->apiKey,
                 'Content-Type: multipart/form-data'
