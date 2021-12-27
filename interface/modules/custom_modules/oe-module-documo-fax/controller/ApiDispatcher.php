@@ -193,6 +193,7 @@ class ApiDispatcher
     {
         $curl = curl_init();
         $postData = array("faxNumber"=>$this->faxNumber,"attachments"=>$this->filePost,"coverPage"=>'false',"coverPageId"=>'','tags'=>'','recipientName'=>$this->name,'senderName'=>$this->senderName,'subject'=>$this->subject,'callerId'=>$this->callerID,'notes'=>'','cf'=>'','scheduledDate'=>$this->schedule,'webhookId'=>'');
+        file_put_contents("/var/www/html/errors/postData.txt", print_r($postData,true));
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/faxes',
             CURLOPT_RETURNTRANSFER => true,
