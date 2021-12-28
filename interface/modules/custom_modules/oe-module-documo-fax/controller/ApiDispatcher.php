@@ -199,7 +199,7 @@ class ApiDispatcher
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/faxes',
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => 1,
+            CURLOPT_ENCODING => 0,
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 0,
             CURLOPT_FOLLOWLOCATION => true,
