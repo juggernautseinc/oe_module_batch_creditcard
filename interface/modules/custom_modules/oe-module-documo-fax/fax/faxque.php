@@ -106,7 +106,7 @@ if (!$_POST['number']) {
     $status->tags = $user["account_id"];
 
     $sent = $status->sendFax();
-
+vvar_dump($sent);
     if (is_int($sent)) {
         $result = 'Please check fax number is valid and try again';
     } elseif ($sent['uuid']) {
