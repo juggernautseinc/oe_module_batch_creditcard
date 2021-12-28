@@ -207,7 +207,7 @@ class ApiDispatcher
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => $postData,
             CURLOPT_HTTPHEADER => array(
-                'Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwN2YyZmRiZi1lYzQ0LTQ2ZTYtOTg2NS1iNmQ0ODAyZmYwNjkiLCJhY2NvdW50SWQiOiJlYjRkYWNjYy1mM2FiLTQwYWQtYTlmYi1mYzBiMDMwZTA1ZGMiLCJpYXQiOjE2NDA3MzI2MzB9.kgIzUcY_9FglEuLB-UxWuhYUqZlDWDk1eDGZe8jShQk',
+                'Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwN2YyZmRiZi1lYzQ0LTQ2ZTYtOTg2NS1iNmQ0ODAyZmYwNjkiLCJhY2NvdW50SWQiOiJlYjRkYWNjYy1mM2FiLTQwYWQtYTlmYi1mYzBiMDMwZTA1ZGMiLCJpYXQiOjE2NDA3MzM4NDV9.QuJQmbKsvG5f7Yazz0a4kekTbHOeeuLYLFuyM4MX5f0',
                 'Content-Type: multipart/form-data'
             )
         ));
