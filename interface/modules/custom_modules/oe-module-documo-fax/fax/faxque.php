@@ -105,12 +105,17 @@ var_dump($facility); die;
     $status->schedule = $scheduled;
 
     $sent = $status->sendFax();
-    echo  $sent;
-    //var_dump($sent);
-    die;
+
+    if (is_int($sent)) {
+        $result = 'Please check fax number is valid and try again';
+    } elseif ($sent['uuid']) {
+        $result = 'Fax Successfully Queued for transmission, Check status in the Fax Manager page';
+    }
+
     try {
-        print $twig->render('queingfile.twig', [
-           'pageTitle' => 'Added Fax to Outbound Que'
+        print $twig->render('results.twig', [
+           'pageTitle' => 'Fax Sent Status',
+            'result' => $result
         ]);
     } catch (LoaderError|RuntimeError|SyntaxError $e) {
         print $e->getMessage();
