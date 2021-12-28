@@ -50,7 +50,7 @@ if (!$_POST['number']) {
     $number_uuid = $hook->getFaxNumbers();
     $user = $hook->getUserInfo();
     $facility = $hook->getAllAccountInfo();
-var_dump($facility); die;
+
     //this url will change based on where I put the call to the hook function
     $hookurl = substr(getWebHookURI(), 0, -10);
 
@@ -120,4 +120,5 @@ var_dump($facility); die;
     } catch (LoaderError|RuntimeError|SyntaxError $e) {
         print $e->getMessage();
     }
+    unlink($_POST['file']);
 }
