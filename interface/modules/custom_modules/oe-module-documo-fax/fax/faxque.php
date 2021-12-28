@@ -103,6 +103,7 @@ if (!$_POST['number']) {
     $status->subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS);
     $status->callerID = $facility['faxCallerId'];
     $status->schedule = $scheduled;
+    $status->tags = $user["account_id"];
 
     $sent = $status->sendFax();
 
