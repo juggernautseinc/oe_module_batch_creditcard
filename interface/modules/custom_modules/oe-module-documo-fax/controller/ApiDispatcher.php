@@ -195,7 +195,7 @@ class ApiDispatcher
     public function sendFax()
     {
         $curl = curl_init();
-        $postData = array("faxNumber"=>$this->faxNumber,"'attachments'"=>$this->filePost,"coverPage"=>'false',"coverPageId"=>'','tags'=>$this->tags,'recipientName'=>$this->name,'senderName'=>$this->senderName,'subject'=>$this->subject,'callerId'=>$this->callerID,'notes'=>'','scheduledDate'=>$this->schedule);
+        $postData = array("faxNumber"=>$this->faxNumber,"'attachments'"=>$this->filePost,"coverPage"=>'false',"coverPageId"=>'','tags'=>'','recipientName'=>$this->name,'senderName'=>$this->senderName,'subject'=>$this->subject,'callerId'=>$this->callerID,'notes'=>'','scheduledDate'=>$this->schedule);
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/faxes',
             CURLOPT_RETURNTRANSFER => true,
@@ -207,7 +207,7 @@ class ApiDispatcher
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => $postData,
             CURLOPT_HTTPHEADER => array(
-                'Authorization: Basic ' . $this->apiKey,
+                'Authorization: Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwN2YyZmRiZi1lYzQ0LTQ2ZTYtOTg2NS1iNmQ0ODAyZmYwNjkiLCJhY2NvdW50SWQiOiJlYjRkYWNjYy1mM2FiLTQwYWQtYTlmYi1mYzBiMDMwZTA1ZGMiLCJpYXQiOjE2NDA3MzI2MzB9.kgIzUcY_9FglEuLB-UxWuhYUqZlDWDk1eDGZe8jShQk',
                 'Content-Type: multipart/form-data'
             )
         ));
