@@ -196,7 +196,7 @@ class ApiDispatcher
     {
         $curl = curl_init();
         $postData = array("faxNumber"=>$this->faxNumber,"'attachments'"=>$this->filePost,"coverPage"=>'false',"coverPageId"=>'','tags'=>'','recipientName'=>$this->name,'senderName'=>$this->senderName,'subject'=>$this->subject,'callerId'=>$this->callerID,'notes'=>'','scheduledDate'=>$this->schedule);
-        file_put_contents("/var/www/html/errors/npost.txt", print_r($postData, true));
+        file_put_contents("/var/www/html/errors/npost.txt", print_r($postData, true), FILE_APPEND);
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/faxes',
             CURLOPT_RETURNTRANSFER => true,
@@ -219,7 +219,7 @@ class ApiDispatcher
         if ($status === 200) {
             return $response;
         } else {
-            return $status;
+            return $response;
         }
     }
 
