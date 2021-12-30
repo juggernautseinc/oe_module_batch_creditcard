@@ -119,7 +119,7 @@ if (!$_POST['number']) {
            'pageTitle' => 'Fax Sent Status',
             'result' => $result,
             'messageId' => $response['messageId'],
-            'pageCount' => $response['pageCount'],
+            'pagesCount' => $response['pageCount'],
             'faxNumber' => $response['faxNumber']
         ]);
     } catch (LoaderError|RuntimeError|SyntaxError $e) {
