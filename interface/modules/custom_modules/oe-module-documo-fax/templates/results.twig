@@ -2,7 +2,10 @@
 
 {% block body %}
 <h3 class="mt-5 mb-5">{{ pageTitle }}</h3>
-    {{ result|xlt }}
+    {{ result|xlt }} <br>
+    Message ID: {{ messageId }} <br>
+    Page Count: {{ pageCount }} <br>
+    Fax Number: {{ faxNumber }}
     <br><br>
     {{ 'Close window'|xlt }}
 {% endblock %}

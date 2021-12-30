@@ -106,17 +106,21 @@ if (!$_POST['number']) {
     $status->tags = $user["account_id"];
 
     $sent = $status->sendFax();
-var_dump($sent);
-    if (is_int($sent)) {
-        $result = 'Please check fax number is valid and try again';
-    } elseif ($sent['uuid']) {
+    $response = json_decode($sent, true);
+    $result = '';
+    if ($response['resultInfo'] === 'OK') {
         $result = 'Fax Successfully Queued for transmission, Check status in the Fax Manager page';
+    } else {
+        $result = 'Please check fax number is valid and try again';
     }
 
     try {
         print $twig->render('results.twig', [
            'pageTitle' => 'Fax Sent Status',
-            'result' => $result
+            'result' => $result,
+            'messageId' => $response['messageId'],
+            'pageCount' => $response['pageCount'],
+            'faxNumber' => $response['faxNumber']
         ]);
     } catch (LoaderError|RuntimeError|SyntaxError $e) {
         print $e->getMessage();
