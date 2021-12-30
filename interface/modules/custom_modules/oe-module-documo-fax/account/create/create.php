@@ -47,8 +47,7 @@ if (!empty($data['accountname'])) {
     emailNotifyReceiveIncAttachment=" . $data['emailNotifyReceiveIncAttachment'] . "&
     timezone=" . $data['timezone'] . "&
     allowEmailToFax=" . $data['allowemailtofax'] . "&
-    usersTokenLife=" . $data['usersTokenLife'] . "&
-    cf=";
+    usersTokenLife=" . $data['usersTokenLife'] ;
 
     $response = $documoaccountcreation->createAccount($postfields);
     if (!is_int($response)) {
@@ -65,10 +64,9 @@ if (!empty($data['first_name']))
         CsrfUtils::csrfNotVerified();
     }
     $accountId = $dbcall->getAccountId();
-    //var_dump($data);
-    $postfields = "firstName=" .  $data['first_name']  .  "&lastName=" .  $data['last_name']  .  "&password=" .  $data['password']  .  "&email=" .  $data['your_email']  .  "&userRole=" .  $data['userrole']  .  "&phone=" .  $data['phone']  .  "&accountId=" . $accountId . "&jobPosition=" .  $data['jobposition']  .  "&drive=false&sign=false&fax=false";
-    //var_dump($postfields);
-    $response = $documoaccountcreation->createUser($postfields);
+
+    $postFields = "firstName=" .  $data['first_name']  .  "&lastName=" .  $data['last_name']  .  "&password=" .  $data['password']  .  "&email=" .  $data['your_email']  .  "&userRole=" .  $data['userrole']  .  "&phone=" .  $data['phone']  .  "&accountId=" . $accountId . "&jobPosition=" .  $data['jobposition']  .  "&drive=false&sign=true&fax=true";
+    $response = $documoaccountcreation->createUser($postFields);
     if (!is_int($response)) {
         $dbcall->saveUser($response);
         print xlt("The user was successfully created. Close this window, and start faxing! ");
