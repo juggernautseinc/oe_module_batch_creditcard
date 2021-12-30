@@ -111,7 +111,7 @@ if (!$_POST['number']) {
     if ($response['resultInfo'] === 'OK') {
         $result = 'Fax Successfully Queued for transmission, Check status in the Fax Manager page';
     } else {
-        $result = 'Please check fax number is valid and try again';
+        $result = $response['message'];
     }
 
     try {
