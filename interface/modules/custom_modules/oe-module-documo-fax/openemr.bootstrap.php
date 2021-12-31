@@ -136,4 +136,29 @@ function oe_module_documo_patient_report_render_javascript_post_load(Event $even
     $(".genfax").click(function() {getFaxContent();});
     <?php
 }
+
+// patient documents fax anchor
+function oe_module_documo_fax_render_action_anchors(Event $event)
+{
+    ?>
+    <a class="btn btn-secondary btn-send-msg" href="" onclick="return doFax(event,file,mime)"><span><?php echo xlt('Send Fax'); ?></span></a>
+    <?php
+}
+function oe_module_documo_fax_render_javascript_fax_dialog(Event $event)
+{
+    ?>
+    function doFax(e, filePath, mime='') {
+    e.preventDefault();
+    let btnClose = <?php echo xlj("Close"); ?>;
+    let title = <?php echo xlj("Send To Contact"); ?>;
+    let url = top.webroot_url +
+    '/interface/modules/custom_modules/oe-module-documo-fax/fax/quefax.php?isDocuments=true&file=' + filePath +
+    '&mime=' + mime;
+    dlgopen(url, 'faxto', 'modal-md', 650, '', title, {buttons: [{text: btnClose, close: true, style: 'primary'}]});
+    return false;
+    }
+    <?php
+}
+$eventDispatcher->addListener(PatientDocumentEvent::ACTIONS_RENDER_FAX_ANCHOR, 'oe_module_documo_fax_render_action_anchors');
+$eventDispatcher->addListener(PatientDocumentEvent::JAVASCRIPT_READY_FAX_DIALOG, 'oe_module_documo_fax_render_javascript_fax_dialog');
 ?>
