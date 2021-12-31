@@ -66,19 +66,19 @@ if (!is_file($template_file)) {
 }
 
 $transid = empty($_REQUEST['transid']) ? 0 : $_REQUEST['transid'] + 0;
-$refer_date = empty($trow['refer_date']) ? date('Y-m-d') : $trow['refer_date'];
+
 
 // if (!$transid) die("Transaction ID is missing!");
 
 if ($transid) {
     $trow = getTransById($transid);
     $patient_id = $trow['pid'];
-
+    $refer_date = empty($trow['refer_date']) ? date('Y-m-d') : $trow['refer_date'];
 } else {
     if (empty($_REQUEST['patient_id'])) {
         // If no transaction ID or patient ID, this will be a totally blank form.
         $patient_id = 0;
-        $refer_date = '';
+        $refer_date = date('Y-m-d');
     } else {
         $patient_id = $_REQUEST['patient_id'] + 0;
         $refer_date = date('Y-m-d');
@@ -122,9 +122,6 @@ if (empty($torow)) {
     );
 }
 
-if (empty($refer_date)) {
-    $refer_date = date('Y-m-d');
-}
 
 $vrow = sqlQuery("SELECT * FROM form_vitals WHERE " .
   "pid = ? AND date <= ? " .
