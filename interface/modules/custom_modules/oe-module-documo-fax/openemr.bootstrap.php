@@ -138,13 +138,13 @@ function oe_module_documo_patient_report_render_javascript_post_load(Event $even
 }
 
 // patient documents fax anchor
-function oe_module_documo_fax_render_action_anchors(Event $event)
+function oe_module_documo_document_render_action_anchors(Event $event)
 {
     ?>
     <a class="btn btn-secondary btn-send-msg" href="" onclick="return doFax(event,file,mime)"><span><?php echo xlt('Send Fax'); ?></span></a>
     <?php
 }
-function oe_module_documo_fax_render_javascript_fax_dialog(Event $event)
+function oe_module_documofax_document_render_javascript_fax_dialog(Event $event)
 {
     ?>
     function doFax(e, filePath, mime='') {
@@ -159,6 +159,6 @@ function oe_module_documo_fax_render_javascript_fax_dialog(Event $event)
     }
     <?php
 }
-$eventDispatcher->addListener(PatientDocumentEvent::ACTIONS_RENDER_FAX_ANCHOR, 'oe_module_documo_fax_render_action_anchors');
-$eventDispatcher->addListener(PatientDocumentEvent::JAVASCRIPT_READY_FAX_DIALOG, 'oe_module_documo_fax_render_javascript_fax_dialog');
+$eventDispatcher->addListener(PatientDocumentEvent::ACTIONS_RENDER_FAX_ANCHOR, 'oe_module_documo_document_render_action_anchors');
+$eventDispatcher->addListener(PatientDocumentEvent::JAVASCRIPT_READY_FAX_DIALOG, 'oe_module_documofax_document_render_javascript_fax_dialog');
 ?>
