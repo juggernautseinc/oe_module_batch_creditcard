@@ -66,14 +66,14 @@ if (!is_file($template_file)) {
 }
 
 $transid = empty($_REQUEST['transid']) ? 0 : $_REQUEST['transid'] + 0;
+$refer_date = empty($trow['refer_date']) ? date('Y-m-d') : $trow['refer_date'];
 
 // if (!$transid) die("Transaction ID is missing!");
 
 if ($transid) {
     $trow = getTransById($transid);
     $patient_id = $trow['pid'];
-    $refer_date = empty($trow['refer_date']) ? date('Y-m-d') : $trow['refer_date'];
-    echo $refer_date; die;
+
 } else {
     if (empty($_REQUEST['patient_id'])) {
         // If no transaction ID or patient ID, this will be a totally blank form.
