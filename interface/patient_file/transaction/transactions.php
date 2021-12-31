@@ -21,6 +21,7 @@ use OpenEMR\Menu\PatientMenuRole;
 use OpenEMR\OeUI\OemrUI;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
+use OpenEMR\Events\PatientReport\PatientReportEvent;
 
 ?>
 <html>
