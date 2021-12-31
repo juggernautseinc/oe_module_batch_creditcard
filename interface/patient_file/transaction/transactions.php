@@ -139,7 +139,10 @@ $oemr_ui = new OemrUI($arrOeUiSettings);
                                                         class='btn btn-print btn-primary'>
                                                         <?php echo text($view); ?>
                                                     </a>
-                                                <?php } ?>
+                                                <?php
+                                                    $eventDispatcher = $GLOBALS['kernel']->getEventDispatcher();;
+                                                    $eventDispatcher->dispatch(PatientReportEvent::ACTIONS_RENDER_POST, new GenericEvent());
+                                                } ?>
                                             </div>
                                         </td>
                                         <td><?php echo getLayoutTitle('Transactions', $item['title']); ?></td>
