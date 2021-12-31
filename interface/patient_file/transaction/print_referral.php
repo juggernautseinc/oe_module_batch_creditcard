@@ -121,7 +121,11 @@ if (empty($torow)) {
     'phone' => '',
     );
 }
-var_dump($refer_date); echo " <- referral date"; die;
+
+if (empty($refer_date)) {
+    $refer_date = date('Y-m-d');
+}
+
 $vrow = sqlQuery("SELECT * FROM form_vitals WHERE " .
   "pid = ? AND date <= ? " .
   "ORDER BY date DESC LIMIT 1", array($patient_id, $refer_date . " 23:59:59"));
