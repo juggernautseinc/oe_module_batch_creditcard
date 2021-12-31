@@ -19,6 +19,8 @@ use OpenEMR\Common\Csrf\CsrfUtils;
 use OpenEMR\Core\Header;
 use OpenEMR\Menu\PatientMenuRole;
 use OpenEMR\OeUI\OemrUI;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\EventDispatcher\GenericEvent;
 
 ?>
 <html>
@@ -140,6 +142,9 @@ $oemr_ui = new OemrUI($arrOeUiSettings);
                                                         <?php echo text($view); ?>
                                                     </a>
                                                 <?php
+                                                    /**
+                                                     * @var EventDispatcherInterface $eventDispatcher  The event dispatcher / listener object
+                                                     */
                                                     $eventDispatcher = $GLOBALS['kernel']->getEventDispatcher();;
                                                     $eventDispatcher->dispatch(PatientReportEvent::ACTIONS_RENDER_POST, new GenericEvent());
                                                 } ?>
