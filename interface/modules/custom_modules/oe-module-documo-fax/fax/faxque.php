@@ -44,10 +44,11 @@ if (!$_POST['number']) {
     $status->limit = 25;
     $status->faxstatus = 'all';
     $history = $status->getFaxHistory();
+    $history = json_decode($history, true);
     try {
         print $twig->render('history.twig', [
             'pageTitle' => 'Fax History',
-            'data' => json_decode($history, true)
+            'data' => $history
         ]);
     } catch (LoaderError|RuntimeError|SyntaxError $e) {
         print $e->getMessage();
