@@ -37,7 +37,7 @@ $twig->addExtension(new Twig_Extension_Debug());
 
 if (!$_POST['number']) {
     $userinfo = new Database();
-    $account = $userinfo->getUserInfo();
+    $account = $userinfo->getUserInfo(); var_dump($account);
     $status->useraccountid = $account['uuid'];
     $status->offset = 0;
     $status->direction = 'outbound';
