@@ -14,15 +14,17 @@
 
     {% for entries in data %}
         {% for key, value in entries %}
+            {% if not value.createdAt  %}
         <tr>
             <td>{{ value.createdAt|e }}</td>
-            <td>{{ value.users|e }}</td>
+            <td></td>
             <td>{{ value.faxNumber|e }}</td>
             <td>{{ value.direction|xlt }}</td>
             <td>{{ value.pagesCount|e }}</td>
             <td>{{ value.processingStatusName|xlt }}</td>
             <td>{{ value.resultInfo|xlt }}</td>
         </tr>
+            {% endif %}
             {% endfor %}
     {% endfor %}
 </table>
