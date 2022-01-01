@@ -178,6 +178,9 @@ $oemr_ui = new OemrUI($arrOeUiSettings);
         $(function () {
             $(listId).addClass("active");
         });
+        <?php
+            $eventDispatcher->dispatch(PatientReportEvent::JAVASCRIPT_READY_POST, new GenericEvent());
+        ?>
     </script>
 </body>
 </html>
