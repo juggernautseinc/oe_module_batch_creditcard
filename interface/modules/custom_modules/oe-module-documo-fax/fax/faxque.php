@@ -47,7 +47,7 @@ if (!$_POST['number']) {
     try {
         print $twig->render('history.twig', [
             'pageTitle' => 'Fax History',
-            'data' => $history
+            'data' => json_decode($history, true)
         ]);
     } catch (LoaderError|RuntimeError|SyntaxError $e) {
         print $e->getMessage();
