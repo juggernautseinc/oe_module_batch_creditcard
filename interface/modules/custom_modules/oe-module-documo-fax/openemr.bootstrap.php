@@ -53,7 +53,7 @@ function oe_module_documofax_add_menu_item(MenuEvent $event)
     $menuItem->requirement = 0;
     $menuItem->target = 'mod';
     $menuItem->menu_id = 'mod0';
-    $menuItem->label = xlt("Fax Manager");
+    $menuItem->label = xlt("Fax Outbound History");
     $menuItem->url = "/interface/modules/custom_modules/oe-module-documo-fax/fax/faxque.php";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
@@ -84,7 +84,7 @@ function createFaxModuleGlobals(GlobalsInitializedEvent $event)
     $instruct = xl('Obtain API Key to install service');
 
     $event->getGlobalsService()->createSection("Modules", "Report");
-    $setting = new GlobalSetting(xl('Documo Fax API Public Key'), 'encrypted', 'y?fus50p+aPhodrl?0he', $instruct);
+    $setting = new GlobalSetting(xl('Documo Fax API Key'), 'encrypted', '', $instruct);
     $event->getGlobalsService()->appendToSection("Modules", "oedocumofax_enable", $setting);
 
 }
