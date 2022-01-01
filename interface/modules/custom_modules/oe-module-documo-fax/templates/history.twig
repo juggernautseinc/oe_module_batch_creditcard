@@ -15,15 +15,14 @@
     {% for entries in data %}
         {{ entries }}
         {% for key, value in entries %}
-            - {{ key }}
         <tr>
-            <td> - {{ value.createdAt|e }}1</td>
-            <td> - {{ value.users|e }}2</td>
-            <td> - {{ value.faxNumber|e }}3</td>
-            <td> - {{ value.direction|xlt }}4</td>
-            <td> - {{ value.pagesCount|e }}5</td>
-            <td> - {{ value.processingStatusName|xlt }}6</td>
-            <td> - {{ value.resultInfo|xlt }}7</td>
+            <td>{{ value.createdAt|e }}</td>
+            <td>{{ value.users|e }}</td>
+            <td>{{ value.faxNumber|e }}</td>
+            <td>{{ value.direction|xlt }}</td>
+            <td>{{ value.pagesCount|e }}</td>
+            <td>{{ value.processingStatusName|xlt }}</td>
+            <td>{{ value.resultInfo|xlt }}</td>
         </tr>
             {% endfor %}
     {% endfor %}
