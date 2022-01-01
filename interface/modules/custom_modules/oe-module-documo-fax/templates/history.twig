@@ -13,7 +13,6 @@
     <th>{{ "Details"|xlt }}</th>
 
     {% for entries in data %}
-        {{ entries }}
         {% for key, value in entries %}
         <tr>
             <td>{{ value.createdAt|e }}</td>
