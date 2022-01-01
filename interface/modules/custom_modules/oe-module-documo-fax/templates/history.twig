@@ -17,10 +17,10 @@
             <td>{{ entry.createdAt }}</td>
             <td>{{ entry.users }}</td>
             <td>{{ entry.faxNumber }}</td>
-            <td>{{ entry.direction }}</td>
+            <td>{{ entry.direction|xlt }}</td>
             <td>{{ entry.pagesCount }}</td>
-            <td>{{ entry.processingStatusName }}</td>
-            <td>{{ entry.resultInfo }}</td>
+            <td>{{ entry.processingStatusName|xlt }}</td>
+            <td>{{ entry.resultInfo|xlt }}</td>
         </tr>
     {% endfor %}
 </table>
