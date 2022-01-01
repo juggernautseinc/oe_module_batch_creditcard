@@ -37,7 +37,7 @@ $twig->addExtension(new Twig_Extension_Debug());
 if (!$_POST['number']) {
     $userinfo = new Database();
     $account = $userinfo->getUserInfo();
-    var_dump($account);
+    var_dump($account['uuid']);
     try {
         print $twig->render('history.twig', [
             'pageTitle' => 'Fax History'
