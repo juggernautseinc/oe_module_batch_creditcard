@@ -14,13 +14,13 @@
 
     {% for entry in data %}
         <tr>
-            <td>{{ entry.createdAt }}</td>
-            <td>{{ entry.users }}</td>
-            <td>{{ entry.faxNumber }}</td>
-            <td>{{ entry.direction|xlt }}</td>
-            <td>{{ entry.pagesCount }}</td>
-            <td>{{ entry.processingStatusName|xlt }}</td>
-            <td>{{ entry.resultInfo|xlt }}</td>
+            <td>{{ entry.createdAt|e }}1</td>
+            <td>{{ entry.users|e }}2</td>
+            <td>{{ entry.faxNumber|e }}3</td>
+            <td>{{ entry.direction|xlt }}4</td>
+            <td>{{ entry.pagesCount|e }}5</td>
+            <td>{{ entry.processingStatusName|xlt }}6</td>
+            <td>{{ entry.resultInfo|xlt }}7</td>
         </tr>
     {% endfor %}
 </table>
