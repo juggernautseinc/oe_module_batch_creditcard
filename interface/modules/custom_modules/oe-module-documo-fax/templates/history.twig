@@ -12,16 +12,20 @@
     <th>{{ "Status"|xlt }}</th>
     <th>{{ "Details"|xlt }}</th>
 
-    {% for entry in data %}
+    {% for entries in data %}
+        {{ entries }}
+        {% for key, value in entries %}
+            - {{ key }}
         <tr>
-            <td>{{ entry.createdAt|e }}1</td>
-            <td>{{ entry.users|e }}2</td>
-            <td>{{ entry.faxNumber|e }}3</td>
-            <td>{{ entry.direction|xlt }}4</td>
-            <td>{{ entry.pagesCount|e }}5</td>
-            <td>{{ entry.processingStatusName|xlt }}6</td>
-            <td>{{ entry.resultInfo|xlt }}7</td>
+            <td> - {{ value.createdAt|e }}1</td>
+            <td> - {{ value.users|e }}2</td>
+            <td> - {{ value.faxNumber|e }}3</td>
+            <td> - {{ value.direction|xlt }}4</td>
+            <td> - {{ value.pagesCount|e }}5</td>
+            <td> - {{ value.processingStatusName|xlt }}6</td>
+            <td> - {{ value.resultInfo|xlt }}7</td>
         </tr>
+            {% endfor %}
     {% endfor %}
 </table>
 {% endblock %}
