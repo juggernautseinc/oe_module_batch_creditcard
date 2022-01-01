@@ -19,9 +19,13 @@ class ApiDispatcher
     public $areacode;
     public $attachment;
     public $callerID;
+    public $direction;
     public $filePost;
     public $faxNumber;
+    public $faxstatus;
+    public $limit;
     public $name;
+    public $offset;
     public $senderName;
     public $schedule;
     public $subject;
@@ -246,9 +250,14 @@ class ApiDispatcher
     public function getFaxHistory()
     {
         $curl = curl_init();
+        $getData = 'accountId='. $this->useraccountid .
+            '&offset=' . $this->offset .
+            '&limit=' . $this->limit .
+            '&direction=' . $this->direction .
+            '&status=' . $this->faxstatus;
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://api.documo.com/v1/fax/history?accountId=&offset=&limit=&direction=&status=',
+            CURLOPT_URL => 'https://api.documo.com/v1/fax/history?' . $getData,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

@@ -39,6 +39,10 @@ if (!$_POST['number']) {
     $userinfo = new Database();
     $account = $userinfo->getUserInfo();
     $status->useraccountid = $account['uuid'];
+    $status->offset = 0;
+    $status->direction = 'outbound';
+    $status->limit = 25;
+    $status->faxstatus = 'all';
     $history = $status->getFaxHistory();
     try {
         print $twig->render('history.twig', [
