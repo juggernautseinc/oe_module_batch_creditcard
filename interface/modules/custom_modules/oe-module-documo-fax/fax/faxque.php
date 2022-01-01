@@ -23,6 +23,7 @@ require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
 
 $path = dirname(__FILE__, 2) . "/templates";
 $twigloader = new TwigContainer($path, $GLOBALS['kernel']);
+
 $status = '';
 try {
     $status = new ApiDispatcher();
@@ -34,9 +35,12 @@ $twig = $twigloader->getTwig();
 $twig->addExtension(new Twig_Extension_Debug());
 
 if (!$_POST['number']) {
+    $userinfo = new Database();
+    $account = $userinfo->getUserInfo();
+    var_dump($account);
     try {
-        print $twig->render('que.twig', [
-            'pageTitle' => 'Fax Que'
+        print $twig->render('history.twig', [
+            'pageTitle' => 'Fax History'
 
         ]);
     } catch (LoaderError|RuntimeError|SyntaxError $e) {
