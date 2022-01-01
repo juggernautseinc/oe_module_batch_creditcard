@@ -14,7 +14,7 @@
 
     {% for entries in data %}
         {% for key, value in entries %}
-            {% if not value.createdAt  %}
+            {% if value.faxNumber  %}
         <tr>
             <td>{{ value.createdAt|e }}</td>
             <td></td>
