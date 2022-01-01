@@ -11,7 +11,18 @@
     <th>{{ "Time"|xlt }}</th>
     <th>{{ "Page Count"|xlt }}</th>
     <th>{{ "Status"|xlt }}</th>
+    <th>{{ "Details"|xlt }}</th>
 
-
+    {% for entry in data %}
+        <tr>
+            <td>{{ entry.createdAt }}</td>
+            <td>{{ entry.users }}</td>
+            <td>{{ entry.faxNumber }}</td>
+            <td>{{ entry.direction }}</td>
+            <td>{{ entry.pagesCount }}</td>
+            <td>{{ entry.processingStatusName }}</td>
+            <td>{{ entry.resultInfo }}</td>
+        </tr>
+    {% endfor %}
 </table>
 {% endblock %}
