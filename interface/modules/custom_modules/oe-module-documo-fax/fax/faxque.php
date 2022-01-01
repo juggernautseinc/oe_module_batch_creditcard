@@ -37,11 +37,12 @@ $twig->addExtension(new Twig_Extension_Debug());
 if (!$_POST['number']) {
     $userinfo = new Database();
     $account = $userinfo->getUserInfo();
-    var_dump($account['uuid']);
+    $status->useraccountid = $account['uuid'];
+    $history = $status->getFaxHistory();
     try {
         print $twig->render('history.twig', [
-            'pageTitle' => 'Fax History'
-
+            'pageTitle' => 'Fax History',
+            'data' => $history
         ]);
     } catch (LoaderError|RuntimeError|SyntaxError $e) {
         print $e->getMessage();
