@@ -72,6 +72,7 @@ DB;
             sqlStatement(self::ALT_TABLE . add_escape_custom('documo_account') . self::MODIFY . add_escape_custom('id') . self::INT_AUTO);
             sqlStatement(self::ALT_TABLE . add_escape_custom('documo_log') . self::PRIMARY_ID);
             sqlStatement(self::ALT_TABLE . add_escape_custom('documo_log') . self::MODIFY . add_escape_custom('id') . self::INT_AUTO);
+            sqlStatement("ALTER TABLE `globals` CHANGE `gl_value` `gl_value` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL");
         }
     }
 

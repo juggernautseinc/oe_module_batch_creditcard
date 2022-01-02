@@ -11,6 +11,7 @@
 
 namespace OpenEMR\Modules\Documo;
 
+use OpenEMR\Common\Crypto\CryptoGen;
 
 class ApiDispatcher
 {
@@ -19,6 +20,7 @@ class ApiDispatcher
     public $areacode;
     public $attachment;
     public $callerID;
+    private $cryptoGen;
     public $direction;
     public $filePost;
     public $faxNumber;
@@ -30,11 +32,13 @@ class ApiDispatcher
     public $schedule;
     public $subject;
     public $useraccountid;
-    const USER_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwN2YyZmRiZi1lYzQ0LTQ2ZTYtOTg2NS1iNmQ0ODAyZmYwNjkiLCJhY2NvdW50SWQiOiJlYjRkYWNjYy1mM2FiLTQwYWQtYTlmYi1mYzBiMDMwZTA1ZGMiLCJpYXQiOjE2NDA3MzM4NDV9.QuJQmbKsvG5f7Yazz0a4kekTbHOeeuLYLFuyM4MX5f0';
+    private $userKey;
 
     public function __construct()
     {
+        $this->cryptoGen = new CryptoGen();
         $this->apiKey = self::findApiKey();
+        $this->userKey = $this->cryptoGen->decryptStandard($GLOBALS['oedocumofax_enable']);
     }
 
     private function headerArray(): array
@@ -212,7 +216,7 @@ class ApiDispatcher
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => $postData,
             CURLOPT_HTTPHEADER => array(
-                'Authorization: Basic ' . self::USER_KEY,
+                'Authorization: Basic ' . $this->userKey,
                 'Content-Type: multipart/form-data'
             )
         ));
@@ -266,7 +270,7 @@ class ApiDispatcher
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_HTTPHEADER => array(
-                'Authorization: Basic ' . self::USER_KEY
+                'Authorization: Basic ' . $this->userKey
             ),
         ));
 
