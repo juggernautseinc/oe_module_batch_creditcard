@@ -25,7 +25,7 @@ require_once dirname(__FILE__, 5) . "/globals.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Provisioning Fax Number</title>
     <?php Header::setupHeader(['common'])?>
-    <script src="js/javascript.js"></script>
+    <script src="../js/javascript.js"></script>
     <style>
         #order {
             display: none;
@@ -170,7 +170,7 @@ require_once dirname(__FILE__, 5) . "/globals.php";
             </div>
         </form>
     </div>
-<script src="js/ajax.js">
+<script src="../js/ajax.js">
 </script>
 </body>
 </html>
