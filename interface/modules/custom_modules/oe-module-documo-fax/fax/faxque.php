@@ -120,7 +120,7 @@ if (!$_POST['number']) {
     $response = json_decode($sent, true);
     $result = '';
     if ($response['resultInfo'] === 'OK') {
-        $result = 'Fax Successfully Queued for transmission, Check status in the Fax Manager page';
+        $result = 'Fax Successfully Queued for transmission, <br>Check status in the Fax History page';
     } else {
         $result = $response['message'];
     }
