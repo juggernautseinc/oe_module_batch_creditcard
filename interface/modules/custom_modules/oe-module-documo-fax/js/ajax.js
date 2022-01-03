@@ -38,7 +38,7 @@ async function numberSearch(e) {
         }
     }
 
-    xhr.open('POST', 'provision/provision_helper.php', true);
+    xhr.open('POST', 'provision_helper.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.send(data);
 }
