@@ -14,6 +14,7 @@ use OpenEMR\Common\Twig\TwigContainer;
 use OpenEMR\Modules\Documo\ApiDispatcher;
 use OpenEMR\Common\Csrf\CsrfUtils;
 use OpenEMR\Modules\Documo\Database;
+use OpenEMR\Modules\Documo\SendFax;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
@@ -63,12 +64,14 @@ if (!$_POST['number']) {
     $facility = $hook->getAllAccountInfo();
 
     //this url will change based on where I put the call to the hook function
-    $hookurl = substr(getWebHookURI(), 0, -10);
+    $buildwebhookurl = new SendFax();
+    $webhookDestinationUrl = $buildwebhookurl->getWebHookURI();
+    var_dump($webhookDestinationUrl); die;
 
-    $documohook = $hook->getWebHook(); //This is to get the webhook UUID
 
     //if there is no webhook create one
     //webhooks are not needed to send a fax but used to get the status update so says tech support
+    //That was incorrect also. Webhooks are for
     //leaving and skipping forward for now will return later
     if (empty($documohook['webhook'])) {
         $hookstring = 'name=oe-fax-module
@@ -81,10 +84,10 @@ if (!$_POST['number']) {
         &notificationEmails=' . $user["email"] . "'";
         $hookstring = str_replace(PHP_EOL, '', $hookstring); //remove returns
         $hookstring = str_replace(' ', '', $hookstring); //remove white spaces
-        //$response = $status->setWebHook($hookstring);
+        $response = $status->setWebHook($hookstring);
         $iint = is_int($response);
         if ($iint === false && !empty($response)) {
-            //$hook->saveWebHook($response);
+            $hook->saveWebHook($response);
         } else {
             echo $response;
             die('Unable to get webhook, contact support: support@affordablecustomehr.com');
