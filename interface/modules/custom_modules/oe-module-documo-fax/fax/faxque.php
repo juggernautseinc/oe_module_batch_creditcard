@@ -66,7 +66,7 @@ if (!$_POST['number']) {
     //this url will change based on where I put the call to the hook function
     $buildwebhookurl = new SendFax();
     $webhookDestinationUrl = $buildwebhookurl->getWebHookURI();
-    var_dump($webhookDestinationUrl); die;
+    //var_dump($webhookDestinationUrl); die;
 
 
     //if there is no webhook create one
