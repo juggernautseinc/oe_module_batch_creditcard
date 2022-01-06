@@ -87,7 +87,7 @@ if (!$_POST['number']) {
         $response = $status->setWebHook($hookstring);
         $iint = is_int($response);
         if ($iint === false && !empty($response)) {
-            $hook->saveWebHook($response);
+            //$hook->saveWebHook($response);
         } else {
             echo $response;
             die('Unable to get webhook, contact support: support@affordablecustomehr.com');
