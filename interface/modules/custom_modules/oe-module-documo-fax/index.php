@@ -1,4 +1,5 @@
 <?php
+
 /*
  * package   OpenEMR
  *  link      http://www.open-emr.org
@@ -8,4 +9,9 @@
  *
  */
 
+use OpenEMR\Modules\Documo\WebHookProcessor;
+
+//webhook
+$inboundFax = new WebHookProcessor($_FILES);
+echo $inboundFax->isFileSaved();
 
