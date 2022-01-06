@@ -10,7 +10,7 @@
  */
 
 use OpenEMR\Modules\Documo\Database;
-use OpenEMR\Modules\Documo\SendFax;
+use OpenEMR\Modules\Documo\SendFaxConfig;
 use OpenEMR\Core\Header;
 use OpenEMR\Common\Csrf\CsrfUtils;
 
@@ -23,16 +23,17 @@ $s = date('H:i:s');
 $queFile = $d . "_" . $s . "_" . $file[2];
 $que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documents/documo/outbound/" . $queFile;
 
-$dir = new SendFax();
+$dir = new SendFaxConfig();
 $destinations = new Database();
 $isDir = $dir::faxDir();
 $places = $destinations->getOrganizations();
+$move_file = copy($_GET['file'], $que);
 
-if ($isDir != "Found") {
+if ($isDir == "Found" || $isDir == 'Created') {
+    $move_file;
+}  else {
     echo xlt('Fax directories were not created. Check php error log to see what the issue is.');
     die;
-} else {
-    copy($_GET['file'], $que);  //copy file from tmp directory to the outbound folder
 }
 
 ?>
