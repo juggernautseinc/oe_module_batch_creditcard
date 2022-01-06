@@ -9,9 +9,13 @@
  *
  */
 
-die('huston we have a problem');
 use OpenEMR\Modules\Documo\WebHookProcessor;
 
 //webhook
-$inboundFax = new WebHookProcessor($_FILES);
-echo $inboundFax->isFileSaved();
+if ($_FILES) {
+    $inboundFax = new WebHookProcessor($_FILES);
+    echo $inboundFax->isFileSaved();
+} else {
+    echo "No files sent";
+}
+
