@@ -16,6 +16,6 @@ if ($_FILES) {
     $inboundFax = new WebHookProcessor($_FILES);
     echo $inboundFax->isFileSaved();
 } else {
-    echo "No files sent";
+    echo '{"error":{"name":"File Status","message":"No files were transmitted"}}';
 }
 
