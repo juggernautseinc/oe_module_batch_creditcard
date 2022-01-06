@@ -9,9 +9,4 @@
  *
  */
 
-use OpenEMR\Modules\Documo\WebHookProcessor;
-
-//webhook
-$inboundFax = new WebHookProcessor($_FILES);
-echo $inboundFax->isFileSaved();
 

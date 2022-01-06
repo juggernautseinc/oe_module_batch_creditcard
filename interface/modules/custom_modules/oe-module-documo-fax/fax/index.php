@@ -9,6 +9,7 @@
  *
  */
 
+die('huston we have a problem');
 use OpenEMR\Modules\Documo\WebHookProcessor;
 
 //webhook
