@@ -54,7 +54,7 @@ class SendFaxConfig
         return $response;
     }
 
-    public function getWebHookURI()
+    public function createWebHookURI()
     {
         if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
             $http = "https://";
