@@ -14,6 +14,7 @@ class WebHookProcessor
 {
     private $file;
 
+    //the goal of the processor is to save the incoming file only
     public function __construct($inbound)
     {
         $d = date("Y-m-d");
@@ -23,6 +24,7 @@ class WebHookProcessor
         file_put_contents($this->file, $inbound);
     }
 
+    //check if the file is saved
     public function isFileSaved()
     {
         if (file_exists($this->file)) {

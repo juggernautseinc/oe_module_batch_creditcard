@@ -12,10 +12,16 @@
 use OpenEMR\Modules\Documo\WebHookProcessor;
 
 //webhook
-if ($_FILES) {
-    $inboundFax = new WebHookProcessor($_FILES);
+//inbound files from documo
+
+if ($json = json_decode(file_get_contents("php://input"), true)) {
+    $data = $json;
+    $inboundFax = new WebHookProcessor($data);
+    echo $inboundFax->isFileSaved();
+} elseif ($_POST) {
+    $data = $_POST;
+    $inboundFax = new WebHookProcessor($data);
     echo $inboundFax->isFileSaved();
 } else {
     echo '{"error":{"name":"File Status","message":"No files were transmitted"}}';
 }
-
