@@ -15,6 +15,9 @@ use OpenEMR\Modules\Documo\WebHookProcessor;
 //inbound files from documo
 
 if ($json = json_decode(file_get_contents("php://input"), true)) {
+    if($json("resultInfo") == "OK") {
+        http_response_code(200);
+    }
     $data = $json;
     $inboundFax = new WebHookProcessor($data);
     echo $inboundFax->isFileSaved();
