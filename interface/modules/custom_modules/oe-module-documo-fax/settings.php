@@ -30,7 +30,7 @@ $hasUser = $dbcall->hasUserAccount();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Documo Setting Page</title>
+    <title><?php echo xlt("Documo Setting Page"); ?></title>
     <?php echo Header::setupHeader(['common']) ?>
     <script>
         function createAccount(type) {
@@ -60,39 +60,39 @@ $hasUser = $dbcall->hasUserAccount();
          *
          */
             if (empty($localtz['gl_value'])) {
-                echo "<h1>Time zone is not set, Please set time zone.</h1>";
+                echo "<h1>" . xlt("Time zone is not set, Please set time zone") . "</h1>";
                 die;
              } elseif (!$dbcall->tableCheck()) {
-                echo "<h3>Database tables not installed</h3>";
+                echo "<h3>" . xlt("Database tables not installed") . "</h3>";
                 die;
             }
             ?>
         <div>
-            <h1>Welcome to the Documo Module</h1>
+            <h1><?php echo xlt("Welcome to the Documo Module"); ?></h1>
             <?php if(!$hasAccount) { ?>
-                <h3>There are a few steps to complete to enable this module</h3>
+                <h3><?php echo xlt("There are a few steps to complete to enable this module"); ?></h3>
                 <p><?php echo xlt("Your server must have a public facing IP to receive inbound faxes."); ?></p>
                 <p><?php echo xlt("Your SSL certificate must include ca_bundle.crt file. Or inbound faxes will fail."); ?></p>
                 <p><a href="https://www.ionos.com/tools/ssl-checker" target="_blank" title="please check your SSL certificate"><?php echo xlt("Check SSL"); ?></a></p>
             <?php }
             if (!$hasUser) {?>
-                <h3>Now, create a facility/user!</h3>
+                <h3><?php echo xlt("Now, create an Account"); ?></h3>
             <?php } ?>
         </div>
         <?php if(!$hasAccount) { ?>
         <div>
-            <h3>Step 1</h3>
-            <button class="btn btn-primary" onclick="createAccount('account')">Create an account</button>
+            <h3><?php echo xlt("Step 1"); ?></h3>
+            <button class="btn btn-primary" onclick="createAccount('account')"><?php echo xlt("Create an account"); ?></button>
         </div>
         <?php } else {?>
             <div >
-                <h3>Your fax account is active. </h3>
+                <h3><?php echo xlt("Your fax account is active"); ?>. </h3>
             </div>
         <?php } ?>
         <?php if (!$hasUser) { ?>
         <div>
-            <p>Step 2</p>
-            <button class="btn btn-primary" onclick="createAccount('user')">Create a facility/user</button>
+            <p><?php echo xlt("Step 2"); ?></p>
+            <button class="btn btn-primary" onclick="createAccount('user')"><?php echo xlt("Create an Account"); ?></button>
         </div>
         <?php }  ?>
         <?php if ($hasAccount && $hasUser) {
