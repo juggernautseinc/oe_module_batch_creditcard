@@ -48,10 +48,17 @@ $hasUser = $dbcall->hasUserAccount();
             padding-top: 50px;
         }
     </style>
+
 </head>
 <body>
     <div class="container account">
         <?php
+        /*
+         * 500 P-6V047304K6009135JMHPU4HI
+         * 150 P-2N736743V49213538MHPU2WA
+         * 300 P-0XH865454D897815MMHPUYTQ
+         *
+         */
             if (empty($localtz['gl_value'])) {
                 echo "<h1>Time zone is not set, Please set time zone.</h1>";
                 die;
@@ -63,20 +70,23 @@ $hasUser = $dbcall->hasUserAccount();
         <div>
             <h1>Welcome to the Documo Module</h1>
             <?php if(!$hasAccount) { ?>
-                <p>There are a few steps to complete to enable this module</p>
+                <h3>There are a few steps to complete to enable this module</h3>
+                <p><?php echo xlt("Your server must have a public facing IP to receive inbound faxes."); ?></p>
+                <p><?php echo xlt("Your SSL certificate must include ca_bundle.crt file. Or inbound faxes will fail."); ?></p>
+                <p><a href="https://www.ionos.com/tools/ssl-checker" target="_blank" title="please check your SSL certificate"><?php echo xlt("Check SSL"); ?></a></p>
             <?php }
             if (!$hasUser) {?>
-                <p>Now, create a facility/user!</p>
+                <h3>Now, create a facility/user!</h3>
             <?php } ?>
         </div>
         <?php if(!$hasAccount) { ?>
         <div>
-            <p>Step 1</p>
+            <h3>Step 1</h3>
             <button class="btn btn-primary" onclick="createAccount('account')">Create an account</button>
         </div>
         <?php } else {?>
             <div >
-                <p>Your fax account is active. </p>
+                <h3>Your fax account is active. </h3>
             </div>
         <?php } ?>
         <?php if (!$hasUser) { ?>
