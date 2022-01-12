@@ -11,4 +11,5 @@ return array(
     'OpenEMR\\Modules\\Documo\\Database' => $baseDir . '/controller/Database.php',
     'OpenEMR\\Modules\\Documo\\Provisioning' => $baseDir . '/controller/Provisioning.php',
     'OpenEMR\\Modules\\Documo\\SendFaxConfig' => $baseDir . '/controller/SendFaxConfig.php',
+    'OpenEMR\\Modules\\Documo\\WebHookProcessor' => $baseDir . '/controller/WebHookProcessor.php',
 );
