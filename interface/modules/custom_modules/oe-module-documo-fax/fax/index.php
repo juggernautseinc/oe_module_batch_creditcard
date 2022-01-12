@@ -18,8 +18,9 @@ if ($json = json_decode(file_get_contents("php://input"), true)) {
     if($json("resultInfo") == "OK") {
         http_response_code(200);
     }
-    $data = $json;
-    $inboundFax = new WebHookProcessor($data);
+    if ($_FILES) {
+        $inboundFax = new WebHookProcessor($_FILES);
+    }
     echo $inboundFax->isFileSaved();
 } elseif ($_POST) {
     $data = $_POST;
