@@ -91,8 +91,8 @@ $hasUser = $dbcall->hasUserAccount();
         <?php } ?>
         <?php if (!$hasUser) { ?>
         <div>
-            <p><?php echo xlt("Step 2"); ?></p>
-            <button class="btn btn-primary" onclick="createAccount('user')"><?php echo xlt("Create an Account"); ?></button>
+            <h3><?php echo xlt("Step 2"); ?></h3>
+            <button class="btn btn-primary" onclick="createAccount('user')"><?php echo xlt(" Create a user "); ?></button>
         </div>
         <?php }  ?>
         <?php if ($hasAccount && $hasUser) {
