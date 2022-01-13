@@ -36,7 +36,7 @@ class Database
     `user` TEXT NOT NULL,
     `fax_numbers` TEXT NULL,
     `webhook` TEXT NULL,
-    'password' TEXT NULL
+    `password` TEXT NULL
 ) ENGINE = InnoDB COMMENT = 'documo account users';
 DB;
 
@@ -64,7 +64,7 @@ DB;
         $db = $GLOBALS['dbase'];
         $exist = sqlQuery("SHOW TABLES FROM `$db` LIKE 'documo_user'");
         if (empty($exist)) {
-            //sqlQuery($DBSQLACCOUNT);
+            sqlQuery($DBSQLACCOUNT);
             sqlQuery($DBSQLUSER);
             sqlQuery($DBSQLLOG);
             $db_user_id = self::ALT_TABLE . add_escape_custom('documo_user') . self::PRIMARY_ID;
