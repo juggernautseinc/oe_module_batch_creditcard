@@ -43,7 +43,7 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 					<h2><?php echo xlt("Create Fax Account") ?></h2>
 					<div class="form-group">
 						<div class="form-row">
-							<input type="text" name="accountname" id="accountname" class="input-text" placeholder="<?php echo xlt("Account Name") ?>" required>
+							<input type="text" name="accountname" id="accountname" class="input-text" placeholder="<?php echo xlt("Practice Name") ?>" required>
 						</div>
 					</div>
 				</div>

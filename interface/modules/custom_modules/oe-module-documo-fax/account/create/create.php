@@ -12,6 +12,7 @@
 use OpenEMR\Modules\Documo\ApiDispatcher;
 use OpenEMR\Modules\Documo\Database;
 use OpenEMR\Common\Csrf\CsrfUtils;
+use OpenEMR\Common\Crypto\CryptoGen;
 
 require_once dirname(__FILE__, 6) . '/globals.php';
 require_once dirname(__FILE__, 3) . '/controller/Database.php';
@@ -68,7 +69,10 @@ if (!empty($data['first_name']))
     $postFields = "firstName=" .  $data['first_name']  .  "&lastName=" .  $data['last_name']  .  "&password=" .  $data['password']  .  "&email=" .  $data['your_email']  .  "&userRole=" .  $data['userrole']  .  "&phone=" .  $data['phone']  .  "&accountId=" . $accountId . "&jobPosition=" .  $data['jobposition']  .  "&drive=false&sign=true&fax=true";
     $response = $documoaccountcreation->createUser($postFields);
     if (!is_int($response)) {
+        $encPass = 'word';
         $dbcall->saveUser($response);
+        $encryptPassword = new CryptoGen();
+        sqlStatementNoLog('UPDATE documo_user SET password = ?', [$encryptPassword->encryptStandard($data['password'])]);
         print xlt("The user was successfully created. Close this window, and start faxing! ");
     } else {
         print xlt("An error has occurred") . $response;

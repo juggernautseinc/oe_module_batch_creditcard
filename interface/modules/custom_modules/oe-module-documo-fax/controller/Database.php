@@ -35,7 +35,8 @@ class Database
     `id` INT NOT NULL,
     `user` TEXT NOT NULL,
     `fax_numbers` TEXT NULL,
-    `webhook` TEXT NULL
+    `webhook` TEXT NULL,
+    'password' TEXT NULL
 ) ENGINE = InnoDB COMMENT = 'documo account users';
 DB;
 
@@ -66,12 +67,18 @@ DB;
             sqlQuery($DBSQLACCOUNT);
             sqlQuery($DBSQLUSER);
             sqlQuery($DBSQLLOG);
-            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_user') . self::PRIMARY_ID);
-            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_user') . self::MODIFY . add_escape_custom('id') . self::INT_AUTO);
-            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_account') . self::PRIMARY_ID);
-            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_account') . self::MODIFY . add_escape_custom('id') . self::INT_AUTO);
-            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_log') . self::PRIMARY_ID);
-            sqlStatement(self::ALT_TABLE . add_escape_custom('documo_log') . self::MODIFY . add_escape_custom('id') . self::INT_AUTO);
+            $db_user_id = self::ALT_TABLE . add_escape_custom('documo_user') . self::PRIMARY_ID;
+            sqlStatement($db_user_id);
+            $db_user_auto = self::ALT_TABLE . add_escape_custom('documo_user') . self::MODIFY . add_escape_custom('id') . self::INT_AUTO;
+            sqlStatement($db_user_auto);
+            $documo_account_id = self::ALT_TABLE . add_escape_custom('documo_account') . self::PRIMARY_ID;
+            sqlStatement($documo_account_id);
+            $documo_account_auto = self::ALT_TABLE . add_escape_custom('documo_account') . self::MODIFY . add_escape_custom('id') . self::INT_AUTO;
+            sqlStatement($documo_account_auto);
+            $documo_log_id = self::ALT_TABLE . add_escape_custom('documo_log') . self::PRIMARY_ID;
+            sqlStatement($documo_log_id);
+            $documo_log_auto = self::ALT_TABLE . add_escape_custom('documo_log') . self::MODIFY . add_escape_custom('id') . self::INT_AUTO;
+            sqlStatement($documo_log_auto);
             sqlStatement("ALTER TABLE `globals` CHANGE `gl_value` `gl_value` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL");
         }
     }
