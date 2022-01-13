@@ -32,7 +32,7 @@ class Database
         $DBSQLUSER = <<<'DB'
     CREATE TABLE `documo_user`
 (
-    `id` INT NOT NULL,
+    `id` INT NOT NULL PRIMARY KEY,
     `user` TEXT NOT NULL,
     `fax_numbers` TEXT NULL,
     `webhook` TEXT NULL,
@@ -43,14 +43,14 @@ DB;
         $DBSQLACCOUNT = <<<'DB'
     CREATE TABLE `documo_account`
 (
-    `id` INT NOT NULL,
+    `id` INT NOT NULL PRIMARY KEY ,
     `account_info` TEXT NOT NULL
 ) ENGINE = InnoDB COMMENT = 'documo account information';
 DB;
         $DBSQLLOG = <<<'DB'
     CREATE TABLE `documo_fax_que`
 (
-    `id` INT NOT NULL,
+    `id` INT NOT NULL PRIMARY KEY ,
     `date` DATETIME NOT NULL,
     `messageid` VARCHAR(100) NOT NULL,
     `sender` VARCHAR(50) NOT NULL,
@@ -67,16 +67,16 @@ DB;
             sqlQuery($DBSQLACCOUNT);
             sqlQuery($DBSQLUSER);
             sqlQuery($DBSQLLOG);
-            sqlStatement("ALTER TABLE `documo_user` ADD PRIMARY KEY(`id`)");
-            $db_user_auto = "'" . self::ALT_TABLE . add_escape_custom('documo_user') . self::MODIFY . add_escape_custom('id') . self::INT_AUTO . "'";
+            //sqlStatement("ALTER TABLE `documo_user` ADD PRIMARY KEY(`id`)");
+            $db_user_auto = "'" . self::ALT_TABLE . " `" . add_escape_custom('documo_user') . "` " . self::MODIFY . add_escape_custom('id') . " " . self::INT_AUTO . "'";
             sqlStatement($db_user_auto);
-            $documo_account_id = "'" . self::ALT_TABLE . add_escape_custom('documo_account') . self::PRIMARY_ID . "'";
-            sqlStatement($documo_account_id);
-            $documo_account_auto = "'" . self::ALT_TABLE . add_escape_custom('documo_account') . self::MODIFY . add_escape_custom('id') . self::INT_AUTO  . "'";
+            $documo_account_id = "'" . self::ALT_TABLE . " `" . add_escape_custom('documo_account') . "` " . self::PRIMARY_ID . "'";
+            //sqlStatement($documo_account_id);
+            $documo_account_auto = "'" . self::ALT_TABLE . " `" . add_escape_custom('documo_account') . "` " . self::MODIFY . add_escape_custom('id') . " " . self::INT_AUTO  . "'";
             sqlStatement($documo_account_auto);
-            $documo_log_id = "'" . self::ALT_TABLE . add_escape_custom('documo_log') . self::PRIMARY_ID . "'";
-            sqlStatement($documo_log_id);
-            $documo_log_auto = "'" . self::ALT_TABLE . add_escape_custom('documo_log') . self::MODIFY . add_escape_custom('id') . self::INT_AUTO . "'";
+            $documo_log_id = "'" . self::ALT_TABLE . " `" . add_escape_custom('documo_log') . "` " . self::PRIMARY_ID . "'";
+            //sqlStatement($documo_log_id);
+            $documo_log_auto = "'" . self::ALT_TABLE . " `" . add_escape_custom('documo_log') . "` " . self::MODIFY . add_escape_custom('id') . " " . self::INT_AUTO . "'";
             sqlStatement($documo_log_auto);
             sqlStatement("ALTER TABLE `globals` CHANGE `gl_value` `gl_value` LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL");
         }
