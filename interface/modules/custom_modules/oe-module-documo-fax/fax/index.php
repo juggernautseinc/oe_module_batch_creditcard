@@ -9,23 +9,34 @@
  *
  */
 
-use OpenEMR\Modules\Documo\WebHookProcessor;
+use OpenEMR\Modules\Documo\InboundFaxApi;
+
 
 //webhook
 //inbound files from documo
 
-if ($json = json_decode(file_get_contents("php://input"), true)) {
-    if($json("resultInfo") == "OK") {
-        http_response_code(200);
-    }
-    if ($_FILES) {
-        $inboundFax = new WebHookProcessor($_FILES);
-    }
-    echo $inboundFax->isFileSaved();
-} elseif ($_POST) {
-    $data = $_POST;
-    $inboundFax = new WebHookProcessor($data);
-    echo $inboundFax->isFileSaved();
-} else {
-    echo '{"error":{"name":"File Status","message":"No files were transmitted"}}';
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: multipart/form-data; charset-UTF-8");
+header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorizations, X-Requested-With");
+
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$uri = explode('/', $uri);
+
+file_put_contents("/var/www/html/temp/uri.txt", print_r($uri, true));
+
+http_response_code(200);
+
+die;
+// Requests from the same server don't have a HTTP_ORIGIN header
+if (!array_key_exists('HTTP_ORIGIN', $_SERVER)) {
+    $_SERVER['HTTP_ORIGIN'] = $_SERVER['SERVER_NAME'];
+}
+
+try {
+    $API = new InboundFaxApi($_REQUEST['request'], $_SERVER['HTTP_ORIGIN']);
+    echo $API->processAPI();
+} catch (Exception $e) {
+    echo json_encode(Array('error' => $e->getMessage()));
 }
