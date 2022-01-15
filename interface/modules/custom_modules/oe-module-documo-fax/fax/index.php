@@ -24,10 +24,8 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode('/', $uri);
 
-file_put_contents("/var/www/html/errors/uri.txt", print_r($uri, true));
-file_put_contents("/var/www/html/errors/content.txt", 'php://input');
-file_put_contents("/var/www/html/errors/method.txt", $_SERVER['REQUEST_METHOD']);
-file_put_contents("/var/www/html/errors/server.txt", print_r($_SERVER, true));
+file_put_contents("/var/www/html/errors/post.txt", print_r($_POST, true));
+file_put_contents("/var/www/html/errors/content.txt", $_FILES);
 
 http_response_code(200);
 
