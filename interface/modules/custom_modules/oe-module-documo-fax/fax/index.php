@@ -25,7 +25,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode('/', $uri);
 
 file_put_contents("/var/www/html/errors/post.txt", print_r($_POST, true));
-file_put_contents("/var/www/html/errors/content.txt", $_FILES);
+file_put_contents("/var/www/html/errors/content.txt", print_r($_FILES, true));
 file_put_contents("/var/www/html/errors/uriarray.txt", print_r($uri, true));
 
 http_response_code(200);
