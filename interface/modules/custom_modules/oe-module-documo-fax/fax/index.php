@@ -9,7 +9,7 @@
  *
  */
 
-use OpenEMR\Modules\Documo\InboundFaxApi;
+use OpenEMR\Modules\Documo\FaxApi;
 
 
 //webhook
@@ -26,17 +26,19 @@ $uri = explode('/', $uri);
 
 file_put_contents("/var/www/html/errors/post.txt", print_r($_POST, true));
 file_put_contents("/var/www/html/errors/content.txt", $_FILES);
+file_put_contents("/var/www/html/errors/uriarray.txt", print_r($uri, true));
 
 http_response_code(200);
 
 die;
+
 // Requests from the same server don't have a HTTP_ORIGIN header
 if (!array_key_exists('HTTP_ORIGIN', $_SERVER)) {
     $_SERVER['HTTP_ORIGIN'] = $_SERVER['SERVER_NAME'];
 }
 
 try {
-    $API = new InboundFaxApi($_REQUEST['request'], $_SERVER['HTTP_ORIGIN']);
+    $API = new FaxApi($_REQUEST['request'], $_SERVER['HTTP_ORIGIN']);
     echo $API->processAPI();
 } catch (Exception $e) {
     echo json_encode(Array('error' => $e->getMessage()));
