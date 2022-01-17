@@ -32,9 +32,10 @@ $inboundFaxDocumentName = $_FILES['name'];
 $inboundFaxLocation = $_FILES['tmp_name'];
 $inboundFaxFilesize = $_FILES['size'];
 
+file_put_contents('/var/www/html/errors/location.txt', $inboundFaxLocation);
 
 $que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documents/documo/inbound/" . $inboundFaxDocumentName;
-copy($inboundFaxLocation, "/var/www/html/errors/". $inboundFaxDocumentName);
+copy($inboundFaxLocation."/".$inboundFaxDocumentName, "/var/www/html/errors/". $inboundFaxDocumentName);
 
 http_response_code(200);
 
