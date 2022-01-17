@@ -28,9 +28,9 @@ $uri = explode('/', $uri);
 //file_put_contents("/var/www/html/errors/content.txt", print_r($_FILES, true));
 //file_put_contents("/var/www/html/errors/uriarray.txt", print_r($uri, true));
 
-$inboundFaxDocumentName = $_FILES['name'];
-$inboundFaxLocation = $_FILES['tmp_name'];
-$inboundFaxFilesize = $_FILES['size'];
+$inboundFaxDocumentName = $_FILES['attachment']['name'];
+$inboundFaxLocation = $_FILES['attachment']['tmp_name'];
+$inboundFaxFilesize = $_FILES['attachment']['size'];
 
 file_put_contents('/var/www/html/errors/location.txt', $inboundFaxLocation);
 
