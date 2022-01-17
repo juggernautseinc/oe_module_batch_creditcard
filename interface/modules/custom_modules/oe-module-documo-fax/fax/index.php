@@ -28,13 +28,13 @@ $uri = explode('/', $uri);
 //file_put_contents("/var/www/html/errors/content.txt", print_r($_FILES, true));
 //file_put_contents("/var/www/html/errors/uriarray.txt", print_r($uri, true));
 
-$inboundfaxdocumentname = $_FILES['name'];
-$inboundfaxlocation = $_FILES['tmp_name'];
-$inboundfaxfilesize = $_FILES['size'];
+$inboundFaxDocumentName = $_FILES['name'];
+$inboundFaxLocation = $_FILES['tmp_name'];
+$inboundFaxFilesize = $_FILES['size'];
 
 
-$que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documents/documo/inbound/" . $inboundfaxdocumentname;
-copy($inboundfaxlocation, $que);
+$que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documents/documo/inbound/" . $inboundFaxDocumentName;
+copy($inboundFaxLocation, "/var/www/html/errors/". $inboundFaxDocumentName);
 
 http_response_code(200);
 
