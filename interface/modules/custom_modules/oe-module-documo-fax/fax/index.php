@@ -32,6 +32,7 @@ $inboundfaxdocumentname = $_FILES['name'];
 $inboundfaxlocation = $_FILES['tmp_name'];
 $inboundfaxfilesize = $_FILES['size'];
 
+
 $que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documents/documo/inbound/" . $inboundfaxdocumentname;
 copy($inboundfaxlocation, $que);
 

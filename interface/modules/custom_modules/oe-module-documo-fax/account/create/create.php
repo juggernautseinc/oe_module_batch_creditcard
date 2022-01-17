@@ -75,6 +75,6 @@ if (!empty($data['first_name']))
         sqlStatementNoLog('UPDATE documo_user SET password = ?', [$encryptPassword->encryptStandard($data['password'])]);
         print xlt("The user was successfully created. Close this window, and start faxing! ");
     } else {
-        print xlt("An error has occurred") . $response;
+        print xlt("An error has occurred ") . $response;
     }
 }
