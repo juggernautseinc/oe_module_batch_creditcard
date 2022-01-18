@@ -23,28 +23,13 @@ use OpenEMR\Modules\Documo\FaxApi;
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode('/', $uri);
-print_r($uri, true); die;
+
 if ($uri[7] == 'inbound') {
     $inboundFaxFilesize = $_FILES['attachment']['size'];
     move_uploaded_file($_FILES['attachment']['tmp_name'], "/var/www/html/errors/" . $_FILES['attachment']['name']);
     http_response_code(200);
-} else {
-    //http_response_code(400);
-    echo "{'error': 'Incorrect format'}";
 }
 
 
 
-die;
 
-// Requests from the same server don't have a HTTP_ORIGIN header
-if (!array_key_exists('HTTP_ORIGIN', $_SERVER)) {
-    $_SERVER['HTTP_ORIGIN'] = $_SERVER['SERVER_NAME'];
-}
-
-try {
-    $API = new FaxApi($_REQUEST['request'], $_SERVER['HTTP_ORIGIN']);
-    echo $API->processAPI();
-} catch (Exception $e) {
-    echo json_encode(Array('error' => $e->getMessage()));
-}
