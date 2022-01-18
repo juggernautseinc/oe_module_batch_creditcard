@@ -11,6 +11,7 @@
 
 use OpenEMR\Modules\Documo\FaxApi;
 
+require_once dirname(__FILE__,5) . "/globals.php";
 
 //webhook
 //inbound files from documo
@@ -26,7 +27,8 @@ $uri = explode('/', $uri);
 
 if ($uri[7] == 'inbound') {
     $inboundFaxFilesize = $_FILES['attachment']['size'];
-    move_uploaded_file($_FILES['attachment']['tmp_name'], "/var/www/html/errors/" . $_FILES['attachment']['name']);
+    $inbound = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documents/documo/inbound/";
+    move_uploaded_file($_FILES['attachment']['tmp_name'], $inbound . $_FILES['attachment']['name']);
     http_response_code(200);
 }
 
