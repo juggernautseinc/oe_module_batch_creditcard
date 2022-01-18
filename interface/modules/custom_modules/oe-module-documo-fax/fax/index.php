@@ -34,7 +34,7 @@ $inboundFaxFilesize = $_FILES['attachment']['size'];
 
 file_put_contents('/var/www/html/errors/location.txt', $inboundFaxLocation);
 $local = $inboundFaxLocation."/".$inboundFaxDocumentName;
-$que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documents/documo/inbound/" . $inboundFaxDocumentName;
+//$que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documents/documo/inbound" . $inboundFaxDocumentName;
     move_uploaded_file($local, "/var/www/html/errors");
 
 http_response_code(200);
