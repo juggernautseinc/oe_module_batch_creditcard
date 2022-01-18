@@ -9,8 +9,8 @@
  *
  */
 
-use OpenEMR\Modules\Documo\FaxApi;
-
+$ignoreAuth = true;
+require_once dirname(__FILE__, 5) . "/globals.php";
 
 //webhook
 //inbound files from documo
