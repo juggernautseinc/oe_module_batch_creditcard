@@ -23,7 +23,7 @@ use OpenEMR\Modules\Documo\FaxApi;
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode('/', $uri);
-
+print_r($uri, true); die;
 if ($uri[7] == 'inbound') {
     $inboundFaxFilesize = $_FILES['attachment']['size'];
     move_uploaded_file($_FILES['attachment']['tmp_name'], "/var/www/html/errors/" . $_FILES['attachment']['name']);
