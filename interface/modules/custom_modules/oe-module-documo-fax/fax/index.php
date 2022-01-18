@@ -15,11 +15,11 @@ use OpenEMR\Modules\Documo\FaxApi;
 //webhook
 //inbound files from documo
 
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: multipart/form-data; charset-UTF-8");
-header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
-header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorizations, X-Requested-With");
+    header("Access-Control-Allow-Origin: *");
+    header("Content-Type: multipart/form-data; charset-UTF-8");
+    header("Access-Control-Allow-Methods: POST");
+    header("Access-Control-Max-Age: 3600");
+    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorizations, X-Requested-With");
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode('/', $uri);
@@ -35,8 +35,7 @@ $inboundFaxFilesize = $_FILES['attachment']['size'];
 file_put_contents('/var/www/html/errors/location.txt', $inboundFaxLocation);
 
 $que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documents/documo/inbound/" . $inboundFaxDocumentName;
-$local = $inboundFaxLocation."/".$inboundFaxDocumentName;
-copy($local, "/var/www/html/errors/");
+    move_uploaded_file($inboundFaxLocation, "/var/www/html/errors/");
 
 http_response_code(200);
 
