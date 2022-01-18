@@ -33,7 +33,7 @@ $inboundFaxLocation = $_FILES['attachment']['tmp_name'];
 $inboundFaxFilesize = $_FILES['attachment']['size'];
 
 file_put_contents('/var/www/html/errors/location.txt', $inboundFaxLocation);
-
+$local = $inboundFaxLocation."/".$inboundFaxDocumentName;
 $que = dirname(__FILE__, 6) . "/sites/" . $_SESSION['site_id'] . "/documents/documo/inbound/" . $inboundFaxDocumentName;
     move_uploaded_file($inboundFaxLocation, "/var/www/html/errors");
 
