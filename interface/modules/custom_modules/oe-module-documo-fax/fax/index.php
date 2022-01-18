@@ -27,7 +27,7 @@ $uri = explode('/', $uri);
 
 if ($uri[7] == 'inbound') {
     $inboundFaxFilesize = $_FILES['attachment']['size'];
-    $inbound = dirname(__FILE__, 6) . "/sites/default/documents/documo/inbound/";
+    $inbound = "../../../../../sites/default/documents/documo/inbound/";
     move_uploaded_file($_FILES['attachment']['tmp_name'], $inbound . $_FILES['attachment']['name']);
     http_response_code(200);
 }
