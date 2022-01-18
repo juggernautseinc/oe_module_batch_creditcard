@@ -33,8 +33,7 @@ $inboundFaxLocation = $_FILES['attachment']['tmp_name'];
 $inboundFaxFilesize = $_FILES['attachment']['size'];
 
 file_put_contents('/var/www/html/errors/location.txt', $inboundFaxLocation);
-$local = $inboundFaxLocation."/".$inboundFaxDocumentName;
-move_uploaded_file($local, "/var/www/html/errors");
+move_uploaded_file($inboundFaxLocation, "/var/www/html/errors");
 
 http_response_code(200);
 
