@@ -24,18 +24,16 @@ use OpenEMR\Modules\Documo\FaxApi;
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode('/', $uri);
 
-//file_put_contents("/var/www/html/errors/post.txt", print_r($_POST, true));
-//file_put_contents("/var/www/html/errors/content.txt", print_r($_FILES, true));
-//file_put_contents("/var/www/html/errors/uriarray.txt", print_r($uri, true));
+if ($uri[7] == 'inbound') {
+    $inboundFaxFilesize = $_FILES['attachment']['size'];
+    move_uploaded_file($_FILES['attachment']['tmp_name'], "/var/www/html/errors/" . $_FILES['attachment']['name']);
+    http_response_code(200);
+} else {
+    http_response_code(400);
+    echo "{'error': 'Incorrect format'}";
+}
 
-$inboundFaxDocumentName = $_FILES['attachment']['name'];
-$inboundFaxLocation = $_FILES['attachment']['tmp_name'];
-$inboundFaxFilesize = $_FILES['attachment']['size'];
 
-file_put_contents('/var/www/html/errors/location.txt', $inboundFaxLocation);
-move_uploaded_file($_FILES['attachment']['tmp_name'], "/var/www/html/errors/" . $_FILES['attachment']['name']);
-
-http_response_code(200);
 
 die;
 
