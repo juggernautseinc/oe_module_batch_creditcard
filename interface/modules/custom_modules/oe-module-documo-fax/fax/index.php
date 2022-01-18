@@ -29,7 +29,7 @@ if ($uri[7] == 'inbound') {
     move_uploaded_file($_FILES['attachment']['tmp_name'], "/var/www/html/errors/" . $_FILES['attachment']['name']);
     http_response_code(200);
 } else {
-    http_response_code(400);
+    //http_response_code(400);
     echo "{'error': 'Incorrect format'}";
 }
 
