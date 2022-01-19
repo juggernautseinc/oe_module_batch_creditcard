@@ -218,7 +218,7 @@ DB;
 
     public function inboundFax()
     {
-        $sql = "INSERT INTO `documo_fax_inbound` (`id`, `message_json`, `file_name`) VALUES ('', ?, ?, ?)";
+        $sql = "INSERT INTO `documo_fax_inbound` (`id`, `date`, `message_json`, `file_name`) VALUES ('', ?, ?, ?)";
         $date = date('Y-m-d H:i:s');
         $bindings = array($date, $this->message_json, $this->file_name);
         sqlStatement($sql, $bindings);
