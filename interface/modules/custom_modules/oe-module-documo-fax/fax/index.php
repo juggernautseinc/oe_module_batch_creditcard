@@ -9,7 +9,7 @@
 
 $ignoreAuth = true;
 require_once dirname(__FILE__, 5) . "/globals.php";
-use OpenEMR\Modules\Documo\Database;
+require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
 
 //webhook
 //inbound files from documo
@@ -31,9 +31,9 @@ if ($uri[7] == 'inbound' ) {
     move_uploaded_file($_FILES['attachment']['tmp_name'], $inbound . $_FILES['attachment']['name']);
     http_response_code(200);
 
-    //$data->setMessageJson($_POST);
-    //$data->setFileName($_FILES['attachment']['name']);
-    //$data->inboundFax();
+    $data->setMessageJson($_POST);
+    $data->setFileName($_FILES['attachment']['name']);
+    $data->inboundFax();
 }
 
 
