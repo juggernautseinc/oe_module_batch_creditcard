@@ -26,7 +26,6 @@ class ComposerStaticInit4343ede08337a3753deca80cf3359857
         'OpenEMR\\Modules\\Documo\\Database' => __DIR__ . '/../..' . '/controller/Database.php',
         'OpenEMR\\Modules\\Documo\\Provisioning' => __DIR__ . '/../..' . '/controller/Provisioning.php',
         'OpenEMR\\Modules\\Documo\\SendFaxConfig' => __DIR__ . '/../..' . '/controller/SendFaxConfig.php',
-        'OpenEMR\\Modules\\Documo\\WebHookProcessor' => __DIR__ . '/../..' . '/controller/WebHookProcessor.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
