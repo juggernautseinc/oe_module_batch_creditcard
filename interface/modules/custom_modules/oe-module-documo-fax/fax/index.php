@@ -33,7 +33,7 @@ if ($uri[7] == 'inbound' ) {
     move_uploaded_file($_FILES['attachment']['tmp_name'], $inbound . $_FILES['attachment']['name']);
     http_response_code(200);
 
-    $data->setMessageJson($_POST);
+    $data->setMessageJson($_POST['data']);
     $data->setFileName($_FILES['attachment']['name']);
     $data->inboundFax();
 }
