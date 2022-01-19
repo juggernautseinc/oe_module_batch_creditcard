@@ -7,6 +7,8 @@
  *  copyright Copyright (c )2022. Sherwin Gaddis <sherwingaddis@gmail.com>
  */
 
+use OpenEMR\Modules\Documo\Database;
+
 $ignoreAuth = true;
 require_once dirname(__FILE__, 5) . "/globals.php";
 require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
