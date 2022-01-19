@@ -19,6 +19,10 @@ class Database
     const MODIFY = 'MODIFY';
     const INT_AUTO = 'INT AUTO_INCREMENT';
 
+    //Inbound fax properties
+    private $message_json;
+    private $file_name;
+
     public function __construct()
     {
         $this->key = self::getPrivateKey();
@@ -48,17 +52,13 @@ DB;
 ) ENGINE = InnoDB COMMENT = 'documo account information';
 DB;
         $DBSQLLOG = <<<'DB'
-    CREATE TABLE `documo_fax_que`
+    CREATE TABLE `documo_fax_inbound`
 (
     `id` INT NOT NULL PRIMARY KEY auto_increment,
     `date` DATETIME NOT NULL,
-    `messageid` VARCHAR(100) NOT NULL,
-    `sender` VARCHAR(50) NOT NULL,
-    `number` VARCHAR(25) NOT NULL,
-    `status` VARCHAR(10) NULL,
-    `cancel` TINYINT NULL,
-    `retry` TINYINT NULL
-) ENGINE = InnoDB COMMENT = 'documo fax que';
+    `message_json` TEXT NOT NULL,
+    `file_name` VARCHAR(50) NOT NULL
+) ENGINE = InnoDB COMMENT = 'documo fax inbound';
 DB;
 
         $db = $GLOBALS['dbase'];
@@ -214,6 +214,29 @@ DB;
         $sql = "select webhook from documo_user where id = 1";
         $hookuuid = sqlQuery($sql);
         return json_decode($hookuuid, true);
+    }
+
+    public function inboundFax()
+    {
+        $sql = "INSERT INTO `documo_fax_inbound` (`id`, `message_json`, `file_name`) VALUES ('', ?, ?)";
+        $bindings = array($this->message_json, $this->file_name);
+        sqlStatement($sql, $bindings);
+    }
+
+    /**
+     * @param mixed $message_json
+     */
+    public function setMessageJson($message_json): void
+    {
+        $this->message_json = $message_json;
+    }
+
+    /**
+     * @param mixed $file_name
+     */
+    public function setFileName($file_name): void
+    {
+        $this->file_name = $file_name;
     }
 
 }

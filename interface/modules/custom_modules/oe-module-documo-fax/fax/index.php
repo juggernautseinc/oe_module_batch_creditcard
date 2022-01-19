@@ -5,12 +5,11 @@
  *  link      http://www.open-emr.org
  *  author    Sherwin Gaddis <sherwingaddis@gmail.com>
  *  copyright Copyright (c )2022. Sherwin Gaddis <sherwingaddis@gmail.com>
- *  license   https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
- *
  */
 
 $ignoreAuth = true;
 require_once dirname(__FILE__, 5) . "/globals.php";
+use OpenEMR\Modules\Documo\Database;
 
 //webhook
 //inbound files from documo
@@ -25,10 +24,16 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode('/', $uri);
 
 if ($uri[7] == 'inbound' ) {
+    $data = new Database();
+
     $inboundFaxFilesize = $_FILES['attachment']['size'];
     $inbound = dirname(__FILE__, 6) . "/sites/default/documents/documo/inbound/";
     move_uploaded_file($_FILES['attachment']['tmp_name'], $inbound . $_FILES['attachment']['name']);
     http_response_code(200);
+
+    $data->setMessageJson($_POST);
+    $data->setFileName($_FILES['attachment']['name']);
+    $data->inboundFax();
 }
 
 
