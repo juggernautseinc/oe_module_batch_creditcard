@@ -225,7 +225,7 @@ class ApiDispatcher
         return curl_exec($curl);
     }
 
-    public function setWebHook($hookstring) : string
+    public function setWebHook($hookString) : string
     {
         $curl = curl_init();
 
@@ -238,7 +238,7 @@ class ApiDispatcher
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => $hookstring,
+            CURLOPT_POSTFIELDS => $hookString,
             CURLOPT_HTTPHEADER => self::headerArray(),
         ));
 

@@ -65,6 +65,9 @@ $hasUser = $dbcall->hasUserAccount();
              } elseif (!$dbcall->tableCheck()) {
                 echo "<h3>" . xlt("Database tables not installed") . "</h3>";
                 die;
+            } elseif (!isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'on') {
+                echo "<h3>" . xlt("You must have a public facing SSL certificate installed to use this module") . "</h3>";
+                die;
             }
             ?>
         <div>
