@@ -73,7 +73,6 @@ if (!empty($data['first_name']))
     $postFields = str_replace(' ', '', $postFields); //removing any white space
     $response = $documoaccountcreation->createUser($postFields);
     $response = json_decode($response, true);
-    var_dump($response);
 
     if (!$response['error']) {
         $dbcall->saveUser($response);
@@ -91,7 +90,7 @@ if (!empty($data['first_name']))
 
         print xlt("The user was successfully created. Close this window, and start faxing! ");
     } else {
-        print xlt("An error has occurred ") . $response[0]['name'] . " " . $response[0]['message'];
+        print xlt("An error has occurred ") . $response['error']['name'] . " <br>" . $response['error']['message'];
     }
 
 }
