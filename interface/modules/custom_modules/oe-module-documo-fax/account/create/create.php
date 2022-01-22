@@ -75,15 +75,16 @@ if (!empty($data['first_name']))
         $encPass = 'word';
         $dbcall->saveUser($response);
         $encryptPassword = new CryptoGen();
-        sqlStatementNoLog('UPDATE documo_user SET password = ?', [$encryptPassword->encryptStandard($data['password'])]);
+        sqlStatementNoLog('UPDATE documo_user SET password = ? WHERE id = 1', [$encryptPassword->encryptStandard($data['password'])]);
 
-        //set web hook
+        //set web hook for inbound faxes
         $setWebHook = new SendFaxConfig();
         //First get user account id
         $userData = $dbcall->getUserInfo()['account_id'];
+        $setWebHook->setUserEmail($userData['email']);
         $setWebHook->setUserAccount($userData['account_id']);
         $setWebHook->setUserUuid($userData[0]['uuid']);
-        $setWebHook->createWebHookURI();
+        print $setWebHook->createWebHookURI();
 
         print xlt("The user was successfully created. Close this window, and start faxing! ");
     } else {

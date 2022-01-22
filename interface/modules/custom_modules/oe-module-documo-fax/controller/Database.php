@@ -206,7 +206,13 @@ DB;
     public function saveWebHook($data)
     {
         $sql = "update documo_user set webhook = ?, [$data]";
-        sqlStatement($sql);
+        try {
+            sqlStatement($sql);
+        } catch (\Exception $e) {
+            $msg = xl("Error saving webhook" );
+            return $msg . ":" . $e->getMessage();
+        }
+
     }
 
     public function getWebHook()
