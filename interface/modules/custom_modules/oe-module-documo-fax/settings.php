@@ -76,11 +76,14 @@ $hasUser = $dbcall->hasUserAccount();
                 <h3><?php echo xlt("There are a few steps to complete to enable this module"); ?></h3>
                 <p><?php echo xlt("Your server must have a public facing IP to receive inbound faxes."); ?></p>
                 <p><?php echo xlt("Your SSL certificate must include ca_bundle.crt file. Or inbound faxes will fail."); ?></p>
-                <p><a href="https://www.ssllabs.com/ssltest/" target="_blank" title="please check your SSL certificate"><?php echo xlt("Check SSL"); ?></a></p>
+                <p><a href="https://www.ssllabs.com/ssltest/" target="_blank" title="please check your SSL certificate">
+                        <?php echo xlt("Test your SSL to make sure it has an A rating."); ?><?php echo xlt("Check SSL"); ?></a></p>
             <?php }
             if (!$hasUser) {?>
                 <h3><?php echo xlt("Now, create an Account"); ?></h3>
-            <?php } ?>
+            <?php } else {
+                print "<h3>" . xlt("Now, create a user") . "</h3>";
+            } ?>
         </div>
         <?php if(!$hasAccount) { ?>
         <div>

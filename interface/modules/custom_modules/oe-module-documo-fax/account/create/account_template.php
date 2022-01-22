@@ -44,6 +44,9 @@ require_once dirname(__FILE__, 6) . "/globals.php";
 						<div class="form-row">
 							<input type="text" name="accountname" id="accountname" class="input-text" placeholder="<?php echo xlt("Practice Name") ?>" required>
 						</div>
+                        <div class="form-row">
+                            <input type="text" name="faxcallerid" id="faxcallerid" class="input-text" placeholder="<?php echo xlt("Phone number") ?>" required>
+                        </div>
 					</div>
 				</div>
 				<div class="form-right">
