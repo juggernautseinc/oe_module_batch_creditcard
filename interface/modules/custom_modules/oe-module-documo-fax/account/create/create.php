@@ -90,7 +90,7 @@ if (!empty($data['first_name']))
 
         print xlt("The user was successfully created. Close this window, and start faxing! ");
     } else {
-        print xlt("An error has occurred ") . $response['error']['name'] . " <br>" . $response['error']['message'];
+        print xlt("An error has occurred ") . " <br><strong>" . $response['error']['name'] . " <br>" . $response['error']['message'] . "</strong>";
     }
 
 }
