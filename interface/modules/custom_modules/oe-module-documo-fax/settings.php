@@ -80,9 +80,9 @@ $hasUser = $dbcall->hasUserAccount();
                         <?php echo xlt("Test your SSL to make sure it has an A rating. "); ?><?php echo xlt("Check SSL"); ?></a></p>
             <?php }
             if (!$hasUser) {?>
-                <h3><?php echo xlt("Now, create an Account"); ?></h3>
+                <h3><?php echo xlt("Now, create a user"); ?></h3>
             <?php } else {
-                print "<h3>" . xlt("Now, create a user") . "</h3>";
+                print "<h3>" . xlt("Now, create an Account") . "</h3>";
             } ?>
         </div>
         <?php if(!$hasAccount) { ?>

@@ -71,9 +71,10 @@ if (!empty($data['first_name']))
 
     $postFields = "firstName=" .  $data['first_name']  .  "&lastName=" .  $data['last_name']  .  "&password=" .  $data['password']  .  "&email=" .  $data['your_email']  .  "&userRole=" .  $data['userrole']  .  "&phone=" .  $data['phone']  .  "&accountId=" . $accountId . "&jobPosition=" .  $data['jobposition']  .  "&drive=false&sign=true&fax=true";
     $postFields = str_replace(' ', '', $postFields); //removing any white space
-    $response = $documoaccountcreation->createUser($postFields);
+    echo $response = $documoaccountcreation->createUser($postFields);
+
+    die;
     if (!is_int($response)) {
-        $encPass = 'word';
         $dbcall->saveUser($response);
         $encryptPassword = new CryptoGen();
         sqlStatementNoLog('UPDATE documo_user SET password = ? WHERE id = 1', [$encryptPassword->encryptStandard($data['password'])]);
