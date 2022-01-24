@@ -103,7 +103,7 @@ $hasUser = $dbcall->hasUserAccount();
         <?php }  ?>
         <?php if ($hasAccount && $hasUser) {
             if (!$dbcall->hasNumbersProvisioned()) {
-                header('Location: provisioning.php');
+                header('Location: provision/provisioning.php');
             } else {
                 header('Location: account/account_status.php');
             }
