@@ -82,8 +82,9 @@ class SendFaxConfig
         &notificationEmails=' . $this->userEmail . "'";
         $hookString = str_replace(PHP_EOL, '', $hookString); //remove returns
         $hookString = str_replace(' ', '', $hookString); //remove white spaces
-
-        return $hook->saveWebHook($hookString);
+        $sendWebHook = new ApiDispatcher();
+        $response = $sendWebHook->setWebHook($hookString);
+        return $hook->saveWebHook($response);
     }
 
     /**
