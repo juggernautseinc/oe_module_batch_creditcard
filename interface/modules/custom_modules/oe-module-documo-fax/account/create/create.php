@@ -16,8 +16,6 @@ use OpenEMR\Common\Csrf\CsrfUtils;
 use OpenEMR\Common\Crypto\CryptoGen;
 
 require_once dirname(__FILE__, 6) . '/globals.php';
-//require_once dirname(__FILE__, 3) . '/controller/Database.php';
-//require_once dirname(__FILE__, 3) . '/controller/ApiDispatcher.php';
 require_once dirname(__FILE__, 3) . "/vendor/autoload.php";
 
 
@@ -69,7 +67,7 @@ if (!empty($data['first_name']))
     }
     $accountId = $dbcall->getAccountId();
 
-    $postFields = "firstName=" .  $data['first_name']  .  "&lastName=" .  $data['last_name']  .  "&password=" .  $data['password']  .  "&email=" .  $data['your_email']  .  "&userRole=" .  $data['userrole']  .  "&phone=" .  $data['phone']  .  "&accountId=" . $accountId . "&jobPosition=" .  $data['jobposition']  .  "&drive=false&sign=true&fax=true";
+    $postFields = "firstName=" .  $data['first_name']  .  "&lastName=" .  $data['last_name']  .  "&password=" .  $data['password']  .  "&email=" .  $data['your_email']  .  "&userRole=" .  $data['userrole']  .  "&phone=" .  $data['phone']  .  "&accountId=" . $accountId . "&jobPosition=" .  $data['jobposition']  .  "&drive=false&sign=false&fax=true";
     $postFields = str_replace(' ', '', $postFields); //removing any white space
     $response = $documoaccountcreation->createUser($postFields);
     $response = json_decode($response, true);
