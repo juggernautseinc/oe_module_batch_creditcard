@@ -138,7 +138,7 @@ DB;
 
     public function saveUser($response)
     {
-        $sql = "INSERT INTO `documo_user` (`id`, `account_user`) VALUES ('', ?)";
+        $sql = "INSERT INTO `documo_user` SET `id` = '', `account_user` = ?";
         sqlStatement($sql, [$response]);
     }
 
