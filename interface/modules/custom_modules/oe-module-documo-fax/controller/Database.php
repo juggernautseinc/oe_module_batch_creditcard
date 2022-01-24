@@ -185,7 +185,7 @@ DB;
 
     public function getUserInfo()
     {
-        $sql = "select user from documo_user where id = 1";
+        $sql = "select `account_user` from documo_user where id = 1";
         $data = sqlQuery($sql);
         return json_decode($data['user'], true);
     }
