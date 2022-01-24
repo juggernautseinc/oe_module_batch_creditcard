@@ -65,7 +65,7 @@ class SendFaxConfig
         }
 
         $hook = new Database();
-        $hookUrl = $http . dirname(__FILE__, 6) . '/sites/' . $_SESSION['site_id'] .
+        $hookUrl = $http . $_SERVER['HTTP_HOST'] . DIRECTORY_SEPARATOR . $GLOBALS['webroot'] . '/sites/' . $_SESSION['site_id'] .
         '/documents/documo/inbound/' . $_SESSION['site_id'] . '/';
 
         //remove any returns and spaces from the string
