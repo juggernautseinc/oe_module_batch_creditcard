@@ -75,7 +75,7 @@ if (!empty($data['first_name']))
     if (!$pass['error']) {
         $dbcall->saveUser($response); //store the json array that is sent back as it is just text
         $encryptPassword = new CryptoGen();
-        sqlStatementNoLog('UPDATE documo_user SET password = ? WHERE id = 1', [$encryptPassword->encryptStandard($data['password'])]);
+        sqlStatementNoLog('UPDATE documo_user SET password = ?', [$encryptPassword->encryptStandard($data['password'])]);
 
         //set web hook for inbound faxes
         $setWebHook = new SendFaxConfig();
