@@ -70,10 +70,10 @@ if (!empty($data['first_name']))
     $postFields = "firstName=" .  $data['first_name']  .  "&lastName=" .  $data['last_name']  .  "&password=" .  $data['password']  .  "&email=" .  $data['your_email']  .  "&userRole=" .  $data['userrole']  .  "&phone=" .  $data['phone']  .  "&accountId=" . $accountId . "&jobPosition=" .  $data['jobposition']  .  "&drive=false&sign=false&fax=true";
     $postFields = str_replace(' ', '', $postFields); //removing any white space
     $response = $documoaccountcreation->createUser($postFields);
-    $response = json_decode($response, true);
+    $pass = json_decode($response, true);  //checking for error codes
 
-    if (!$response['error']) {
-        $dbcall->saveUser($response);
+    if (!$pass['error']) {
+        $dbcall->saveUser($response); //store the json array that is sent back as it is just text
         $encryptPassword = new CryptoGen();
         sqlStatementNoLog('UPDATE documo_user SET password = ? WHERE id = 1', [$encryptPassword->encryptStandard($data['password'])]);
 
