@@ -37,7 +37,7 @@ class Database
     CREATE TABLE `documo_user`
 (
     `id` INT NOT NULL PRIMARY KEY auto_increment,
-    `user` TEXT NOT NULL,
+    `account_user` TEXT NOT NULL,
     `fax_numbers` TEXT NULL,
     `webhook` TEXT NULL,
     `password` TEXT NULL
