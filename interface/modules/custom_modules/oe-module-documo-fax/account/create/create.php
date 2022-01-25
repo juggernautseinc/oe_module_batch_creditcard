@@ -83,7 +83,7 @@ if (!empty($data['first_name']))
         $userData = $dbcall->getUserInfo()['account_id'];
         $setWebHook->setUserEmail($userData['email']);
         $setWebHook->setUserAccount($userData['account_id']);
-        $setWebHook->setUserUuid($userData[0]['uuid']);
+        $setWebHook->setUserUuid($userData['uuid']);
         print $setWebHook->createWebHookURI();
 
         print xlt("The user was successfully created. Close this window, and start faxing! ");
