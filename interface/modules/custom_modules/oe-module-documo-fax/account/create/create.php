@@ -80,7 +80,7 @@ if (!empty($data['first_name']))
         //set web hook for inbound faxes
         $setWebHook = new SendFaxConfig();
         //First get user account id
-        $userData = $dbcall->getUserInfo()['account_id'];
+        $userData = $dbcall->getUserInfo();
         $setWebHook->setUserEmail($userData['email']);
         $setWebHook->setUserAccount($userData['account_id']);
         $setWebHook->setUserUuid($userData['uuid']);
