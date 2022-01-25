@@ -5,7 +5,6 @@
  *  link      http://www.open-emr.org
  *  author    Sherwin Gaddis <sherwingaddis@gmail.com>
  *  copyright Copyright (c )2021. Sherwin Gaddis <sherwingaddis@gmail.com>
- *  license   https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  *
  */
 
@@ -77,15 +76,6 @@ if (!empty($data['first_name']))
         $encryptPassword = new CryptoGen();
         sqlStatementNoLog('UPDATE `documo_user` SET password = ? ', [$encryptPassword->encryptStandard($data['password'])]);
 
-        //set web hook for inbound faxes
-        $setWebHook = new SendFaxConfig();
-        //First get user account id
-        $userData = $dbcall->getUserInfo();
-        file_put_contents('/var/www/html/errors/user_data.txt', print_r($userData, true));
-        $setWebHook->setUserEmail($userData['email']);
-        $setWebHook->setUserAccount($userData['accountId']);
-        $setWebHook->setUserUuid($userData['uuid']);
-        $status = $setWebHook->createWebHookURI();
         if ($status['error']) {
             print xlt("An error has occurred ") . $status['name'] . " " . $status['message'];
         } else {

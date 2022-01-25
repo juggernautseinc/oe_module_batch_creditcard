@@ -17,8 +17,7 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 require_once dirname(__FILE__, 5) . "/globals.php";
-require_once dirname(__FILE__, 2) . "/controller/Database.php";
-require_once dirname(__FILE__, 2) . "/controller/ApiDispatcher.php";
+require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
 
 $path = dirname(__FILE__, 2) . "/templates";
 $twigloader = new TwigContainer($path, $GLOBALS['kernel']);
@@ -30,7 +29,7 @@ $documoaccount = $account_data->getAllAccountInfo();
 $documouser = $account_data->getUserInfo();
 $documofaxnumbers = $account_data->getFaxNumbers();
 $summary = $status->faxSummaryReport();
-var_dump($summary);
+
 try {
     print $twig->render('account.twig', [
         'pageTitle' => 'Account Summary',

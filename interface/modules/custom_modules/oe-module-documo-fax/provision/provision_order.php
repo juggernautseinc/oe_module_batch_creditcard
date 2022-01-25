@@ -5,17 +5,16 @@
  *  link      http://www.open-emr.org
  *  author    Sherwin Gaddis <sherwingaddis@gmail.com>
  *  copyright Copyright (c )2021. Sherwin Gaddis <sherwingaddis@gmail.com>
- *  license   https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  *
  */
 
 use OpenEMR\Modules\Documo\Database;
 use OpenEMR\Modules\Documo\Provisioning;
 use OpenEMR\Common\Csrf\CsrfUtils;
+use OpenEMR\Modules\Documo\SendFaxConfig;
 
 require_once dirname(__FILE__, 5) . "/globals.php";
-require_once dirname(__FILE__, 2) . "/controller/Provisioning.php";
-require_once dirname(__FILE__, 2) . "/controller/Database.php";
+require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
 
 if (!CsrfUtils::verifyCsrfToken($_POST['token'])) {
     CsrfUtils::csrfNotVerified();
@@ -45,12 +44,27 @@ $accountdata = new Database();
 $a = $accountdata->getAccountId();
 $provision->setAccountId($a);
 
-//make provision request to documo
+//make provision request to documo and set webhook
 $request = $provision->numberProvisioning();
 if ($request !== 400) {
     //Save the returned JSON
     $accountdata->saveProvisionedNumbers($request);
-    header("Location ../account/account_status.php");
+    $wHook = implimentWebHook();
+    header("Location: ../account/account_status.php");
 } else {
     echo xlt("There has been an error. ") . $request;
+}
+
+function implimentWebHook()
+{
+    //set web hook for inbound faxes
+    $dbcall = new Database();
+    $setWebHook = new SendFaxConfig();
+    //First get user account id and fax number uuid
+    $userData = $dbcall->getUserInfo();
+    $numberId = $dbcall->getFaxNumbers();
+    $setWebHook->setUserEmail($userData['email']);
+    $setWebHook->setUserAccount($userData['accountId']);
+    $setWebHook->setUserUuid($numberId[0]['uuid']);
+    return $setWebHook->createWebHookURI();
 }

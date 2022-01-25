@@ -5,7 +5,6 @@
  *  link      http://www.open-emr.org
  *  author    Sherwin Gaddis <sherwingaddis@gmail.com>
  *  copyright Copyright (c )2021. Sherwin Gaddis <sherwingaddis@gmail.com>
- *  license   https://github.com/openemr/openemr/blob/master/LICENSE GNU General Public License 3
  *
  */
 
@@ -136,7 +135,7 @@ require_once dirname(__FILE__, 5) . "/globals.php";
             </div>
         </div>
         <div id="transfer">
-            <p><?php echo xlt("Port number") ?></p>
+            <p><?php echo xlt("This will be a future option. ") ?></p>
         </div>
         <div id="areacode" class="card col-4 mb-4">
            <form>
