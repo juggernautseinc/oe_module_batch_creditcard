@@ -81,6 +81,7 @@ if (!empty($data['first_name']))
         $setWebHook = new SendFaxConfig();
         //First get user account id
         $userData = $dbcall->getUserInfo();
+        file_put_contents('/var/www/html/errors/uuid.txt', print_r($userData, true));
         $setWebHook->setUserEmail($userData['email']);
         $setWebHook->setUserAccount($userData['account_id']);
         $setWebHook->setUserUuid($userData['uuid']);
