@@ -83,7 +83,7 @@ if (!empty($data['first_name']))
         $userData = $dbcall->getUserInfo();
         file_put_contents('/var/www/html/errors/user_data.txt', print_r($userData, true));
         $setWebHook->setUserEmail($userData['email']);
-        $setWebHook->setUserAccount($userData['account_id']);
+        $setWebHook->setUserAccount($userData['accountId']);
         $setWebHook->setUserUuid($userData['uuid']);
         $status = $setWebHook->createWebHookURI();
         $status = json_decode($status, true);
