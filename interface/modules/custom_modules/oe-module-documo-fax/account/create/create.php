@@ -85,11 +85,12 @@ if (!empty($data['first_name']))
         $setWebHook->setUserEmail($userData['email']);
         $setWebHook->setUserAccount($userData['account_id']);
         $setWebHook->setUserUuid($userData['uuid']);
-        print $setWebHook->createWebHookURI();
-
-        print xlt("The user was successfully created. Close this window, and start faxing! ");
-    } else {
-        print xlt("An error has occurred ") . " <br><strong>" . var_dump($response) . "</strong>";
+        $status = $setWebHook->createWebHookURI();
+        $status = json_decode($status, true);
+        if ($status['error']) {
+            print xlt("An error has occurred ") . $status['name'] . " " . $status['message'];
+        } else {
+            print xlt("The user was successfully created. Close this window, and next step is to provision phone number(s)! ");
+        }
     }
-
 }
