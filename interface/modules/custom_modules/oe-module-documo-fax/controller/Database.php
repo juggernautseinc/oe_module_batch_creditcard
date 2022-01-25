@@ -144,7 +144,7 @@ DB;
 
     public function getAccountId()
     {
-        $sql = "select account_info from documo_account where id = 1";
+        $sql = "select account_info from documo_account";
         $account_number = sqlQuery($sql);
         $accid = json_decode($account_number['account_info'], true);
         return $accid['uuid'];
@@ -152,7 +152,7 @@ DB;
 
     public function saveProvisionedNumbers($provision)
     {
-        $sql = "UPDATE documo_user SET fax_numbers = ? WHERE id = 1";
+        $sql = "UPDATE documo_user SET fax_numbers = ?";
         try {
             sqlInsert($sql, [$provision]);
         } catch (Exception $e) {
@@ -162,7 +162,7 @@ DB;
 
     public function hasNumbersProvisioned()
     {
-        $sql = "select fax_numbers from documo_user where id = 1";
+        $sql = "select fax_numbers from documo_user";
         $provisioned = sqlQuery($sql);
         if (!empty($provisioned)) {
             $state = true;
@@ -178,21 +178,21 @@ DB;
     }
     public function getAllAccountInfo()
     {
-        $sql = "select account_info from documo_account where id = 1";
+        $sql = "select account_info from documo_account";
         $data = sqlQuery($sql);
         return json_decode($data['account_info'], true);
     }
 
     public function getUserInfo()
     {
-        $sql = "select `account_user` from documo_user where id = 1";
+        $sql = "select `account_user` from documo_user";
         $data = sqlQuery($sql);
         return json_decode($data['user'], true);
     }
 
     public function getFaxNumbers()
     {
-        $sql = "select fax_numbers from documo_user where id = 1";
+        $sql = "select fax_numbers from documo_user";
         $data = sqlQuery($sql);
         return json_decode($data['fax_numbers'], true);
     }
