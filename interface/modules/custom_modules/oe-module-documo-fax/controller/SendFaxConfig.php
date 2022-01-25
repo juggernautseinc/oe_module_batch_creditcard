@@ -65,7 +65,7 @@ class SendFaxConfig
         }
 
         $hook = new Database();
-        $hookUrl = $http . $_SERVER['HTTP_HOST'] . DIRECTORY_SEPARATOR . $GLOBALS['webroot'] . '/sites/' . $_SESSION['site_id'] .
+        $hookUrl = $http . $_SERVER['HTTP_HOST'] . $GLOBALS['webroot'] . '/sites/' . $_SESSION['site_id'] .
         '/documents/documo/inbound/' . $_SESSION['site_id'] . '/';
 
         //remove any returns and spaces from the string
@@ -76,8 +76,8 @@ class SendFaxConfig
         &url=' . $hookUrl .
         '&events=%7B%20%22fax.inbound%22%3A%20true%2C%20%22fax.outbound%22%3A%20true%2C%20%22fax.outbound.extended%22%3A%20false%2C%20%22user.create%22%3A%20true%2C%20%22user.delete%22%3A%20true%2C%20%22number.add%22%3A%20false%2C%20%22number.release%22%3A%20false%2C%20%22document.complete%22%3A%20false%2C%20%22document.failed%22%3A%20false%20%7D
         &auth='.'
-        &accountId=' . $this->userUuid . '
-        &numberId=' . $this->userAccount . '
+        &accountId=' . $this->userAccount . '
+        &numberId=' . $this->userUuid . '
         &attachmentEnabled=false
         &notificationEmails=' . $this->userEmail . "'";
         $hookString = str_replace(PHP_EOL, '', $hookString); //remove returns
@@ -87,8 +87,7 @@ class SendFaxConfig
         $response = $sendWebHook->setWebHook($hookString);
         $response = json_decode($response, true);
         if ($response['error']) {
-            $status = "An error has occured" . $response['name'] . " " . $response['message'];
-            $stat = xlt($status);
+            $stat = $response;
         } else {
             $stat = $hook->saveWebHook($response);
         }

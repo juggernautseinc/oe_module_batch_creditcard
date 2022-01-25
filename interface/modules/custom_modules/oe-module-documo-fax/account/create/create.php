@@ -86,7 +86,6 @@ if (!empty($data['first_name']))
         $setWebHook->setUserAccount($userData['accountId']);
         $setWebHook->setUserUuid($userData['uuid']);
         $status = $setWebHook->createWebHookURI();
-        $status = json_decode($status, true);
         if ($status['error']) {
             print xlt("An error has occurred ") . $status['name'] . " " . $status['message'];
         } else {
