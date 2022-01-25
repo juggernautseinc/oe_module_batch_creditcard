@@ -85,7 +85,14 @@ class SendFaxConfig
         file_put_contents('/var/www/html/errors/uuid.txt', $hookString);
         $sendWebHook = new ApiDispatcher();
         $response = $sendWebHook->setWebHook($hookString);
-        return $hook->saveWebHook($response);
+        $response = json_decode($response, true);
+        if ($response['error']) {
+            $status = "An error has occured" . $response['name'] . " " . $response['message'];
+            $stat = xlt($status);
+        } else {
+            $stat = $hook->saveWebHook($response);
+        }
+        return $stat;
     }
 
     /**
