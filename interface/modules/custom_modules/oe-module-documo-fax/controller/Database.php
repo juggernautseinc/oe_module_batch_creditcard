@@ -187,7 +187,7 @@ DB;
     {
         $sql = "select `account_user` from documo_user";
         $data = sqlQuery($sql);
-        return json_decode($data['user'], true);
+        return json_decode($data['account_user'], true);
     }
 
     public function getFaxNumbers()
