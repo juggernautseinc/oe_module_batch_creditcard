@@ -10,11 +10,10 @@
 
 use OpenEMR\Modules\Documo\ApiDispatcher;
 use OpenEMR\Modules\Documo\Database;
-use OpenEMR\Modules\Documo\SendFaxConfig;
 use OpenEMR\Common\Csrf\CsrfUtils;
 use OpenEMR\Common\Crypto\CryptoGen;
 
-require_once dirname(__FILE__, 6) . '/globals.php';
+require_once dirname(__FILE__, 6) . "/globals.php";
 require_once dirname(__FILE__, 3) . "/vendor/autoload.php";
 
 
