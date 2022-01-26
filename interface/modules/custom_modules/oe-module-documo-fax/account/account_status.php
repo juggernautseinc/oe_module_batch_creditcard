@@ -28,7 +28,7 @@ $account_data = new Database();
 $documoaccount = $account_data->getAllAccountInfo();
 $documouser = $account_data->getUserInfo();
 $documofaxnumbers = $account_data->getFaxNumbers();
-$summary = $status->faxSummaryReport();
+//$summary = $status->faxSummaryReport();
 
 try {
     print $twig->render('account.twig', [
