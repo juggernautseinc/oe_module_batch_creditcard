@@ -51,6 +51,7 @@ if (!empty($data['accountname'])) {
     usersTokenLife=" . $data['usersTokenLife'] ;
 
     $response = $documoaccountcreation->createAccount($postfields);
+    var_dump($response); die;
     if (!is_int($response)) {
         $dbcall->saveAccount($response);
         print xlt("Your account was successfully created. Close this window, and select create user next.");
