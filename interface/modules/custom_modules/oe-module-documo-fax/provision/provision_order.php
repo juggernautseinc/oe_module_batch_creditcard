@@ -49,9 +49,11 @@ $request = $provision->numberProvisioning();
 if ($request !== 400) {
     //Save the returned JSON
     $accountdata->saveProvisionedNumbers($request);
+    //Call the webhook method for inbound faxes
     $wHook = implimentWebHook();
      if ($wHook['error']) {
          echo xlt("There has been an error. ") . $wHook['name'] . ":" . $wHook['message'];
+         die;
      } else {
          header("Location: ../account/account_status.php");
      }

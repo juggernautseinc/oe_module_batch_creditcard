@@ -64,9 +64,8 @@ class SendFaxConfig
             die;
         }
 
-        $hook = new Database();
-        $hookUrl = $http . $_SERVER['HTTP_HOST'] . $GLOBALS['webroot'] . '/sites/' . $_SESSION['site_id'] .
-        '/documents/documo/inbound/' . $_SESSION['site_id'] . '/';
+        $hookUrl = $http . $_SERVER['HTTP_HOST'] . $GLOBALS['webroot'] .
+            '/interface/modules/custom_modules/oe-module-documo-fax/fax/inbound/' . $_SESSION['site_id'] . '/';
 
         //remove any returns and spaces from the string
         $hookUrl = str_replace(PHP_EOL, '', $hookUrl);
@@ -82,16 +81,12 @@ class SendFaxConfig
         &notificationEmails=' . $this->userEmail . "'";
         $hookString = str_replace(PHP_EOL, '', $hookString); //remove returns
         $hookString = str_replace(' ', '', $hookString); //remove white spaces
-        file_put_contents('/var/www/html/errors/uuid.txt', $hookString);
         $sendWebHook = new ApiDispatcher();
         $response = $sendWebHook->setWebHook($hookString);
-        $response = json_decode($response, true);
-        if ($response['error']) {
-            $stat = $response;
-        } else {
-            $stat = $hook->saveWebHook($response);
+        $response_e = json_decode($response, true);
+        if ($response_e['error']) {
+            return $response_e; //if there is an error return it else return nothing
         }
-        return $stat;
     }
 
     /**
