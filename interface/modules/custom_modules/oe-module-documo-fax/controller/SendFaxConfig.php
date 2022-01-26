@@ -74,7 +74,7 @@ class SendFaxConfig
 
         $hookString = 'name=oe-fax-module
         &url=' . $hookUrl .
-        '&events=%7B%20%22fax.inbound%22%3A%20true%2C%20%22fax.outbound%22%3A%20true%2C%20%22fax.outbound.extended%22%3A%20false%2C%20%22user.create%22%3A%20true%2C%20%22user.delete%22%3A%20true%2C%20%22number.add%22%3A%20false%2C%20%22number.release%22%3A%20false%2C%20%22document.complete%22%3A%20false%2C%20%22document.failed%22%3A%20false%20%7D
+        '&events=%7B%20%22fax.inbound%22%3A%20true%2C%20%22fax.outbound%22%3A%20false%2C%20%22fax.outbound.extended%22%3A%20false%2C%20%22user.create%22%3A%20false%2C%20%22user.delete%22%3A%20false%2C%20%22number.add%22%3A%20false%2C%20%22number.release%22%3A%20false%2C%20%22document.complete%22%3A%20false%2C%20%22document.failed%22%3A%20false%20%7D
         &auth='.'
         &accountId=' . $this->userAccount . '
         &numberId=' . $this->userUuid . '

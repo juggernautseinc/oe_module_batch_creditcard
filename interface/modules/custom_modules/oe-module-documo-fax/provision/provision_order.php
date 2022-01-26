@@ -50,10 +50,11 @@ if ($request !== 400) {
     //Save the returned JSON
     $accountdata->saveProvisionedNumbers($request);
     $wHook = implimentWebHook();
-    var_dump($wHook); die;
-    header("Location: ../account/account_status.php");
-} else {
-    echo xlt("There has been an error. ") . $request;
+     if ($wHook['error']) {
+         echo xlt("There has been an error. ") . $wHook['name'] . ":" . $wHook['message'];
+     } else {
+         header("Location: ../account/account_status.php");
+     }
 }
 
 function implimentWebHook()
