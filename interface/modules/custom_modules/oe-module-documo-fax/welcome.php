@@ -50,9 +50,6 @@ use OpenEMR\Core\Header;
                 <p><?php echo xlt("Please contact them for technical support of this module") ?></p>
                 <p>&copy; <?php echo date('Y')?> <?php echo xlt("Juggernaut Systems Express"); ?></p>
             </div>
-            <div>
-                <a href="https://affordablecustomehr.documo.com/signin">Get API key</a>
-            </div>
         </div>
     </body>
 </html>
