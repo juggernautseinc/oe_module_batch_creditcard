@@ -91,7 +91,7 @@ if (!$_POST['number']) {
 
     $result = '';
     if ($response['resultInfo'] === 'OK') {
-        $result = 'Fax Successfully Queued for transmission, <br>Check status in the Fax History page';
+        $result = xlt('Fax Successfully Queued for transmission, Check status in the Fax History page');
     } else {
         $result = xlt($response['error']['name']) . " " . xlt($response['error']['message']);
     }
