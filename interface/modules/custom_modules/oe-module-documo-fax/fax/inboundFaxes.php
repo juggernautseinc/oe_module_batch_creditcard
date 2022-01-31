@@ -10,7 +10,7 @@
  */
 
 
-use function OpenEMR\Modules\Documo\ApiDispatcher;
+use OpenEMR\Modules\Documo\ApiDispatcher;
 
 require_once dirname(__FILE__, 5) . "/globals.php";
 require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
