@@ -82,7 +82,7 @@ if (!$_POST['number']) {
     $status->name = $name;
     $status->senderName = $facility['accountName'];
     $status->subject = filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_SPECIAL_CHARS);
-    $status->callerID = substr($number_uuid[0]['numberE164'], 1);
+    $status->callerID = $number_uuid[0]['number'];
     $status->schedule = $scheduled;
     $status->tags = $user["account_id"];
 
