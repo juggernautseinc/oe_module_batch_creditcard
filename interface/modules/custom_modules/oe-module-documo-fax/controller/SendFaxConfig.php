@@ -41,12 +41,14 @@ class SendFaxConfig
     {
         $documo_path = dirname(__FILE__, 6) . self::SITE_ID . DIRECTORY_SEPARATOR . $_SESSION['site_id'] . "/documents/documo";
         $inbound_path = dirname(__FILE__, 6) . self::SITE_ID . DIRECTORY_SEPARATOR . $_SESSION['site_id'] . "/documents/documo/inbound";
+        $outbound_path = dirname(__FILE__, 6) . self::SITE_ID . DIRECTORY_SEPARATOR . $_SESSION['site_id'] . "/documents/documo/outbound";
 
         if (!is_dir($documo_path)) {
             if (!mkdir($documo_path)) {
                 $mkdirErrorArray = error_get_last();
                 throw new UnexpectedValueException('cannot create director ' . $mkdirErrorArray['message']);
             }
+            mkdir($outbound_path);
             mkdir($inbound_path);
             $response = "Created";
         } else {

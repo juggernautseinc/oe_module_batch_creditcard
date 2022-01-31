@@ -89,6 +89,7 @@ if (!$_POST['number']) {
 
     $sent = $status->sendFax();
     $response = json_decode($sent, true);
+    var_dump($response);
     $result = '';
     if ($response['resultInfo'] === 'OK') {
         $result = 'Fax Successfully Queued for transmission, <br>Check status in the Fax History page';
