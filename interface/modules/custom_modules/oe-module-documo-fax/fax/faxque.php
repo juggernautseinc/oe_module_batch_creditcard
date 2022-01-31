@@ -53,7 +53,7 @@ if (!$_POST['number'] && !$_GET['inbound']) {
     } catch (LoaderError|RuntimeError|SyntaxError $e) {
         print $e->getMessage();
     }
-} else {
+} elseif (!$_GET['inbound']) {
     if (!CsrfUtils::verifyCsrfToken($_POST["csrf_token"])) {
         CsrfUtils::csrfNotVerified();
     }
