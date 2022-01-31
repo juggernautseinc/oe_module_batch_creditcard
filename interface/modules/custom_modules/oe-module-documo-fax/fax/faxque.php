@@ -120,6 +120,7 @@ if ($_GET['inbound'] === 'yes') {
     $status->limit = 25;
     $status->faxstatus = 'all';
     $history = $status->getFaxHistory();
+    var_dump($history);
     $history = json_decode($history, true);
     try {
         print $twig->render('history.twig', [
