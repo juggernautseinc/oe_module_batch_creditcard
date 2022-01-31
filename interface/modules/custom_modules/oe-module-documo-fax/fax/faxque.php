@@ -35,7 +35,7 @@ try {
 $twig = $twigloader->getTwig();
 $twig->addExtension(new Twig_Extension_Debug());
 
-if (!$_POST['number']) {
+if (!$_POST['number'] && !$_GET['inbound']) {
     $userinfo = new Database();
     $account = $userinfo->getUserInfo();
     $status->useraccountid = $account['accountId'];
@@ -108,4 +108,24 @@ if (!$_POST['number']) {
         print $e->getMessage();
     }
     unlink($_POST['file']);
+}
+
+if ($_GET['inbound'] === 'yes') {
+    $userinfo = new Database();
+    $account = $userinfo->getUserInfo();
+    $status->useraccountid = $account['accountId'];
+    $status->offset = 0;
+    $status->direction = 'inbound';
+    $status->limit = 25;
+    $status->faxstatus = 'all';
+    $history = $status->getFaxHistory();
+    $history = json_decode($history, true);
+    try {
+        print $twig->render('history.twig', [
+            'pageTitle' => 'Fax History',
+            'data' => $history
+        ]);
+    } catch (LoaderError|RuntimeError|SyntaxError $e) {
+        print $e->getMessage();
+    }
 }

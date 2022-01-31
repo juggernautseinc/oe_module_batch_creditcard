@@ -280,7 +280,7 @@ class ApiDispatcher
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://api.documo.com/v1/fax//download',
+            CURLOPT_URL => 'https://api.documo.com/v1/fax/download',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
