@@ -111,7 +111,7 @@ if (!$_POST['number'] && !$_GET['inbound']) {
 }
 
 if ($_GET['inbound'] === 'yes') {
-    echo = "bbbb";
+    echo "bbbb";
     $userinfo = new Database();
     $account = $userinfo->getUserInfo();
     $status->useraccountid = $account['accountId'];
