@@ -61,7 +61,7 @@ if (!$_POST['number']) {
     $number_uuid = $hook->getFaxNumbers();
     $user = $hook->getUserInfo();
     $facility = $hook->getAllAccountInfo();
-
+var_dump($number_uuid);
     $name = '';
     $the_number = explode("@", $_POST['number']);
     $scheduled = date('Y-m-d') . 'T' . date('H:i:s') . '.000Z';
@@ -89,12 +89,13 @@ if (!$_POST['number']) {
 
     $sent = $status->sendFax();
     $response = json_decode($sent, true);
-    var_dump($response);
+
     $result = '';
     if ($response['resultInfo'] === 'OK') {
         $result = 'Fax Successfully Queued for transmission, <br>Check status in the Fax History page';
     } else {
-        $result = $response['message'];
+        $result = xlt($response['error']['name']) . " " . xlt($response['error']['message']);
+        die;
     }
 
     try {
