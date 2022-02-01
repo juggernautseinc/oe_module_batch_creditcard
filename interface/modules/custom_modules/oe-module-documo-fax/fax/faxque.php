@@ -110,8 +110,7 @@ if (!$_POST['number'] && !$_GET['inbound']) {
     unlink($_POST['file']);
 }
 
-if ($_GET['inbound'] === 'yes') {
-    echo "bbbb";
+if ($_GET['inbound'] === 'yes')  {
     $userinfo = new Database();
     $account = $userinfo->getUserInfo();
     $status->useraccountid = $account['accountId'];
@@ -120,8 +119,8 @@ if ($_GET['inbound'] === 'yes') {
     $status->limit = 25;
     $status->faxstatus = 'all';
     $history = $status->getFaxHistory();
-    var_dump($history);
     $history = json_decode($history, true);
+    var_dump($history);
     try {
         print $twig->render('history.twig', [
             'pageTitle' => 'Fax History',
