@@ -33,6 +33,8 @@ class ApiDispatcher
     public $subject;
     public $useraccountid;
     private $userKey;
+    private $fromDate;
+    private $toDate;
 
     public function __construct()
     {
@@ -68,7 +70,7 @@ class ApiDispatcher
         ));
 
         $response = curl_exec($curl);
-        $status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
+
         curl_close($curl);
 
             return $response;
@@ -240,7 +242,7 @@ class ApiDispatcher
         ));
 
         $response = curl_exec($curl);
-        $status = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
+
         curl_close($curl);
 
         return $response;
@@ -253,7 +255,9 @@ class ApiDispatcher
             '&offset=' . $this->offset .
             '&limit=' . $this->limit .
             '&direction=' . $this->direction .
-            '&status=' . $this->faxstatus;
+            '&status=' . $this->faxstatus .
+            '&fromDate=' . $this->fromDate .
+            '&toDate=' . $this->toDate;
 
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/fax/history?' . $getData,
@@ -323,4 +327,21 @@ class ApiDispatcher
         echo $response;
 
     }
+
+    /**
+     * @param mixed $fromDate
+     */
+    public function setFromDate($fromDate): void
+    {
+        $this->fromDate = $fromDate;
+    }
+
+    /**
+     * @param mixed $toDate
+     */
+    public function setToDate($toDate): void
+    {
+        $this->toDate = $toDate;
+    }
+
 }

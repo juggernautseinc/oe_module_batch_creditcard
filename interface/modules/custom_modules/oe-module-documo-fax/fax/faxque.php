@@ -117,7 +117,9 @@ if ($_GET['inbound'] === 'yes')  {
     $status->offset = 0;
     $status->direction = 'inbound';
     $status->limit = 25;
-    $status->faxstatus = 'all';
+    $status->faxstatus = 'success';
+    $status->setFromDate('2022-01-31T00:00:00.000Z');
+    $status->setToDate('2022-01-31T23:59:59.999Z');
     $history = $status->getFaxHistory();
     $history = json_decode($history, true);
     var_dump($history);
