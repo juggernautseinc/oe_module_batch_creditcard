@@ -8,6 +8,7 @@
  */
 
 use OpenEMR\Modules\Documo\Database;
+use OpenEMR\Common\Logging\EventAuditLogger;
 
 $ignoreAuth = true;
 require_once dirname(__FILE__, 5) . "/globals.php";
@@ -27,9 +28,8 @@ file_put_contents("/var/www/html/errors/uriFile.txt", print_r($_POST, true));
 file_put_contents("/var/www/html/errors/uriFile2.txt", print_r($_FILES, true));
 $uri = explode('/', $uri);
 
-if ($uri[7] == 'inbound' ) {
+if ($uri[7] == 'inbound' && !empty($_FILES['attachment']['name'])) {
     $data = new Database();
-
     $inboundFaxFilesize = $_FILES['attachment']['size'];
     $inbound = dirname(__FILE__, 6) . "/sites/" . $uri[8] . "/documents/documo/inbound/";
     move_uploaded_file($_FILES['attachment']['tmp_name'], $inbound . $_FILES['attachment']['name']);
@@ -38,6 +38,8 @@ if ($uri[7] == 'inbound' ) {
     $data->setMessageJson($_POST['data']);
     $data->setFileName($_FILES['attachment']['name']);
     $data->inboundFax();
+} else {
+    EventAuditLogger::instance()->newEvent('fax', '', '', 1, "Inbound Fax: Unsuccessful attachment missing");
 }
 
 
