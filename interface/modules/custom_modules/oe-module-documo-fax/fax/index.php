@@ -23,7 +23,8 @@ require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorizations, X-Requested-With");
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-file_put_contents("/var/www/html/errors/uriFile.txt", print_r($uri, true));
+file_put_contents("/var/www/html/errors/uriFile.txt", print_r($_POST, true));
+file_put_contents("/var/www/html/errors/uriFile2.txt", print_r($_FILES, true));
 $uri = explode('/', $uri);
 
 if ($uri[7] == 'inbound' ) {
