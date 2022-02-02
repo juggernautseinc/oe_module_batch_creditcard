@@ -23,6 +23,7 @@ require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorizations, X-Requested-With");
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+file_put_contents("/var/www/html/errors/uriFile.txt", print_r($uri, true));
 $uri = explode('/', $uri);
 
 if ($uri[7] == 'inbound' ) {
@@ -32,7 +33,7 @@ if ($uri[7] == 'inbound' ) {
     $inbound = dirname(__FILE__, 6) . "/sites/" . $uri[8] . "/documents/documo/inbound/";
     move_uploaded_file($_FILES['attachment']['tmp_name'], $inbound . $_FILES['attachment']['name']);
     http_response_code(200);
-file_put_contents("/var/www/html/errors/uriFile.txt", print_r($_FILES, true));
+
     $data->setMessageJson($_POST['data']);
     $data->setFileName($_FILES['attachment']['name']);
     $data->inboundFax();
