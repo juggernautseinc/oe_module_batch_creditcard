@@ -12,6 +12,7 @@
 
 use OpenEMR\Common\Twig\TwigContainer;
 use OpenEMR\Modules\Documo\ApiDispatcher;
+use OpenEMR\Modules\Documo\InboundFaxProcessor;
 use OpenEMR\Common\Csrf\CsrfUtils;
 use OpenEMR\Modules\Documo\Database;
 use Twig\Error\LoaderError;
@@ -121,7 +122,9 @@ if ($_GET['inbound'] === 'yes')  {
     $status->setFromDate('2022-01-31T00:00:00.000Z');
     $status->setToDate('2022-01-31T23:59:59.999Z');
     $history = $status->getFaxHistory();
+    InboundFaxProcessor::messageIds($history);
     $history = json_decode($history, true);
+
     var_dump($history);
     try {
         print $twig->render('history.twig', [

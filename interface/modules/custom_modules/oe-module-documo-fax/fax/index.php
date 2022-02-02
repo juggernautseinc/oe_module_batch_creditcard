@@ -29,10 +29,10 @@ if ($uri[7] == 'inbound' ) {
     $data = new Database();
 
     $inboundFaxFilesize = $_FILES['attachment']['size'];
-    $inbound = dirname(__FILE__, 6) . "/sites/default/documents/documo/inbound/";
+    $inbound = dirname(__FILE__, 6) . "/sites/" . $uri[8] . "/documents/documo/inbound/";
     move_uploaded_file($_FILES['attachment']['tmp_name'], $inbound . $_FILES['attachment']['name']);
     http_response_code(200);
-
+file_put_contents("/var/www/html/errors/uriFile.txt", $inbound.$_FILES['attachment']['name']);
     $data->setMessageJson($_POST['data']);
     $data->setFileName($_FILES['attachment']['name']);
     $data->inboundFax();
