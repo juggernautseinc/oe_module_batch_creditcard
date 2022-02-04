@@ -217,7 +217,7 @@ DB;
     public function getInboundFaxesLocal()
     {
         $todayDate = date("Y-m-d" . " 23:59:59");
-        $thirtyDaysAgo = date($todayDate, strtotime('-30 days'));
+        $thirtyDaysAgo = date("Y-m-d", strtotime('-30 days'));
         $sql = "select * from `documo_fax_inbound` where `date` <= ? AND `date` >= ? ORDER BY id DESC";
         return sqlStatement($sql, [$todayDate, $thirtyDaysAgo . " 00:00:00"]);
     }
