@@ -79,7 +79,7 @@ class SendFaxConfig
         &auth='.'
         &accountId=' . $this->userAccount . '
         &numberId=' . $this->userUuid . '
-        &attachmentEnabled=false
+        &attachmentEnabled=true
         &notificationEmails=' . $this->userEmail . "'";
         $hookString = str_replace(PHP_EOL, '', $hookString); //remove returns
         $hookString = str_replace(' ', '', $hookString); //remove white spaces
