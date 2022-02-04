@@ -50,7 +50,7 @@ if (!$_POST['number'] && !$_GET['inbound']) {
         print $twig->render('history.twig', [
             'pageTitle' => 'Fax Outbound History',
             'data' => $history,
-            'href' => "faxque.php?inbound=yes"
+            'href' => "inbound.php"
         ]);
     } catch (LoaderError|RuntimeError|SyntaxError $e) {
         print $e->getMessage();
