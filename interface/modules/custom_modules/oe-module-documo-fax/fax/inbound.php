@@ -15,7 +15,7 @@ require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
 
 $data = new Database();
 $faxesFromWebHook = $data->getInboundFaxesLocal();
-
+var_dump($faxesFromWebHook);
 ?>
 
 <!doctype html>
