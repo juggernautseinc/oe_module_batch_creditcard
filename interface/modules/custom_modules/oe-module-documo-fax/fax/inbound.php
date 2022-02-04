@@ -32,7 +32,7 @@ $faxesFromWebHook = $data->getInboundFaxesLocal();
         echo $iter['date'];
         echo $iter['id'];
         echo $iter['file_name'];
-        $message_info = json_decode($iter['message_json']);
+        $message_info = json_decode($iter['message_json'], true);
         var_dump($message_info);
     }
 ?>
