@@ -216,10 +216,10 @@ DB;
 
     public function getInboundFaxesLocal()
     {
-        $todayDate = date("Y-m-d");
+        $todayDate = date("Y-m-d" . " 23:59:59");
         $thirtyDaysAgo = date($todayDate, strtotime('-30 days'));
-        $sql = "select * from documo_fax_inbound where date between ? and ?";
-        return sqlQuery($sql, [$todayDate . "%", $thirtyDaysAgo . "%"]);
+        $sql = "select * from `documo_fax_inbound` where `date` <= ? AND `date` >= ?";
+        return sqlQuery($sql, [$todayDate, $thirtyDaysAgo . " 00:00:00"]);
     }
 
     public function inboundFax()
