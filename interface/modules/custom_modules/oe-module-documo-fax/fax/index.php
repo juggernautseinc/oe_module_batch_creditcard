@@ -38,6 +38,7 @@ if ($uri[7] == 'inbound' && !empty($_FILES['attachment']['name'])) {
     $data->setMessageJson($_POST['data']);
     $data->setFileName($_FILES['attachment']['name']);
     $data->inboundFax();
+    EventAuditLogger::instance()->newEvent('fax', '', '', 1, "Inbound Fax: Successful attachment missing");
 } else {
     EventAuditLogger::instance()->newEvent('fax', '', '', 1, "Inbound Fax: Unsuccessful attachment missing");
 }

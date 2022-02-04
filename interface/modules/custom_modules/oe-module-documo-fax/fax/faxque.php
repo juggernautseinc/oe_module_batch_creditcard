@@ -48,8 +48,9 @@ if (!$_POST['number'] && !$_GET['inbound']) {
     $history = json_decode($history, true);
     try {
         print $twig->render('history.twig', [
-            'pageTitle' => 'Fax History',
-            'data' => $history
+            'pageTitle' => 'Fax Outbound History',
+            'data' => $history,
+            'href' => "faxque.php?inbound=yes"
         ]);
     } catch (LoaderError|RuntimeError|SyntaxError $e) {
         print $e->getMessage();
@@ -112,26 +113,30 @@ if (!$_POST['number'] && !$_GET['inbound']) {
 }
 
 if ($_GET['inbound'] === 'yes')  {
-    $userinfo = new Database();
-    $account = $userinfo->getUserInfo();
-    $status->useraccountid = $account['accountId'];
-    $status->offset = 0;
-    $status->direction = 'inbound';
-    $status->limit = 25;
-    $status->faxstatus = 'success';
-    $status->setFromDate('2022-01-31T00:00:00.000Z');
-    $status->setToDate('2022-01-31T23:59:59.999Z');
-    $history = $status->getFaxHistory();
-    InboundFaxProcessor::messageIds($history);
-    $history = json_decode($history, true);
-
-    var_dump($history);
-    try {
-        print $twig->render('history.twig', [
-            'pageTitle' => 'Fax History',
-            'data' => $history
-        ]);
-    } catch (LoaderError|RuntimeError|SyntaxError $e) {
-        print $e->getMessage();
+    $data = new Database();
+    $faxesFromWebHook = $data->getInboundFaxesLocal();
+    if (empty($faxesFromWebHook)) {
+        $account = $data->getUserInfo();
+        $status->useraccountid = $account['accountId'];
+        $status->offset = 0;
+        $status->direction = 'inbound';
+        $status->limit = 25;
+        $status->faxstatus = 'success';
+        $status->setFromDate('2022-01-31T00:00:00.000Z');
+        $status->setToDate('2022-01-31T23:59:59.999Z');
+        $history = $status->getFaxHistory();
+        InboundFaxProcessor::messageIds($history);
+        $history = json_decode($history, true);
+    } else {
+        try {
+            print $twig->render('history.twig', [
+                'pageTitle' => 'Fax Inbound History',
+                'data' => $faxesFromWebHook
+            ]);
+        } catch (LoaderError|RuntimeError|SyntaxError $e) {
+            print $e->getMessage();
+        }
     }
+
+
 }

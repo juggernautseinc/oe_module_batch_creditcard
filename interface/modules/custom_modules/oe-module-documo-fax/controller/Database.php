@@ -214,11 +214,12 @@ DB;
 
     }
 
-    public function getWebHook()
+    public function getInboundFaxesLocal()
     {
-        $sql = "select webhook from documo_user where id = 1";
-        $hookuuid = sqlQuery($sql);
-        return json_decode($hookuuid, true);
+        $todayDate = date("Y-m-d");
+        $thirtyDaysAgo = date($todayDate, strtotime('-30 days'));
+        $sql = "select * from documo_fax_inbound where date between ? and ?";
+        return sqlQuery($sql, [$todayDate . "%", $thirtyDaysAgo]);
     }
 
     public function inboundFax()

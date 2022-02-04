@@ -52,7 +52,7 @@ function oe_module_documofax_add_menu_item(MenuEvent $event)
     $menuItem->requirement = 0;
     $menuItem->target = 'mod';
     $menuItem->menu_id = 'mod0';
-    $menuItem->label = xlt("Fax Outbound History");
+    $menuItem->label = xlt("Fax History");
     $menuItem->url = "/interface/modules/custom_modules/oe-module-documo-fax/fax/faxque.php";
     $menuItem->children = [];
     $menuItem->acl_req = ["patients", "docs"];
