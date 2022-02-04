@@ -29,7 +29,9 @@ $faxesFromWebHook = $data->getInboundFaxesLocal();
 </head>
 <body>
 <?php
-    var_dump($faxesFromWebHook);
+    while ($iter = sqlFetchArray($faxesFromWebHook)) {
+        var_dump($iter);
+    }
 ?>
 </body>
 </html>
