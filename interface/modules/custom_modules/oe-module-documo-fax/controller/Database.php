@@ -219,7 +219,7 @@ DB;
         $todayDate = date("Y-m-d");
         $thirtyDaysAgo = date($todayDate, strtotime('-30 days'));
         $sql = "select * from documo_fax_inbound where date between ? and ?";
-        return sqlQuery($sql, [$todayDate . "%", $thirtyDaysAgo]);
+        return sqlQuery($sql, [$todayDate . "%", $thirtyDaysAgo . "%"]);
     }
 
     public function inboundFax()
