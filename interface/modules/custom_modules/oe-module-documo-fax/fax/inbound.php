@@ -29,7 +29,10 @@ $faxesFromWebHook = $data->getInboundFaxesLocal();
 </head>
 <body>
     <div class="container">
-        <div class="table">
+        <div class="pt-4">
+            <h2><?php echo xlt("Received Faxes"); ?></h2>
+        </div>
+        <div class="table pt-4">
             <table class="table  table-striped table-bordered">
                 <caption>Display of received faxes in the last 30 days</caption>
                 <tr>
@@ -49,10 +52,9 @@ $faxesFromWebHook = $data->getInboundFaxesLocal();
                     ?>
             </table>
         </div>
-    </div>
-    <div class="footer">
-        &copy;  <?php echo date ('Y') .  xlt(" Juggernaut Systems Express");  ?>
-        ?>
+        <div class="footer pt-4">
+            &copy;  <?php echo date ('Y') .  xlt(" Juggernaut Systems Express");  ?>
+        </div>
     </div>
 </body>
 </html>
