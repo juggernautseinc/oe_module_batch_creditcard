@@ -15,7 +15,6 @@ require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
 
 $data = new Database();
 $faxesFromWebHook = $data->getInboundFaxesLocal();
-var_dump($faxesFromWebHook);
 ?>
 
 <!doctype html>
@@ -30,7 +29,11 @@ var_dump($faxesFromWebHook);
 <body>
 <?php
     while ($iter = sqlFetchArray($faxesFromWebHook)) {
-        var_dump($iter);
+        echo $iter['date'];
+        echo $iter['id'];
+        echo $iter['file_name'];
+        $message_info = json_decode($iter['message_json']);
+        var_dump($message_info);
     }
 ?>
 </body>
