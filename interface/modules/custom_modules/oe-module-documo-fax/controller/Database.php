@@ -218,11 +218,11 @@ DB;
     {
         $todayDate = date("Y-m-d" . " 23:59:59");
         $thirtyDaysAgo = date($todayDate, strtotime('-30 days'));
-        $sql = "select * from `documo_fax_inbound` where `date` <= ? AND `date` >= ?";
-        return sqlQuery($sql, [$todayDate, $thirtyDaysAgo . " 00:00:00"]);
+        $sql = "select * from `documo_fax_inbound` where `date` <= ? AND `date` >= ? ORDER BY id DESC";
+        return sqlStatement($sql, [$todayDate, $thirtyDaysAgo . " 00:00:00"]);
     }
 
-    public function inboundFax()
+    public function inboundFaxSave()
     {
         $sql = "INSERT INTO `documo_fax_inbound` (`id`, `date`, `message_json`, `file_name`) VALUES ('', ?, ?, ?)";
         $date = date('Y-m-d H:i:s');
