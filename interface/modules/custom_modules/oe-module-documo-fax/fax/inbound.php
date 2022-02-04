@@ -27,15 +27,32 @@ $faxesFromWebHook = $data->getInboundFaxesLocal();
     <title>Inbound Faxes</title>
 </head>
 <body>
-<?php
-    while ($iter = sqlFetchArray($faxesFromWebHook)) {
-        echo $iter['date'];
-        echo $iter['id'];
-        echo $iter['file_name'];
-        $message_info = json_decode($iter['message_json'], true);
-        var_dump($message_info);
-    }
-?>
+    <div class="container">
+        <div class="table">
+            <table class="table  table-striped table-bordered">
+                <caption>Display of received faxes in the last 30 days</caption>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Message ID</th>
+                    <th scope="col">Fax Number</th>
+                    <th scope="col">Page Count</th>
+                    <th scope="col">File</th>
+                </tr>
+                    <?php
+                    while ($iter = sqlFetchArray($faxesFromWebHook)) {
+                            $message_info = json_decode($iter['message_json'], true);
+                            echo "<tr></tr><td>" . $iter['date'] . "</td><td>" . $message_info['messageId'] .
+                            "</td><td>" . $message_info['faxNumber'] . "</td><td>" . $message_info['pagesCount'] .
+                            "</td><td>" . $iter['file_name'] . "</td></tr>";
+                        }
+                    ?>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        &copy;  <?php echo date ('Y') .  xlt(" Juggernaut Systems Express");  ?>
+        ?>
+    </div>
 </body>
 </html>
 
