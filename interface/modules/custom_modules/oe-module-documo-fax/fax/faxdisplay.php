@@ -13,8 +13,8 @@ require_once dirname(__FILE__, 5) . "/globals.php";
 require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
 
 $file = $_GET['filename'];
-$location = $GLOBALS['webroot'] . "/sites/" . $_SESSION['site_id'] . "/documents/documo/inbound/";
-
+$location = $GLOBALS['OE_SITE_DIR'] . "/sites/" . $_SESSION['site_id'] . "/documents/documo/inbound/";
+var_dump($location);
 $display = file_get_contents($location . $file);
 var_dump($display); die;
 header("Content-type: application/pdf");
