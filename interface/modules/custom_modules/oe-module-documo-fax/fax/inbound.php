@@ -17,6 +17,7 @@ $data = new Database();
 $faxesFromWebHook = $data->getInboundFaxesLocal();
 $inbound = $GLOBALS['webroot'] . "/sites/" . $_SESSION['site_id'] . "/documents/documo/inbound/";
 
+const TABLE_TD = "</td><td>";
 ?>
 
 <!doctype html>
@@ -47,9 +48,9 @@ $inbound = $GLOBALS['webroot'] . "/sites/" . $_SESSION['site_id'] . "/documents/
                     <?php
                     while ($iter = sqlFetchArray($faxesFromWebHook)) {
                             $message_info = json_decode($iter['message_json'], true);
-                            echo "<tr></tr><td>" . $iter['date'] . "</td><td>" . $message_info['messageId'] .
-                            "</td><td>" . $message_info['faxNumber'] . "</td><td>" . $message_info['pagesCount'] .
-                            "</td><td><a href='" . $inbound . $iter['file_name'] . "' target='_blank'>" . $iter['file_name'] . "</a></td></tr>";
+                            echo "<tr><td>" . $iter['date'] . TABLE_TD . $message_info['messageId'] .
+                                TABLE_TD . $message_info['faxNumber'] . TABLE_TD . $message_info['pagesCount'] .
+                                TABLE_TD . "<a href='" . $inbound . $iter['file_name'] . "'>" . $iter['file_name'] . "</a></td></tr>";
                         }
                     ?>
             </table>
