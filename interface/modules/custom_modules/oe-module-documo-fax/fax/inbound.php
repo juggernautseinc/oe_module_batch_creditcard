@@ -50,8 +50,8 @@ const TABLE_TD = "</td><td>";
                             $message_info = json_decode($iter['message_json'], true);
                             echo "<tr><td>" . $iter['date'] . TABLE_TD . $message_info['messageId'] .
                                 TABLE_TD . $message_info['faxNumber'] . TABLE_TD . $message_info['pagesCount'] .
-                                TABLE_TD . "<a download=" . $iter['file_name'] .
-                                " href='" . $inbound . $iter['file_name'] . "'>" . $iter['file_name'] . "</a></td></tr>";
+                                TABLE_TD . "<a href='faxdisplay.php?filename=" . $iter['file_name'] . "' target='_blank'>" .
+                                $iter['file_name'] . "</a></td></tr>";
                         }
                     ?>
             </table>
