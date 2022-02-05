@@ -14,9 +14,7 @@ require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
 
 $file = $_GET['filename'];
 $location = $GLOBALS['OE_SITE_DIR'] . "/documents/documo/inbound/";
-var_dump($location);
 $display = file_get_contents($location . $file);
-var_dump($display); die;
 header("Content-type: application/pdf");
 header("Content-Disposition: inline; filename=" . $file);
 @readfile($location . $file);
