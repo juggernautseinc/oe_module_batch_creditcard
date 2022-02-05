@@ -15,6 +15,8 @@ require_once dirname(__FILE__, 2) . "/vendor/autoload.php";
 
 $data = new Database();
 $faxesFromWebHook = $data->getInboundFaxesLocal();
+$inbound = $GLOBALS['webroot'] . "/sites/" . $_SESSION['site_id'] . "/documents/documo/inbound/";
+
 ?>
 
 <!doctype html>
@@ -47,7 +49,7 @@ $faxesFromWebHook = $data->getInboundFaxesLocal();
                             $message_info = json_decode($iter['message_json'], true);
                             echo "<tr></tr><td>" . $iter['date'] . "</td><td>" . $message_info['messageId'] .
                             "</td><td>" . $message_info['faxNumber'] . "</td><td>" . $message_info['pagesCount'] .
-                            "</td><td>" . $iter['file_name'] . "</td></tr>";
+                            "</td><td><a href='" . $inbound . $iter['file_name'] . "' target='_blank'>" . $iter['file_name'] . "</a></td></tr>";
                         }
                     ?>
             </table>
