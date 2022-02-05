@@ -16,7 +16,7 @@ $file = $_GET['filename'];
 $location = $GLOBALS['webroot'] . "/sites/" . $_SESSION['site_id'] . "/documents/documo/inbound/";
 
 $display = file_get_contents($location . $file);
-
+var_dump($display); die;
 header("Content-type: application/pdf");
 header("Content-Disposition: inline; filename=" . $file);
 @readfile($location . $file);
