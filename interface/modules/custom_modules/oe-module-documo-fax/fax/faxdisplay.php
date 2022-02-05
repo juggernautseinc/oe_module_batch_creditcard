@@ -19,4 +19,4 @@ $display = file_get_contents($location . $file);
 
 header("Content-type: application/pdf");
 header("Content-Disposition: inline; filename=" . $file);
-@readfile($display);
+@readfile($location . $file);
