@@ -37,28 +37,8 @@
         <a class="btn btn-primary" href="../provision/provisioning.php">{{ "Add/Remove Numbers"|xlt }}</a><br><br>
     </div>
     <div class="m-4">
-        <div id="paypal-button-container-P-6V047304K6009135JMHPU4HI"></div>
-        <!-- 500 -->
-        <script src="https://www.paypal.com/sdk/js?client-id=AUQ1tRakVcTZ0wIOjQ0CicVxB8K47tXo4l8PucxwmmB1v_LIE4-_pJ-kEZf3fsk3uKZuhb_3WuDasVBC&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-        <script>
-            paypal.Buttons({
-                style: {
-                    shape: 'rect',
-                    color: 'gold',
-                    layout: 'vertical',
-                    label: 'subscribe'
-                },
-                createSubscription: function(data, actions) {
-                    return actions.subscription.create({
-                        /* Creates the subscription */
-                        plan_id: 'P-6V047304K6009135JMHPU4HI'
-                    });
-                },
-                onApprove: function(data, actions) {
-                    alert(data.subscriptionID); // You can add optional success message for the subscriber here
-                }
-            }).render('#paypal-button-container-P-6V047304K6009135JMHPU4HI'); // Renders the PayPal button
-        </script>
+        <h4>Subscriptions</h4>
+        <a class="btn btn-primary" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-2N736743V49213538MHPU2WA" target="_blank">150 Inbound/Outbound Faxes per Month</a>
     </div>
     {% endblock footer %}
 
