@@ -20,7 +20,7 @@ $clinicData = new Database();
 $registration = new ApiDispatcher();
 $registerthisclinic = $clinicData->registerFacility();
 $clinic = json_encode($registerthisclinic);
-var_dump($registerthisclinic);
+var_dump($clinic);
 $registration->registration($clinic);
 
 ?>
