@@ -150,7 +150,7 @@ class ApiDispatcher
     public function registerSelectedNumbers($faxNumbersRequest)
     {
         $curl = curl_init();
-        file_put_contents("/var/www/html/errors/numbersrequest.txt", $faxNumbersRequest);
+
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/numbers/provision',
             CURLOPT_RETURNTRANSFER => true,
@@ -204,7 +204,6 @@ class ApiDispatcher
     {
         $curl = curl_init();
         $postData = array("faxNumber"=>$this->faxNumber,"'attachments'"=>$this->filePost,"coverPage"=>'false',"coverPageId"=>'','tags'=>'','recipientName'=>$this->name,'senderName'=>$this->senderName,'subject'=>$this->subject,'callerId'=>$this->callerID,'notes'=>'','scheduledDate'=>$this->schedule);
-        file_put_contents("/var/www/html/errors/npost.txt", print_r($postData, true));
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.documo.com/v1/faxes',
             CURLOPT_RETURNTRANSFER => true,
@@ -340,7 +339,7 @@ class ApiDispatcher
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => $clinic,
+            CURLOPT_POSTFIELDS => array($clinic),
         ));
 
     }
