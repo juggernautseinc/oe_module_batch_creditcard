@@ -323,7 +323,7 @@ class ApiDispatcher
         $response = curl_exec($curl);
 
         curl_close($curl);
-        echo $response;
+        return $response;
 
     }
 
@@ -342,6 +342,9 @@ class ApiDispatcher
             CURLOPT_POSTFIELDS => array("name"=>$clinic['name'],"phone"=>$clinic['phone'],"email"=>$clinic['email']),
         ));
 
+        $response = curl_exec($curl);
+        curl_close($curl);
+        return $response;
     }
 
     /**
