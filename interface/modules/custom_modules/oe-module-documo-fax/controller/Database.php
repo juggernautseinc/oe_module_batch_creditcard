@@ -124,7 +124,7 @@ DB;
     public function registerFacility()
     {
         $sql = "SELECT * FROM `facility` WHERE id = 3";
-        return sqlStatement($sql);
+        return sqlQuery($sql);
     }
 
     private function getPrivateKey()
