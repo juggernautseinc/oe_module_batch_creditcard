@@ -339,7 +339,7 @@ class ApiDispatcher
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => array($clinic),
+            CURLOPT_POSTFIELDS => array("name"=>$clinic['name'],"phone"=>$clinic['phone'],"email"=>$clinic['email']),
         ));
 
     }
