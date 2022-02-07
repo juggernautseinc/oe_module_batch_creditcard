@@ -9,12 +9,12 @@
  *
  */
 
-
-require_once dirname(__FILE__, 4) . "/globals.php";
-
 use OpenEMR\Core\Header;
 use OpenEMR\Modules\Documo\ApiDispatcher;
 use OpenEMR\Modules\Documo\Database;
+
+require_once dirname(__FILE__, 4) . "/globals.php";
+require_once dirname(__FILE__) . "/vendor/autoload.php";
 
 $clinicData = new Database();
 $registration = new ApiDispatcher();
