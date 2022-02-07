@@ -53,12 +53,7 @@ $hasUser = $dbcall->hasUserAccount();
 <body>
     <div class="container account">
         <?php
-        /*
-         * 500 P-6V047304K6009135JMHPU4HI
-         * 150 P-2N736743V49213538MHPU2WA
-         * 300 P-0XH865454D897815MMHPUYTQ
-         *
-         */
+
             if (empty($localtz['gl_value'])) {
                 echo "<h1>" . xlt("Time zone is not set, Please set time zone") . "</h1>";
                 die;

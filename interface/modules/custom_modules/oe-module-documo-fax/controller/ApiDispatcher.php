@@ -328,6 +328,23 @@ class ApiDispatcher
 
     }
 
+    public function registration($clinic)
+    {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.affordablecustomehr.com/register.php',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => $clinic,
+        ));
+
+    }
+
     /**
      * @param mixed $fromDate
      */
@@ -343,5 +360,4 @@ class ApiDispatcher
     {
         $this->toDate = $toDate;
     }
-
 }

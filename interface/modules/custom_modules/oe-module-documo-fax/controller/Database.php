@@ -121,6 +121,12 @@ DB;
         return $state;
     }
 
+    public function registerFacility()
+    {
+        $sql = "SELECT * FROM `facility` WHERE id = 3";
+        return sqlQuery($sql);
+    }
+
     private function getPrivateKey()
     {
         $gkey = 'unique_installation_id';

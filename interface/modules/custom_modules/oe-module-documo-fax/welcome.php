@@ -13,6 +13,12 @@
 require_once dirname(__FILE__, 4) . "/globals.php";
 
 use OpenEMR\Core\Header;
+use OpenEMR\Modules\Documo\ApiDispatcher;
+use OpenEMR\Modules\Documo\Database;
+
+$clinic = new Database();
+$registration = new ApiDispatcher();
+$registration->registration($clinic);
 
 ?>
 <!DOCTYPE html>
