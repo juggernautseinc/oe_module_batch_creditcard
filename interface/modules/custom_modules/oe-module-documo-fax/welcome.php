@@ -16,8 +16,10 @@ use OpenEMR\Core\Header;
 use OpenEMR\Modules\Documo\ApiDispatcher;
 use OpenEMR\Modules\Documo\Database;
 
-$clinic = new Database();
+$clinicData = new Database();
 $registration = new ApiDispatcher();
+$registerthisclinic = $clinicData->registerFacility();
+$clinic = json_encode($registerthisclinic);
 $registration->registration($clinic);
 
 ?>
