@@ -19,7 +19,8 @@ require_once dirname(__FILE__) . "/vendor/autoload.php";
 $clinicData = new Database();
 $registration = new ApiDispatcher();
 $clinic = $clinicData->registerFacility();
-$registration->registration($clinic);
+$data = "name=".$clinic['name']."phone=".$clinic['phone']."email=".$clinic['email'];
+$registration->registration($data);
 
 ?>
 <!DOCTYPE html>
