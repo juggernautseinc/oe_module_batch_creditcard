@@ -19,7 +19,11 @@ require_once dirname(__FILE__) . "/vendor/autoload.php";
 $clinicData = new Database();
 $registration = new ApiDispatcher();
 $registerthisclinic = $clinicData->registerFacility();
-$clinic = json_encode($registerthisclinic);
+$clinic = array();
+while ($iter = sqlFetchArray($registerthisclinic)) {
+    $clinic[] = $iter;
+}
+$clinic = json_encode($clinic);
 echo $clinic;
 $registration->registration($clinic);
 
